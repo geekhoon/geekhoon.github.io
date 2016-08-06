@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Geekhoo</title>
+  <title>Geekhoon</title>
   <subtitle>Geekhoo的技术博客</subtitle>
   <link href="/atom.xml" rel="self"/>
   
@@ -9,7 +9,7 @@
   <id>https://geekhooo.github.io/</id>
   
   <author>
-    <name>Geekhoo</name>
+    <name>Geekhoon</name>
     
   </author>
   
