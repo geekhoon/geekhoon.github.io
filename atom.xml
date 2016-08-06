@@ -4,9 +4,9 @@
   <subtitle>Geekhoo的技术博客</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://geekhooo.github.io/"/>
+  <link href="https://geekhoon.github.io/"/>
   <updated>2016-08-04T03:14:22.000Z</updated>
-  <id>https://geekhooo.github.io/</id>
+  <id>https://geekhoon.github.io/</id>
   
   <author>
     <name>Geekhoon</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>考研</title>
-    <link href="https://geekhooo.github.io/2016/08/02/%E8%80%83%E7%A0%94/"/>
-    <id>https://geekhooo.github.io/2016/08/02/考研/</id>
+    <link href="https://geekhoon.github.io/2016/08/02/%E8%80%83%E7%A0%94/"/>
+    <id>https://geekhoon.github.io/2016/08/02/考研/</id>
     <published>2016-08-02T11:44:41.000Z</published>
     <updated>2016-08-04T03:14:22.000Z</updated>
     
@@ -38,19 +38,19 @@
     
     </summary>
     
-      <category term="考研" scheme="https://geekhooo.github.io/categories/%E8%80%83%E7%A0%94/"/>
+      <category term="考研" scheme="https://geekhoon.github.io/categories/%E8%80%83%E7%A0%94/"/>
     
     
-      <category term="随笔" scheme="https://geekhooo.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://geekhoon.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
-      <category term="考研" scheme="https://geekhooo.github.io/tags/%E8%80%83%E7%A0%94/"/>
+      <category term="考研" scheme="https://geekhoon.github.io/tags/%E8%80%83%E7%A0%94/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://geekhooo.github.io/2016/08/02/hello-world/"/>
-    <id>https://geekhooo.github.io/2016/08/02/hello-world/</id>
+    <link href="https://geekhoon.github.io/2016/08/02/hello-world/"/>
+    <id>https://geekhoon.github.io/2016/08/02/hello-world/</id>
     <published>2016-08-02T11:43:00.000Z</published>
     <updated>2016-08-02T23:56:17.000Z</updated>
     
