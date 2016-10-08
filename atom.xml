@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Geekhoon</title>
-  <subtitle>Geekhoo的技术博客</subtitle>
+  <title>geekhoon</title>
+  <subtitle>做有执行力的工程师</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
@@ -9,7 +9,7 @@
   <id>https://geekhoon.github.io/</id>
   
   <author>
-    <name>Geekhoon</name>
+    <name>geekhoon</name>
     
   </author>
   
