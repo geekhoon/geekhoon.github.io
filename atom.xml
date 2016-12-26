@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>geekhoon</title>
-  <subtitle>做有执行力的工程师</subtitle>
+  <subtitle>善待自己</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
