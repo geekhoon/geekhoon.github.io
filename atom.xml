@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-01-01T15:14:41.840Z</updated>
+  <updated>2017-01-05T12:51:09.785Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -14,6 +14,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JAVA基础题</title>
+    <link href="https://geekhoon.github.io/2017/01/05/JAVA%E5%9F%BA%E7%A1%80%E9%A2%98/"/>
+    <id>https://geekhoon.github.io/2017/01/05/JAVA基础题/</id>
+    <published>2017-01-05T12:51:09.000Z</published>
+    <updated>2017-01-05T12:51:09.785Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>写在最前面</title>
