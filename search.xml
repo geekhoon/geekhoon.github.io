@@ -6,38 +6,27 @@
     <entry>
       <title><![CDATA[JAVA基础题]]></title>
       <url>https://geekhoon.github.io/2017/01/05/JAVA%E5%9F%BA%E7%A1%80%E9%A2%98/</url>
-      <content type="html"><![CDATA[<ol>
-<li>Java注释有3种，单行注释、多行注释和文档注释，下列有关注释的说法，不正确的是（）</li>
-</ol>
+      <content type="html"><![CDATA[<p>1.Java注释有3种，单行注释、多行注释和文档注释，下列有关注释的说法，不正确的是（）</p>
 <ul>
 <li>A. 注释指的是用来对程序的某个功能或者某行代码进行解释说明</li>
 <li>B. 注释只在Java源文件中有效</li>
 <li>C. 在多行注释中，能够嵌套多行注释</li>
-<li>D. 注释不会被编译到class字节码文</li>
-</ul>
-<ol>
-<li>下面哪种类型的文件可以在Java虚拟机中运行？（）</li>
-</ol>
-<ul>
-<li>A. .java</li>
+<li><p>D. 注释不会被编译到class字节码文<br>2.下面哪种类型的文件可以在Java虚拟机中运行？（）</p>
+</li>
+<li><p>A. .java</p>
+</li>
 <li>B. .jre</li>
 <li>C. .exe</li>
-<li>D. .class</li>
-</ul>
-<ol>
-<li>下列关于变量和常量的说法正确的是（）</li>
-</ol>
-<ul>
-<li>A. 常量表示不能被改变的值，例如1、2、“abc”都是常量</li>
+<li><p>D. .class<br>3.下列关于变量和常量的说法正确的是（）</p>
+</li>
+<li><p>A. 常量表示不能被改变的值，例如1、2、“abc”都是常量</p>
+</li>
 <li>B. 常量表示常见的变量</li>
 <li>C. int x = 0;代码中，x表示常量，0表示变量</li>
-<li>D. 在同一个大括号｛｝内，定义的变量不能够重名</li>
-</ul>
-<ol>
-<li>下列定义变量格式，错误的是（）</li>
-</ol>
-<ul>
-<li>A. float x,y=0;</li>
+<li><p>D. 在同一个大括号｛｝内，定义的变量不能够重名<br>4.下列定义变量格式，错误的是（）</p>
+</li>
+<li><p>A. float x,y=0;</p>
+</li>
 <li>B. float f = 1999.99F;</li>
 <li>C. String str = 字符串;</li>
 <li><p>D. char x = ‘0’;<br>5.下列各种符号的定义格式，那种在java语言中是错误的变量定义（）</p>
