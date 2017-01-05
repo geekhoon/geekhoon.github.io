@@ -7,7 +7,7 @@
       <title><![CDATA[JAVA基础题]]></title>
       <url>https://geekhoon.github.io/2017/01/05/JAVA%E5%9F%BA%E7%A1%80%E9%A2%98/</url>
       <content type="html"><![CDATA[<ol>
-<li>Java注释有3种，单行注释、多行注释和文档注释，下列有关注释的说法，不正确的是（）<br>-</li>
+<li>Java注释有3种，单行注释、多行注释和文档注释，下列有关注释的说法，不正确的是（）</li>
 </ol>
 <ul>
 <li>A. 注释指的是用来对程序的某个功能或者某行代码进行解释说明</li>
@@ -19,7 +19,6 @@
 <li>下面哪种类型的文件可以在Java虚拟机中运行？（）</li>
 </ol>
 <ul>
-<li></li>
 <li>A. .java</li>
 <li>B. .jre</li>
 <li>C. .exe</li>
@@ -29,7 +28,6 @@
 <li>下列关于变量和常量的说法正确的是（）</li>
 </ol>
 <ul>
-<li></li>
 <li>A. 常量表示不能被改变的值，例如1、2、“abc”都是常量</li>
 <li>B. 常量表示常见的变量</li>
 <li>C. int x = 0;代码中，x表示常量，0表示变量</li>
@@ -39,57 +37,79 @@
 <li>下列定义变量格式，错误的是（）</li>
 </ol>
 <ul>
-<li></li>
 <li>A. float x,y=0;</li>
 <li>B. float f = 1999.99F;</li>
 <li>C. String str = 字符串;</li>
-<li>D. char x = ‘0’;<br>5.下列各种符号的定义格式，那种在java语言中是错误的变量定义（）<br>-</li>
-<li>A. int myVal =1;</li>
+<li><p>D. char x = ‘0’;<br>5.下列各种符号的定义格式，那种在java语言中是错误的变量定义（）</p>
+</li>
+<li><p>A. int myVal =1;</p>
+</li>
 <li>B. char $myVal =1;</li>
 <li>C. byte _myVal =1;</li>
-<li>D.float 3.14myVal=1;<br>6.Java语言中的int及char数据类型的长度分别为（）<br>-</li>
-<li>A. 16位和8 位</li>
+<li><p>D.float 3.14myVal=1;<br>6.Java语言中的int及char数据类型的长度分别为（）</p>
+</li>
+<li><p>A. 16位和8 位</p>
+</li>
 <li>B. 8位和16位</li>
 <li>C. 32位和16位</li>
-<li>D. 32位和8位<br>7.语句System.out.println(1+2+”java”+3+4)输出的结果是（）<br>-</li>
-<li>A. 3java34</li>
+<li><p>D. 32位和8位<br>7.语句System.out.println(1+2+”java”+3+4)输出的结果是（）</p>
+</li>
+<li><p>A. 3java34</p>
+</li>
 <li>B. 12java34</li>
 <li>C. 3java7</li>
-<li>D. 12java7<br>8.下列关于Java函数的说法不正确的是（）</li>
-<li></li>
-<li>A.函数也叫方法，函数就是定义在类中，具有特定功能的一段小程序</li>
+<li><p>D. 12java7<br>8.下列关于Java函数的说法不正确的是（）</p>
+</li>
+<li><p>A.函数也叫方法，函数就是定义在类中，具有特定功能的一段小程序</p>
+</li>
 <li>B.方法体中不能有任何代码（抽象函数除外）</li>
 <li>C.函数必须先定义，才能被调用</li>
-<li>D.函数（构造函数除外）要有返回值类型<br>9.以下关于函数重载的说法正确的有（）</li>
-<li></li>
-<li>A. 方法名必须一样</li>
+<li><p>D.函数（构造函数除外）要有返回值类型<br>9.以下关于函数重载的说法正确的有（）</p>
+</li>
+<li><p>A. 方法名必须一样</p>
+</li>
 <li>B. 与返回值类型无关</li>
 <li>C. 参数个数或者顺序不一样</li>
-<li>D. 参数类型不一样<br>10.关于数组的说法，正确的是（）</li>
-<li></li>
-<li>A. 数组里面存放的是相同类型的数据</li>
+<li><p>D. 参数类型不一样<br>10.关于数组的说法，正确的是（）</p>
+</li>
+<li><p>A. 数组里面存放的是相同类型的数据</p>
+</li>
 <li>B. 获取数组的长度使用length属性</li>
 <li>C. 获取数组的大小使用size方法</li>
-<li>D. 数组的长度是可变的<br>11.想要结果输出为0，则可以做哪些修改？（）<br>-<br>int [ ] arr = new int[1];</li>
+<li>D. 数组的长度是可变的<br>11.想要结果输出为0，则可以做哪些修改？（）</li>
 </ul>
+<p>int [ ] arr = new int[1];</p>
 <p>arr[0] = 3;</p>
 <p>System.out.println( arr[1] )</p>
 <ul>
 <li>A. 2修改为<code>arr[3] = 0;</code></li>
 <li>B. 3修改为<code>System.out.println(0)</code></li>
 <li>C. 1修改为<code>int [ ] arr = new int[2];</code></li>
-<li>D. 不用修改了，结果就是0会报错<br>12.下列二维数组定义错误的是（）<br>-</li>
+<li>D. 不用修改了，结果就是0会报错<br>12.下列二维数组定义错误的是（）</li>
 </ul>
 <pre><code>A.int[][] arr = new int[3][2];
 B.int arr[][] = new int[3][]; 
 C.int[][] arr = {{1,2,3},{4,5},{6,7,8,9}};
 D.int arr[][] ={{2,3},{6},9};
-</code></pre><p>13.下面代码的运行结果是（）<br>-<br>    public static void main(String[] args){<br>    int x = 80;<br>    x ++;<br>    switch(x){<br>    case 80:<br>    System.out.println(80);<br>    case 81:<br>    System.out.println(81);<br>    default:<br>    System.out.println(82);<br>    }<br>    }</p>
-<ul>
+</code></pre><p>13.下面代码的运行结果是（）</p>
+<pre><code>public static void main(String[] args){
+int x = 80;
+x ++;
+switch(x){
+case 80:
+System.out.println(80);
+case 81:
+System.out.println(81);
+default:
+System.out.println(82);
+}
+}
+</code></pre><ul>
 <li>A. 80</li>
 <li>B. 80 81</li>
 <li>C. 81</li>
-<li><p>D. 81 82<br>14.下面程序运行的结果是（）<br>-<br>  public static void main(String[] args){</p>
+<li><p>D. 81 82<br>14.下面程序运行的结果是（）</p>
+<p>  public static void main(String[] args){</p>
 <pre><code>int a = 1;
 if(a++&gt;1){
     System.out.println(a);
