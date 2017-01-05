@@ -11,8 +11,7 @@
 <p>2.下面哪种类型的文件可以在Java虚拟机中运行？（）</p>
 <p>A. .java<br>B. .jre<br>C. .exe<br>D. .class</p>
 <p>3.下列关于变量和常量的说法正确的是（）</p>
-<p>A. 常量表示不能被改变的值，例如1、2、“abc”都是常量<br>B. 常量表示常见的变量<br>C. int x = 0;代码中，x表示常量，0表示变量<br>D. 在同一个大括号｛｝内，定义的变量不能够重名</p>
-<p>4.下列定义变量格式，错误的是（）</p>
+<p>A. 常量表示不能被改变的值，例如1、2、“abc”都是常量<br>B. 常量表示常见的变量<br>C. int x = 0;代码中，x表示常量，0表示变量<br>D. 在同一个大括号｛｝内，定义的变量不能够重名<br><a id="more"></a><br>4.下列定义变量格式，错误的是（）</p>
 <p>A. float x,y=0;<br>B. float f = 1999.99F;<br>C. String str = 字符串;<br>D. char x = ‘0’;</p>
 <p>5.下列各种符号的定义格式，那种在java语言中是错误的变量定义（）</p>
 <p>A. int myVal =1;<br>B. char $myVal =1;<br>C. byte _myVal =1;<br>D.float 3.14myVal=1;</p>
