@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-01-06T11:56:41.335Z</updated>
+  <updated>2017-01-06T12:28:46.426Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://geekhoon.github.io/2017/01/06/JAVA%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"/>
     <id>https://geekhoon.github.io/2017/01/06/JAVA基础语法/</id>
     <published>2017-01-06T11:26:33.000Z</published>
-    <updated>2017-01-06T11:56:41.335Z</updated>
+    <updated>2017-01-06T12:28:46.426Z</updated>
     
     <content type="html"><![CDATA[<h2 id="一-JAVA环境搭建"><a href="#一-JAVA环境搭建" class="headerlink" title="一.JAVA环境搭建"></a>一.JAVA环境搭建</h2><h3 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h3><ul>
 <li>创始团队:詹姆斯-高斯林</li>
@@ -45,7 +45,7 @@
 <pre><code>public static void main(String[] args){
     System.out.println(&quot;HelloWorld&quot;);
 }
-</code></pre><p>  }<br><strong>注意:</strong><br><strong>1.class前加上public,类名(HelloWorld)要与文件名(HelloWorld.java)一致,不加public,类名可换成其他</strong><br><strong>2.主程序的方法是程序的入口,被虚拟机调用,它能保证程序的独立运行</strong><br>编译:<code>javac HellWorld.java</code><br>运行:<code>java He&#39;llWorld</code></p>
+</code></pre><p>  }<br><strong>注意:</strong><br><strong>1.class前加上public,类名(HelloWorld)要与文件名(HelloWorld.java)一致,不加public,类名可换成其他</strong><br><strong>2.主程序的方法是程序的入口,被虚拟机调用,它能保证程序的独立运行</strong><br>编译:<code>javac HellWorld.java</code><br>编译时HellWorld.java可以写成helloworld.java,因为对源文件来说HellWorld.java和helloworld.java所指的源文件是唯一的<br>运行:<code>java HelloWorld</code><br>运行时HelloWorld是类名,不能写成helloworld</p>
 <h2 id="三-注释、关键字、标识符"><a href="#三-注释、关键字、标识符" class="headerlink" title="三.注释、关键字、标识符"></a>三.注释、关键字、标识符</h2><h3 id="1-注释"><a href="#1-注释" class="headerlink" title="1.注释"></a>1.注释</h3></li>
 <li>编译时,编译器会忽略注释</li>
 <li>包括<br>单行注释://<br>多行注释:/<em>….</em>/<br>文档注释:/<em>*…</em>/</li>
@@ -54,7 +54,7 @@
 <li>JAVA中关键字均为小写</li>
 <li>main不是关键字<h3 id="3-标识符"><a href="#3-标识符" class="headerlink" title="3.标识符"></a>3.标识符</h3></li>
 <li>JAVA中,程序员自己定义的内容</li>
-<li>规则:<br>1.组成:字母52个(a-z,A-Z)、数字(0-9)、下划线_、美元符$<br>2.注意:不能以数字开头、不能是关键字、严格区分大小写<br>3.类的名字:首字母大写,第二个单词开始首字母大写<br>4.方法名字与变量名一样:首字母小写,第二个单词开始首字母大写 <h2 id="四-数据"><a href="#四-数据" class="headerlink" title="四.数据"></a>四.数据</h2><h3 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1.数据类型"></a>1.数据类型</h3></li>
+<li>规则:<br>1.组成:字母52个(a-z,A-Z)、数字(0-9)、下划线_、美元符$<br>2.注意:不能以数字开头、不能是关键字、标识符不能有空格、严格区分大小写<br>3.类的名字:首字母大写,第二个单词开始首字母大写<br>4.方法名字与变量名一样:首字母小写,第二个单词开始首字母大写 <h2 id="四-数据"><a href="#四-数据" class="headerlink" title="四.数据"></a>四.数据</h2><h3 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1.数据类型"></a>1.数据类型</h3></li>
 <li>程序=数据+逻辑</li>
 <li>数据类型包括<br>(1)基本数据类型:整数、小数、字符、布尔<br>(2)引用数据类型:数组、类、接口<h3 id="2-常量"><a href="#2-常量" class="headerlink" title="2.常量"></a>2.常量</h3></li>
 <li>整数类型<br>十进制<br>二进制:以0b(0B)开头,只有0和1<br>十六进制:以0x(0X)开头,0-9和A-F,F表示15<br>八进制:以0开头,最大数为7  </li>
