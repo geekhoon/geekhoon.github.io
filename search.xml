@@ -17,7 +17,8 @@
 <li>返回上一级目录：cd..</li>
 <li>返回盘符根目录：cd\</li>
 <li>进入其他盘符文件夹：cd 盘符:\文件夹名</li>
-<li>显示当前目录下的文件和子目录信息：dir<h3 id="3-开发环境"><a href="#3-开发环境" class="headerlink" title="3.开发环境"></a>3.开发环境</h3></li>
+<li>显示当前目录下的文件和子目录信息：dir<a id="more"></a>
+<h3 id="3-开发环境"><a href="#3-开发环境" class="headerlink" title="3.开发环境"></a>3.开发环境</h3></li>
 <li>JDK(JAVA Development Kit):&nbsp;&nbsp;&nbsp;java开发工具包</li>
 <li>JDK包含<br>JRE(JAVA Runtime Environment):JAVA运行环境<br>JAVA开发工具<h3 id="4-跨平台特性"><a href="#4-跨平台特性" class="headerlink" title="4.跨平台特性"></a>4.跨平台特性</h3></li>
 <li>平台指操作系统(Windows/Linux/mac)</li>
