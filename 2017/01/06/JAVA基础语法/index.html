@@ -102,7 +102,7 @@ sun开发,    已被oracle收购.
 版本(平台)JAVASE(标准版):开发简单桌面应用,不能开发大型项目.也叫J2SEJAVAEE(企业版或Web版):可做电商、企业级应用(如ERP、CRM、BOS、OA等)，也叫J2EEJAVAME（嵌入式开发）：也叫J2ME2.常用DOS命令
 清屏：cls(clear screen)
 切换盘符：">
-<meta property="og:updated_time" content="2017-01-06T14:19:47.252Z">
+<meta property="og:updated_time" content="2017-01-06T14:22:13.142Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA基础语法">
 <meta name="twitter:description" content="一.JAVA环境搭建1.概述
@@ -410,10 +410,15 @@ sun开发,    已被oracle收购.
 <li>跨平台特性依赖于JVM(JAVA Virtual Machine)</li>
 <li><p>JRE包含<br>JVM<br>类库  </p>
 <h2 id="二-HelloWorld"><a href="#二-HelloWorld" class="headerlink" title="二.HelloWorld"></a>二.HelloWorld</h2><p>源文件:.java<br>编&nbsp;&nbsp;&nbsp;译:.java&nbsp;→.class(字节码文件)<br>运&nbsp;&nbsp;&nbsp;行:运行.class</p>
-<p>  public class HelloWorld{<br>  public static void main(String[] args){</p>
-<pre><code>System.out.println(&quot;HelloWorld&quot;);
-</code></pre><p>  }<br>}<br><strong>注意:</strong><br><strong>1.class前加上public,类名(HelloWorld)要与文件名(HelloWorld.java)一致,不加public,类名可换成其他</strong><br><strong>2.主程序的方法是程序的入口,被虚拟机调用,它能保证程序的独立运行</strong><br>编译:<code>javac HellWorld.java</code><br>编译时HelloWorld.java可以写成helloworld.java,因为对源文件来说HellWorld.java和helloworld.java所指的源文件是唯一的<br>运行:<code>java HelloWorld</code><br>运行时HelloWorxld是类名,不能写成helloworld</p>
-<h2 id="三-注释、关键字、标识符"><a href="#三-注释、关键字、标识符" class="headerlink" title="三.注释、关键字、标识符"></a>三.注释、关键字、标识符</h2><h3 id="1-注释"><a href="#1-注释" class="headerlink" title="1.注释"></a>1.注释</h3></li>
+<p>  public class HelloWorld{</p>
+<pre><code>public static void main(String[] args){
+    System.out.println(&quot;HelloWorld&quot;);
+}
+</code></pre><p>  }</p>
+</li>
+</ul>
+<p><strong>注意:</strong><br><strong>1.class前加上public,类名(HelloWorld)要与文件名(HelloWorld.java)一致,不加public,类名可换成其他</strong><br><strong>2.主程序的方法是程序的入口,被虚拟机调用,它能保证程序的独立运行</strong><br>编译:<code>javac HellWorld.java</code><br>编译时HelloWorld.java可以写成helloworld.java,因为对源文件来说HellWorld.java和helloworld.java所指的源文件是唯一的<br>运行:<code>java HelloWorld</code><br>运行时HelloWorxld是类名,不能写成helloworld</p>
+<h2 id="三-注释、关键字、标识符"><a href="#三-注释、关键字、标识符" class="headerlink" title="三.注释、关键字、标识符"></a>三.注释、关键字、标识符</h2><h3 id="1-注释"><a href="#1-注释" class="headerlink" title="1.注释"></a>1.注释</h3><ul>
 <li>编译时,编译器会忽略注释</li>
 <li>包括<br>单行注释://<br>多行注释:/<em>….</em>/<br>文档注释:/<em>*…</em>/</li>
 <li>多行注释不能嵌套多行注释<h3 id="2-关键字"><a href="#2-关键字" class="headerlink" title="2.关键字"></a>2.关键字</h3></li>
