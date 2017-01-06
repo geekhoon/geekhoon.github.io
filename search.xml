@@ -6,8 +6,7 @@
     <entry>
       <title><![CDATA[JAVA基础语法]]></title>
       <url>https://geekhoon.github.io/2017/01/06/JAVA%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/</url>
-      <content type="html"><![CDATA[<h2 id="一-JAVA环境搭建"><a href="#一-JAVA环境搭建" class="headerlink" title="一.JAVA环境搭建"></a>一.JAVA环境搭建</h2><p>###1. 概述 ###</p>
-<ul>
+      <content type="html"><![CDATA[<h2 id="一-JAVA环境搭建"><a href="#一-JAVA环境搭建" class="headerlink" title="一.JAVA环境搭建"></a>一.JAVA环境搭建</h2><h3 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h3><ul>
 <li>创始团队:詹姆斯-高斯林</li>
 <li>sun开发,    已被oracle收购.</li>
 <li>版本(平台)<br>JAVASE(标准版):开发简单桌面应用,不能开发大型项目.也叫J2SE<br>JAVAEE(企业版或Web版):可做电商、企业级应用(如ERP、CRM、BOS、OA等)，也叫J2EE<br>JAVAME（嵌入式开发）：也叫J2ME<h3 id="2-常用DOS命令"><a href="#2-常用DOS命令" class="headerlink" title="2.常用DOS命令"></a>2.常用DOS命令</h3></li>
