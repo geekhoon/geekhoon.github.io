@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-01-06T14:22:13.142Z</updated>
+  <updated>2017-01-06T14:24:45.303Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://geekhoon.github.io/2017/01/06/JAVA%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"/>
     <id>https://geekhoon.github.io/2017/01/06/JAVA基础语法/</id>
     <published>2017-01-06T11:26:33.000Z</published>
-    <updated>2017-01-06T14:22:13.142Z</updated>
+    <updated>2017-01-06T14:24:45.303Z</updated>
     
     <content type="html"><![CDATA[<h2 id="一-JAVA环境搭建"><a href="#一-JAVA环境搭建" class="headerlink" title="一.JAVA环境搭建"></a>一.JAVA环境搭建</h2><h3 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h3><ul>
 <li>创始团队:詹姆斯-高斯林</li>
@@ -39,16 +39,14 @@
 <li>平台指操作系统(Windows/Linux/mac)</li>
 <li>一次编写,到处运行</li>
 <li>跨平台特性依赖于JVM(JAVA Virtual Machine)</li>
-<li><p>JRE包含<br>JVM<br>类库  </p>
-<h2 id="二-HelloWorld"><a href="#二-HelloWorld" class="headerlink" title="二.HelloWorld"></a>二.HelloWorld</h2><p>源文件:.java<br>编&nbsp;&nbsp;&nbsp;译:.java&nbsp;→.class(字节码文件)<br>运&nbsp;&nbsp;&nbsp;行:运行.class</p>
-<p>  public class HelloWorld{</p>
-<pre><code>public static void main(String[] args){
-    System.out.println(&quot;HelloWorld&quot;);
-}
-</code></pre><p>  }</p>
-</li>
+<li>JRE包含<br>JVM<br>类库  <h2 id="二-HelloWorld"><a href="#二-HelloWorld" class="headerlink" title="二.HelloWorld"></a>二.HelloWorld</h2>源文件:.java<br>编&nbsp;&nbsp;&nbsp;译:.java&nbsp;→.class(字节码文件)<br>运&nbsp;&nbsp;&nbsp;行:运行.class</li>
 </ul>
-<p><strong>注意:</strong><br><strong>1.class前加上public,类名(HelloWorld)要与文件名(HelloWorld.java)一致,不加public,类名可换成其他</strong><br><strong>2.主程序的方法是程序的入口,被虚拟机调用,它能保证程序的独立运行</strong><br>编译:<code>javac HellWorld.java</code><br>编译时HelloWorld.java可以写成helloworld.java,因为对源文件来说HellWorld.java和helloworld.java所指的源文件是唯一的<br>运行:<code>java HelloWorld</code><br>运行时HelloWorxld是类名,不能写成helloworld</p>
+<pre><code>public class HelloWorld{
+    public static void main(String[] args){
+        System.out.println(&quot;HelloWorld&quot;);
+    }
+}
+</code></pre><p><strong>注意:</strong><br><strong>1.class前加上public,类名(HelloWorld)要与文件名(HelloWorld.java)一致,不加public,类名可换成其他</strong><br><strong>2.主程序的方法是程序的入口,被虚拟机调用,它能保证程序的独立运行</strong><br>编译:<code>javac HellWorld.java</code><br>编译时HelloWorld.java可以写成helloworld.java,因为对源文件来说HellWorld.java和helloworld.java所指的源文件是唯一的<br>运行:<code>java HelloWorld</code><br>运行时HelloWorxld是类名,不能写成helloworld</p>
 <h2 id="三-注释、关键字、标识符"><a href="#三-注释、关键字、标识符" class="headerlink" title="三.注释、关键字、标识符"></a>三.注释、关键字、标识符</h2><h3 id="1-注释"><a href="#1-注释" class="headerlink" title="1.注释"></a>1.注释</h3><ul>
 <li>编译时,编译器会忽略注释</li>
 <li>包括<br>单行注释://<br>多行注释:/<em>….</em>/<br>文档注释:/<em>*…</em>/</li>
