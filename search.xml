@@ -46,32 +46,33 @@
 <li>小数类型(浮点类型)</li>
 <li>布尔类型:true和flase为关键字</li>
 <li>字符类型:单引号中仅能包含一个字符,不能不写字符,可以用一个空格</li>
-<li>字符串类型:可以写0-n个字符<h2 id="五-变量"><a href="#五-变量" class="headerlink" title="五.变量"></a>五.变量</h2>###01变量概述<ul>
-<li>什么是变量?<br>*变量是内存中装载数据的小盒子，你只能用它来存数据和取数据。<br>###02计算机存储单元</li>
-<li>计算机中最小信息单元是?<ul>
-<li>位(bit),也叫比特位.用b表示</li>
-</ul>
-</li>
-<li>计算机中储存和运算的最小单位是?<ul>
-<li>一个字节,也就是一个byte.用B表示            </li>
-<li>常用储存单位<br>  <em>1B（字节） = 8bit
-  </em>1KB = 1024B<br>  <em>1MB = 1024KB
-  </em>1GB = 1024MB<br>  <em>1TB = 1024GB
-  </em>1PB = 1024TB<br>###03Java中数据类型四类八种</li>
-</ul>
-</li>
-<li>数据类型四类八种<br>  <em>四类    八种    字节数    数据表示范围
-  </em>整型    byte    1    -128～127<pre><code>short     2    
- int     4    
- long     8    
-</code></pre>  *浮点型    float    4    <pre><code>double  8    
-</code></pre>  <em>字符型    char    2    表示一个字符，如(‘a’，’A’，’0’，’家’)
-  </em>布尔型    boolean    1    只有两个值true与false</li>
+<li>字符串类型:可以写0-n个字符<h2 id="五-变量"><a href="#五-变量" class="headerlink" title="五.变量"></a>五.变量</h2><h3 id="1-变量概述"><a href="#1-变量概述" class="headerlink" title="1.变量概述"></a>1.变量概述</h3><ul>
+<li>什么是变量?<br>*变量是内存中装载数据的小盒子，你只能用它来存数据和取数据。</li>
 </ul>
 </li>
 </ul>
-<p>###04常量和数据类型</p>
-<pre><code>* 常量
+<h3 id="2-计算机存储单元"><a href="#2-计算机存储单元" class="headerlink" title="2.计算机存储单元"></a>2.计算机存储单元</h3><pre><code>* 计算机中最小信息单元是?
+    * 位(bit),也叫比特位.用b表示
+* 计算机中储存和运算的最小单位是?
+    * 一个字节,也就是一个byte.用B表示            
+    * 常用储存单位
+        *1B（字节） = 8bit
+        *1KB = 1024B
+        *1MB = 1024KB
+        *1GB = 1024MB
+        *1TB = 1024GB
+        *1PB = 1024TB
+</code></pre><h3 id="3-Java中数据类型四类八种"><a href="#3-Java中数据类型四类八种" class="headerlink" title="3.Java中数据类型四类八种"></a>3.Java中数据类型四类八种</h3><pre><code>* 数据类型四类八种
+    * 四类    八种    字节数    数据表示范围
+    * 整型    byte    1    -128～127
+         short     2    
+          int     4    
+          long     8    
+    * 浮点型    float    4    
+              double  8    
+    * 字符型    char    2    表示一个字符，如(&apos;a&apos;，&apos;A&apos;，&apos;0&apos;，&apos;家&apos;)
+    * 布尔型    boolean    1    只有两个值true与false
+</code></pre><h3 id="4-常量和数据类型"><a href="#4-常量和数据类型" class="headerlink" title="4.常量和数据类型"></a>4.常量和数据类型</h3><pre><code>* 常量
     * 整型常量默认是int类型.
     * 定义长整型数据如果值超过int取值范围后面要+&quot;L&quot;,凡添加了&quot;L&quot;,都是long类型
     * 浮点常量默认是double类型,没有后缀或以&quot;D&quot;为后缀,都是double型
@@ -82,8 +83,7 @@
     * long l = 12345678901L; 对 
     * float f = 1.0; 错
     * float f = 1.0F; 对
-</code></pre><p>###05定义变量</p>
-<pre><code>* 语法格式：
+</code></pre><h3 id="5-定义变量"><a href="#5-定义变量" class="headerlink" title="5.定义变量"></a>5.定义变量</h3><pre><code>* 语法格式：
     数据类型  变量名  =  变量值;
      int        a    =  100;        
 * 代码:
