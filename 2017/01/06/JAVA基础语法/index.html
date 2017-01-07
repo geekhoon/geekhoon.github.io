@@ -102,7 +102,7 @@
     * JAVASE(标准版):开发简单桌面应用,不能开发大型项目.也叫J2SE 
     * JAVAEE(企业版或Web版):可做电商、企业级应用(如ERP、CRM、BOS、OA等)，也叫J2EE
     * JAVAME（嵌入式开发）：也叫J2ME">
-<meta property="og:updated_time" content="2017-01-07T11:12:10.935Z">
+<meta property="og:updated_time" content="2017-01-07T13:06:12.860Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA基础语法">
 <meta name="twitter:description" content="一.JAVA环境搭建1.概述* 创始团队:詹姆斯-高斯林
@@ -515,8 +515,8 @@ public class HelloWorld{
                 int i = 100;
                 double d2 = i;
 * 强制类型转换：
-    *表示范围大的数据类型转换成范围小的数据类型
-    *强制类型转换格式：
+    * 表示范围大的数据类型转换成范围小的数据类型
+     *强制类型转换格式：
         范围小的数据类型  变量 = (范围小的数据类型) 范围大的数据类型值;
         如：
                 int  i = (int)6.718;   //i的值为6
@@ -529,6 +529,59 @@ public class HelloWorld{
     *
                 byte b = (byte)200;
                 System.out.println(b);注意输出结果不是127,因为会损失精度
+</code></pre><h2 id="六-运算符"><a href="#六-运算符" class="headerlink" title="六.运算符"></a>六.运算符</h2><h3 id="1-算数运算符"><a href="#1-算数运算符" class="headerlink" title="1.算数运算符"></a>1.算数运算符</h3><pre><code>* 注意事项
+    *加法运算符在连接字符串时要注意，只有直接与字符串相加才会转成字符串.字符串后面的&quot;+&quot;为&quot;连接&quot;,字符串前面的&quot;+&quot;还是加法
+* ++和--放前放后区别:
+    *符号放前放后,在变量自己独立计算时,没有区别
+    *在与其他运算符同时计算时会有区别             
+     如：
+                int  i = 5;
+                int  j = i++;
+                System.out.println(i);
+                System.out.println(j);
+                //结果为i=6,j=5.
+                //因为int  j = i++;相当于(1)int j = i;
+                                        (2)i++;
+     如：
+                int  m = 5;
+                int  n = ++m;
+                System.out.println(m);
+                System.out.println(n);
+                //结果为m=6,n=6.
+                //因为int  n = ++m;相当于(1)++m;
+</code></pre><h3 id="2-赋值运算符"><a href="#2-赋值运算符" class="headerlink" title="2.赋值运算符"></a>2.赋值运算符</h3><pre><code>* 有 =  +=  -=  *=  /=  %=  
+* 注意:
+     如：
+                byte  b = 1;               (1)
+                b = b + 1;                 (2)
+                System.out.println(b);     (3)
+                编译会报错,因为(1)中b为byte型,占1个字节,(2)中1为int类型,占4个字节,它们相加之后,是4字节.然后赋值给1字节大小的b,会损失精度.
+                将(2)改成b =(byte) (b + 1);或者b += 1;都对.这两句等价
+</code></pre><h3 id="3-比较运算符"><a href="#3-比较运算符" class="headerlink" title="3.比较运算符"></a>3.比较运算符</h3><pre><code>* 有 ==  !=  &gt;  &lt;  &gt;=  &lt;=  
+* 注意:
+     如：
+                int  i = 3;
+                int  j = 4;
+                System.out.println(i=j);
+                System.out.println(i==j);
+                结果分别为4和true,因为程序自上而下执行,第一句输出语句执行完之后,i变为4.别忽视了输出语句中,赋值语句对变量在整个作用区间内也起作用.
+</code></pre><h3 id="4-逻辑运算符"><a href="#4-逻辑运算符" class="headerlink" title="4.逻辑运算符"></a>4.逻辑运算符</h3><pre><code>* 对两个布尔数据进行计算,结果也是布尔类型
+* 有 &amp;与  |或  !非  ^异或  &amp;&amp;短路与  ||短路或
+    *^异或: 两边相同为false,不同为true
+     如：
+                true^flase 为    true 
+                true^true  为   false
+    *&amp;&amp;短路与: 左边结果为false,右边不执行
+     如：
+                int  i = 3;
+                int  j = 4;
+                System.out.println(i == j &amp;&amp; ++i &gt; 3);
+                System.out.println(i);
+                System.out.println(j);
+                结果为3和4.   i == j 为flase, 所以++i &gt; 3并没有执行
+    *||短路或: 左边结果为true,右边不执行
+* 短路与 和 短路或 可以提高程序运行效率
+</code></pre><h3 id="5-三元运算符"><a href="#5-三元运算符" class="headerlink" title="5.三元运算符"></a>5.三元运算符</h3><pre><code>* 公式:    布尔表达式 ? 结果1 : 结果2
 </code></pre>
       
     </div>
@@ -778,7 +831,7 @@ public class HelloWorld{
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-JAVA环境搭建"><span class="nav-number">1.</span> <span class="nav-text">一.JAVA环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-概述"><span class="nav-number">1.1.</span> <span class="nav-text">1.概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-常用DOS命令"><span class="nav-number">1.2.</span> <span class="nav-text">2.常用DOS命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-开发环境"><span class="nav-number">1.3.</span> <span class="nav-text">3.开发环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-跨平台特性"><span class="nav-number">1.4.</span> <span class="nav-text">4.跨平台特性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-HelloWorld"><span class="nav-number">2.</span> <span class="nav-text">二.HelloWorld</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-注释、关键字、标识符"><span class="nav-number">3.</span> <span class="nav-text">三.注释、关键字、标识符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-注释"><span class="nav-number">3.1.</span> <span class="nav-text">1.注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-关键字"><span class="nav-number">3.2.</span> <span class="nav-text">2.关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-标识符"><span class="nav-number">3.3.</span> <span class="nav-text">3.标识符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-数据"><span class="nav-number">4.</span> <span class="nav-text">四.数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-数据类型"><span class="nav-number">4.1.</span> <span class="nav-text">1.数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-常量"><span class="nav-number">4.2.</span> <span class="nav-text">2.常量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五-变量"><span class="nav-number">5.</span> <span class="nav-text">五.变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-变量概述"><span class="nav-number">5.1.</span> <span class="nav-text">1.变量概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-计算机存储单元"><span class="nav-number">5.2.</span> <span class="nav-text">2.计算机存储单元</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Java中数据类型四类八种"><span class="nav-number">5.3.</span> <span class="nav-text">3.Java中数据类型四类八种</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-常量和数据类型"><span class="nav-number">5.4.</span> <span class="nav-text">4.常量和数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-定义变量"><span class="nav-number">5.5.</span> <span class="nav-text">5.定义变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-数据类型转换"><span class="nav-number">5.6.</span> <span class="nav-text">6.数据类型转换</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-JAVA环境搭建"><span class="nav-number">1.</span> <span class="nav-text">一.JAVA环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-概述"><span class="nav-number">1.1.</span> <span class="nav-text">1.概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-常用DOS命令"><span class="nav-number">1.2.</span> <span class="nav-text">2.常用DOS命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-开发环境"><span class="nav-number">1.3.</span> <span class="nav-text">3.开发环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-跨平台特性"><span class="nav-number">1.4.</span> <span class="nav-text">4.跨平台特性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-HelloWorld"><span class="nav-number">2.</span> <span class="nav-text">二.HelloWorld</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-注释、关键字、标识符"><span class="nav-number">3.</span> <span class="nav-text">三.注释、关键字、标识符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-注释"><span class="nav-number">3.1.</span> <span class="nav-text">1.注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-关键字"><span class="nav-number">3.2.</span> <span class="nav-text">2.关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-标识符"><span class="nav-number">3.3.</span> <span class="nav-text">3.标识符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-数据"><span class="nav-number">4.</span> <span class="nav-text">四.数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-数据类型"><span class="nav-number">4.1.</span> <span class="nav-text">1.数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-常量"><span class="nav-number">4.2.</span> <span class="nav-text">2.常量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五-变量"><span class="nav-number">5.</span> <span class="nav-text">五.变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-变量概述"><span class="nav-number">5.1.</span> <span class="nav-text">1.变量概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-计算机存储单元"><span class="nav-number">5.2.</span> <span class="nav-text">2.计算机存储单元</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Java中数据类型四类八种"><span class="nav-number">5.3.</span> <span class="nav-text">3.Java中数据类型四类八种</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-常量和数据类型"><span class="nav-number">5.4.</span> <span class="nav-text">4.常量和数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-定义变量"><span class="nav-number">5.5.</span> <span class="nav-text">5.定义变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-数据类型转换"><span class="nav-number">5.6.</span> <span class="nav-text">6.数据类型转换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六-运算符"><span class="nav-number">6.</span> <span class="nav-text">六.运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-算数运算符"><span class="nav-number">6.1.</span> <span class="nav-text">1.算数运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-赋值运算符"><span class="nav-number">6.2.</span> <span class="nav-text">2.赋值运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-比较运算符"><span class="nav-number">6.3.</span> <span class="nav-text">3.比较运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-逻辑运算符"><span class="nav-number">6.4.</span> <span class="nav-text">4.逻辑运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-三元运算符"><span class="nav-number">6.5.</span> <span class="nav-text">5.三元运算符</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
