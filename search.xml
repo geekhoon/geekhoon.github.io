@@ -64,11 +64,11 @@
 </code></pre><h3 id="3-Java中数据类型四类八种"><a href="#3-Java中数据类型四类八种" class="headerlink" title="3.Java中数据类型四类八种"></a>3.Java中数据类型四类八种</h3><pre><code>* 数据类型四类八种
     * 四类    八种    字节数    数据表示范围
     * 整型    byte    1    -128～127
-         short     2    
-          int     4    
-          long     8    
+            short     2    
+             int     4    
+             long     8    
     * 浮点型    float    4    
-              double  8    
+              double   8    
     * 字符型    char    2    表示一个字符，如(&apos;a&apos;，&apos;A&apos;，&apos;0&apos;，&apos;家&apos;)
     * 布尔型    boolean    1    只有两个值true与false
 </code></pre><h3 id="4-常量和数据类型"><a href="#4-常量和数据类型" class="headerlink" title="4.常量和数据类型"></a>4.常量和数据类型</h3><pre><code>* 常量
