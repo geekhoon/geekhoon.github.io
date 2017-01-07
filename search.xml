@@ -31,8 +31,8 @@
     * JVM 
     * 类库  
 </code></pre><h2 id="二-HelloWorld"><a href="#二-HelloWorld" class="headerlink" title="二.HelloWorld"></a>二.HelloWorld</h2><pre><code>* 源文件:  .java 
-* 编译:    (编译器).java   →    .class(字节码文件)
-* 运行:    (解释器)运行.class
+* 编译(编译器):    .java   →    .class(字节码文件)
+* 运行(解释器):    运行.class
 
 public class HelloWorld{
     public static void main(String[] args){
