@@ -46,9 +46,87 @@
 <li>小数类型(浮点类型)</li>
 <li>布尔类型:true和flase为关键字</li>
 <li>字符类型:单引号中仅能包含一个字符,不能不写字符,可以用一个空格</li>
-<li>字符串类型:可以写0-n个字符</li>
+<li>字符串类型:可以写0-n个字符<h2 id="五-变量"><a href="#五-变量" class="headerlink" title="五.变量"></a>五.变量</h2>###01变量概述<ul>
+<li>什么是变量?<br>*变量是内存中装载数据的小盒子，你只能用它来存数据和取数据。<br>###02计算机存储单元</li>
+<li>计算机中最小信息单元是?<ul>
+<li>位(bit),也叫比特位.用b表示</li>
 </ul>
-]]></content>
+</li>
+<li>计算机中储存和运算的最小单位是?<ul>
+<li>一个字节,也就是一个byte.用B表示            </li>
+<li>常用储存单位<br>  <em>1B（字节） = 8bit
+  </em>1KB = 1024B<br>  <em>1MB = 1024KB
+  </em>1GB = 1024MB<br>  <em>1TB = 1024GB
+  </em>1PB = 1024TB<br>###03Java中数据类型四类八种</li>
+</ul>
+</li>
+<li>数据类型四类八种<br>  <em>四类    八种    字节数    数据表示范围
+  </em>整型    byte    1    -128～127<pre><code>short     2    
+ int     4    
+ long     8    
+</code></pre>  *浮点型    float    4    <pre><code>double  8    
+</code></pre>  <em>字符型    char    2    表示一个字符，如(‘a’，’A’，’0’，’家’)
+  </em>布尔型    boolean    1    只有两个值true与false</li>
+</ul>
+</li>
+</ul>
+<p>###04常量和数据类型</p>
+<pre><code>* 常量
+    * 整型常量默认是int类型.
+    * 定义长整型数据如果值超过int取值范围后面要+&quot;L&quot;,凡添加了&quot;L&quot;,都是long类型
+    * 浮点常量默认是double类型,没有后缀或以&quot;D&quot;为后缀,都是double型
+    * 定义float类型的数据后面要+&quot;F&quot; 否则默认是double
+* 写法:
+    * long l = 1000; 对
+    * long l = 12345678901; 错
+    * long l = 12345678901L; 对 
+    * float f = 1.0; 错
+    * float f = 1.0F; 对
+</code></pre><p>###05定义变量</p>
+<pre><code>* 语法格式：
+    数据类型  变量名  =  变量值;
+     int        a    =  100;        
+* 代码:
+    public class Variable {
+        public static void main(String[] args) {
+            int a = 10;
+            double b = 3.14;
+            char c = &apos;z&apos;;
+            String s = &quot;i love java&quot;;
+            System.out.println(a);
+        }
+    }    
+* 注意:
+    a.字符串String属于引用类型,不属于基本类型
+    b.变量定义后,不赋值,能编译通过,但运行时会报错.不赋值不能使用。
+    c.变量使用时有作用域的限制。(所在的大括号范围内)
+    d.变量不允许重复定义
+</code></pre><p>###06数据类型转换</p>
+<pre><code>* 自动类型转换：
+    *表示范围小的数据类型转换成范围大的数据类型,如byte转成int
+    *自动类型转换格式：
+        范围大的数据类型 变量 = 范围小的数据类型值；
+        如：
+                double d = 1000;
+        或
+                int i = 100;
+                double d2 = i;
+* 强制类型转换：
+    *表示范围大的数据类型转换成范围小的数据类型
+    *强制类型转换格式：
+        范围小的数据类型  变量 = (范围小的数据类型) 范围大的数据类型值;
+        如：
+                int  i = (int)6.718;   //i的值为6
+        或
+                double  d = 3.14;
+                int  i2 = (int)d;     //i2的值为3
+* 注意：
+    *布尔类型不参与类型转换
+    *byte &lt; short &lt; int &lt; long &lt; float &lt; double
+    *
+                byte b = (byte)200;
+                System.out.println(b);注意输出结果不是127,因为会损失精度
+</code></pre>]]></content>
     </entry>
     
     <entry>
