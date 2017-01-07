@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-01-07T13:06:12.860Z</updated>
+  <updated>2017-01-07T13:10:43.929Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://geekhoon.github.io/2017/01/06/JAVA%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"/>
     <id>https://geekhoon.github.io/2017/01/06/JAVA基础语法/</id>
     <published>2017-01-06T11:26:33.000Z</published>
-    <updated>2017-01-07T13:06:12.860Z</updated>
+    <updated>2017-01-07T13:10:43.929Z</updated>
     
     <content type="html"><![CDATA[<h2 id="一-JAVA环境搭建"><a href="#一-JAVA环境搭建" class="headerlink" title="一.JAVA环境搭建"></a>一.JAVA环境搭建</h2><h3 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h3><pre><code>* 创始团队:詹姆斯-高斯林
 * sun开发,已被oracle收购.
@@ -213,6 +213,23 @@ public class HelloWorld{
     *||短路或: 左边结果为true,右边不执行
 * 短路与 和 短路或 可以提高程序运行效率
 </code></pre><h3 id="5-三元运算符"><a href="#5-三元运算符" class="headerlink" title="5.三元运算符"></a>5.三元运算符</h3><pre><code>* 公式:    布尔表达式 ? 结果1 : 结果2
+</code></pre><h3 id="6-运算符优先级"><a href="#6-运算符优先级" class="headerlink" title="6.运算符优先级"></a>6.运算符优先级</h3><pre><code>优先级    描述          运算符
+1    括号           ()、[]
+2    正负号           +、-
+3    自增自减，非     ++、--、!
+4    乘除，取余      *、/、%
+5    加减            +、-
+6    移位运算       &lt;&lt;、&gt;&gt;、&gt;&gt;&gt;
+7    大小关系       &gt;、&gt;=、&lt;、&lt;=
+8    相等关系       ==、!=
+9    按位与            &amp;
+10    按位异或       ^
+11    按位或            |
+12    逻辑与            &amp;&amp;
+13    逻辑或            ||
+14    条件运算        ?:
+15    赋值运算        =、+=、-=、*=、/=、%=
+16    位赋值运算       &amp;=、|=、&lt;&lt;=、&gt;&gt;=、&gt;&gt;&gt;=
 </code></pre>]]></content>
     
     <summary type="html">
