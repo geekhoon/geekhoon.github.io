@@ -164,6 +164,16 @@ public class HelloWorld{
                 System.out.println(n);
                 //结果为m=6,n=6.
                 //因为int  n = ++m;相当于(1)++m;
+
+     如：
+            public class Test1 {
+                public static void main(String[] args) {
+                     int x = 4;
+                     int y = (--x)+(x--)+(x*10);
+                     System.out.println(&quot;x = &quot; + x + &quot;,y = &quot; + y);
+                }
+            }
+            思维误区:不要以为(--x)+(x--)+(x*10),都有各自括号,就互不影响,执行完(--x),x为3,再执行(x--)后,x为2,(x*10)为20,所以输出x为2,但是y=3+3+20=26,第二个3是因为先赋值,再自减
 </code></pre><h3 id="2-赋值运算符"><a href="#2-赋值运算符" class="headerlink" title="2.赋值运算符"></a>2.赋值运算符</h3><pre><code>* 有 =  +=  -=  *=  /=  %=  
 * 注意:
      如：
