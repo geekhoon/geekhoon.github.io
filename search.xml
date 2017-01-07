@@ -6,49 +6,69 @@
     <entry>
       <title><![CDATA[JAVA基础语法]]></title>
       <url>https://geekhoon.github.io/2017/01/06/JAVA%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/</url>
-      <content type="html"><![CDATA[<h2 id="一-JAVA环境搭建"><a href="#一-JAVA环境搭建" class="headerlink" title="一.JAVA环境搭建"></a>一.JAVA环境搭建</h2><h3 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h3><ul>
-<li>创始团队:詹姆斯-高斯林</li>
-<li>sun开发,    已被oracle收购.</li>
-<li>版本(平台)<br>JAVASE(标准版):开发简单桌面应用,不能开发大型项目.也叫J2SE<br>JAVAEE(企业版或Web版):可做电商、企业级应用(如ERP、CRM、BOS、OA等)，也叫J2EE<br>JAVAME（嵌入式开发）：也叫J2ME<a id="more"></a>
-<h3 id="2-常用DOS命令"><a href="#2-常用DOS命令" class="headerlink" title="2.常用DOS命令"></a>2.常用DOS命令</h3></li>
-<li>清屏：cls(clear screen)</li>
-<li>切换盘符：盘符:</li>
-<li>进入指定目录：cd（change directory）</li>
-<li>返回上一级目录：cd..</li>
-<li>返回盘符根目录：cd\</li>
-<li>进入其他盘符文件夹：cd 盘符:\文件夹名</li>
-<li>显示当前目录下的文件和子目录信息：dir<h3 id="3-开发环境"><a href="#3-开发环境" class="headerlink" title="3.开发环境"></a>3.开发环境</h3></li>
-<li>JDK(JAVA Development Kit):&nbsp;&nbsp;&nbsp;java开发工具包</li>
-<li>JDK包含<br>JRE(JAVA Runtime Environment):JAVA运行环境<br>JAVA开发工具<h3 id="4-跨平台特性"><a href="#4-跨平台特性" class="headerlink" title="4.跨平台特性"></a>4.跨平台特性</h3></li>
-<li>平台指操作系统(Windows/Linux/mac)</li>
-<li>一次编写,到处运行</li>
-<li>跨平台特性依赖于JVM(JAVA Virtual Machine)</li>
-<li>JRE包含<br>JVM<br>类库  <h2 id="二-HelloWorld"><a href="#二-HelloWorld" class="headerlink" title="二.HelloWorld"></a>二.HelloWorld</h2>源文件:.java<br>编&nbsp;&nbsp;&nbsp;译:.java&nbsp;→.class(字节码文件)<br>运&nbsp;&nbsp;&nbsp;行:运行.class</li>
-</ul>
-<pre><code>public class HelloWorld{
+      <content type="html"><![CDATA[<h2 id="一-JAVA环境搭建"><a href="#一-JAVA环境搭建" class="headerlink" title="一.JAVA环境搭建"></a>一.JAVA环境搭建</h2><h3 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h3><pre><code>* 创始团队:詹姆斯-高斯林
+* sun开发,已被oracle收购.
+* 版本(平台)
+    * JAVASE(标准版):开发简单桌面应用,不能开发大型项目.也叫J2SE 
+    * JAVAEE(企业版或Web版):可做电商、企业级应用(如ERP、CRM、BOS、OA等)，也叫J2EE
+    * JAVAME（嵌入式开发）：也叫J2ME
+</code></pre><a id="more"></a>
+<h3 id="2-常用DOS命令"><a href="#2-常用DOS命令" class="headerlink" title="2.常用DOS命令"></a>2.常用DOS命令</h3><pre><code>* 清屏：cls(clear screen)
+* 切换盘符：盘符:
+* 进入指定目录：cd（change directory）
+* 返回上一级目录：cd..
+* 返回盘符根目录：cd\
+* 进入其他盘符文件夹：cd 盘符:\文件夹名
+* 显示当前目录下的文件和子目录信息：dir
+</code></pre><h3 id="3-开发环境"><a href="#3-开发环境" class="headerlink" title="3.开发环境"></a>3.开发环境</h3><pre><code>* JDK(JAVA Development Kit):java开发工具包
+* JDK包含
+    * JRE(JAVA Runtime Environment):JAVA运行环境
+    * JAVA开发工具
+</code></pre><h3 id="4-跨平台特性"><a href="#4-跨平台特性" class="headerlink" title="4.跨平台特性"></a>4.跨平台特性</h3><pre><code>* 平台指操作系统(Windows/Linux/mac)
+* 一次编写,到处运行
+* 跨平台特性依赖于JVM(JAVA Virtual Machine)
+* JRE包含
+    * JVM 
+    * 类库  
+</code></pre><h2 id="二-HelloWorld"><a href="#二-HelloWorld" class="headerlink" title="二.HelloWorld"></a>二.HelloWorld</h2><pre><code>* 源文件:  .java 
+* 编译:    .java   →    .class(字节码文件)
+* 运行:    运行.class
+
+public class HelloWorld{
     public static void main(String[] args){
         System.out.println(&quot;HelloWorld&quot;);
     }
 }
 </code></pre><p><strong>注意:</strong><br><strong>1.class前加上public,类名(HelloWorld)要与文件名(HelloWorld.java)一致,不加public,类名可换成其他</strong><br><strong>2.主方法是程序的入口,被虚拟机调用,它能保证程序的独立运行</strong><br>编译:<code>javac HelloWorld.java</code><br>编译时HelloWorld.java可以写成helloworld.java,因为对源文件来说HellWorld.java和helloworld.java所指的源文件是唯一的<br>运行:<code>java HelloWorld</code><br>运行时HelloWorxld是类名,不能写成helloworld</p>
-<h2 id="三-注释、关键字、标识符"><a href="#三-注释、关键字、标识符" class="headerlink" title="三.注释、关键字、标识符"></a>三.注释、关键字、标识符</h2><h3 id="1-注释"><a href="#1-注释" class="headerlink" title="1.注释"></a>1.注释</h3><ul>
-<li>编译时,编译器会忽略注释</li>
-<li>包括<br>单行注释://<br>多行注释:/<em>….</em>/<br>文档注释:/<em>*…</em>/</li>
-<li>多行注释不能嵌套多行注释<h3 id="2-关键字"><a href="#2-关键字" class="headerlink" title="2.关键字"></a>2.关键字</h3></li>
-<li>被JAVA赋予特殊含义,具有专门用途的单词</li>
-<li>JAVA中关键字均为小写</li>
-<li>main不是关键字<h3 id="3-标识符"><a href="#3-标识符" class="headerlink" title="3.标识符"></a>3.标识符</h3></li>
-<li>JAVA中,程序员自己定义的内容</li>
-<li>规则:<br>1.组成:字母52个(a-z,A-Z)、数字(0-9)、下划线_、美元符$<br>2.注意:不能以数字开头、不能是关键字、标识符不能有空格、严格区分大小写<br>3.类的名字:首字母大写,第二个单词开始首字母大写<br>4.方法名字与变量名一样:首字母小写,第二个单词开始首字母大写 <h2 id="四-数据"><a href="#四-数据" class="headerlink" title="四.数据"></a>四.数据</h2><h3 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1.数据类型"></a>1.数据类型</h3></li>
-<li>程序=数据+逻辑</li>
-<li>数据类型包括<br>(1)基本数据类型:整数、小数、字符、布尔<br>(2)引用数据类型:数组、类、接口<h3 id="2-常量"><a href="#2-常量" class="headerlink" title="2.常量"></a>2.常量</h3></li>
-<li>整数类型<br>十进制<br>二进制:以0b(0B)开头,只有0和1<br>十六进制:以0x(0X)开头,0-9和A-F,F表示15<br>八进制:以0开头,最大数为7  </li>
-<li>小数类型(浮点类型)</li>
-<li>布尔类型:true和flase为关键字</li>
-<li>字符类型:单引号中仅能包含一个字符,不能不写字符,可以用一个空格</li>
-<li>字符串类型:可以写0-n个字符<h2 id="五-变量"><a href="#五-变量" class="headerlink" title="五.变量"></a>五.变量</h2></li>
-</ul>
-<h3 id="1-变量概述"><a href="#1-变量概述" class="headerlink" title="1.变量概述"></a>1.变量概述</h3><pre><code>* 什么是变量?
+<h2 id="三-注释、关键字、标识符"><a href="#三-注释、关键字、标识符" class="headerlink" title="三.注释、关键字、标识符"></a>三.注释、关键字、标识符</h2><h3 id="1-注释"><a href="#1-注释" class="headerlink" title="1.注释"></a>1.注释</h3><pre><code>* 编译时,编译器会忽略注释
+* 包含
+    * 单行注释:// 
+    * 多行注释:/*....*/ 
+    * 文档注释:/**...*/ 
+* 多行注释不能嵌套多行注释
+</code></pre><h3 id="2-关键字"><a href="#2-关键字" class="headerlink" title="2.关键字"></a>2.关键字</h3><pre><code>* 被JAVA赋予特殊含义,具有专门用途的单词
+* JAVA中关键字均为小写
+* main不是关键字
+</code></pre><h3 id="3-标识符"><a href="#3-标识符" class="headerlink" title="3.标识符"></a>3.标识符</h3><pre><code>* JAVA中,程序员自己定义的内容
+* 规则: 
+    * 1.组成:字母52个(a-z,A-Z)、数字(0-9)、下划线_、美元符$
+    * 2.注意:不能以数字开头、不能是关键字、标识符不能有空格、严格区分大小写
+    * 3.类的名字:首字母大写,第二个单词开始首字母大写
+    * 4.方法名字与变量名一样:首字母小写,第二个单词开始首字母大写 
+</code></pre><h2 id="四-数据"><a href="#四-数据" class="headerlink" title="四.数据"></a>四.数据</h2><h3 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1.数据类型"></a>1.数据类型</h3><pre><code>* 程序=数据+逻辑
+* 数据类型包括 
+    * 1.基本数据类型:整数、小数、字符、布尔 
+    * 2.引用数据类型:数组、类、接口
+</code></pre><h3 id="2-常量"><a href="#2-常量" class="headerlink" title="2.常量"></a>2.常量</h3><pre><code>* 整数类型 
+    * 十进制
+    * 二进制:以0b(0B)开头,只有0和1  
+    * 十六进制:以0x(0X)开头,0-9和A-F,F表示15 
+    * 八进制:以0开头,最大数为7
+* 小数类型(浮点类型)
+* 布尔类型:true和flase为关键字
+* 字符类型:单引号中仅能包含一个字符,不能不写字符,可以用一个空格
+* 字符串类型:可以写0-n个字符  
+</code></pre><h2 id="五-变量"><a href="#五-变量" class="headerlink" title="五.变量"></a>五.变量</h2><h3 id="1-变量概述"><a href="#1-变量概述" class="headerlink" title="1.变量概述"></a>1.变量概述</h3><pre><code>* 什么是变量?
     * 变量是内存中装载数据的小盒子，你只能用它来存数据和取数据
 </code></pre><h3 id="2-计算机存储单元"><a href="#2-计算机存储单元" class="headerlink" title="2.计算机存储单元"></a>2.计算机存储单元</h3><pre><code>* 计算机中最小信息单元是?
     * 位(bit),也叫比特位.用b表示
