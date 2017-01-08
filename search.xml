@@ -49,7 +49,8 @@
                 }
             }
             本题证明了(a++ &gt; 1)是用a=1与1做大小判断,而不是2,说明a先比较,再自增.但最终输出a的大小都是2
-</code></pre><h3 id="2-赋值运算符"><a href="#2-赋值运算符" class="headerlink" title="2.赋值运算符"></a>2.赋值运算符</h3><pre><code>* 有 =  +=  -=  *=  /=  %=  
+</code></pre><a id="more"></a>
+<h3 id="2-赋值运算符"><a href="#2-赋值运算符" class="headerlink" title="2.赋值运算符"></a>2.赋值运算符</h3><pre><code>* 有 =  +=  -=  *=  /=  %=  
 * 注意:
      如：
                 byte  b = 1;               (1)
@@ -118,7 +119,8 @@
 * 布尔类型:true和flase为关键字
 * 字符类型:单引号中仅能包含一个字符,不能不写字符,可以用一个空格
 * 字符串类型:可以写0-n个字符  
-</code></pre><h2 id="二-变量"><a href="#二-变量" class="headerlink" title="二.变量"></a>二.变量</h2><h3 id="1-变量概述"><a href="#1-变量概述" class="headerlink" title="1.变量概述"></a>1.变量概述</h3><pre><code>* 什么是变量?
+</code></pre><a id="more"></a>
+<h2 id="二-变量"><a href="#二-变量" class="headerlink" title="二.变量"></a>二.变量</h2><h3 id="1-变量概述"><a href="#1-变量概述" class="headerlink" title="1.变量概述"></a>1.变量概述</h3><pre><code>* 什么是变量?
     * 变量是内存中装载数据的小盒子，你只能用它来存数据和取数据
 </code></pre><h3 id="2-计算机存储单元"><a href="#2-计算机存储单元" class="headerlink" title="2.计算机存储单元"></a>2.计算机存储单元</h3><pre><code>* 计算机中最小信息单元是?
     * 位(bit),也叫比特位.用b表示
