@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-01-08T02:03:04.881Z</updated>
+  <updated>2017-01-08T02:04:24.596Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="https://geekhoon.github.io/2017/01/08/04-%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
     <id>https://geekhoon.github.io/2017/01/08/04-运算符/</id>
     <published>2017-01-08T01:58:55.000Z</published>
-    <updated>2017-01-08T02:03:04.881Z</updated>
+    <updated>2017-01-08T02:04:24.596Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="一-运算符"><a href="#一-运算符" class="headerlink" title="一.运算符"></a>一.运算符</h2><h3 id="1-算数运算符"><a href="#1-算数运算符" class="headerlink" title="1.算数运算符"></a>1.算数运算符</h3><pre><code>* 注意事项
+    <content type="html"><![CDATA[<h3 id="1-算数运算符"><a href="#1-算数运算符" class="headerlink" title="1.算数运算符"></a>1.算数运算符</h3><pre><code>* 注意事项
     *加法运算符在连接字符串时要注意，只有直接与字符串相加才会转成字符串.字符串后面的&quot;+&quot;为&quot;连接&quot;,字符串前面的&quot;+&quot;还是加法
 * ++和--放前放后区别:
     *符号放前放后,在变量自己独立计算时,没有区别
@@ -120,7 +120,7 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;一-运算符&quot;&gt;&lt;a href=&quot;#一-运算符&quot; class=&quot;headerlink&quot; title=&quot;一.运算符&quot;&gt;&lt;/a&gt;一.运算符&lt;/h2&gt;&lt;h3 id=&quot;1-算数运算符&quot;&gt;&lt;a href=&quot;#1-算数运算符&quot; class=&quot;headerlink&quot; title=&quot;1.算数运算符&quot;&gt;&lt;/a&gt;1.算数运算符&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;* 注意事项
+      &lt;h3 id=&quot;1-算数运算符&quot;&gt;&lt;a href=&quot;#1-算数运算符&quot; class=&quot;headerlink&quot; title=&quot;1.算数运算符&quot;&gt;&lt;/a&gt;1.算数运算符&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;* 注意事项
     *加法运算符在连接字符串时要注意，只有直接与字符串相加才会转成字符串.字符串后面的&amp;quot;+&amp;quot;为&amp;quot;连接&amp;quot;,字符串前面的&amp;quot;+&amp;quot;还是加法
 * ++和--放前放后区别:
     *符号放前放后,在变量自己独立计算时,没有区别
@@ -304,9 +304,9 @@
     <link href="https://geekhoon.github.io/2017/01/08/02-%E6%B3%A8%E9%87%8A%E3%80%81%E5%85%B3%E9%94%AE%E5%AD%97%E3%80%81%E6%A0%87%E8%AF%86%E7%AC%A6/"/>
     <id>https://geekhoon.github.io/2017/01/08/02-注释、关键字、标识符/</id>
     <published>2017-01-08T01:53:26.000Z</published>
-    <updated>2017-01-08T01:55:03.587Z</updated>
+    <updated>2017-01-08T02:04:09.576Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="一-注释、关键字、标识符"><a href="#一-注释、关键字、标识符" class="headerlink" title="一.注释、关键字、标识符"></a>一.注释、关键字、标识符</h2><h3 id="1-注释"><a href="#1-注释" class="headerlink" title="1.注释"></a>1.注释</h3><pre><code>* 编译时,编译器会忽略注释
+    <content type="html"><![CDATA[<h3 id="1-注释"><a href="#1-注释" class="headerlink" title="1.注释"></a>1.注释</h3><pre><code>* 编译时,编译器会忽略注释
 * 包含
     * 单行注释:// 
     * 多行注释:/*....*/ 
@@ -325,7 +325,10 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;一-注释、关键字、标识符&quot;&gt;&lt;a href=&quot;#一-注释、关键字、标识符&quot; class=&quot;headerlink&quot; title=&quot;一.注释、关键字、标识符&quot;&gt;&lt;/a&gt;一.注释、关键字、标识符&lt;/h2&gt;&lt;h3 id=&quot;1-注释&quot;&gt;&lt;a href=&quot;#1-注释&quot; cla
+      &lt;h3 id=&quot;1-注释&quot;&gt;&lt;a href=&quot;#1-注释&quot; class=&quot;headerlink&quot; title=&quot;1.注释&quot;&gt;&lt;/a&gt;1.注释&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;* 编译时,编译器会忽略注释
+* 包含
+    * 单行注释:// 
+    * 多行注释:/*....*/
     
     </summary>
     
