@@ -110,7 +110,7 @@
     * 十六进制:以0x(0X)开头,0-9和A-F,F表示15 
     * 八进制:以0开头,最大数为7
 * 小数类型(浮点类型">
-<meta property="og:updated_time" content="2017-01-09T08:11:25.575Z">
+<meta property="og:updated_time" content="2017-01-09T13:02:32.694Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="03.数据">
 <meta name="twitter:description" content="一.数据1.数据类型* 程序=数据+逻辑
@@ -443,6 +443,7 @@
     * 字符型    char    2    表示一个字符，如(&apos;a&apos;，&apos;A&apos;，&apos;0&apos;，&apos;家&apos;)
     * 布尔型    boolean    1    只有两个值true与false,默认是false
 </code></pre><h3 id="4-常量和数据类型"><a href="#4-常量和数据类型" class="headerlink" title="4.常量和数据类型"></a>4.常量和数据类型</h3><pre><code>* 常量
+    * 常量是程序在运行过程中,其值不会发生改变的量
     * 整型常量默认是int类型.
     * 定义长整型数据如果值超过int取值范围后面要+&quot;L&quot;,凡添加了&quot;L&quot;,都是long类型
     * 浮点常量默认是double类型,没有后缀或以&quot;D&quot;为后缀,都是double型
@@ -519,7 +520,9 @@
     *
                 char c = 98;这是对的,不要以为没加&apos;&apos;,就不是字符.由Ascii码表,只要数字范围i在(0-65535),就可以Ascii为单个字符
     *
-                long可以自动类型变换至float的原因:    
+                long可以自动类型变换至float的原因: 
+                       (1)它们底层的存储结构不同
+                       (2)遵循IEEE-754格式标准,float类型的指数可从-126到128.float表示的数据范围比long型的范围要大
 </code></pre>
       
     </div>

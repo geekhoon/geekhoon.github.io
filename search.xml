@@ -6,7 +6,10 @@
     <entry>
       <title><![CDATA[基础题目答案]]></title>
       <url>https://geekhoon.github.io/2017/01/09/%E5%9F%BA%E7%A1%80%E9%A2%98%E7%9B%AE%E7%AD%94%E6%A1%88/</url>
-      <content type="html"><![CDATA[<h3 id="1-运算符"><a href="#1-运算符" class="headerlink" title="1.运算符"></a>1.运算符</h3><pre><code>1. 请写出该输出语句的结果     
+      <content type="html"><![CDATA[<h3 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1.数据类型"></a>1.数据类型</h3><pre><code>1. JAVA语言中的字符char可以存储一个中文汉字吗?原因?
+   *可以.因为Java中字符占两个字节.一个中文汉字也占两个字节
+   *Java采用的是Unicode编码
+</code></pre><h3 id="2-运算符"><a href="#2-运算符" class="headerlink" title="2.运算符"></a>2.运算符</h3><pre><code>1. 请写出该输出语句的结果     
 
 * hello98
    *因为括号的优先级,(&apos;a&apos;+1)中的&quot;+&quot;依然执行加法,所以字符型根据Ascii转成97,第一个&quot;+&quot;为连接
@@ -21,7 +24,8 @@
     <entry>
       <title><![CDATA[基础题目]]></title>
       <url>https://geekhoon.github.io/2017/01/09/%E5%9F%BA%E7%A1%80%E9%A2%98%E7%9B%AE/</url>
-      <content type="html"><![CDATA[<h3 id="1-运算符"><a href="#1-运算符" class="headerlink" title="1.运算符"></a>1.运算符</h3><pre><code>1. 请写出该输出语句的结果
+      <content type="html"><![CDATA[<h3 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1.数据类型"></a>1.数据类型</h3><pre><code>1. JAVA语言中的字符char可以存储一个中文汉字吗?原因?
+</code></pre><h3 id="2-运算符"><a href="#2-运算符" class="headerlink" title="2.运算符"></a>2.运算符</h3><pre><code>1. 请写出该输出语句的结果
 
 System.out.println(&quot;hello&quot;+(&apos;a&apos;+1));
 
@@ -214,6 +218,7 @@ System.out.println(&quot;hello&quot;+(&apos;a&apos;+1));
     * 字符型    char    2    表示一个字符，如(&apos;a&apos;，&apos;A&apos;，&apos;0&apos;，&apos;家&apos;)
     * 布尔型    boolean    1    只有两个值true与false,默认是false
 </code></pre><h3 id="4-常量和数据类型"><a href="#4-常量和数据类型" class="headerlink" title="4.常量和数据类型"></a>4.常量和数据类型</h3><pre><code>* 常量
+    * 常量是程序在运行过程中,其值不会发生改变的量
     * 整型常量默认是int类型.
     * 定义长整型数据如果值超过int取值范围后面要+&quot;L&quot;,凡添加了&quot;L&quot;,都是long类型
     * 浮点常量默认是double类型,没有后缀或以&quot;D&quot;为后缀,都是double型
@@ -290,7 +295,9 @@ System.out.println(&quot;hello&quot;+(&apos;a&apos;+1));
     *
                 char c = 98;这是对的,不要以为没加&apos;&apos;,就不是字符.由Ascii码表,只要数字范围i在(0-65535),就可以Ascii为单个字符
     *
-                long可以自动类型变换至float的原因:    
+                long可以自动类型变换至float的原因: 
+                       (1)它们底层的存储结构不同
+                       (2)遵循IEEE-754格式标准,float类型的指数可从-126到128.float表示的数据范围比long型的范围要大
 </code></pre>]]></content>
     </entry>
     
