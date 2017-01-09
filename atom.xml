@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-01-09T08:53:29.590Z</updated>
+  <updated>2017-01-09T09:51:21.135Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>常用快捷键</title>
     <link href="https://geekhoon.github.io/2017/01/09/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
     <id>https://geekhoon.github.io/2017/01/09/常用快捷键/</id>
-    <published>2017-01-09T08:35:50.163Z</published>
-    <updated>2017-01-09T08:53:29.590Z</updated>
+    <published>2017-01-09T09:50:28.000Z</published>
+    <updated>2017-01-09T09:51:21.135Z</updated>
     
     <content type="html"><![CDATA[<h3 id="1-Dos"><a href="#1-Dos" class="headerlink" title="1.Dos"></a>1.Dos</h3><pre><code>* Shift + 右键    : 当前文件夹下打开dos
 * Tab             : 注意dos下,&quot;Tab键&quot;的使用,可方便输入
@@ -40,6 +40,10 @@
     
     </summary>
     
+      <category term="技巧" scheme="https://geekhoon.github.io/categories/%E6%8A%80%E5%B7%A7/"/>
+    
+    
+      <category term="技巧" scheme="https://geekhoon.github.io/tags/%E6%8A%80%E5%B7%A7/"/>
     
   </entry>
   
