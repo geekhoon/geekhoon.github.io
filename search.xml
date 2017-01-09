@@ -4,10 +4,42 @@
   
     
     <entry>
+      <title></title>
+      <url>https://geekhoon.github.io/2017/01/09/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+      <content type="html"><![CDATA[<h3 id="1-Dos"><a href="#1-Dos" class="headerlink" title="1.Dos"></a>1.Dos</h3><pre><code>* Shift + 右键    : 当前文件夹下打开dos
+* Tab             : 注意dos下,&quot;Tab键&quot;的使用,可方便输入
+* 标记 + 右键/回车 : dos下复制
+* &quot;↑&quot;和&quot;↓&quot;        : dos未关闭前提下,使用之前的命令
+* 复制路径后,dos下右键,可以粘贴
+</code></pre><h3 id="2-notepad"><a href="#2-notepad" class="headerlink" title="2.notepad++"></a>2.notepad++</h3><pre><code>* Ctrl + D           : 复制该行
+* Ctrl + Shift + ↑/↓ :移动该行
+</code></pre><h3 id="3-xmind"><a href="#3-xmind" class="headerlink" title="3.xmind"></a>3.xmind</h3><pre><code>* Tab : 新建分支
+*  F4 : 添加备注
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[04.运算符]]></title>
       <url>https://geekhoon.github.io/2017/01/08/04-%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
       <content type="html"><![CDATA[<h3 id="1-算数运算符"><a href="#1-算数运算符" class="headerlink" title="1.算数运算符"></a>1.算数运算符</h3><pre><code>* 注意事项
-    *加法运算符在连接字符串时要注意，只有直接与字符串相加才会转成字符串.字符串后面的&quot;+&quot;为&quot;连接&quot;,字符串前面的&quot;+&quot;还是加法
+    1.&quot;+&quot;加法运算符,在连接字符串时要注意，只有直接与字符串相加才会转成字符串.字符串后面的&quot;+&quot;为&quot;连接&quot;,字符串前面的&quot;+&quot;还是加法
+        如:
+            System.out.println(5+5+&quot;=&quot;+5+5);这个输出的是10=55
+    2.&quot;/&quot;除法运算符,整数与整数除,结果为整数;整数与小数除,结果是小数类型
+    3.&quot;%&quot;取模,取余运算符
+              -5  % 5 = 0;
+              -10 % 5 = 0;
+              -7  % 5 = -2;
+               10 % 5 = 0;
+               2  % 5 = 2;
+              -2  % 5 = -2;
+        结论:
+        (1)正负符号位取得是左边,与右边无关
+        (2)如果左边的绝对值是右边绝对值的整数倍,结果为0
+        (3)如果左边的绝对值大于右边的绝对值,结果为余数(正常取余就行,注意正负号)
+        (4)如果左边的绝对值小于右边的绝对值,结果为左边
+        (5)任何一个整数%2,结果不是0就是1,可以用来当作切换条件
+
 * ++和--放前放后区别:
     *符号放前放后,在变量自己独立计算时,没有区别
     *在与其他运算符同时计算时会有区别             
@@ -58,7 +90,8 @@
                 System.out.println(b);     (3)
                 编译会报错,因为(1)中b为byte型,占1个字节,(2)中1为int类型,占4个字节,它们相加之后,是4字节.然后赋值给1字节大小的b,会损失精度.
                 将(2)改成b =(byte) (b + 1);或者b += 1;都对.这两句等价
-</code></pre><h3 id="3-比较运算符"><a href="#3-比较运算符" class="headerlink" title="3.比较运算符"></a>3.比较运算符</h3><pre><code>* 有 ==  !=  &gt;  &lt;  &gt;=  &lt;=  
+</code></pre><h3 id="3-比较运算符"><a href="#3-比较运算符" class="headerlink" title="3.比较运算符"></a>3.比较运算符</h3><pre><code>* 也叫关系运算符
+* 有 ==  !=  &gt;  &lt;  &gt;=  &lt;=  
 * 注意:
      如：
                 int  i = 3;
@@ -82,7 +115,7 @@
                 结果为3和4.   i == j 为flase, 所以++i &gt; 3并没有执行
     *||短路或: 左边结果为true,右边不执行
 * 短路与 和 短路或 可以提高程序运行效率
-</code></pre><h3 id="5-三元运算符"><a href="#5-三元运算符" class="headerlink" title="5.三元运算符"></a>5.三元运算符</h3><pre><code>* 公式:    布尔表达式 ? 结果1 : 结果2
+</code></pre><h3 id="5-三元-目-运算符"><a href="#5-三元-目-运算符" class="headerlink" title="5.三元(目)运算符"></a>5.三元(目)运算符</h3><pre><code>* 公式:    布尔表达式 ? 结果1 : 结果2
 </code></pre><h3 id="6-运算符优先级"><a href="#6-运算符优先级" class="headerlink" title="6.运算符优先级"></a>6.运算符优先级</h3><pre><code>优先级    描述          运算符
 1    括号           ()、[]
 2    正负号           +、-
@@ -122,8 +155,10 @@
 </code></pre><a id="more"></a>
 <h2 id="二-变量"><a href="#二-变量" class="headerlink" title="二.变量"></a>二.变量</h2><h3 id="1-变量概述"><a href="#1-变量概述" class="headerlink" title="1.变量概述"></a>1.变量概述</h3><pre><code>* 什么是变量?
     * 变量是内存中装载数据的小盒子，你只能用它来存数据和取数据
+    * 在程序运行过程中,其值可以发生改变的量
 </code></pre><h3 id="2-计算机存储单元"><a href="#2-计算机存储单元" class="headerlink" title="2.计算机存储单元"></a>2.计算机存储单元</h3><pre><code>* 计算机中最小信息单元是?
     * 位(bit),也叫比特位.用b表示
+    * 8个位,表示一个数据
 * 计算机中储存和运算的最小单位是?
     * 一个字节,也就是一个byte.用B表示            
     * 常用储存单位
@@ -142,7 +177,7 @@
     * 浮点型    float    4    
               double   8    
     * 字符型    char    2    表示一个字符，如(&apos;a&apos;，&apos;A&apos;，&apos;0&apos;，&apos;家&apos;)
-    * 布尔型    boolean    1    只有两个值true与false
+    * 布尔型    boolean    1    只有两个值true与false,默认是false
 </code></pre><h3 id="4-常量和数据类型"><a href="#4-常量和数据类型" class="headerlink" title="4.常量和数据类型"></a>4.常量和数据类型</h3><pre><code>* 常量
     * 整型常量默认是int类型.
     * 定义长整型数据如果值超过int取值范围后面要+&quot;L&quot;,凡添加了&quot;L&quot;,都是long类型
@@ -168,11 +203,26 @@
         }
     }    
 * 注意:
-    a.字符串String属于引用类型,不属于基本类型
+    a.字符串String属于引用类型(类),不属于基本类型,
     b.变量定义后,不赋值,能编译通过,但运行时会报错.不赋值不能使用。
     c.变量使用时有作用域的限制。(所在的大括号范围内)
+    如：
+    (1)public class Variable {
+           public static void main(String[] args) {
+                {
+                    int j = 10;
+                }
+                int j = 10;
+       }这是对的,因为第一个j声明的作用区间为它所在的大括号,第二个j再声明,和它就不冲突
+    (2)public class Variable {
+           public static void main(String[] args) {
+                int j = 10;  
+                {
+                    int j = 10;
+                }
+     }这是错的,因为第一个j声明的作用区间为它所在的大括号,即整个main方法,第二个j再在main方法中声明,就产生了冲突
     d.变量不允许重复定义
-</code></pre><h3 id="6-数据类型转换"><a href="#6-数据类型转换" class="headerlink" title="6.数据类型转换"></a>6.数据类型转换</h3><pre><code>* 自动类型转换：
+</code></pre><h3 id="6-数据类型转换"><a href="#6-数据类型转换" class="headerlink" title="6.数据类型转换"></a>6.数据类型转换</h3><pre><code>* 自动类型转换：(也叫自动类型提升,或叫隐式转换)
     *表示范围小的数据类型转换成范围大的数据类型,如byte转成int
     *自动类型转换格式：
         范围大的数据类型 变量 = 范围小的数据类型值；
@@ -196,6 +246,16 @@
     *
                 byte b = (byte)200;
                 System.out.println(b);注意输出结果不是127,因为会损失精度
+    *
+                byte b = 10;这是对的.不要以为10为int类型,赋值给byte就需要强制转换.只要需要赋值的数据值,在byte范围(-128-127)内,就是对的,不需要    强制转换.因为java中常量优化机制,只要在范围内自己转换
+    *
+                byte b1=3,b2=4;
+                byte b = b1+b2;// 错,因为b1和b2都是变量,值不确定,所以可能超出byte范围
+                byte b = 3+4;//对 给出了固定值,和不超过范围.由java底层常量优化机制,即可自动转换.如果是byte b = 300+4;那就错了
+    *
+                char c = 98;这是对的,不要以为没加&apos;&apos;,就不是字符.由Ascii码表,只要数字范围i在(0-65535),就可以Ascii为单个字符
+    *
+                long可以自动类型变换至float的原因:    
 </code></pre>]]></content>
     </entry>
     

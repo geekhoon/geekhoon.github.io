@@ -110,7 +110,7 @@
     * 十六进制:以0x(0X)开头,0-9和A-F,F表示15 
     * 八进制:以0开头,最大数为7
 * 小数类型(浮点类型">
-<meta property="og:updated_time" content="2017-01-08T02:02:46.891Z">
+<meta property="og:updated_time" content="2017-01-09T08:11:25.575Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="03.数据">
 <meta name="twitter:description" content="一.数据1.数据类型* 程序=数据+逻辑
@@ -419,8 +419,10 @@
 </code></pre><a id="more"></a>
 <h2 id="二-变量"><a href="#二-变量" class="headerlink" title="二.变量"></a>二.变量</h2><h3 id="1-变量概述"><a href="#1-变量概述" class="headerlink" title="1.变量概述"></a>1.变量概述</h3><pre><code>* 什么是变量?
     * 变量是内存中装载数据的小盒子，你只能用它来存数据和取数据
+    * 在程序运行过程中,其值可以发生改变的量
 </code></pre><h3 id="2-计算机存储单元"><a href="#2-计算机存储单元" class="headerlink" title="2.计算机存储单元"></a>2.计算机存储单元</h3><pre><code>* 计算机中最小信息单元是?
     * 位(bit),也叫比特位.用b表示
+    * 8个位,表示一个数据
 * 计算机中储存和运算的最小单位是?
     * 一个字节,也就是一个byte.用B表示            
     * 常用储存单位
@@ -439,7 +441,7 @@
     * 浮点型    float    4    
               double   8    
     * 字符型    char    2    表示一个字符，如(&apos;a&apos;，&apos;A&apos;，&apos;0&apos;，&apos;家&apos;)
-    * 布尔型    boolean    1    只有两个值true与false
+    * 布尔型    boolean    1    只有两个值true与false,默认是false
 </code></pre><h3 id="4-常量和数据类型"><a href="#4-常量和数据类型" class="headerlink" title="4.常量和数据类型"></a>4.常量和数据类型</h3><pre><code>* 常量
     * 整型常量默认是int类型.
     * 定义长整型数据如果值超过int取值范围后面要+&quot;L&quot;,凡添加了&quot;L&quot;,都是long类型
@@ -465,11 +467,26 @@
         }
     }    
 * 注意:
-    a.字符串String属于引用类型,不属于基本类型
+    a.字符串String属于引用类型(类),不属于基本类型,
     b.变量定义后,不赋值,能编译通过,但运行时会报错.不赋值不能使用。
     c.变量使用时有作用域的限制。(所在的大括号范围内)
+    如：
+    (1)public class Variable {
+           public static void main(String[] args) {
+                {
+                    int j = 10;
+                }
+                int j = 10;
+       }这是对的,因为第一个j声明的作用区间为它所在的大括号,第二个j再声明,和它就不冲突
+    (2)public class Variable {
+           public static void main(String[] args) {
+                int j = 10;  
+                {
+                    int j = 10;
+                }
+     }这是错的,因为第一个j声明的作用区间为它所在的大括号,即整个main方法,第二个j再在main方法中声明,就产生了冲突
     d.变量不允许重复定义
-</code></pre><h3 id="6-数据类型转换"><a href="#6-数据类型转换" class="headerlink" title="6.数据类型转换"></a>6.数据类型转换</h3><pre><code>* 自动类型转换：
+</code></pre><h3 id="6-数据类型转换"><a href="#6-数据类型转换" class="headerlink" title="6.数据类型转换"></a>6.数据类型转换</h3><pre><code>* 自动类型转换：(也叫自动类型提升,或叫隐式转换)
     *表示范围小的数据类型转换成范围大的数据类型,如byte转成int
     *自动类型转换格式：
         范围大的数据类型 变量 = 范围小的数据类型值；
@@ -493,6 +510,16 @@
     *
                 byte b = (byte)200;
                 System.out.println(b);注意输出结果不是127,因为会损失精度
+    *
+                byte b = 10;这是对的.不要以为10为int类型,赋值给byte就需要强制转换.只要需要赋值的数据值,在byte范围(-128-127)内,就是对的,不需要    强制转换.因为java中常量优化机制,只要在范围内自己转换
+    *
+                byte b1=3,b2=4;
+                byte b = b1+b2;// 错,因为b1和b2都是变量,值不确定,所以可能超出byte范围
+                byte b = 3+4;//对 给出了固定值,和不超过范围.由java底层常量优化机制,即可自动转换.如果是byte b = 300+4;那就错了
+    *
+                char c = 98;这是对的,不要以为没加&apos;&apos;,就不是字符.由Ascii码表,只要数字范围i在(0-65535),就可以Ascii为单个字符
+    *
+                long可以自动类型变换至float的原因:    
 </code></pre>
       
     </div>
@@ -629,7 +656,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
