@@ -144,7 +144,7 @@ System.out.println(&quot;hello&quot;+(&apos;a&apos;+1));
     <link href="https://geekhoon.github.io/2017/01/08/04-%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
     <id>https://geekhoon.github.io/2017/01/08/04-运算符/</id>
     <published>2017-01-08T01:58:55.000Z</published>
-    <updated>2017-01-09T08:25:03.008Z</updated>
+    <updated>2017-01-09T16:12:51.885Z</updated>
     
     <content type="html"><![CDATA[<h3 id="1-算数运算符"><a href="#1-算数运算符" class="headerlink" title="1.算数运算符"></a>1.算数运算符</h3><pre><code>* 注意事项
     1.&quot;+&quot;加法运算符,在连接字符串时要注意，只有直接与字符串相加才会转成字符串.字符串后面的&quot;+&quot;为&quot;连接&quot;,字符串前面的&quot;+&quot;还是加法
@@ -241,6 +241,7 @@ System.out.println(&quot;hello&quot;+(&apos;a&apos;+1));
     *||短路或: 左边结果为true,右边不执行
 * 短路与 和 短路或 可以提高程序运行效率
 </code></pre><h3 id="5-三元-目-运算符"><a href="#5-三元-目-运算符" class="headerlink" title="5.三元(目)运算符"></a>5.三元(目)运算符</h3><pre><code>* 公式:    布尔表达式 ? 结果1 : 结果2
+*注意:这里的结果1和2,不能是输出语句,必须是确定的结果
 </code></pre><h3 id="6-运算符优先级"><a href="#6-运算符优先级" class="headerlink" title="6.运算符优先级"></a>6.运算符优先级</h3><pre><code>优先级    描述          运算符
 1    括号           ()、[]
 2    正负号           +、-

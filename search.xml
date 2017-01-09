@@ -170,6 +170,7 @@ System.out.println(&quot;hello&quot;+(&apos;a&apos;+1));
     *||短路或: 左边结果为true,右边不执行
 * 短路与 和 短路或 可以提高程序运行效率
 </code></pre><h3 id="5-三元-目-运算符"><a href="#5-三元-目-运算符" class="headerlink" title="5.三元(目)运算符"></a>5.三元(目)运算符</h3><pre><code>* 公式:    布尔表达式 ? 结果1 : 结果2
+*注意:这里的结果1和2,不能是输出语句,必须是确定的结果
 </code></pre><h3 id="6-运算符优先级"><a href="#6-运算符优先级" class="headerlink" title="6.运算符优先级"></a>6.运算符优先级</h3><pre><code>优先级    描述          运算符
 1    括号           ()、[]
 2    正负号           +、-
