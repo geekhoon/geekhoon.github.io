@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-01-09T16:08:55.318Z</updated>
+  <updated>2017-01-10T10:06:28.632Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -16,11 +16,346 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>06.流程控制语句</title>
+    <link href="https://geekhoon.github.io/2017/01/10/06-%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/"/>
+    <id>https://geekhoon.github.io/2017/01/10/06-流程控制语句/</id>
+    <published>2017-01-10T02:29:14.000Z</published>
+    <updated>2017-01-10T10:06:28.632Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一-选择结构if"><a href="#一-选择结构if" class="headerlink" title="一. 选择结构if"></a>一. 选择结构if</h2><h3 id="1-if语句"><a href="#1-if语句" class="headerlink" title="1. if语句"></a>1. if语句</h3><pre><code>* 书写格式
+    if(比较表达式) {
+        语句体;
+    }
+* 执行流程
+    * 先计算比较表达式的值，看其返回值是true还是false。
+    * 如果是true，就执行语句体；
+    * 如果是false，就不执行语句体；
+* 注意:如果写成这样:
+    if(比较表达式); {
+        语句体;
+    }
+    加上分号&quot;;&quot; ,则代表if语句已经结束,大括号内的内容不管if的比较表达式true或false都会执行
+</code></pre><a id="more"></a>
+<h3 id="2-if…else语句"><a href="#2-if…else语句" class="headerlink" title="2. if…else语句"></a>2. if…else语句</h3><pre><code>* 书写格式
+    if(比较表达式) {
+        语句体1;
+    }else {
+        语句体2;
+    }
+* 执行流程
+    * 首先计算比较表达式的值，看其返回值是true还是false。
+    * 如果是true，就执行语句体1；
+    * 如果是false，就执行语句体2；
+</code></pre><h3 id="3-if…else-if…else语句"><a href="#3-if…else-if…else语句" class="headerlink" title="3. if…else if…else语句"></a>3. if…else if…else语句</h3><pre><code>* 适合在程序中,实现多条件的判断
+* 书写格式 
+    if(比较表达式1) {
+        语句体1;
+    }else if(比较表达式2) {
+        语句体2;
+    }else if(比较表达式3) {
+        语句体3;
+    }
+    ...
+    else {
+        语句体n+1;
+    }
+* 执行流程
+    * 首先计算比较表达式1看其返回值是true还是false，
+    * 如果是true，就执行语句体1，if语句结束。
+    * 如果是false，接着计算比较表达式2看其返回值是true还是false，
+    * 如果是true，就执行语句体2，if语句结束。
+    * 如果是false，接着计算比较表达式3看其返回值是true还是false，
+    * 如果都是false，就执行语句体n+1。
+* 案例代码
+    public class IfElseIfDemo{
+        public static void main(String[] args){
+            //成绩判断要求 ,成绩&gt;80  成绩&gt;70  成绩&gt;60  不及格
+            //定义变量,保存成绩
+            int grade = 75;
+            //使用if else if 语句对成绩判断
+            if( grade &gt; 80 ){
+                System.out.println(grade+&quot; 成绩是优&quot;);
+            }else if ( grade &gt; 70){
+                System.out.println(grade+&quot; 成绩是良&quot;);
+            }else if ( grade &gt; 60){
+                System.out.println(grade+&quot; 成绩是中&quot;);
+            }else{
+                System.out.println(grade+&quot; 成绩是差&quot;);
+            }
+
+        }
+    }
+* 注意: 只要有1个if的条件是true,其他的代码,不再执行
+</code></pre><h3 id="4-if语句和三元运算符的互换"><a href="#4-if语句和三元运算符的互换" class="headerlink" title="4. if语句和三元运算符的互换"></a>4. if语句和三元运算符的互换</h3><pre><code>* 使用if语句还是三元表达式
+    * 判断条件多,使用if
+     * 三元,必须有结果的, if 可以没有结果的
+* 三元运算符可以转换为if,但if不一定能转换为三元
+* 案例代码
+    public class IfElseDemo_1{
+        public static void main(String[] args){
+            int i = 15;
+            int j = 6;
+            //使用if语句,判断出最大值
+            if(i&gt;j){
+                System.out.println(i+&quot; 是最大值&quot;);
+            }else{
+                System.out.println(j+&quot; 是最大值&quot;);
+            }
+
+            //使用三元运算实现
+            int k = i&gt;j ? i : j;
+            System.out.println(k+&quot; 是最大值&quot;);
+        }
+    }
+</code></pre><h2 id="二-循环结构"><a href="#二-循环结构" class="headerlink" title="二. 循环结构"></a>二. 循环结构</h2><h3 id="1-while循环"><a href="#1-while循环" class="headerlink" title="1. while循环"></a>1. while循环</h3><pre><code>* 使用格式
+     初始化表达式；
+     while(条件){
+        循环体
+     }
+* 执行顺序     
+    当条件是true,就执行循环体,执行完循环体后
+    程序再次执行while中的条件,如果条件还是true,继续执行循环体
+    直到条件是false的时候,循环就结束        
+</code></pre><h3 id="2-for循环"><a href="#2-for循环" class="headerlink" title="2. for循环"></a>2. for循环</h3><pre><code>* 使用格式
+    for(初始化表达式 ; 条件表达式 ; 循环后操作表达式){
+            循环体;
+    }
+
+* 执行流程
+    for（① ; ② ; ③）{
+        ④
+    }
+    第一步，执行①,①终身只执行一次
+    第二步，执行②，如果判断结果为true，执行第三步，如果判断结果为false，执行第五步
+    第三步，执行④
+    第四步，执行③，然后重复执行第二步
+    第五步，退出循环
+
+* for与while循环:
+    1.for与while循环可以相互转换,但不建议转换
+    2.for循环中的初始化表达式中变量的作用范围只在for语句中有效
+    3.while初始化表达式是在while循环上变定义,作用范围大
+</code></pre><h3 id="3-do-while循环"><a href="#3-do-while循环" class="headerlink" title="3. do_while循环"></a>3. do_while循环</h3><pre><code>* 使用格式
+    do{
+         循环体;
+      }while(条件);//别丢了这个分号
+* 执行顺序
+    先执行一次循环体，然后再判断条件，如果条件为true，继续执行循环体，
+    如果条件为false，循环结束。
+* 特点
+    无条件先执行一次
+</code></pre><h3 id="4-死循环"><a href="#4-死循环" class="headerlink" title="4. 死循环"></a>4. 死循环</h3><pre><code>* 概述
+    * 无限循环存在的原因是并不知道循环多少次，而是根据某些条件，来控制循环
+* 格式
+    * while(true){}
+    * for(;;){}
+    * for(;true;){}
+* 注意:无限循环语句后面不允许再写代码,会编译失败.
+    * 但不是没有机会执行,当程序满足一定条件(break),可以控制,让死循环停止,执行后面的代码
+</code></pre><h3 id="5-嵌套for循环"><a href="#5-嵌套for循环" class="headerlink" title="5. 嵌套for循环"></a>5. 嵌套for循环</h3><pre><code>* 概述
+    * 嵌套循环是指在一个循环语句的循环体中再定义一个循环语句的语法结构。
+    * while、do…while、for循环语句都可以进行嵌套，并且它们之间也可以互相嵌套，如最常见的,在for循环中嵌套for循环。
+* 嵌套循环的格式
+    for(初始化表达式; 循环条件; 操作表达式) {
+        ………
+        for(初始化表达式; 循环条件; 操作表达式) {
+            执行语句
+            ………
+        }
+        ………
+    }
+* 执行顺序:
+      1.外循环执行一次,
+      2.内循环全部执行完,
+      3.回到外循环,外循环继续执行一次
+      4.内循环再全部执行完
+      5.再回到外循环,重复1到5,直到外循环结束
+* 各模块解释
+    * 总的循环次数 =  内循环次数 * 外循环的次数
+    * 内循环,是外循环的循环体
+
+    * 外循环,控制的是行数
+    * 内循环,控制的是每行的个数
+
+* 案例
+    *  打印正三角形
+    public class ForForDemo{
+        public static void main(String[] args){
+            for(int i = 0 ; i &lt; 9 ; i++){
+                for(int j = 0; j &lt; i+1 ;j++){  //++i
+                    System.out.print(&quot;* &quot;);
+                }
+                System.out.println();
+            }
+        }
+    }
+</code></pre><h3 id="6-break语句"><a href="#6-break语句" class="headerlink" title="6. break语句"></a>6. break语句</h3><pre><code>* 作用
+    * 跳出当前所在的循环体
+* 应用环境
+    * 只能应用在循环语句和switch语句中
+ * 注意
+    * 如果写在循环嵌套的内循环,结束的是内循环.除非在外循环前面加上循环标号,然后break 循环标号;
+* 举例
+        {
+            for(int i=0; i&lt;10; i++) {
+                if(i&gt;5) {
+                break;
+                }
+            System.out.println(“我爱Java”+i);
+            }
+        }
+        //会从0-5输出6次“我爱Java”
+* break详细解释
+    * a: 作用
+        * 在loop/switch选择或者循环过程中，我们总是满足布尔表达条件才能执行对应的代码，然而在这些逻辑过程中，
+            可以使用一些关键字直接跳出正在执行的代码，去执行后边或者指定位置的代码，
+            这些关键字一旦出现就可以跳转语句执行顺序。
+    * b: 使用方式
+        * 无法单独使用，必须将break关键字置于switch或循环语句中
+    * c: 运行规律
+        * 不需要判断任何条件，只要遇到break便直接跳出执行后续代码。会完全跳出选择或者循环结构
+        * 只能跳出最近的代码块，不能跨越多级代码块
+
+* 循环标号
+    * a: 为什么使用循环标号
+        * 当在双层循环或者循环内有switch选择语句时，我们发现，使用break或者continue所作用的对象均是内层语句，无法直接跳出外层循环，这时就需要使用标号语句跳转了.
+    * b: 使用方式
+        * 在外层循环外的某行前边，使用后边跟有冒号”:”的标识符，即定义完毕。
+          使用时当在内层循环使用break或continue时后边紧跟之前定义的标号即可
+    * c: 运行规律
+        * 当外层循环外定义了标号
+          内层使用break，终止内外双层循环。
+          内层使用continue，终止内层循环，继续外层循环。
+</code></pre><h3 id="6-continue语句"><a href="#6-continue语句" class="headerlink" title="6. continue语句"></a>6. continue语句</h3><pre><code>* 作用
+    * 提前结束本次循环，继续进行下次循环
+* 应用环境
+    * 无法单独使用，只能应用于循环中
+* 运行规律
+    * 不需要判断任何条件，只要遇到continue变直接跳出本轮循环进行下次循环
+* 案例代码
+        public class ContinueDemo{
+            public static void main(String[] args){
+                for(int i = 0 ; i &lt; 10 ; i++){
+                    if(i%2==0){
+                        continue;
+                    }
+                    System.out.println(i);
+                }
+            }
+        }
+        //会把0-9之间所有的奇数打印到控制台上
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;一-选择结构if&quot;&gt;&lt;a href=&quot;#一-选择结构if&quot; class=&quot;headerlink&quot; title=&quot;一. 选择结构if&quot;&gt;&lt;/a&gt;一. 选择结构if&lt;/h2&gt;&lt;h3 id=&quot;1-if语句&quot;&gt;&lt;a href=&quot;#1-if语句&quot; class=&quot;headerlink&quot; title=&quot;1. if语句&quot;&gt;&lt;/a&gt;1. if语句&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;* 书写格式
+    if(比较表达式) {
+        语句体;
+    }
+* 执行流程
+    * 先计算比较表达式的值，看其返回值是true还是false。
+    * 如果是true，就执行语句体；
+    * 如果是false，就不执行语句体；
+* 注意:如果写成这样:
+    if(比较表达式); {
+        语句体;
+    }
+    加上分号&amp;quot;;&amp;quot; ,则代表if语句已经结束,大括号内的内容不管if的比较表达式true或false都会执行
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="JAVA基础" scheme="https://geekhoon.github.io/categories/JAVA%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="JAVA基础语法" scheme="https://geekhoon.github.io/tags/JAVA%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>05.引用数据类型</title>
+    <link href="https://geekhoon.github.io/2017/01/10/05-%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
+    <id>https://geekhoon.github.io/2017/01/10/05-引用数据类型/</id>
+    <published>2017-01-10T02:28:36.000Z</published>
+    <updated>2017-01-10T04:00:22.172Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="1-创建引用类型变量公式"><a href="#1-创建引用类型变量公式" class="headerlink" title="1.创建引用类型变量公式"></a>1.创建引用类型变量公式</h3><pre><code>* 引用数据类型的定义格式:
+    数据类型  变量名  =  new 数据类型();
+* 引用数据类型的使用:
+    * 每种引用数据类型都有其功能，我们可以调用该类型实例的功能。
+    * 变量名.方法名();
+</code></pre><a id="more"></a>
+<h3 id="2-Scanner类的使用"><a href="#2-Scanner类的使用" class="headerlink" title="2.Scanner类的使用"></a>2.Scanner类的使用</h3><pre><code>* 作用: 在命令行中,接收键盘的输入
+* 使用:
+    (1) 导包   import java.util.Scanner;
+    (2) 创建Scanner对象的变量 Scanner sc = new Scanner(System.in);
+    (3) 读取键盘录入的一个整数
+          int enterNumber = sc.nextInt();
+    (4) 读取键盘录入的字符串,注意字符串不能有空格或tab
+          String enterString = sc.next();
+* 案例代码
+    import java.util.Scanner;//特别注意:后面有分号,别丢掉
+    public class Demo05Scanner{
+        public static void main(String[] args) 
+        {
+            Scanner sc = new Scanner(System.in);
+
+            int enterNumber = sc.nextInt();
+            System.out.println(&quot;用户输入的整数为&quot;+enterNumber);
+
+            String enterString = sc.next();
+            System.out.println(&quot;用户输入的字符串为&quot;+enterString);
+        }
+    }            
+</code></pre><h3 id="3-Random随机数类的使用"><a href="#3-Random随机数类的使用" class="headerlink" title="3.Random随机数类的使用"></a>3.Random随机数类的使用</h3><pre><code>* 作用: 生成随机数
+* 使用:
+    (1) import导包：所属包java.util. Random
+    (2) 创建Random对象的变量：Random  random = new Random ();
+    (3) 调用方法:
+        * nextInt(int maxValue)    产生[0,maxValue)范围的随机数,包含0不包含maxValue
+        * nextDouble()  //产生0.0-1.0之间的数(包括0.0不包括1.0)
+        如：
+            Random  random = new Random ();
+            int  myNumber = random.nextInt(100);//结果为0-99的一个数
+* 随机数,也叫伪随机数,它是JVM根据人写好的算法,生成的
+* 案例代码
+    import java.util.Random;
+    public class RandomDemo{
+        public static void main(String[] args){
+           Random ran = new Random();
+           // Random类中的,产生随机数的功能
+           int i = ran.nextInt(100);
+           System.out.println(i);  
+           //问题? 产生随机数,范围 1-100之间
+           // nextInt(100) 0-99 + 1
+        }
+    }
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;1-创建引用类型变量公式&quot;&gt;&lt;a href=&quot;#1-创建引用类型变量公式&quot; class=&quot;headerlink&quot; title=&quot;1.创建引用类型变量公式&quot;&gt;&lt;/a&gt;1.创建引用类型变量公式&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;* 引用数据类型的定义格式:
+    数据类型  变量名  =  new 数据类型();
+* 引用数据类型的使用:
+    * 每种引用数据类型都有其功能，我们可以调用该类型实例的功能。
+    * 变量名.方法名();
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="JAVA基础" scheme="https://geekhoon.github.io/categories/JAVA%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="JAVA基础语法" scheme="https://geekhoon.github.io/tags/JAVA%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>基础题目答案</title>
     <link href="https://geekhoon.github.io/2017/01/09/%E5%9F%BA%E7%A1%80%E9%A2%98%E7%9B%AE%E7%AD%94%E6%A1%88/"/>
     <id>https://geekhoon.github.io/2017/01/09/基础题目答案/</id>
     <published>2017-01-09T12:40:31.000Z</published>
-    <updated>2017-01-09T16:08:55.318Z</updated>
+    <updated>2017-01-10T16:47:54.478Z</updated>
     
     <content type="html"><![CDATA[<h3 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1.数据类型"></a>1.数据类型</h3><pre><code>1. JAVA语言中的字符char可以存储一个中文汉字吗?原因?
    *可以.因为Java中字符占两个字节.一个中文汉字也占两个字节
@@ -45,6 +380,107 @@
                 System.out.println(&quot;数字&quot;+num+&quot;的个位数是 &quot;+ge+&quot;,十位数是 &quot;+shi+&quot;,百位数是 &quot;+bai);        
             }
      } 
+</code></pre><h3 id="3-流程控制语句"><a href="#3-流程控制语句" class="headerlink" title="3.流程控制语句"></a>3.流程控制语句</h3><pre><code>1.(1)质数解法一:
+public class Prime{
+     public static void main(String[] args){
+    //定义一个计数变量
+    int count = 0;
+    //遍历1-100之间的整数
+    for(int i = 1;i &lt;= 100;i++){
+        //分别让i % (2-----i-1),如果==0,就不是质数
+        int j = 2;
+        for( ;j &lt; i;j++){
+            if(i % j == 0){
+    //当%j == 0,立刻跳出循环,判断j的值,如果i==j的值,说明i是质数
+    //如果不等,说明i % (比i小的数)== 0,则i不是质数
+                break;
+            }
+        }
+        if(i == j){
+            System.out.print(i+&quot; &quot;);
+            count++;
+            if(count % 5 == 0){
+                System.out.println();    
+            }
+        }
+    }
+    System.out.println(&quot;质数总数是: &quot;+count);
+    }
+}
+
+1.(2)质数解法二:
+
+public class Prime{
+    public static void main(String[] args){
+    //定义一个计数变量
+    int count = 0;
+    //遍历2-100之间的整数,不从1遍历的原因是定义flag为true,默认都是质数,1不经过内层for,所以依然被认为是质数,所以要从2开始
+    for(int i = 2;i &lt;= 100;i++){
+        //默认都是质数
+        boolean flag = true;
+        for(int j = 2;j &lt; i;j++){
+            if(i % j == 0){
+        //不满足质数条件,break 
+        //会有疑问?为什解法一在判断i==j,这里i==j,i % j==0,不就把质数整成false
+        //其实,当j==i时,内层for条件已经不成立了,直接执行if(flag)了
+                flag = false;
+                break;
+            }    
+        }
+        //flag为true,就是质数
+        if(flag){
+            System.out.print(i+&quot; &quot;);
+            count++;
+            if(count % 5 == 0){
+                System.out.println();    
+            }
+        }
+
+    }
+    System.out.println(&quot;质数总数是: &quot;+count);
+    }
+}
+2. 珠峰
+public class ZhuFeng{
+    public static void main(String[] args){
+        int high = 8848;
+        double hou = 0.01;
+        int count = 0;
+        while(hou &lt; high){
+            hou *= 2;
+            count++;
+        }
+        System.out.println(&quot;折叠&quot;+count+&quot;次&quot;);
+    }    
+} 
+3.  打印非9
+public class DaYin9{
+    public static void main(String[] args){
+        int count = 0;
+        for(int i = 1;i &lt;= 100;i++){
+            if(i/10==9 || i%10==9){
+                continue;
+            }
+            System.out.print(i+&quot; &quot;);
+            count++;
+            if(count % 5==0){
+            System.out.println();
+            }
+        }
+    }
+}
+4. 九九乘法表
+public class JiuJiu{
+    public static void main(String[] args){
+        for(int i = 1;i &lt;= 9;i++){
+            for(int j = 1;j &lt;= i;j++){
+                int ji = j * j;
+                System.out.print(j+&quot;*&quot;+j+&quot;=&quot;+ji+&quot;  &quot;);
+            }
+            System.out.println();
+        }
+    }
+}
 </code></pre>]]></content>
     
     <summary type="html">
@@ -66,7 +502,7 @@
     <link href="https://geekhoon.github.io/2017/01/09/%E5%9F%BA%E7%A1%80%E9%A2%98%E7%9B%AE/"/>
     <id>https://geekhoon.github.io/2017/01/09/基础题目/</id>
     <published>2017-01-09T12:40:20.000Z</published>
-    <updated>2017-01-09T15:56:50.881Z</updated>
+    <updated>2017-01-10T15:00:10.257Z</updated>
     
     <content type="html"><![CDATA[<h3 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1.数据类型"></a>1.数据类型</h3><pre><code>1. JAVA语言中的字符char可以存储一个中文汉字吗?原因?
 </code></pre><h3 id="2-运算符"><a href="#2-运算符" class="headerlink" title="2.运算符"></a>2.运算符</h3><pre><code>1. 请写出该输出语句的结果
@@ -86,6 +522,15 @@ System.out.println(&quot;hello&quot;+(&apos;a&apos;+1));
     (1)已知一个三位数，请分别获取该三位数上每一位的数值
     (2)例如：123的个位、十位、百位，分别是3、2、1
     (3)打印格式&quot;数字123的个位是 3, 十位是 2, 百位是 1&quot;
+</code></pre><h3 id="3-流程控制语句"><a href="#3-流程控制语句" class="headerlink" title="3.流程控制语句"></a>3.流程控制语句</h3><pre><code>1. 计算1-100之间的质数有多少个？将质数以及质数总数打印在控制台。每5个数换行
+
+2. 我国最高山峰是珠穆朗玛峰，8848米。现在我有一张足够大的纸，它的厚度是0.01米。请问，我折叠多少次，可以折成珠穆朗玛峰的高度。
+
+3. 分析以下需求，并用代码实现：
+    打印1到100之内的整数，但数字中包含9的要跳过
+    每行输出5个满足条件的数，之间用空格分隔。如：1 2 3 4 5 
+
+4. 利用嵌套循环，在控制台打印九九乘法表
 </code></pre>]]></content>
     
     <summary type="html">
@@ -107,16 +552,20 @@ System.out.println(&quot;hello&quot;+(&apos;a&apos;+1));
     <link href="https://geekhoon.github.io/2017/01/09/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
     <id>https://geekhoon.github.io/2017/01/09/常用快捷键/</id>
     <published>2017-01-09T09:50:28.000Z</published>
-    <updated>2017-01-09T09:55:46.998Z</updated>
+    <updated>2017-01-10T14:54:04.737Z</updated>
     
     <content type="html"><![CDATA[<h3 id="1-Dos"><a href="#1-Dos" class="headerlink" title="1.Dos"></a>1.Dos</h3><pre><code>* Shift + 右键    : 当前文件夹下打开dos
 * Tab             : 注意dos下,&quot;Tab键&quot;的使用,可方便输入
 * 标记 + 右键/回车 : dos下复制
 * &quot;↑&quot;和&quot;↓&quot;        : dos未关闭前提下,使用之前的命令
 * 复制路径后,dos下右键,可以粘贴
+* Ctrl + c        :强行停止命令行
 </code></pre><a id="more"></a>
 <h3 id="2-notepad"><a href="#2-notepad" class="headerlink" title="2.notepad++"></a>2.notepad++</h3><pre><code>* Ctrl + D           : 复制该行
 * Ctrl + Shift + ↑/↓ :移动该行
+* Ctrl + L           : 删除该行
+* shift + Tab        :选中部分整体左移
+* tab                 :选中部分整体右移
 </code></pre><h3 id="3-xmind"><a href="#3-xmind" class="headerlink" title="3.xmind"></a>3.xmind</h3><pre><code>* Tab : 新建分支
 *  F4 : 添加备注
 </code></pre>]]></content>
@@ -128,6 +577,7 @@ System.out.println(&quot;hello&quot;+(&apos;a&apos;+1));
 * 标记 + 右键/回车 : dos下复制
 * &amp;quot;↑&amp;quot;和&amp;quot;↓&amp;quot;        : dos未关闭前提下,使用之前的命令
 * 复制路径后,dos下右键,可以粘贴
+* Ctrl + c        :强行停止命令行
 &lt;/code&gt;&lt;/pre&gt;
     
     </summary>

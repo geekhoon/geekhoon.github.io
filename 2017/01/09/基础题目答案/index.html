@@ -104,7 +104,7 @@
 
 * hello98
    *因为括号的优先级,(&amp;apos;a&amp;apos;+1)中的&amp;quot;+&amp;quot;依然执行加法,所以字符型根据Ascii转成97">
-<meta property="og:updated_time" content="2017-01-09T16:08:55.318Z">
+<meta property="og:updated_time" content="2017-01-10T16:47:54.478Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基础题目答案">
 <meta name="twitter:description" content="1.数据类型1. JAVA语言中的字符char可以存储一个中文汉字吗?原因?
@@ -417,6 +417,107 @@
                 System.out.println(&quot;数字&quot;+num+&quot;的个位数是 &quot;+ge+&quot;,十位数是 &quot;+shi+&quot;,百位数是 &quot;+bai);        
             }
      } 
+</code></pre><h3 id="3-流程控制语句"><a href="#3-流程控制语句" class="headerlink" title="3.流程控制语句"></a>3.流程控制语句</h3><pre><code>1.(1)质数解法一:
+public class Prime{
+     public static void main(String[] args){
+    //定义一个计数变量
+    int count = 0;
+    //遍历1-100之间的整数
+    for(int i = 1;i &lt;= 100;i++){
+        //分别让i % (2-----i-1),如果==0,就不是质数
+        int j = 2;
+        for( ;j &lt; i;j++){
+            if(i % j == 0){
+    //当%j == 0,立刻跳出循环,判断j的值,如果i==j的值,说明i是质数
+    //如果不等,说明i % (比i小的数)== 0,则i不是质数
+                break;
+            }
+        }
+        if(i == j){
+            System.out.print(i+&quot; &quot;);
+            count++;
+            if(count % 5 == 0){
+                System.out.println();    
+            }
+        }
+    }
+    System.out.println(&quot;质数总数是: &quot;+count);
+    }
+}
+
+1.(2)质数解法二:
+
+public class Prime{
+    public static void main(String[] args){
+    //定义一个计数变量
+    int count = 0;
+    //遍历2-100之间的整数,不从1遍历的原因是定义flag为true,默认都是质数,1不经过内层for,所以依然被认为是质数,所以要从2开始
+    for(int i = 2;i &lt;= 100;i++){
+        //默认都是质数
+        boolean flag = true;
+        for(int j = 2;j &lt; i;j++){
+            if(i % j == 0){
+        //不满足质数条件,break 
+        //会有疑问?为什解法一在判断i==j,这里i==j,i % j==0,不就把质数整成false
+        //其实,当j==i时,内层for条件已经不成立了,直接执行if(flag)了
+                flag = false;
+                break;
+            }    
+        }
+        //flag为true,就是质数
+        if(flag){
+            System.out.print(i+&quot; &quot;);
+            count++;
+            if(count % 5 == 0){
+                System.out.println();    
+            }
+        }
+
+    }
+    System.out.println(&quot;质数总数是: &quot;+count);
+    }
+}
+2. 珠峰
+public class ZhuFeng{
+    public static void main(String[] args){
+        int high = 8848;
+        double hou = 0.01;
+        int count = 0;
+        while(hou &lt; high){
+            hou *= 2;
+            count++;
+        }
+        System.out.println(&quot;折叠&quot;+count+&quot;次&quot;);
+    }    
+} 
+3.  打印非9
+public class DaYin9{
+    public static void main(String[] args){
+        int count = 0;
+        for(int i = 1;i &lt;= 100;i++){
+            if(i/10==9 || i%10==9){
+                continue;
+            }
+            System.out.print(i+&quot; &quot;);
+            count++;
+            if(count % 5==0){
+            System.out.println();
+            }
+        }
+    }
+}
+4. 九九乘法表
+public class JiuJiu{
+    public static void main(String[] args){
+        for(int i = 1;i &lt;= 9;i++){
+            for(int j = 1;j &lt;= i;j++){
+                int ji = j * j;
+                System.out.print(j+&quot;*&quot;+j+&quot;=&quot;+ji+&quot;  &quot;);
+            }
+            System.out.println();
+        }
+    }
+}
 </code></pre>
       
     </div>
@@ -455,6 +556,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/10/05-引用数据类型/" rel="prev" title="05.引用数据类型">
+                05.引用数据类型 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -549,7 +654,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -666,7 +771,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-数据类型"><span class="nav-number">1.</span> <span class="nav-text">1.数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-运算符"><span class="nav-number">2.</span> <span class="nav-text">2.运算符</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-数据类型"><span class="nav-number">1.</span> <span class="nav-text">1.数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-运算符"><span class="nav-number">2.</span> <span class="nav-text">2.运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-流程控制语句"><span class="nav-number">3.</span> <span class="nav-text">3.流程控制语句</span></a></li></ol></div>
             
           </div>
         </section>
