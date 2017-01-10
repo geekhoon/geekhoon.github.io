@@ -758,7 +758,8 @@ public class ZhuFeng{
         System.out.println(&quot;折叠&quot;+count+&quot;次&quot;);
     }    
 } 
-3.  打印非9
+3.  打印非9    
+       解法一:
 public class DaYin9{
     public static void main(String[] args){
         int count = 0;
@@ -774,6 +775,31 @@ public class DaYin9{
         }
     }
 }
+
+       解法二:
+public class Test3{
+    public static void main(String[] args){
+        // 1. 定义四个变量
+        int ge, shi, bai, count=0;
+        // 2.获取数据1-100 for循环
+        for(int num=1; num&lt;=100; num++){
+        // 3. 获取数据中的所有位数(个位、十位、百位)
+            ge = num % 10;
+            shi = num / 10 % 10;
+            bai = num / 100;
+        // 判断每个位数上边的数字是否与7相等
+            if(ge==7 || shi==7 || bai==7){
+                continue;
+            }
+                count++;
+            System.out.print(num + &quot; &quot;);
+            if(count % 5 == 0){
+                System.out.println();
+            }
+        }
+    }
+}
+
 4. 九九乘法表
 public class JiuJiu{
     public static void main(String[] args){
