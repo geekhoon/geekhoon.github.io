@@ -114,7 +114,7 @@
     if(比较表达式); {
         语句体;
     }">
-<meta property="og:updated_time" content="2017-01-10T10:06:28.632Z">
+<meta property="og:updated_time" content="2017-01-11T10:46:01.621Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="06.流程控制语句">
 <meta name="twitter:description" content="一. 选择结构if1. if语句* 书写格式
@@ -631,6 +631,84 @@
             }
         }
         //会把0-9之间所有的奇数打印到控制台上
+</code></pre><h3 id="7-switch语句"><a href="#7-switch语句" class="headerlink" title="7. switch语句"></a>7. switch语句</h3><pre><code>* switch只能针对某个表达式的值作出判断，从而决定程序执行哪一段代码。    
+* 格式:
+          swtich(表达式){
+              case 常量1 :
+                要执行的语句;
+              break;
+
+              case 常量2 :
+                要执行的语句;
+              break;
+
+              case 常量3 :
+                要执行的语句;
+              break;
+
+              default:
+                要执行的语句;
+              break;
+          }
+* 执行流程:  表达式,和case后面的常量进行比较和哪个case后的常量相同,就执行哪个case后面的程序,遇到break,就全结束.若都不匹配,执行default 
+* 关键字: switch case default break
+* 特别注意:
+    1. case后,必须是常量
+    2. 常量后,有冒号
+    3. 要执行的语句可以是多条语句,包括循环都可以写
+</code></pre><h3 id="8-switch语句接收的数据类型"><a href="#8-switch语句接收的数据类型" class="headerlink" title="8. switch语句接收的数据类型"></a>8. switch语句接收的数据类型</h3><pre><code>* switch语句中的表达式的数据类型,是有要求的
+
+        JDK1.0 - 1.4  数据类型接受 byte short int char
+        JDK1.5   数据类型接受 byte short int char enum(枚举)
+        JDK1.7   数据类型接受 byte short int char enum(枚举), String    
+</code></pre><h3 id="9-case穿透"><a href="#9-case穿透" class="headerlink" title="9. case穿透"></a>9. case穿透</h3><pre><code>* case穿透
+    * a: 在使用switch语句的过程中，如果多个case条件后面的执行语句是一样的，则该执行语句只需书写一次即可，这是一种简写的方式。
+    * b: 例如，要判断一周中的某一天是否为工作日，同样使用数字1~7来表示星期一到星期天，当输入的数字为1、2、3、4、5时就视为工作日，否则就视为休息日。
+* 举例:
+    * public class SwitchDemo{
+            public static void main(String[] args){
+                int week = 2;
+                    switch(week){
+                        case 1:
+                        case 2:
+                        case 3:
+                        case 4:
+                        case 5:
+                            System.out.println(&quot;工作日&quot;);
+                        break; //(1)
+                        case 6:
+                        case 7:
+                            System.out.println(&quot;休息日&quot;);
+                        break;
+                    }
+            }
+        }
+        //因为week=2,从case 2开始穿透,直到碰到break或switch的右大括号,
+        //如果(1)处没有break,继续穿透
+        //穿透期间,不会再判断case后面的值,还会执行case中的执行语句,即使default在中间,只要没有break,就继续穿透
+    *int x = 2;
+     int y = 3;
+    switch(x){
+        default:
+            y++;
+        break;
+        case 3:
+            y++;
+        case 4:
+            y++;
+        }
+    System.out.println(&quot;y=&quot;+y);
+    //执行顺序: x=2先到case 3,不成立,到case 4,不成立,到了default,执行y++,break结束,输出y=4
+    //把default中的break删掉,执行顺序:case 3不成立,case 4不成立,default,执行y++,y=4了,穿透case3,执行y++,又穿透case 4,执行y++
+    //最后y=6
+
+* 注意:
+    1. default中一定要有break吗?
+        //不一定,程序只要遇到break或者switch的右大括号,都结束
+    2. 多个case后的常量可否相同?
+        //不可以
+    3. default一定要放在case之后吗?
+        //不一定.不管放在哪,switch执行次序不变,都是从第一个case开始
 </code></pre>
       
     </div>
@@ -669,6 +747,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/11/day04笔记/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -763,7 +845,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -880,7 +962,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-选择结构if"><span class="nav-number">1.</span> <span class="nav-text">一. 选择结构if</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-if语句"><span class="nav-number">1.1.</span> <span class="nav-text">1. if语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-if…else语句"><span class="nav-number">1.2.</span> <span class="nav-text">2. if…else语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-if…else-if…else语句"><span class="nav-number">1.3.</span> <span class="nav-text">3. if…else if…else语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-if语句和三元运算符的互换"><span class="nav-number">1.4.</span> <span class="nav-text">4. if语句和三元运算符的互换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-循环结构"><span class="nav-number">2.</span> <span class="nav-text">二. 循环结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-while循环"><span class="nav-number">2.1.</span> <span class="nav-text">1. while循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-for循环"><span class="nav-number">2.2.</span> <span class="nav-text">2. for循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-do-while循环"><span class="nav-number">2.3.</span> <span class="nav-text">3. do_while循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-死循环"><span class="nav-number">2.4.</span> <span class="nav-text">4. 死循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-嵌套for循环"><span class="nav-number">2.5.</span> <span class="nav-text">5. 嵌套for循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-break语句"><span class="nav-number">2.6.</span> <span class="nav-text">6. break语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-continue语句"><span class="nav-number">2.7.</span> <span class="nav-text">6. continue语句</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-选择结构if"><span class="nav-number">1.</span> <span class="nav-text">一. 选择结构if</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-if语句"><span class="nav-number">1.1.</span> <span class="nav-text">1. if语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-if…else语句"><span class="nav-number">1.2.</span> <span class="nav-text">2. if…else语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-if…else-if…else语句"><span class="nav-number">1.3.</span> <span class="nav-text">3. if…else if…else语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-if语句和三元运算符的互换"><span class="nav-number">1.4.</span> <span class="nav-text">4. if语句和三元运算符的互换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-循环结构"><span class="nav-number">2.</span> <span class="nav-text">二. 循环结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-while循环"><span class="nav-number">2.1.</span> <span class="nav-text">1. while循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-for循环"><span class="nav-number">2.2.</span> <span class="nav-text">2. for循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-do-while循环"><span class="nav-number">2.3.</span> <span class="nav-text">3. do_while循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-死循环"><span class="nav-number">2.4.</span> <span class="nav-text">4. 死循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-嵌套for循环"><span class="nav-number">2.5.</span> <span class="nav-text">5. 嵌套for循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-break语句"><span class="nav-number">2.6.</span> <span class="nav-text">6. break语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-continue语句"><span class="nav-number">2.7.</span> <span class="nav-text">6. continue语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-switch语句"><span class="nav-number">2.8.</span> <span class="nav-text">7. switch语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-switch语句接收的数据类型"><span class="nav-number">2.9.</span> <span class="nav-text">8. switch语句接收的数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-case穿透"><span class="nav-number">2.10.</span> <span class="nav-text">9. case穿透</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

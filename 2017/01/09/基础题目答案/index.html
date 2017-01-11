@@ -104,7 +104,8 @@
 
 * hello98
    *因为括号的优先级,(&amp;apos;a&amp;apos;+1)中的&amp;quot;+&amp;quot;依然执行加法,所以字符型根据Ascii转成97">
-<meta property="og:updated_time" content="2017-01-10T17:07:02.155Z">
+<meta property="og:image" content="https://geekhoon.github.io/![mark](http://oj3s07yy0.bkt.clouddn.com/blog/20170111/233540781.bmp">
+<meta property="og:updated_time" content="2017-01-11T15:47:36.164Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基础题目答案">
 <meta name="twitter:description" content="1.数据类型1. JAVA语言中的字符char可以存储一个中文汉字吗?原因?
@@ -114,6 +115,7 @@
 
 * hello98
    *因为括号的优先级,(&amp;apos;a&amp;apos;+1)中的&amp;quot;+&amp;quot;依然执行加法,所以字符型根据Ascii转成97">
+<meta name="twitter:image" content="https://geekhoon.github.io/![mark](http://oj3s07yy0.bkt.clouddn.com/blog/20170111/233540781.bmp">
 
 
 
@@ -544,7 +546,77 @@ public class JiuJiu{
         }
     }
 }
-</code></pre>
+</code></pre><h3 id="4-数组"><a href="#4-数组" class="headerlink" title="4.数组"></a>4.数组</h3><pre><code>1. 
+public class Change{
+    public static void main(String[] args){
+        int[] arr = {6,2,9,15,1,5,20,7,18};
+        //定义max,min,记录最大元素和最小元素的索引位置
+        int max = 0,min = 0;
+        for(int i = 0;i &lt; arr.length;i++){
+            if(arr[max] &lt; arr[i]){
+                max = i;
+            }
+            if(arr[min] &gt; arr[i]){
+                min = i;
+            }
+        }
+        for(int i = 0; i &lt;arr.length;i++){
+            System.out.print(arr[i]+&quot; &quot;);
+        }
+        System.out.println();
+        //通过arr[max]和arr[min]可以取到了最大,最小值,定义一个第三方变量,用于交换
+        int temp = arr[max];
+        arr[max] = arr[arr.length-1];
+        arr[arr.length-1] = temp;
+        //
+        temp = arr[min];
+        arr[min] = arr[0];
+        arr[0] = temp;
+        //
+        for(int i = 0; i &lt;arr.length;i++){
+            System.out.print(arr[i]+&quot; &quot;);
+        }    
+    }    
+}
+
+2. 
+import java.util.Scanner;
+public class Test01{
+    public static void main(String[] args){
+    //1.利用一个for循环,录入用户输入的6个数据,置于数组中
+        Scanner sc = new Scanner(System.in);
+        int[] arr = new int[6];
+        for(int i = 0;i &lt; 6;i++){
+            System.out.println(&quot;请输入第&quot;+(i+1)+&quot;个整数:&quot;);
+            arr[i] = sc.nextInt() ;
+        }
+    //2.实现反转
+        for(int start = 0,end = arr.length-1;start &lt; end;start++,end--){
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+        }
+    //3.将翻转后的数组角标为奇数的互相交换 1和3换, 3和5换,以此类推
+        for(int i = 1,j =3;i &lt; arr.length &amp;&amp; j &lt; arr.length;i+=2,j+=2){
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+    //4.最后将数组最后一个角标为奇数的元素 和数组中第一个角标为奇数的元素交换
+    //判断最后一个角标为奇数,需要先知道数组长度,根据数组长度的奇偶性,最后一个角标为奇数的索引不同
+        int lastIndex = (arr.length % 2 == 0 ? arr.length-1 : arr.length-2);
+        int temp = arr[1];
+        arr[1] = arr[lastIndex];
+        arr[lastIndex] = temp;
+    //
+        for(int i = 0;i &lt; arr.length;i++ ){
+            System.out.print(arr[i]+&quot; &quot;);
+        }
+        System.out.println();    
+    }
+}
+</code></pre><p>解释一下反转:<img src="![mark](http://oj3s07yy0.bkt.clouddn.com/blog/20170111/233540781.bmp" alt="">)</p>
+
       
     </div>
 
@@ -680,7 +752,7 @@ public class JiuJiu{
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -797,7 +869,7 @@ public class JiuJiu{
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-数据类型"><span class="nav-number">1.</span> <span class="nav-text">1.数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-运算符"><span class="nav-number">2.</span> <span class="nav-text">2.运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-流程控制语句"><span class="nav-number">3.</span> <span class="nav-text">3.流程控制语句</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-数据类型"><span class="nav-number">1.</span> <span class="nav-text">1.数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-运算符"><span class="nav-number">2.</span> <span class="nav-text">2.运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-流程控制语句"><span class="nav-number">3.</span> <span class="nav-text">3.流程控制语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-数组"><span class="nav-number">4.</span> <span class="nav-text">4.数组</span></a></li></ol></div>
             
           </div>
         </section>
