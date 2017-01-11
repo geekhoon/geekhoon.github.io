@@ -799,7 +799,7 @@ public class CallName{
     <link href="https://geekhoon.github.io/2017/01/09/%E5%9F%BA%E7%A1%80%E9%A2%98%E7%9B%AE%E7%AD%94%E6%A1%88/"/>
     <id>https://geekhoon.github.io/2017/01/09/基础题目答案/</id>
     <published>2017-01-09T12:40:31.000Z</published>
-    <updated>2017-01-11T15:58:44.718Z</updated>
+    <updated>2017-01-11T16:17:52.420Z</updated>
     
     <content type="html"><![CDATA[<h3 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1.数据类型"></a>1.数据类型</h3><pre><code>1. JAVA语言中的字符char可以存储一个中文汉字吗?原因?
    *可以.因为Java中字符占两个字节.一个中文汉字也占两个字节
@@ -1020,7 +1020,8 @@ public class Test01{
         System.out.println();    
     }
 }
-</code></pre><p>解释一下反转:</p>
+</code></pre><p>图解反转:</p>
+<p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170111/233540781.bmp" alt=""></p>
 ]]></content>
     
     <summary type="html">
