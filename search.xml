@@ -625,8 +625,9 @@
                 int bai = num / 100 % 10;
                 System.out.println(&quot;数字&quot;+num+&quot;的个位数是 &quot;+ge+&quot;,十位数是 &quot;+shi+&quot;,百位数是 &quot;+bai);        
             }
-     } 
-</code></pre><h3 id="3-流程控制语句"><a href="#3-流程控制语句" class="headerlink" title="3.流程控制语句"></a>3.流程控制语句</h3><pre><code>1.(1)质数解法一:
+     }
+</code></pre><a id="more"></a> 
+<h3 id="3-流程控制语句"><a href="#3-流程控制语句" class="headerlink" title="3.流程控制语句"></a>3.流程控制语句</h3><pre><code>1.(1)质数解法一:
 public class Prime{
      public static void main(String[] args){
     //定义一个计数变量
