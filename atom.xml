@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-01-12T02:03:45.730Z</updated>
+  <updated>2017-01-12T02:06:38.929Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="https://geekhoon.github.io/2017/01/11/07-%E6%95%B0%E7%BB%84/"/>
     <id>https://geekhoon.github.io/2017/01/11/07-数组/</id>
     <published>2017-01-11T10:03:28.000Z</published>
-    <updated>2017-01-12T02:03:45.730Z</updated>
+    <updated>2017-01-12T02:06:38.929Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="一-一维数组"><a href="#一-一维数组" class="headerlink" title="一. 一维数组"></a>一. 一维数组</h2><h3 id="1-数组概述"><a href="#1-数组概述" class="headerlink" title="1. 数组概述"></a>1. 数组概述</h3><pre><code>* 数组是指一组数据的集合，数组中的每个数据被称作元素。
+    <content type="html"><![CDATA[<h2 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h2><h3 id="1-数组概述"><a href="#1-数组概述" class="headerlink" title="1. 数组概述"></a>1. 数组概述</h3><pre><code>* 数组是指一组数据的集合，数组中的每个数据被称作元素。
 * 特点:
     (1)在数组中可以存放任意类型的元素，但同一个数组里存放的元素类型必须一致。
     (2)长度固定
@@ -131,7 +131,7 @@
             System.out.println(&quot;max=&quot; + max);     // 打印最大值
         }
     }
-</code></pre><h2 id="二-二维数组"><a href="#二-二维数组" class="headerlink" title="二. 二维数组"></a>二. 二维数组</h2><h3 id="1-二维数组的定义"><a href="#1-二维数组的定义" class="headerlink" title="1. 二维数组的定义"></a>1. 二维数组的定义</h3><pre><code>* 作用
+</code></pre><h2 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h2><h3 id="1-二维数组的定义"><a href="#1-二维数组的定义" class="headerlink" title="1. 二维数组的定义"></a>1. 二维数组的定义</h3><pre><code>* 作用
     * 要统计一个学校各个班级学生的考试成绩，又该如何实现呢？
     * 这时就需要用到多维数组，多维数组可以简单地理解为在数组中嵌套数组。
 * 格式
@@ -251,7 +251,7 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;一-一维数组&quot;&gt;&lt;a href=&quot;#一-一维数组&quot; class=&quot;headerlink&quot; title=&quot;一. 一维数组&quot;&gt;&lt;/a&gt;一. 一维数组&lt;/h2&gt;&lt;h3 id=&quot;1-数组概述&quot;&gt;&lt;a href=&quot;#1-数组概述&quot; class=&quot;headerlink&quot; ti
+      &lt;h2 id=&quot;一维数组&quot;&gt;&lt;a href=&quot;#一维数组&quot; class=&quot;headerlink&quot; title=&quot;一维数组&quot;&gt;&lt;/a&gt;一维数组&lt;/h2&gt;&lt;h3 id=&quot;1-数组概述&quot;&gt;&lt;a href=&quot;#1-数组概述&quot; class=&quot;headerlink&quot; title=&quot;1. 数组
     
     </summary>
     
