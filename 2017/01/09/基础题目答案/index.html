@@ -105,7 +105,7 @@
 * hello98
    *因为括号的优先级,(&amp;apos;a&amp;apos;+1)中的&amp;quot;+&amp;quot;依然执行加法,所以字符型根据Ascii转成97">
 <meta property="og:image" content="http://oj3s07yy0.bkt.clouddn.com/blog/20170111/233540781.bmp">
-<meta property="og:updated_time" content="2017-01-11T16:17:52.420Z">
+<meta property="og:updated_time" content="2017-01-12T07:35:16.425Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基础题目答案">
 <meta name="twitter:description" content="1.数据类型1. JAVA语言中的字符char可以存储一个中文汉字吗?原因?
@@ -456,6 +456,7 @@ public class Prime{
     //遍历2-100之间的整数,不从1遍历的原因是定义flag为true,默认都是质数,1不经过内层for,所以依然被认为是质数,所以要从2开始
     for(int i = 2;i &lt;= 100;i++){
         //默认都是质数
+        //思考?把boolean flag = true;放在for外边,会怎样?
         boolean flag = true;
         for(int j = 2;j &lt; i;j++){
             if(i % j == 0){
@@ -550,6 +551,7 @@ public class JiuJiu{
 public class Change{
     public static void main(String[] args){
         int[] arr = {6,2,9,15,1,5,20,7,18};
+    //本题的关键是找到最大,最小元素的索引位置,而不是找到最大最小值,只要知道位置了,就可以进行交换了
         //定义max,min,记录最大元素和最小元素的索引位置
         int max = 0,min = 0;
         for(int i = 0;i &lt; arr.length;i++){
