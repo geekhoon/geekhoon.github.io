@@ -87,24 +87,27 @@
 
 
 <meta name="description" content="1.算数运算符* 注意事项
-    1.&amp;quot;+&amp;quot;加法运算符,在连接字符串时要注意，只有直接与字符串相加才会转成字符串.字符串后面的&amp;quot;+&amp;quot;为&amp;quot;连接&amp;quot;,字符串前面的&amp;quot;+&amp;quot;还是加法
+    1.&amp;quot;+&amp;quot;在连接字符串时要注意，只有直接与字符串相加才会转成字符串.
+        字符串后面的&amp;quot;+&amp;quot;为&amp;quot;连接&amp;quot;,字符串前面的&amp;quot;+&amp;quot;还是加法
         如:
-            System.out.println(5+5+&amp;quot;=&amp;quot;+5+5);这个输出的是10">
+            System.out.println(5+5+&amp;quot;=&amp;quot;+5+5);这个输出的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="04.运算符">
 <meta property="og:url" content="https://geekhoon.github.io/2017/01/08/04-运算符/index.html">
 <meta property="og:site_name" content="geekhoon">
 <meta property="og:description" content="1.算数运算符* 注意事项
-    1.&amp;quot;+&amp;quot;加法运算符,在连接字符串时要注意，只有直接与字符串相加才会转成字符串.字符串后面的&amp;quot;+&amp;quot;为&amp;quot;连接&amp;quot;,字符串前面的&amp;quot;+&amp;quot;还是加法
+    1.&amp;quot;+&amp;quot;在连接字符串时要注意，只有直接与字符串相加才会转成字符串.
+        字符串后面的&amp;quot;+&amp;quot;为&amp;quot;连接&amp;quot;,字符串前面的&amp;quot;+&amp;quot;还是加法
         如:
-            System.out.println(5+5+&amp;quot;=&amp;quot;+5+5);这个输出的是10">
-<meta property="og:updated_time" content="2017-01-09T16:12:51.885Z">
+            System.out.println(5+5+&amp;quot;=&amp;quot;+5+5);这个输出的">
+<meta property="og:updated_time" content="2017-01-12T08:36:19.306Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="04.运算符">
 <meta name="twitter:description" content="1.算数运算符* 注意事项
-    1.&amp;quot;+&amp;quot;加法运算符,在连接字符串时要注意，只有直接与字符串相加才会转成字符串.字符串后面的&amp;quot;+&amp;quot;为&amp;quot;连接&amp;quot;,字符串前面的&amp;quot;+&amp;quot;还是加法
+    1.&amp;quot;+&amp;quot;在连接字符串时要注意，只有直接与字符串相加才会转成字符串.
+        字符串后面的&amp;quot;+&amp;quot;为&amp;quot;连接&amp;quot;,字符串前面的&amp;quot;+&amp;quot;还是加法
         如:
-            System.out.println(5+5+&amp;quot;=&amp;quot;+5+5);这个输出的是10">
+            System.out.println(5+5+&amp;quot;=&amp;quot;+5+5);这个输出的">
 
 
 
@@ -386,7 +389,8 @@
 
       
         <h3 id="1-算数运算符"><a href="#1-算数运算符" class="headerlink" title="1.算数运算符"></a>1.算数运算符</h3><pre><code>* 注意事项
-    1.&quot;+&quot;加法运算符,在连接字符串时要注意，只有直接与字符串相加才会转成字符串.字符串后面的&quot;+&quot;为&quot;连接&quot;,字符串前面的&quot;+&quot;还是加法
+    1.&quot;+&quot;在连接字符串时要注意，只有直接与字符串相加才会转成字符串.
+        字符串后面的&quot;+&quot;为&quot;连接&quot;,字符串前面的&quot;+&quot;还是加法
         如:
             System.out.println(5+5+&quot;=&quot;+5+5);这个输出的是10=55
     2.&quot;/&quot;除法运算符,整数与整数除,结果为整数;整数与小数除,结果是小数类型
@@ -431,7 +435,8 @@
                      System.out.println(&quot;x = &quot; + x + &quot;,y = &quot; + y);
                 }
             }
-            思维误区:不要以为(--x)+(x--)+(x*10),都有各自括号,就互不影响,执行完(--x),x为3,再执行(x--)后,x为2,(x*10)为20,所以输出x为2,但是y=3+3+20=26,第二个3是因为先赋值,再自减
+    思维误区:不要以为(--x)+(x--)+(x*10),都有各自括号,就互不影响
+    执行完(--x),x为3,再执行(x--)后,x为2,(x*10)为20,所以输出x为2,但是y=3+3+20=26,第二个3是因为先赋值,再自减
     如：
             public class Test2{
                 public static void main(String[] args){
@@ -444,25 +449,25 @@
                     System.out.println(&quot;a=&quot;+a);
                 }
             }
-            本题证明了(a++ &gt; 1)是用a=1与1做大小判断,而不是2,说明a先比较,再自增.但最终输出a的大小都是2
+    本题证明了(a++ &gt; 1)是用a=1与1做大小判断,而不是2,说明a先比较,再自增.但最终输出a的大小都是2
 </code></pre><a id="more"></a>
 <h3 id="2-赋值运算符"><a href="#2-赋值运算符" class="headerlink" title="2.赋值运算符"></a>2.赋值运算符</h3><pre><code>* 有 =  +=  -=  *=  /=  %=  
 * 注意:
      如：
-                byte  b = 1;               (1)
-                b = b + 1;                 (2)
-                System.out.println(b);     (3)
-                编译会报错,因为(1)中b为byte型,占1个字节,(2)中1为int类型,占4个字节,它们相加之后,是4字节.然后赋值给1字节大小的b,会损失精度.
-                将(2)改成b =(byte) (b + 1);或者b += 1;都对.这两句等价
+         byte  b = 1;               (1)
+         b = b + 1;                 (2)
+         System.out.println(b);     (3)
+  编译会报错,因为(1)中b为byte型,占1个字节,(2)中1为int类型,占4个字节,它们相加之后,是4字节.然后赋值给1字节大小的b,会损失精度.
+  将(2)改成b =(byte) (b + 1);或者b += 1;都对.这两句等价
 </code></pre><h3 id="3-比较运算符"><a href="#3-比较运算符" class="headerlink" title="3.比较运算符"></a>3.比较运算符</h3><pre><code>* 也叫关系运算符
 * 有 ==  !=  &gt;  &lt;  &gt;=  &lt;=  
 * 注意:
      如：
-                int  i = 3;
-                int  j = 4;
-                System.out.println(i=j);
-                System.out.println(i==j);
-                结果分别为4和true,因为程序自上而下执行,第一句输出语句执行完之后,i变为4.别忽视了输出语句中,赋值语句对变量在整个作用区间内也起作用.
+       int  i = 3;
+       int  j = 4;
+       System.out.println(i=j);
+       System.out.println(i==j);
+  结果分别为4和true,因为程序自上而下执行,第一句输出语句执行完之后,i变为4.别忽视了输出语句中,赋值语句对变量在整个作用区间内也起作用.
 </code></pre><h3 id="4-逻辑运算符"><a href="#4-逻辑运算符" class="headerlink" title="4.逻辑运算符"></a>4.逻辑运算符</h3><pre><code>* 对两个布尔数据进行计算,结果也是布尔类型
 * 有 &amp;与  |或  !非  ^异或  &amp;&amp;短路与  ||短路或
     *^异或: 两边相同为false,不同为true

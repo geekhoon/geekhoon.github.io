@@ -114,7 +114,7 @@
     if(比较表达式); {
         语句体;
     }">
-<meta property="og:updated_time" content="2017-01-11T10:46:01.621Z">
+<meta property="og:updated_time" content="2017-01-12T08:47:56.571Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="06.流程控制语句">
 <meta name="twitter:description" content="一. 选择结构if1. if语句* 书写格式
@@ -541,7 +541,7 @@
     * 但不是没有机会执行,当程序满足一定条件(break),可以控制,让死循环停止,执行后面的代码
 </code></pre><h3 id="5-嵌套for循环"><a href="#5-嵌套for循环" class="headerlink" title="5. 嵌套for循环"></a>5. 嵌套for循环</h3><pre><code>* 概述
     * 嵌套循环是指在一个循环语句的循环体中再定义一个循环语句的语法结构。
-    * while、do…while、for循环语句都可以进行嵌套，并且它们之间也可以互相嵌套，如最常见的,在for循环中嵌套for循环。
+    * while、do…while、for循环语句都可以进行嵌套，并且它们之间也可以互相嵌套
 * 嵌套循环的格式
     for(初始化表达式; 循环条件; 操作表达式) {
         ………
@@ -581,7 +581,7 @@
 * 应用环境
     * 只能应用在循环语句和switch语句中
  * 注意
-    * 如果写在循环嵌套的内循环,结束的是内循环.除非在外循环前面加上循环标号,然后break 循环标号;
+* 如果写在循环嵌套的内循环,结束的是内循环.除非在外循环前面加上循环标号,然后break 循环标号;
 * 举例
         {
             for(int i=0; i&lt;10; i++) {
@@ -594,9 +594,9 @@
         //会从0-5输出6次“我爱Java”
 * break详细解释
     * a: 作用
-        * 在loop/switch选择或者循环过程中，我们总是满足布尔表达条件才能执行对应的代码，然而在这些逻辑过程中，
-            可以使用一些关键字直接跳出正在执行的代码，去执行后边或者指定位置的代码，
-            这些关键字一旦出现就可以跳转语句执行顺序。
+    * 在loop/switch选择或者循环过程中，我们总是满足布尔表达条件才能执行对应的代码，然而在这些逻辑过程中，
+        可以使用一些关键字直接跳出正在执行的代码，去执行后边或者指定位置的代码，
+        这些关键字一旦出现就可以跳转语句执行顺序。
     * b: 使用方式
         * 无法单独使用，必须将break关键字置于switch或循环语句中
     * c: 运行规律
@@ -605,7 +605,8 @@
 
 * 循环标号
     * a: 为什么使用循环标号
-        * 当在双层循环或者循环内有switch选择语句时，我们发现，使用break或者continue所作用的对象均是内层语句，无法直接跳出外层循环，这时就需要使用标号语句跳转了.
+    * 当在双层循环或者循环内有switch选择语句时，我们发现
+    使用break或者continue所作用的对象均是内层语句，无法直接跳出外层循环，这时就需要使用标号语句跳转了.
     * b: 使用方式
         * 在外层循环外的某行前边，使用后边跟有冒号”:”的标识符，即定义完毕。
           使用时当在内层循环使用break或continue时后边紧跟之前定义的标号即可
@@ -650,7 +651,9 @@
                 要执行的语句;
               break;
           }
-* 执行流程:  表达式,和case后面的常量进行比较和哪个case后的常量相同,就执行哪个case后面的程序,遇到break,就全结束.若都不匹配,执行default 
+* 执行流程: 
+   表达式和case后面的常量进行比较和哪个case后的常量相同,就执行哪个case后面的程序,
+   遇到break,就全结束.若都不匹配,执行default 
 * 关键字: switch case default break
 * 特别注意:
     1. case后,必须是常量
@@ -662,8 +665,7 @@
         JDK1.5   数据类型接受 byte short int char enum(枚举)
         JDK1.7   数据类型接受 byte short int char enum(枚举), String    
 </code></pre><h3 id="9-case穿透"><a href="#9-case穿透" class="headerlink" title="9. case穿透"></a>9. case穿透</h3><pre><code>* case穿透
-    * a: 在使用switch语句的过程中，如果多个case条件后面的执行语句是一样的，则该执行语句只需书写一次即可，这是一种简写的方式。
-    * b: 例如，要判断一周中的某一天是否为工作日，同样使用数字1~7来表示星期一到星期天，当输入的数字为1、2、3、4、5时就视为工作日，否则就视为休息日。
+    * 在使用switch语句的过程中，如果多个case条件后面的执行语句是一样的，只需写一次。
 * 举例:
     * public class SwitchDemo{
             public static void main(String[] args){
@@ -683,9 +685,9 @@
                     }
             }
         }
-        //因为week=2,从case 2开始穿透,直到碰到break或switch的右大括号,
-        //如果(1)处没有break,继续穿透
-        //穿透期间,不会再判断case后面的值,还会执行case中的执行语句,即使default在中间,只要没有break,就继续穿透
+//因为week=2,从case 2开始穿透,直到碰到break或switch的右大括号,
+//如果(1)处没有break,继续穿透
+//穿透期间,不会再判断case后面的值,还会执行case中的执行语句,即使default在中间,只要没有break,就继续穿透
     *int x = 2;
      int y = 3;
     switch(x){
@@ -698,9 +700,9 @@
             y++;
         }
     System.out.println(&quot;y=&quot;+y);
-    //执行顺序: x=2先到case 3,不成立,到case 4,不成立,到了default,执行y++,break结束,输出y=4
-    //把default中的break删掉,执行顺序:case 3不成立,case 4不成立,default,执行y++,y=4了,穿透case3,执行y++,又穿透case 4,执行y++
-    //最后y=6
+//执行顺序: x=2先到case 3,不成立,到case 4,不成立,到了default,执行y++,break结束,输出y=4
+//把default中的break删掉,执行顺序:case 3不成立,case 4不成立,default,执行y++,y=4了,穿透case3,执行y++,又穿透case 4,执行y++
+//最后y=6
 
 * 注意:
     1. default中一定要有break吗?
