@@ -450,8 +450,7 @@
             }
         }
     }         
-</code></pre><p>###14数组中常见的异常</p>
-<pre><code>* 数组操作中,常见的两个异常
+</code></pre><h3 id="7-数组中常见的异常"><a href="#7-数组中常见的异常" class="headerlink" title="7. 数组中常见的异常"></a>7. 数组中常见的异常</h3><pre><code>* 数组操作中,常见的两个异常
      数组的索引越界异常(ArrayIndexOutOfBoundsException)
       空指针异常(NullPointerException)
 
@@ -463,7 +462,7 @@
             //int[] arr = {5,2,1};
             //数组中3个元素,索引 0,1,2
             //System.out.println(arr[3]);
-            //编译不报错
+            //编译不报错,运行出错
             //java.lang.ArrayIndexOutOfBoundsException: 3
 
         //(2)空指针异常
@@ -471,12 +470,11 @@
             System.out.println(arr2[2]);
             arr2 = null; // arr2 不在保存数组的地址了
             System.out.println(arr2[2]);
-            //编译不报错
+            //编译不报错,运行出错
             //java.lang.NullPointerException
         }
     }
-</code></pre><p>###16数组获取最值代码实现</p>
-<pre><code>* 数组获取最值的原理思想
+</code></pre><h3 id="8-数组获取最值代码实现"><a href="#8-数组获取最值代码实现" class="headerlink" title="8. 数组获取最值代码实现"></a>8. 数组获取最值代码实现</h3><pre><code>* 数组获取最值的原理思想
     * 定义数组的第一个元素arr[0]为最大值;循环arr数组,判断如果有比arr[0] 大的就交换,直到arr数组遍历完毕,那么arr[0]中就保存了最大的元素
     * 为什么选择数组中的一个元素作为最大值,因为如果自己定义的一个数据比数组所有数据都大,那比较完,得不出数组最大值
 * 代码实现
@@ -493,23 +491,20 @@
             System.out.println(&quot;max=&quot; + max);     // 打印最大值
         }
     }
-</code></pre><p>###17二维数组的定义</p>
-<pre><code>* A 二维数组的作用
+</code></pre><h2 id="二-二维数组"><a href="#二-二维数组" class="headerlink" title="二. 二维数组"></a>二. 二维数组</h2><h3 id="1-二维数组的定义"><a href="#1-二维数组的定义" class="headerlink" title="1. 二维数组的定义"></a>1. 二维数组的定义</h3><pre><code>* 作用
     * 要统计一个学校各个班级学生的考试成绩，又该如何实现呢？
     * 这时就需要用到多维数组，多维数组可以简单地理解为在数组中嵌套数组。
-* B 定义格式
-    * a 第一种定义格式:
+* 格式
+    * 第一种定义格式:
         *  int[][] arr = new int[3][4];
         *  上面的代码相当于定义了一个3*4的二维数组，即二维数组的长度为3，二维数组中的每个元素又是一个长度为4的数组
-    * b 第二种定义格式
+    * 第二种定义格式
         *  int[][] arr = new int[3][];
         *  第二种方式和第一种类似，只是一维数组中每个元素的长度不确定
-    * c 第三种定义格式
+    * 第三种定义格式
         *      int[][] arr = {{1,2},{3,4,5,6},{7,8,9}};
         *      二维数组中定义了三个元素，这三个元素都是数组，分别为{1,2}、{3,4,5,6}、{7,8,9}
-</code></pre><p>###18二维数组元素的访问</p>
-<pre><code> * A: 二维数组的访问
- * 案例:
+</code></pre><h3 id="2-二维数组元素的访问"><a href="#2-二维数组元素的访问" class="headerlink" title="2. 二维数组元素的访问"></a>2. 二维数组元素的访问</h3><pre><code> * 案例:
   class ArrayDemo08 {
     public static void main(String[] args){
 
@@ -541,30 +536,25 @@
         System.out.println( arr[2][3] );
     }
 }
-</code></pre><p>###19二维数组内存图</p>
-<pre><code>* A: 二维数组内存图
-* 举例:int[][] arr = new int[3][2];
-* 外层数组长在内存开辟连续的3个大的内存空间,每一个内存空间都对应的有地址值
+</code></pre><h3 id="3-二维数组内存图"><a href="#3-二维数组内存图" class="headerlink" title="3. 二维数组内存图"></a>3. 二维数组内存图</h3><pre><code>* 举例:int[][] arr = new int[3][2];
+* 外层数组在内存开辟连续的3个大的内存空间,每一个内存空间都对应的有地址值
 * 每一个大内存空间里又开辟连续的两个小的内存空间.
-</code></pre><p>###20二维数组的定义和访问</p>
-<pre><code>* A: 二维数组的定义和访问
+</code></pre><p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170112/095418411.png" alt=""></p>
+<h3 id="4-二维数组的定义和访问"><a href="#4-二维数组的定义和访问" class="headerlink" title="4. 二维数组的定义和访问"></a>4. 二维数组的定义和访问</h3><pre><code>* 定义
     * 格式1: 
-    *     int[][] arr = new int[3][]; 不推荐
+         int[][] arr = new int[3][]; 不推荐
     * 格式2
-    *  int[][] arr = {{1,2,4},{4,7},{0,9,3}};
-    *  
-* B: 二维数组的访问
-     举例:int[][] arr = {{1,2,4},{5,8,7},{0,9,3}};  
-     想要打印数组中7这个元素需要先找到大的元素索引{5,7} 索引为2 ,在找7在{5,7}中的索引2
-     那么结果为 arr[2][2]  第一个[2]代表大数组中{5,8,7}这个元素索引
-     第二个[2]代表{5,8,7}中7元素的索引
-</code></pre><p>###22二维数组的遍历</p>
-<pre><code>* A:二维数组遍历
+      int[][] arr = {{1,2,4},{4,7},{0,9,3}};       
+* 访问
+      举例:int[][] arr = {{1,2,4},{5,8,7},{0,9,3}};  
+     想要打印数组中7这个元素需要先找到大的元素索引{5,8,7} 索引为1 ,在找7在{5,8,7}中的索引2
+     那么结果为 arr[1][2]  [1]代表大数组中{5,8,7}这个元素索引,[2]代表{5,8,7}中7元素的索引
+</code></pre><h3 id="5-二维数组的遍历"><a href="#5-二维数组的遍历" class="headerlink" title="5. 二维数组的遍历"></a>5. 二维数组的遍历</h3><pre><code>* 二维数组遍历
    int[][] arr = {{1,2,4},{4,7},{0,9,3}};
      先使用for循环遍历arr这个二维数组,得到每一个元素为arr[i]为一维数组
    再外层for循环中嵌套一个for循环遍历每一个一维数组arr[i],得到每一元素
 
-*    B:举例:遍历二维数组
+*    举例
   public class ArrayArrayDemo_2{
       public static void main(String[] args){
           int[][] arr = { {1,2,3},{4,5},{6,7,8,9},{0} };
@@ -579,7 +569,7 @@
           }
       }
 
-* C:二维数组累加求和
+* 累加求和
  class ArrayDemo09 {
       public static void main(String[] args){
             int[][] arr2 = { {1,2},{3,4,5},{6,7,8,9,10} };
@@ -593,13 +583,12 @@
           System.out.println(&quot;sum2= &quot;+ sum2);
       }
   }
-</code></pre><p>###23二维数组的求和练习</p>
-<pre><code>* A 例如要统计一个公司三个销售小组中每个小组的总销售额以及整个公司的销售额。如下所示
+</code></pre><h3 id="6-二维数组的求和练习"><a href="#6-二维数组的求和练习" class="headerlink" title="6. 二维数组的求和练习"></a>6. 二维数组的求和练习</h3><pre><code>* 例如要统计一个公司三个销售小组中每个小组的总销售额以及整个公司的销售额。如下所示
    * 第一小组销售额为{11, 12}万元
    * 第二小组销售额为{21, 22, 23}万元
    * 第三小组销售额为{31, 32, 33, 34}万元。
 
- * B 代码实现
+* 代码实现
       public class ArrayDemo10 {
         public static void main(String[] args) {
             int[][] arr = new int[3][];             // 定义一个长度为3的二维数组
@@ -609,62 +598,15 @@
             int sum = 0;                             // 定义变量记录总销售额
             for (int i = 0; i &lt; arr.length; i++) { // 遍历数组元素
                 int groupSum = 0; // 定义变量记录小组销售总额
-            for (int j = 0; j &lt; arr[i].length; j++) { // 遍历小组内每个人的销售额
+                for (int j = 0; j &lt; arr[i].length; j++) { // 遍历小组内每个人的销售额
                     groupSum = groupSum + arr[i][j];
-            }
+                }
                 sum = sum + groupSum;             // 累加小组销售额
                 System.out.println(&quot;第&quot; + (i + 1) + &quot;小组销售额为：&quot; + groupSum + &quot; 万元&quot;);
             }
             System.out.println(&quot;总销售额为: &quot; + sum + &quot; 万元&quot;);
         }
     }
-</code></pre><p>###24随机点名器案例分析</p>
-<pre><code>* A 随机点名器案例分析
-
-* B: 需求
-    * 随机点名器，即在全班同学中随机的打印出一名同学名字。
-
-* C:分析:
-    * 1)定义数组存数全班同学
-    * 2)生成随机数范围0 到 数组长度-1
-    * 3)根据这个索引找到数组中的同学名称
-</code></pre><p>###25随机点名器代码实现</p>
-<pre><code>* A: 分析
-       随机点名器:
-    1  存储姓名
-    2. 预览所有人的姓名
-    3. 随机出一个人的姓名
-* B 代码实现
-   import java.util.Random;
-   public class CallName{
-       public static void main(String[] args){
-           //存储姓名,姓名存储到数组中
-           //数组存储姓名,姓名的数据类型,String
-           String[] names = {&quot;张三&quot;,&quot;李四&quot;,&quot;王五&quot;,&quot;李蕾&quot;,&quot;韩梅梅&quot;,&quot;小名&quot;,&quot;老王&quot;,&quot;小华&quot;,&quot;约翰逊&quot;,&quot;爱丽丝&quot;};
-
-           //预览: 遍历数组,打印所有姓名
-           for(int i = 0 ; i &lt; names.length ; i++){
-               System.out.println(names[i]);
-           }
-           System.out.println(&quot;=============&quot;);
-
-           //随机出一个人的名
-           //利用随机数,生成一个整数,作为索引,到数组中找到对应的元素
-           Random ran = new Random();
-           //随机数,范围必须是0-数组的最大索引
-           int index = ran.nextInt(names.length);//index 就是随机数,作为索引
-           System.out.println(names[index]);
-       }
-   }
-</code></pre><p>###25随机点名器代码实现_2</p>
-<pre><code>* A 代码优化:
-import java.util.Random;
-public class CallName{
-    public static void main(String[] args){
-        String[] names = {&quot;张三&quot;,&quot;李四&quot;,&quot;王五&quot;,&quot;李蕾&quot;,&quot;韩梅梅&quot;,&quot;小名&quot;,&quot;老王&quot;,&quot;小华&quot;,&quot;约翰逊&quot;,&quot;爱丽丝&quot;};
-        System.out.println(names[new Random().nextInt(names.length)]);
-    }
-}
 </code></pre>
           
         
