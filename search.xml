@@ -606,7 +606,8 @@
       <content type="html"><![CDATA[<h3 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1.数据类型"></a>1.数据类型</h3><pre><code>1. JAVA语言中的字符char可以存储一个中文汉字吗?原因?
    *可以.因为Java中字符占两个字节.一个中文汉字也占两个字节
    *Java采用的是Unicode编码
-</code></pre><h3 id="2-运算符"><a href="#2-运算符" class="headerlink" title="2.运算符"></a>2.运算符</h3><pre><code>1. 请写出该输出语句的结果     
+</code></pre><a id="more"></a>         
+<h3 id="2-运算符"><a href="#2-运算符" class="headerlink" title="2.运算符"></a>2.运算符</h3><pre><code>1. 请写出该输出语句的结果     
 
 * hello98
    *因为括号的优先级,(&apos;a&apos;+1)中的&quot;+&quot;依然执行加法,所以字符型根据Ascii转成97,第一个&quot;+&quot;为连接
@@ -626,8 +627,7 @@
                 System.out.println(&quot;数字&quot;+num+&quot;的个位数是 &quot;+ge+&quot;,十位数是 &quot;+shi+&quot;,百位数是 &quot;+bai);        
             }
      }
-</code></pre><a id="more"></a> 
-<h3 id="3-流程控制语句"><a href="#3-流程控制语句" class="headerlink" title="3.流程控制语句"></a>3.流程控制语句</h3><pre><code>1.(1)质数解法一:
+</code></pre><h3 id="3-流程控制语句"><a href="#3-流程控制语句" class="headerlink" title="3.流程控制语句"></a>3.流程控制语句</h3><pre><code>1.(1)质数解法一:
 public class Prime{
      public static void main(String[] args){
     //定义一个计数变量
@@ -834,7 +834,8 @@ public class Test01{
       <title><![CDATA[基础题目]]></title>
       <url>https://geekhoon.github.io/2017/01/09/%E5%9F%BA%E7%A1%80%E9%A2%98%E7%9B%AE/</url>
       <content type="html"><![CDATA[<h3 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1.数据类型"></a>1.数据类型</h3><pre><code>1. JAVA语言中的字符char可以存储一个中文汉字吗?原因?
-</code></pre><h3 id="2-运算符"><a href="#2-运算符" class="headerlink" title="2.运算符"></a>2.运算符</h3><pre><code>1. 请写出该输出语句的结果
+</code></pre><a id="more"></a>       
+<h3 id="2-运算符"><a href="#2-运算符" class="headerlink" title="2.运算符"></a>2.运算符</h3><pre><code>1. 请写出该输出语句的结果
 
 System.out.println(&quot;hello&quot;+(&apos;a&apos;+1));
 
@@ -851,8 +852,7 @@ System.out.println(&quot;hello&quot;+(&apos;a&apos;+1));
     (1)已知一个三位数，请分别获取该三位数上每一位的数值
     (2)例如：123的个位、十位、百位，分别是3、2、1
     (3)打印格式&quot;数字123的个位是 3, 十位是 2, 百位是 1&quot;
-</code></pre><a id="more"></a>
-<h3 id="3-流程控制语句"><a href="#3-流程控制语句" class="headerlink" title="3.流程控制语句"></a>3.流程控制语句</h3><pre><code>1. 计算1-100之间的质数有多少个？将质数以及质数总数打印在控制台。每5个数换行
+</code></pre><h3 id="3-流程控制语句"><a href="#3-流程控制语句" class="headerlink" title="3.流程控制语句"></a>3.流程控制语句</h3><pre><code>1. 计算1-100之间的质数有多少个？将质数以及质数总数打印在控制台。每5个数换行
 
 2. 我国最高山峰是珠穆朗玛峰，8848米。现在我有一张足够大的纸，它的厚度是0.01米。请问，我折叠多少次，可以折成珠穆朗玛峰的高度。
 
