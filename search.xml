@@ -31,6 +31,7 @@
     //int     0
     //double  0.0
     //char    \u0000(16进制)
+    //string  null
 </code></pre><h3 id="3-JVM内存划分"><a href="#3-JVM内存划分" class="headerlink" title="3. JVM内存划分"></a>3. JVM内存划分</h3><pre><code>* JVM对自己的内存划分为5个区域
       * 寄存器:内存和CUP之间
       * 本地方法栈: JVM调用了系统中的功能
@@ -937,7 +938,7 @@ System.out.println(&quot;hello&quot;+(&apos;a&apos;+1));
                 System.out.println(m);
                 System.out.println(n);
                 //结果为m=6,n=6.
-                //因为int  n = ++m;相当于(1)++m;
+                //因为int  n = ++m;相当于(1)++m;(2)int n = m;
 
      如：
             public class Test1 {

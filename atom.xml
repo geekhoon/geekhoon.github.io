@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-01-12T03:10:30.831Z</updated>
+  <updated>2017-01-12T11:09:32.087Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://geekhoon.github.io/2017/01/11/07-%E6%95%B0%E7%BB%84/"/>
     <id>https://geekhoon.github.io/2017/01/11/07-数组/</id>
     <published>2017-01-11T10:03:28.000Z</published>
-    <updated>2017-01-12T03:10:30.831Z</updated>
+    <updated>2017-01-12T11:09:32.087Z</updated>
     
     <content type="html"><![CDATA[<h2 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h2><h3 id="1-数组概述"><a href="#1-数组概述" class="headerlink" title="1. 数组概述"></a>1. 数组概述</h3><pre><code>* 数组是指一组数据的集合，数组中的每个数据被称作元素。
 * 特点:
@@ -47,6 +47,7 @@
     //int     0
     //double  0.0
     //char    \u0000(16进制)
+    //string  null
 </code></pre><h3 id="3-JVM内存划分"><a href="#3-JVM内存划分" class="headerlink" title="3. JVM内存划分"></a>3. JVM内存划分</h3><pre><code>* JVM对自己的内存划分为5个区域
       * 寄存器:内存和CUP之间
       * 本地方法栈: JVM调用了系统中的功能
@@ -1042,7 +1043,7 @@ System.out.println(&quot;hello&quot;+(&apos;a&apos;+1));
     <link href="https://geekhoon.github.io/2017/01/08/04-%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
     <id>https://geekhoon.github.io/2017/01/08/04-运算符/</id>
     <published>2017-01-08T01:58:55.000Z</published>
-    <updated>2017-01-12T08:36:19.306Z</updated>
+    <updated>2017-01-12T10:53:27.432Z</updated>
     
     <content type="html"><![CDATA[<h3 id="1-算数运算符"><a href="#1-算数运算符" class="headerlink" title="1.算数运算符"></a>1.算数运算符</h3><pre><code>* 注意事项
     1.&quot;+&quot;在连接字符串时要注意，只有直接与字符串相加才会转成字符串.
@@ -1081,7 +1082,7 @@ System.out.println(&quot;hello&quot;+(&apos;a&apos;+1));
                 System.out.println(m);
                 System.out.println(n);
                 //结果为m=6,n=6.
-                //因为int  n = ++m;相当于(1)++m;
+                //因为int  n = ++m;相当于(1)++m;(2)int n = m;
 
      如：
             public class Test1 {
@@ -1200,7 +1201,7 @@ System.out.println(&quot;hello&quot;+(&apos;a&apos;+1));
                 System.out.println(m);
                 System.out.println(n);
                 //结果为m=6,n=6.
-                //因为int  n = ++m;相当于(1)++m;
+                //因为int  n = ++m;相当于(1)++m;(2)int n = m;
 
      如：
             public class Test1 {
