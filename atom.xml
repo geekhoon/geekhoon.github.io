@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-01-13T12:03:15.688Z</updated>
+  <updated>2017-01-13T16:03:52.179Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -20,11 +20,12 @@
     <link href="https://geekhoon.github.io/2017/01/13/08-%E6%96%B9%E6%B3%95/"/>
     <id>https://geekhoon.github.io/2017/01/13/08-方法/</id>
     <published>2017-01-13T12:02:47.000Z</published>
-    <updated>2017-01-13T12:03:15.688Z</updated>
+    <updated>2017-01-13T16:03:52.179Z</updated>
     
     <content type="html"><![CDATA[<h3 id="1-方法的概述"><a href="#1-方法的概述" class="headerlink" title="1. 方法的概述"></a>1. 方法的概述</h3><pre><code>* 提高代码的复用性  
-* 完成特定功能的代码块。 
-</code></pre><h3 id="2-方法的定义格式"><a href="#2-方法的定义格式" class="headerlink" title="2. 方法的定义格式"></a>2. 方法的定义格式</h3><pre><code>* 修饰符 返回值类型 方法名(参数类型 参数名1,参数类型 参数名2...) {
+* 完成特定功能的代码块。
+</code></pre><a id="more"></a> 
+<h3 id="2-方法的定义格式"><a href="#2-方法的定义格式" class="headerlink" title="2. 方法的定义格式"></a>2. 方法的定义格式</h3><pre><code>* 修饰符 返回值类型 方法名(参数类型 参数名1,参数类型 参数名2...) {
         方法体语句;
         return 返回值; 
   } 
@@ -69,8 +70,8 @@
     <summary type="html">
     
       &lt;h3 id=&quot;1-方法的概述&quot;&gt;&lt;a href=&quot;#1-方法的概述&quot; class=&quot;headerlink&quot; title=&quot;1. 方法的概述&quot;&gt;&lt;/a&gt;1. 方法的概述&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;* 提高代码的复用性  
-* 完成特定功能的代码块。 
-&lt;/code&gt;&lt;/pre
+* 完成特定功能的代码块。
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     

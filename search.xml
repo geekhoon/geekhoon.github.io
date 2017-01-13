@@ -7,8 +7,9 @@
       <title><![CDATA[08.方法]]></title>
       <url>https://geekhoon.github.io/2017/01/13/08-%E6%96%B9%E6%B3%95/</url>
       <content type="html"><![CDATA[<h3 id="1-方法的概述"><a href="#1-方法的概述" class="headerlink" title="1. 方法的概述"></a>1. 方法的概述</h3><pre><code>* 提高代码的复用性  
-* 完成特定功能的代码块。 
-</code></pre><h3 id="2-方法的定义格式"><a href="#2-方法的定义格式" class="headerlink" title="2. 方法的定义格式"></a>2. 方法的定义格式</h3><pre><code>* 修饰符 返回值类型 方法名(参数类型 参数名1,参数类型 参数名2...) {
+* 完成特定功能的代码块。
+</code></pre><a id="more"></a> 
+<h3 id="2-方法的定义格式"><a href="#2-方法的定义格式" class="headerlink" title="2. 方法的定义格式"></a>2. 方法的定义格式</h3><pre><code>* 修饰符 返回值类型 方法名(参数类型 参数名1,参数类型 参数名2...) {
         方法体语句;
         return 返回值; 
   } 
