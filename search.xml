@@ -54,40 +54,54 @@
     <entry>
       <title><![CDATA[07.数组]]></title>
       <url>https://geekhoon.github.io/2017/01/11/07-%E6%95%B0%E7%BB%84/</url>
-      <content type="html"><![CDATA[<h2 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h2><h3 id="1-数组概述"><a href="#1-数组概述" class="headerlink" title="1. 数组概述"></a>1. 数组概述</h3><pre><code>* 数组是指一组数据的集合，数组中的每个数据被称作元素。
+      <content type="html"><![CDATA[<h2 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h2><h3 id="1-数组概述"><a href="#1-数组概述" class="headerlink" title="1. 数组概述"></a>1. 数组概述</h3><pre><code>* 存储同一种数据类型的多个元素的容器。
 * 特点:
-    (1)在数组中可以存放任意类型的元素，但同一个数组里存放的元素类型必须一致。
+    (1)元素数据类型必须一致。
     (2)长度固定
 </code></pre><a id="more"></a>
 <h3 id="2-数组的定义"><a href="#2-数组的定义" class="headerlink" title="2. 数组的定义"></a>2. 数组的定义</h3><pre><code>* 格式:
     数据类型[] 数组名 = new 数据类型[元素个数或数组长度];
-
+    数据类型 数组名[]  = new 数据类型[元素个数或数组长度];//也对
     * 举例:
         int[] x = new int[100];
-* 要点说明
-      1)数据类型: 数组中存储元素的数据类型
-    2) [] 表示数组的意思
-    3) 变量名  自定义标识符  
-    4) new  创建容器关键字
-    5)数据类型: 数组中存储元素的数据类型
-    6)[]  表示数组的意思
-    7)元素个数,就是数组中,可以存储多少个数据 (恒定, 定长)
 * 索引(index)      
-    数组是一个容器: 存储到数组中的每个元素,都有自己的自动编号,叫作索引(index), 下标, 角标
+    每个元素都有自己的自动编号,叫作索引(index), 下标, 角标
     数组的最小索引是0, 最大索引数组.length-1
 * 初始化默认值
-    //int     0
-    //double  0.0
-    //char    \u0000(16进制)
-    //string  null
-</code></pre><h3 id="3-JVM内存划分"><a href="#3-JVM内存划分" class="headerlink" title="3. JVM内存划分"></a>3. JVM内存划分</h3><pre><code>* JVM对自己的内存划分为5个区域
+    byte,short,int,long 0
+    float,double        0.0
+    char                &apos;\u0000&apos;
+    boolean             false
+    引用类型             null
+</code></pre><h3 id="3-数组初始化"><a href="#3-数组初始化" class="headerlink" title="3. 数组初始化"></a>3. 数组初始化</h3><pre><code>* 动态初始化 : 只给长度，系统给出默认值
+        类型[] 数组名 = new 类型[长度];
+        int[] arr = new int[4];
+* 静态初始化 : 给出值，系统决定长度
+        (1) 类型[] 数组名 = new 类型[]{元素1，元素2，……};
+        int[] arr = new int[]{1,2,3,4};
+        //new int[],这个中括号中不能有任何内容,不要指明数组长度
+        可以改写成:
+            数组的声明: int[] arr;
+            数组的赋值: arr = new int[]{1,2,3,4};
+        (2) 类型[] 数组名 = {元素1，元素2，元素3，……};     
+        int[] arr = { 1, 2, 3, 4 };
+        //这种形式不能改成声明+赋值分开写的形式
+</code></pre><h3 id="4-JVM内存划分"><a href="#4-JVM内存划分" class="headerlink" title="4. JVM内存划分"></a>4. JVM内存划分</h3><pre><code>* JVM对自己的内存划分为5个区域
       * 寄存器:内存和CUP之间
-      * 本地方法栈: JVM调用了系统中的功能
+      * 本地方法区: JVM调用了系统中的功能
       * 方法区(方法和数据共享区): 运行时期class文件进入的地方
       * 方法栈:所有的方法运行的时候进入内存,进入的就是栈内存
           * main方法,压栈运行,第一个进栈,在栈最底部,最后释放
-      * 堆内存:存储的是容器和对象 
-</code></pre><h3 id="4-数组的内存"><a href="#4-数组的内存" class="headerlink" title="4. 数组的内存"></a>4. 数组的内存</h3><pre><code>*   int[] x;                // 声明一个int[]类型的变量
+          * 存储局部变量
+      * 堆内存:存储的是容器和对象,存储所有new出来的
+
+    注意：
+        a:局部变量 在方法定义中或者方法声明上定义的变量。
+        b:栈内存和堆内存的区别
+            栈：数据使用完毕，就消失。
+            堆：每一个new出来的东西都有地址
+        数据使用完毕后，在垃圾回收器空闲的时候回收。
+</code></pre><h3 id="5-数组的内存"><a href="#5-数组的内存" class="headerlink" title="5. 数组的内存"></a>5. 数组的内存</h3><pre><code>*   int[] x;                // 声明一个int[]类型的变量
 *    x = new int[100];        // 创建一个长度为100的数组
 *    arr引用类型,保存的不是数据,是内存的地址,通常是十六进制保存.每次分配的内存地址不一定一样
     *    [:一维数组
@@ -100,19 +114,6 @@
 2.找到程序入口main方法,进入方法栈,main方法压栈运行
 3.执行int[] arr = new int[3];在堆内存中,开辟一段连续空间,长度为3.
 4.arr中保存开辟空间的首地址
-</code></pre><h3 id="5-数组初始化"><a href="#5-数组初始化" class="headerlink" title="5. 数组初始化"></a>5. 数组初始化</h3><pre><code>* 动态初始化 : 在定义数组时只指定数组的长度，由系统自动为元素赋初值的方式
-        (1) 类型[] 数组名 = new 类型[长度];
-        int[] arr = new int[4];
-* 静态初始化 : 在定义数组的同时就为数组的每个元素赋值。
-        (1) 类型[] 数组名 = new 类型[]{元素1，元素2，……};
-        int[] arr = new int[]{1,2,3,4};
-        //new int[],这个中括号中不能有任何内容,不要指明数组长度
-        可以改写成:
-            数组的声明: 类型[] 数组名;
-            数组的赋值: 数组名 = new 类型[]{元素1，元素2，……};
-        (2) 类型[] 数组名 = {元素1，元素2，元素3，……};     
-        int[] arr = { 1, 2, 3, 4 };
-        //这种形式不能改成声明+赋值分开写的形式
 </code></pre><h3 id="6-遍历数组"><a href="#6-遍历数组" class="headerlink" title="6. 遍历数组"></a>6. 遍历数组</h3><pre><code>* 依次访问数组中的每个元素
 * 举例
     public class ArrayDemo04 {
@@ -123,8 +124,25 @@
                 System.out.println(arr[i]); // 通过索引访问元素
             }
         }
-    }         
-</code></pre><h3 id="7-数组中常见的异常"><a href="#7-数组中常见的异常" class="headerlink" title="7. 数组中常见的异常"></a>7. 数组中常见的异常</h3><pre><code>* 数组操作中,常见的两个异常
+    }    
+</code></pre><h3 id="7-逆序-反转"><a href="#7-逆序-反转" class="headerlink" title="7. 逆序(反转)"></a>7. 逆序(反转)</h3><pre><code>方式1：
+    public static void reverse(int[] arr) {
+        for(int x=0; x&lt;arr.length/2; x++) {
+            int temp = arr[x];
+            arr[x] = arr[arr.length-1-x];
+            arr[arr.length-1-x] = temp;
+        }
+    }
+
+方式2：
+    public static void reverse(int[] arr) {
+        for(int start=0,end=arr.length-1; start&lt;=end; start++,end--) {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+        }
+    }     
+</code></pre><h3 id="8-数组中常见的异常"><a href="#8-数组中常见的异常" class="headerlink" title="8. 数组中常见的异常"></a>8. 数组中常见的异常</h3><pre><code>* 数组操作中,常见的两个异常
      数组的索引越界异常(ArrayIndexOutOfBoundsException)
       空指针异常(NullPointerException)
 
@@ -148,7 +166,7 @@
             //java.lang.NullPointerException
         }
     }
-</code></pre><h3 id="8-数组获取最值代码实现"><a href="#8-数组获取最值代码实现" class="headerlink" title="8. 数组获取最值代码实现"></a>8. 数组获取最值代码实现</h3><pre><code>* 数组获取最值的原理思想
+</code></pre><h3 id="9-数组获取最值代码实现"><a href="#9-数组获取最值代码实现" class="headerlink" title="9. 数组获取最值代码实现"></a>9. 数组获取最值代码实现</h3><pre><code>* 数组获取最值的原理思想
     * 定义数组的第一个元素arr[0]为最大值;循环arr数组,判断如果有比arr[0] 大的就交换,直到arr数组遍历完毕,那么arr[0]中就保存了最大的元素
     * 为什么选择数组中的一个元素作为最大值,因为如果自己定义的一个数据比数组所有数据都大,那比较完,得不出数组最大值
 * 代码实现
@@ -941,6 +959,7 @@ System.out.println(&quot;hello&quot;+(&apos;a&apos;+1));
 * Ctrl + L           : 删除该行
 * shift + Tab        :选中部分整体左移
 * tab                 :选中部分整体右移
+* Ctrl + Q           : 注释/取消 单行注释
 </code></pre><h3 id="3-xmind"><a href="#3-xmind" class="headerlink" title="3.xmind"></a>3.xmind</h3><pre><code>* Tab : 新建分支
 *  F4 : 添加备注
 </code></pre>]]></content>
