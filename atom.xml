@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-01-15T12:44:41.129Z</updated>
+  <updated>2017-01-15T15:33:42.240Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -14,6 +14,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>致自己</title>
+    <link href="https://geekhoon.github.io/2117/01/01/%E8%87%B4%E8%87%AA%E5%B7%B1/"/>
+    <id>https://geekhoon.github.io/2117/01/01/致自己/</id>
+    <published>2117-01-01T15:09:33.000Z</published>
+    <updated>2017-01-15T15:33:42.240Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>做一件事,如果过程中你就怕了,退缩了,那不论结果成功还是失败,你都已经输了。</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;做一件事,如果过程中你就怕了,退缩了,那不论结果成功还是失败,你都已经输了。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>10.ArrayList集合</title>
@@ -1802,30 +1826,6 @@ System.out.println(82);
     
     
       <category term="题目" scheme="https://geekhoon.github.io/tags/%E9%A2%98%E7%9B%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>写在最前面</title>
-    <link href="https://geekhoon.github.io/2017/01/01/%E5%86%99%E5%9C%A8%E6%9C%80%E5%89%8D%E9%9D%A2/"/>
-    <id>https://geekhoon.github.io/2017/01/01/写在最前面/</id>
-    <published>2017-01-01T15:09:33.000Z</published>
-    <updated>2017-01-15T12:32:29.349Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>做一件事,如果过程中你就怕了,退缩了,那不论结果成功还是失败,你都已经输了。</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;做一件事,如果过程中你就怕了,退缩了,那不论结果成功还是失败,你都已经输了。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-    
-    </summary>
-    
     
   </entry>
   
