@@ -14,6 +14,7 @@
     注意: 集合只存储引用数据类型,不存储基本类型
     8个基本类型要对应8个引用类型
 </code></pre><a id="more"></a> 
+<p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170115/204404840.bmp" alt=""></p>
 <h3 id="2-集合和数组区别"><a href="#2-集合和数组区别" class="headerlink" title="2. 集合和数组区别"></a>2. 集合和数组区别</h3><pre><code>          集合                        数组
 长度:       可变                         |    固定
 数据类型:  只能引用                  |    既可以基本既可以引用
