@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-01-13T16:03:52.179Z</updated>
+  <updated>2017-01-15T12:05:37.645Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -14,6 +14,143 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>10.ArrayList集合</title>
+    <link href="https://geekhoon.github.io/2017/01/15/10-ArrayList%E9%9B%86%E5%90%88/"/>
+    <id>https://geekhoon.github.io/2017/01/15/10-ArrayList集合/</id>
+    <published>2017-01-15T12:04:38.000Z</published>
+    <updated>2017-01-15T12:05:37.645Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="1-ArrayList创建变量的步骤"><a href="#1-ArrayList创建变量的步骤" class="headerlink" title="1. ArrayList创建变量的步骤"></a>1. ArrayList创建变量的步骤</h3><pre><code>* 导入包 java.util包中
+* 创建引用类型的变量
+    数据类型&lt; 集合存储的数据类型&gt;  变量名 = new 数据类型&lt;集合存储的数据类型&gt;();
+       创建集合引用变量的时候,必须先指定好存储的数据类型
+* 变量名.方法 
+    注意: 集合只存储引用数据类型,不存储基本类型
+    8个基本类型要对应8个引用类型
+</code></pre><a id="more"></a> 
+<h3 id="2-集合和数组区别"><a href="#2-集合和数组区别" class="headerlink" title="2. 集合和数组区别"></a>2. 集合和数组区别</h3><pre><code>          集合                        数组
+长度:       可变                         |    固定
+数据类型:  只能引用                  |    既可以基本既可以引用
+内容:     可以存储不同数据类型的元素 |  只能存储同类型元素
+</code></pre><h3 id="3-ArrayList的常见方法"><a href="#3-ArrayList的常见方法" class="headerlink" title="3. ArrayList的常见方法"></a>3. ArrayList的常见方法</h3><pre><code>* add(参数)           向集合中添加元素
+* get(int index)   取出集合中的元素,get方法的参数,写入索引
+* size()            返回集合的长度, 集合存储元素的个数
+
+* add(int 索引,存储的元素)     将元素添加到指定的索引上
+* set(int 索引,修改后的元素)     将指定索引的元素,进行修改
+* remove(int 索引)             删除指定索引上的元素
+* clear()                     清空集合中的所有元素,对象不会删
+</code></pre><h3 id="4-ArrayList集合的遍历"><a href="#4-ArrayList集合的遍历" class="headerlink" title="4. ArrayList集合的遍历"></a>4. ArrayList集合的遍历</h3><pre><code>* 区别:遍历时,集合存储(Integer类型)与(类),调用get()得到的值是有区别的,分别是值与地址
+Integer类型:
+
+    import java.util.ArrayList;
+    public class ArrayListDemo_2{
+        public static void main(String[] args){
+            ArrayList&lt;Integer&gt; array = new ArrayList&lt;Integer&gt;();
+            array.add(121);
+            array.add(125);
+            array.add(123);
+            array.add(120);
+            array.add(128);
+
+            //对集合进行遍历
+            //使用方法 size+get组合进行遍历
+            for(int i = 0 ; i &lt; array.size(); i++){
+                System.out.println( array.get(i) );
+            }
+        }
+    }
+类:
+//遍历集合,打印所有学生信息
+public static void printArray(ArrayList&lt;Student&gt; array)    {
+    for(int i = 0; i &lt; array.size();i++){
+        //array.get(i)返回的是Student对象,用s接收
+        Student s = array.get(i);
+        System.out.println(&quot;姓名是&quot;+s.name+&quot;,年龄是&quot;+s.age);
+    }
+}
+</code></pre><p>集合中存储类对象 内存图:</p>
+<p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170115/195450789.png" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;1-ArrayList创建变量的步骤&quot;&gt;&lt;a href=&quot;#1-ArrayList创建变量的步骤&quot; class=&quot;headerlink&quot; title=&quot;1. ArrayList创建变量的步骤&quot;&gt;&lt;/a&gt;1. ArrayList创建变量的步骤&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;* 导入包 java.util包中
+* 创建引用类型的变量
+    数据类型&amp;lt; 集合存储的数据类型&amp;gt;  变量名 = new 数据类型&amp;lt;集合存储的数据类型&amp;gt;();
+       创建集合引用变量的时候,必须先指定好存储的数据类型
+* 变量名.方法 
+    注意: 集合只存储引用数据类型,不存储基本类型
+    8个基本类型要对应8个引用类型
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="JAVA基础" scheme="https://geekhoon.github.io/categories/JAVA%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="JAVA基础语法" scheme="https://geekhoon.github.io/tags/JAVA%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>09.自定义类</title>
+    <link href="https://geekhoon.github.io/2017/01/15/09-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB/"/>
+    <id>https://geekhoon.github.io/2017/01/15/09-自定义类/</id>
+    <published>2017-01-15T12:04:20.000Z</published>
+    <updated>2017-01-15T12:06:00.066Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="1-类"><a href="#1-类" class="headerlink" title="1. 类"></a>1. 类</h3><pre><code>* 分两种,一种是JAVA提供的,一种是自定义类
+* 类是用于描述事物的.
+* 事物的特征叫属性
+* 事物的功能叫方法
+</code></pre><h3 id="2-自定义类的格式"><a href="#2-自定义类的格式" class="headerlink" title="2. 自定义类的格式"></a>2. 自定义类的格式</h3><pre><code>* 使用类的形式,对现实中的事物进行描述。 
+
+* 格式
+        public class 类名{
+            属性定义(成员变量)
+              修饰符 数据类型 变量名 = 值
+
+            方法定义(成员方法)
+              修饰符 返回值类型  方法名(参数列表){
+
+              }
+        }
+</code></pre><a id="more"></a> 
+<h3 id="3-自定义类的内存图"><a href="#3-自定义类的内存图" class="headerlink" title="3. 自定义类的内存图"></a>3. 自定义类的内存图</h3><p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170115/200111098.png" alt=""></p>
+<p>new出来对象的属性,存在堆里面<br>根据内存图,可知,即使没被赋值,打印 类名.属性 ,也会有默认值</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;1-类&quot;&gt;&lt;a href=&quot;#1-类&quot; class=&quot;headerlink&quot; title=&quot;1. 类&quot;&gt;&lt;/a&gt;1. 类&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;* 分两种,一种是JAVA提供的,一种是自定义类
+* 类是用于描述事物的.
+* 事物的特征叫属性
+* 事物的功能叫方法
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;2-自定义类的格式&quot;&gt;&lt;a href=&quot;#2-自定义类的格式&quot; class=&quot;headerlink&quot; title=&quot;2. 自定义类的格式&quot;&gt;&lt;/a&gt;2. 自定义类的格式&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;* 使用类的形式,对现实中的事物进行描述。 
+
+* 格式
+        public class 类名{
+            属性定义(成员变量)
+              修饰符 数据类型 变量名 = 值
+
+            方法定义(成员方法)
+              修饰符 返回值类型  方法名(参数列表){
+
+              }
+        }
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="JAVA基础" scheme="https://geekhoon.github.io/categories/JAVA%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="JAVA基础语法" scheme="https://geekhoon.github.io/tags/JAVA%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>08.方法</title>
