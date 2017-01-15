@@ -4,15 +4,6 @@
   
     
     <entry>
-      <title><![CDATA[致自己]]></title>
-      <url>https://geekhoon.github.io/2117/01/01/%E8%87%B4%E8%87%AA%E5%B7%B1/</url>
-      <content type="html"><![CDATA[<blockquote>
-<p>做一件事,如果过程中你就怕了,退缩了,那不论结果成功还是失败,你都已经输了。</p>
-</blockquote>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[10.ArrayList集合]]></title>
       <url>https://geekhoon.github.io/2017/01/15/10-ArrayList%E9%9B%86%E5%90%88/</url>
       <content type="html"><![CDATA[<h3 id="1-ArrayList创建变量的步骤"><a href="#1-ArrayList创建变量的步骤" class="headerlink" title="1. ArrayList创建变量的步骤"></a>1. ArrayList创建变量的步骤</h3><pre><code>* 导入包 java.util包中
