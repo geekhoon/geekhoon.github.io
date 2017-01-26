@@ -31,7 +31,8 @@ private static void printArr(int[] arr) {
     }
     System.out.print(&quot;]&quot;);
 }
-</code></pre><h3 id="2-逆序"><a href="#2-逆序" class="headerlink" title="2.逆序"></a>2.逆序</h3><pre><code>for(int start = 0,end = arr.length-1;start &lt; end;start++,end--){
+</code></pre><a id="more"></a> 
+<h3 id="2-逆序"><a href="#2-逆序" class="headerlink" title="2.逆序"></a>2.逆序</h3><pre><code>for(int start = 0,end = arr.length-1;start &lt; end;start++,end--){
         int temp = arr[start];
         arr[start] = arr[end];
         arr[end] = temp;
@@ -91,19 +92,6 @@ for (int i = 0; i &lt; arr.length - 1; i++) {
 }
 </code></pre><p>原理如图:</p>
 <p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170126/220130538.png" alt=""></p>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[11.数组操作之逆序、排序及查找]]></title>
-      <url>https://geekhoon.github.io/2017/01/26/11-%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C%E4%B9%8B%E9%80%86%E5%BA%8F%E3%80%81%E6%8E%92%E5%BA%8F%E5%8F%8A%E6%9F%A5%E6%89%BE/</url>
-      <content type="html"><![CDATA[<h3 id="1-逆序"><a href="#1-逆序" class="headerlink" title="1.逆序"></a>1.逆序</h3><pre><code>for(int start = 0,end = arr.length-1;start &lt; end;start++,end--){
-        int temp = arr[start];
-        arr[start] = arr[end];
-        arr[end] = temp;
-}
-</code></pre><p>原理如图:</p>
-<p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170111/233540781.bmp" alt=""></p>
 ]]></content>
     </entry>
     
