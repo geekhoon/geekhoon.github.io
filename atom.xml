@@ -937,7 +937,7 @@ public static void printArray(ArrayList&lt;Student&gt; array)    {
     <link href="https://geekhoon.github.io/2017/01/09/%E5%9F%BA%E7%A1%80%E9%A2%98%E7%9B%AE%E7%AD%94%E6%A1%88/"/>
     <id>https://geekhoon.github.io/2017/01/09/基础题目答案/</id>
     <published>2017-01-09T12:40:31.000Z</published>
-    <updated>2017-01-12T08:01:15.986Z</updated>
+    <updated>2017-01-26T12:01:14.866Z</updated>
     
     <content type="html"><![CDATA[<h3 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1.数据类型"></a>1.数据类型</h3><pre><code>1. JAVA语言中的字符char可以存储一个中文汉字吗?原因?
    *可以.因为Java中字符占两个字节.一个中文汉字也占两个字节
@@ -1065,7 +1065,7 @@ public class Test3{
         // 3. 获取数据中的所有位数(个位、十位、百位)
             ge = num % 10;
             shi = num / 10 % 10;
-            bai = num / 100;
+            bai = num / 100 % 10;
         // 判断每个位数上边的数字是否与7相等
             if(ge==7 || shi==7 || bai==7){
                 continue;
@@ -1163,7 +1163,71 @@ public class Test01{
 }
 </code></pre><p>图解反转:</p>
 <p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170111/233540781.bmp" alt=""></p>
-]]></content>
+<pre><code>3. 数组遍历
+    public static void main(String[] args) {
+        int[] arr = {11, 33, 44, 22, 55};
+        printArr(arr);
+    }
+    private static void printArr(int[] arr) {
+        System.out.print(&quot;[&quot;);
+        for (int i = 0; i &lt; arr.length; i++) {
+            if(i == arr.length - 1){
+                System.out.print(arr[i]);
+            }else{
+                System.out.print(arr[i]+&quot;,&quot;);
+            }
+        }
+        System.out.print(&quot;]&quot;);
+    }
+4. 选择排序
+    private static void selectSort(int[] arr) {
+    //外层比较了arr.length-1次
+    for (int i = 0; i &lt; arr.length - 1; i++) {
+    //i=0时,arr[0]和arr[1]先比,再与arr[2],arr[3]比
+    //i=1时,arr[1]和arr[2]先比,再与arr[3]比
+    //i=2时,arr[2]和arr[3]比
+    //所以令j=i+1,内层循环次数递减
+        for(int j = i + 1;j &lt; arr.length;j++){
+            if (arr[i] &gt; arr[j]) {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+</code></pre><p>原理如图:</p>
+<p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170126/192538430.png" alt=""></p>
+<pre><code>5. 冒泡排序
+    private static void bubbleSort(int[] arr) {
+    //外层循环与选择排序一样,循环arr.length-1次
+    for (int i = 0; i &lt; arr.length-1; i++) {
+    //内层循环,索引每次从0开始, 每圈次数递减,若是j &lt; arr.length-i,会报索引越界异常
+        for (int j = 0; j &lt; arr.length-i-1; j++) {
+            if (arr[j] &gt; arr[j+1]) {
+                int temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+        }
+    }
+</code></pre><p>原理如图:</p>
+<p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170126/195527596.png" alt=""></p>
+<h3 id="5-ASCII编码及char类型的存储"><a href="#5-ASCII编码及char类型的存储" class="headerlink" title="5.ASCII编码及char类型的存储"></a>5.ASCII编码及char类型的存储</h3><pre><code>法一:
+    char i,j;
+    for (i = 65; i &lt;= 90; i++) {
+        j = (char) (i + 32);
+        System.out.print(&quot;大写: &quot;+i+&quot; 小写: &quot;+j);
+        System.out.println();
+    }
+法二:
+char daXie = &apos;A&apos;;
+    char xiaoXie = &apos;a&apos;;
+    for (int i = 0; i &lt; 26; i++) {
+        System.out.println(&quot;大写: &quot;+daXie+&quot; 小写: &quot;+xiaoXie);
+        daXie++;
+        xiaoXie++;
+    }
+</code></pre>]]></content>
     
     <summary type="html">
     
@@ -1186,7 +1250,7 @@ public class Test01{
     <link href="https://geekhoon.github.io/2017/01/09/%E5%9F%BA%E7%A1%80%E9%A2%98%E7%9B%AE/"/>
     <id>https://geekhoon.github.io/2017/01/09/基础题目/</id>
     <published>2017-01-09T12:40:20.000Z</published>
-    <updated>2017-01-12T08:01:08.540Z</updated>
+    <updated>2017-01-26T11:07:48.700Z</updated>
     
     <content type="html"><![CDATA[<h3 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1.数据类型"></a>1.数据类型</h3><pre><code>1. JAVA语言中的字符char可以存储一个中文汉字吗?原因?
 </code></pre><a id="more"></a>       
@@ -1222,12 +1286,28 @@ System.out.println(&quot;hello&quot;+(&apos;a&apos;+1));
 
 2. 分析以下需求，并用代码实现：
     (1)键盘录入6个int类型的数据存数数组arr中
-    (2)将arr数组中的内容反转
+    (2)将arr数组中的内容反转(逆序)
     (3)将翻转后的数组角标为奇数的互相交换 1和3换, 3和5换,以此类推
     (4)最后将数组最后一个角标为奇数的元素 和数组中第一个角标为奇数的元素交换
     (5)打印最终的数组(实现了1-4步之后的数组)
     (6)如：用户输入的6个int数字为[1,2,3,4,5,6],最后输出的结果为[6, 5, 4, 1, 2, 3]
-</code></pre>]]></content>
+3. 数组遍历
+    定义打印数组元素方法,按照给定的格式打印[11, 33, 44, 22, 55]
+4. 选择排序
+5. 冒泡排序
+</code></pre><h3 id="5-ASCII编码及char类型的存储"><a href="#5-ASCII编码及char类型的存储" class="headerlink" title="5.ASCII编码及char类型的存储"></a>5.ASCII编码及char类型的存储</h3><ul>
+<li><p>American Standard Code for Information Interchange，美国标准信息交换代码<br>   ASCII编码，统一规定了常用符号用哪些二进制数来表示。</p>
+<pre><code>数字0-9对应ASCII编码十进制为48-57
+字母A-Z对应ASCII编码十进制为65-90
+字母a-z对应ASCII编码十进制为97-122
+</code></pre></li>
+<li><p>取值范围</p>
+<pre><code>* short:占两个字节,是有符号数据,取值范围-32768-32767
+* char: 占两个字节,是无符号数据,取值范围0-65535
+</code></pre></li>
+<li>题目:<br>  输出所有英文字母</li>
+</ul>
+]]></content>
     
     <summary type="html">
     

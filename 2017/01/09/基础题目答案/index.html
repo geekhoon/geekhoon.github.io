@@ -97,7 +97,9 @@
    *可以.因为Java中字符占两个字节.一个中文汉字也占两个字节
    *Java采用的是Unicode编码">
 <meta property="og:image" content="http://oj3s07yy0.bkt.clouddn.com/blog/20170111/233540781.bmp">
-<meta property="og:updated_time" content="2017-01-12T08:01:15.986Z">
+<meta property="og:image" content="http://oj3s07yy0.bkt.clouddn.com/blog/20170126/192538430.png">
+<meta property="og:image" content="http://oj3s07yy0.bkt.clouddn.com/blog/20170126/195527596.png">
+<meta property="og:updated_time" content="2017-01-26T12:01:14.866Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基础题目答案">
 <meta name="twitter:description" content="1.数据类型1. JAVA语言中的字符char可以存储一个中文汉字吗?原因?
@@ -510,7 +512,7 @@ public class Test3{
         // 3. 获取数据中的所有位数(个位、十位、百位)
             ge = num % 10;
             shi = num / 10 % 10;
-            bai = num / 100;
+            bai = num / 100 % 10;
         // 判断每个位数上边的数字是否与7相等
             if(ge==7 || shi==7 || bai==7){
                 continue;
@@ -608,7 +610,71 @@ public class Test01{
 }
 </code></pre><p>图解反转:</p>
 <p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170111/233540781.bmp" alt=""></p>
-
+<pre><code>3. 数组遍历
+    public static void main(String[] args) {
+        int[] arr = {11, 33, 44, 22, 55};
+        printArr(arr);
+    }
+    private static void printArr(int[] arr) {
+        System.out.print(&quot;[&quot;);
+        for (int i = 0; i &lt; arr.length; i++) {
+            if(i == arr.length - 1){
+                System.out.print(arr[i]);
+            }else{
+                System.out.print(arr[i]+&quot;,&quot;);
+            }
+        }
+        System.out.print(&quot;]&quot;);
+    }
+4. 选择排序
+    private static void selectSort(int[] arr) {
+    //外层比较了arr.length-1次
+    for (int i = 0; i &lt; arr.length - 1; i++) {
+    //i=0时,arr[0]和arr[1]先比,再与arr[2],arr[3]比
+    //i=1时,arr[1]和arr[2]先比,再与arr[3]比
+    //i=2时,arr[2]和arr[3]比
+    //所以令j=i+1,内层循环次数递减
+        for(int j = i + 1;j &lt; arr.length;j++){
+            if (arr[i] &gt; arr[j]) {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+</code></pre><p>原理如图:</p>
+<p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170126/192538430.png" alt=""></p>
+<pre><code>5. 冒泡排序
+    private static void bubbleSort(int[] arr) {
+    //外层循环与选择排序一样,循环arr.length-1次
+    for (int i = 0; i &lt; arr.length-1; i++) {
+    //内层循环,索引每次从0开始, 每圈次数递减,若是j &lt; arr.length-i,会报索引越界异常
+        for (int j = 0; j &lt; arr.length-i-1; j++) {
+            if (arr[j] &gt; arr[j+1]) {
+                int temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+        }
+    }
+</code></pre><p>原理如图:</p>
+<p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170126/195527596.png" alt=""></p>
+<h3 id="5-ASCII编码及char类型的存储"><a href="#5-ASCII编码及char类型的存储" class="headerlink" title="5.ASCII编码及char类型的存储"></a>5.ASCII编码及char类型的存储</h3><pre><code>法一:
+    char i,j;
+    for (i = 65; i &lt;= 90; i++) {
+        j = (char) (i + 32);
+        System.out.print(&quot;大写: &quot;+i+&quot; 小写: &quot;+j);
+        System.out.println();
+    }
+法二:
+char daXie = &apos;A&apos;;
+    char xiaoXie = &apos;a&apos;;
+    for (int i = 0; i &lt; 26; i++) {
+        System.out.println(&quot;大写: &quot;+daXie+&quot; 小写: &quot;+xiaoXie);
+        daXie++;
+        xiaoXie++;
+    }
+</code></pre>
       
     </div>
 
@@ -861,7 +927,7 @@ public class Test01{
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-数据类型"><span class="nav-number">1.</span> <span class="nav-text">1.数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-运算符"><span class="nav-number">2.</span> <span class="nav-text">2.运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-流程控制语句"><span class="nav-number">3.</span> <span class="nav-text">3.流程控制语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-数组"><span class="nav-number">4.</span> <span class="nav-text">4.数组</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-数据类型"><span class="nav-number">1.</span> <span class="nav-text">1.数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-运算符"><span class="nav-number">2.</span> <span class="nav-text">2.运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-流程控制语句"><span class="nav-number">3.</span> <span class="nav-text">3.流程控制语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-数组"><span class="nav-number">4.</span> <span class="nav-text">4.数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-ASCII编码及char类型的存储"><span class="nav-number">5.</span> <span class="nav-text">5.ASCII编码及char类型的存储</span></a></li></ol></div>
             
           </div>
         </section>
