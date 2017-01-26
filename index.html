@@ -415,6 +415,307 @@
             
               
                 
+                <a class="post-title-link" href="/2017/01/26/11-数组操作之遍历、逆序、排序及查找/" itemprop="url">
+                  11.数组操作之遍历、逆序、排序及查找
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-26T22:31:49+08:00" content="2017-01-26">
+              2017-01-26
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/26/11-数组操作之遍历、逆序、排序及查找/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/26/11-数组操作之遍历、逆序、排序及查找/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/01/26/11-数组操作之遍历、逆序、排序及查找/" class="leancloud_visitors" data-flag-title="11.数组操作之遍历、逆序、排序及查找">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="1-数组遍历"><a href="#1-数组遍历" class="headerlink" title="1.数组遍历"></a>1.数组遍历</h3><pre><code>//打印结果为[11, 33, 44, 22, 55]
+public static void main(String[] args) {
+    int[] arr = {11, 33, 44, 22, 55};
+    printArr(arr);
+}
+private static void printArr(int[] arr) {
+    System.out.print(&quot;[&quot;);
+    for (int i = 0; i &lt; arr.length; i++) {
+        if(i == arr.length - 1){
+            System.out.print(arr[i]);
+        }else{
+            System.out.print(arr[i]+&quot;,&quot;);
+        }
+    }
+    System.out.print(&quot;]&quot;);
+}
+</code></pre><h3 id="2-逆序"><a href="#2-逆序" class="headerlink" title="2.逆序"></a>2.逆序</h3><pre><code>for(int start = 0,end = arr.length-1;start &lt; end;start++,end--){
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+}
+</code></pre><p>原理如图:</p>
+<p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170111/233540781.bmp" alt=""></p>
+<h3 id="3-选择排序"><a href="#3-选择排序" class="headerlink" title="3.选择排序"></a>3.选择排序</h3><pre><code>private static void selectSort(int[] arr) {
+//外层比较了arr.length-1次
+for (int i = 0; i &lt; arr.length - 1; i++) {
+//i=0时,arr[0]和arr[1]先比,再与arr[2],arr[3]比
+//i=1时,arr[1]和arr[2]先比,再与arr[3]比
+//i=2时,arr[2]和arr[3]比
+//所以令j=i+1,内层循环次数递减
+    for(int j = i + 1;j &lt; arr.length;j++){
+        if (arr[i] &gt; arr[j]) {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+    }
+}
+</code></pre><p>原理如图:</p>
+<p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170126/192538430.png" alt=""></p>
+<h3 id="4-冒泡排序"><a href="#4-冒泡排序" class="headerlink" title="4.冒泡排序"></a>4.冒泡排序</h3><pre><code>private static void bubbleSort(int[] arr) {
+    //外层循环与选择排序一样,循环arr.length-1次
+    for (int i = 0; i &lt; arr.length-1; i++) {
+    //内层循环,索引每次从0开始, 每圈次数递减,若是j &lt; arr.length-i,会报索引越界异常
+        for (int j = 0; j &lt; arr.length-i-1; j++) {
+            if (arr[j] &gt; arr[j+1]) {
+                int temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+        }
+    }
+}
+</code></pre><p>原理如图:</p>
+<p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170126/195527596.png" alt=""></p>
+<h3 id="5-折半查找"><a href="#5-折半查找" class="headerlink" title="5.折半查找"></a>5.折半查找</h3><pre><code>private static int binarySearch(int[] arr, int key) {
+    int min = 0;
+    int max = arr.length - 1;
+    int mid = 0;
+    //当min&gt;max,证明未找到,返回-1
+    while(min &lt;= max){
+        mid = (min + max)/2;
+        ////让查找元素和中间索引元素进行比较
+        if (key &gt; arr[mid]) {
+            min = mid + 1;
+        }else if (key &lt; arr[mid]) {
+            max = mid - 1;
+        }else{
+        //找到元素,返回元素索引
+            return mid;
+        }
+    }
+    return -1;
+}
+</code></pre><p>原理如图:</p>
+<p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170126/220130538.png" alt=""></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/01/26/11-数组操作之逆序、排序及查找/" itemprop="url">
+                  11.数组操作之逆序、排序及查找
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-26T22:27:34+08:00" content="2017-01-26">
+              2017-01-26
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/26/11-数组操作之逆序、排序及查找/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/26/11-数组操作之逆序、排序及查找/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/01/26/11-数组操作之逆序、排序及查找/" class="leancloud_visitors" data-flag-title="11.数组操作之逆序、排序及查找">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="1-逆序"><a href="#1-逆序" class="headerlink" title="1.逆序"></a>1.逆序</h3><pre><code>for(int start = 0,end = arr.length-1;start &lt; end;start++,end--){
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+}
+</code></pre><p>原理如图:</p>
+<p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170111/233540781.bmp" alt=""></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/01/15/10-ArrayList集合/" itemprop="url">
                   10.ArrayList集合
                 </a>
@@ -1361,275 +1662,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/09/基础题目/" itemprop="url">
-                  基础题目
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-09T20:40:20+08:00" content="2017-01-09">
-              2017-01-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/JAVA基础/" itemprop="url" rel="index">
-                    <span itemprop="name">JAVA基础</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/01/09/基础题目/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/09/基础题目/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/01/09/基础题目/" class="leancloud_visitors" data-flag-title="基础题目">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1.数据类型"></a>1.数据类型</h3><pre><code>1. JAVA语言中的字符char可以存储一个中文汉字吗?原因?
-</code></pre>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/01/09/基础题目/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/09/常用快捷键/" itemprop="url">
-                  常用快捷键
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-09T17:50:28+08:00" content="2017-01-09">
-              2017-01-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技巧/" itemprop="url" rel="index">
-                    <span itemprop="name">技巧</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/01/09/常用快捷键/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/09/常用快捷键/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/01/09/常用快捷键/" class="leancloud_visitors" data-flag-title="常用快捷键">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="1-Dos"><a href="#1-Dos" class="headerlink" title="1.Dos"></a>1.Dos</h3><pre><code>* Shift + 右键    : 当前文件夹下打开dos
-* Tab             : 注意dos下,&quot;Tab键&quot;的使用,可方便输入
-* 标记 + 右键/回车 : dos下复制
-* &quot;↑&quot;和&quot;↓&quot;        : dos未关闭前提下,使用之前的命令
-* 复制路径后,dos下右键,可以粘贴
-* Ctrl + c        :强行停止命令行
-</code></pre>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/01/09/常用快捷键/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1675,7 +1707,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
