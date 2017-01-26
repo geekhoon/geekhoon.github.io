@@ -15,7 +15,7 @@
     <entry>
       <title><![CDATA[11.数组操作之遍历、逆序、排序及查找]]></title>
       <url>https://geekhoon.github.io/2017/01/26/11-%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C%E4%B9%8B%E9%81%8D%E5%8E%86%E3%80%81%E9%80%86%E5%BA%8F%E3%80%81%E6%8E%92%E5%BA%8F%E5%8F%8A%E6%9F%A5%E6%89%BE/</url>
-      <content type="html"><![CDATA[<h3 id="1-数组遍历"><a href="#1-数组遍历" class="headerlink" title="1.数组遍历"></a>1.数组遍历</h3><pre><code>`//打印结果为[11, 33, 44, 22, 55]`
+      <content type="html"><![CDATA[<h3 id="1-数组遍历"><a href="#1-数组遍历" class="headerlink" title="1.数组遍历"></a>1.数组遍历</h3><pre><code>//打印结果为[11, 33, 44, 22, 55]
 public static void main(String[] args) {
     int[] arr = {11, 33, 44, 22, 55};
     printArr(arr);
