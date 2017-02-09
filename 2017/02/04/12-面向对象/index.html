@@ -105,7 +105,7 @@
   2. 将复杂的事情简单化
   3. 从执行者变成指挥者">
 <meta property="og:image" content="http://oj3s07yy0.bkt.clouddn.com/blog/20170209/154741718.png">
-<meta property="og:updated_time" content="2017-02-09T07:48:27.022Z">
+<meta property="og:updated_time" content="2017-02-09T16:40:08.532Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="12.面向对象">
 <meta name="twitter:description" content="1. 面向过程与面向对象* 面向过程： 注重实现过程，每件事都是要亲自去做
@@ -424,41 +424,10 @@
 * 被private修饰的内容不能在其他类访问
 </code></pre><h3 id="4-get和set方法"><a href="#4-get和set方法" class="headerlink" title="4. get和set方法"></a>4. get和set方法</h3><pre><code>私有化所有的属性 (成员变量) ,必须写对应的get/set方法
 凡是自定义的类,自定义成员变量,应该私有化,提供get/set
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> String name;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> age;</div><div class="line"></div><div class="line">	<span class="comment">// set方法,变量name,age赋值</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.age = age;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.name = name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">// get方法,变量name,age获取值</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> age;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> name;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
-    public class Person {
-        private String name;
-        private int age;
-
-        // set方法,变量name,age赋值
-        public void setAge(int age) {
-            this.age = age;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        // get方法,变量name,age获取值
-        public int getAge() {
-            return age;
-        }
-
-        public String getName() {
-            return name;
-        }
-    }
-* 测试代码        
-    public class PersonTest {
-        public static void main(String[] args) {
-            Person p = new Person();
-            //调用set方法,对成员变量赋值
-            p.setAge(18);
-            p.setName(&quot;旺财&quot;);
-            //调用get方法,获取成员变量的值
-            System.out.println(p.getName());
-            System.out.println(p.getAge());
-        }
-    }
+* 测试代码
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PersonTest</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		Person p = <span class="keyword">new</span> Person();</div><div class="line">		<span class="comment">//调用set方法,对成员变量赋值</span></div><div class="line">		p.setAge(<span class="number">18</span>);</div><div class="line">		p.setName(<span class="string">"旺财"</span>);</div><div class="line">		<span class="comment">//调用get方法,获取成员变量的值</span></div><div class="line">		System.out.println(p.getName());</div><div class="line">		System.out.println(p.getAge());</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </code></pre><h3 id="5-封装"><a href="#5-封装" class="headerlink" title="5. 封装"></a>5. 封装</h3><pre><code>概念: 隐藏实现细节，对外提供可以访问的方式
 好处:
     * 1、提高了代码的复用性
@@ -847,8 +816,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/02/09/test/" rel="prev" title="test">
-                test <i class="fa fa-chevron-right"></i>
+              <a href="/2117/01/01/致自己/" rel="prev" title="致自己">
+                致自己 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -944,7 +913,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
