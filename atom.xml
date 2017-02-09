@@ -44,7 +44,7 @@
     <link href="https://geekhoon.github.io/2017/02/04/12-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
     <id>https://geekhoon.github.io/2017/02/04/12-面向对象/</id>
     <published>2017-02-04T10:56:44.000Z</published>
-    <updated>2017-02-09T16:40:08.532Z</updated>
+    <updated>2017-02-09T16:43:03.863Z</updated>
     
     <content type="html"><![CDATA[<h3 id="1-面向过程与面向对象"><a href="#1-面向过程与面向对象" class="headerlink" title="1. 面向过程与面向对象"></a>1. 面向过程与面向对象</h3><pre><code>* 面向过程： 注重实现过程，每件事都是要亲自去做
 * 面向对象： 注重实现结果，强调这件事让别人帮我来做
