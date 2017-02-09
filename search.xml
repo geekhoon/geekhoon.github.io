@@ -4,15 +4,6 @@
   
     
     <entry>
-      <title><![CDATA[致自己]]></title>
-      <url>https://geekhoon.github.io/2117/01/01/%E8%87%B4%E8%87%AA%E5%B7%B1/</url>
-      <content type="html"><![CDATA[<blockquote>
-<p>做一件事,如果过程中你就怕了,退缩了,那不论结果成功还是失败,你都已经输了。</p>
-</blockquote>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[12.面向对象]]></title>
       <url>https://geekhoon.github.io/2017/02/04/12-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</url>
       <content type="html"><![CDATA[<h3 id="面向过程与面向对象"><a href="#面向过程与面向对象" class="headerlink" title="面向过程与面向对象"></a>面向过程与面向对象</h3><ul>
@@ -2046,6 +2037,15 @@ System.out.println(82);
 }
 </code></pre><p>A.1<br>B.2<br>C.0<br>D.编译报错</p>
 <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>答案:1~5:C,D,AD,C,D 6~10:C,A,B,ABCD,AB 11~14:BC,D,D,B</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[致自己]]></title>
+      <url>https://geekhoon.github.io/2017/01/01/%E8%87%B4%E8%87%AA%E5%B7%B1/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>做一件事,如果过程中你就怕了,退缩了,那不论结果成功还是失败,你都已经输了。</p>
+</blockquote>
 ]]></content>
     </entry>
     
