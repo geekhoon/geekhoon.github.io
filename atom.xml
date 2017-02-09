@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-02-09T18:25:09.208Z</updated>
+  <updated>2017-02-09T18:27:39.985Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://geekhoon.github.io/2017/02/04/12-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
     <id>https://geekhoon.github.io/2017/02/04/12-面向对象/</id>
     <published>2017-02-04T10:56:44.000Z</published>
-    <updated>2017-02-09T18:25:09.208Z</updated>
+    <updated>2017-02-09T18:27:39.985Z</updated>
     
     <content type="html"><![CDATA[<h3 id="面向过程与面向对象"><a href="#面向过程与面向对象" class="headerlink" title="面向过程与面向对象"></a>面向过程与面向对象</h3><p>面向过程： 注重实现过程，每件事都是要亲自去做<br>面向对象： 注重实现结果，强调这件事让别人帮我来做</p>
 <p>好处:</p>
@@ -30,22 +30,8 @@
 <li>从执行者变成指挥者</li>
 </ol>
 <a id="more"></a> 
-<h3 id="局部变量和成员变量区别"><a href="#局部变量和成员变量区别" class="headerlink" title="局部变量和成员变量区别"></a>局部变量和成员变量区别</h3><pre><code>1.定义位置不同
-    局部变量：方法中
-    成员变量：类中方法外
-2.作用域不同
-    局部变量：方法中，出了方法就不能用了
-    成员变量：整个类
-3.默认值不同
-    局部变量：没有默认值，局部变量必须先赋值才能使用
-    成员变量：有默认值。和数组元素默认值一样  
-4.内存位置不同
-    局部变量：在栈内存的方法中
-    成员变量：在堆内存的对象中
-5.生命周期不同
-    局部变量：随着方法弹栈而消亡
-    成员变量：随着对象的回收而消亡
-</code></pre><h3 id="private关键字"><a href="#private关键字" class="headerlink" title="private关键字"></a>private关键字</h3><pre><code>* private可以修饰成员内容包括成员方法和成员变量
+<h3 id="局部变量和成员变量区别"><a href="#局部变量和成员变量区别" class="headerlink" title="局部变量和成员变量区别"></a>局部变量和成员变量区别</h3><p>1.定义位置不同<br>    局部变量：方法中<br>    成员变量：类中方法外<br>2.作用域不同<br>    局部变量：方法中，出了方法就不能用了<br>    成员变量：整个类<br>3.默认值不同<br>    局部变量：没有默认值，局部变量必须先赋值才能使用<br>    成员变量：有默认值。和数组元素默认值一样<br>4.内存位置不同<br>    局部变量：在栈内存的方法中<br>    成员变量：在堆内存的对象中<br>5.生命周期不同<br>    局部变量：随着方法弹栈而消亡<br>    成员变量：随着对象的回收而消亡</p>
+<h3 id="private关键字"><a href="#private关键字" class="headerlink" title="private关键字"></a>private关键字</h3><pre><code>* private可以修饰成员内容包括成员方法和成员变量
 
 * 被private修饰的内容不能在其他类访问
 </code></pre><h3 id="get和set方法"><a href="#get和set方法" class="headerlink" title="get和set方法"></a>get和set方法</h3><pre><code>私有化所有的属性 (成员变量) ,必须写对应的get/set方法
