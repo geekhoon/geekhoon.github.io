@@ -44,17 +44,11 @@
     <link href="https://geekhoon.github.io/2017/02/04/12-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
     <id>https://geekhoon.github.io/2017/02/04/12-面向对象/</id>
     <published>2017-02-04T10:56:44.000Z</published>
-    <updated>2017-02-09T16:45:56.211Z</updated>
+    <updated>2017-02-09T17:53:03.653Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="1-面向过程与面向对象"><a href="#1-面向过程与面向对象" class="headerlink" title="1. 面向过程与面向对象"></a>1. 面向过程与面向对象</h3><pre><code>* 面向过程： 注重实现过程，每件事都是要亲自去做
-* 面向对象： 注重实现结果，强调这件事让别人帮我来做
-
-好处:
-  1. 更符合人类思考的习惯
-  2. 将复杂的事情简单化
-  3. 从执行者变成指挥者
+    <content type="html"><![CDATA[<h3 id="面向过程与面向对象"><a href="#面向过程与面向对象" class="headerlink" title="面向过程与面向对象"></a>面向过程与面向对象</h3><pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">* 面向过程： 注重实现过程，每件事都是要亲自去做</div><div class="line">* 面向对象： 注重实现结果，强调这件事让别人帮我来做</div><div class="line"></div><div class="line">   好处:</div><div class="line">  <span class="number">1</span>. 更符合人类思考的习惯</div><div class="line">     <span class="number">2</span>. 将复杂的事情简单化</div><div class="line">     <span class="number">3</span>. 从执行者变成指挥者</div></pre></td></tr></table></figure>
 </code></pre><a id="more"></a> 
-<h3 id="2-局部变量和成员变量区别"><a href="#2-局部变量和成员变量区别" class="headerlink" title="2. 局部变量和成员变量区别"></a>2. 局部变量和成员变量区别</h3><pre><code>1.定义位置不同
+<h3 id="局部变量和成员变量区别"><a href="#局部变量和成员变量区别" class="headerlink" title="局部变量和成员变量区别"></a>局部变量和成员变量区别</h3><pre><code>1.定义位置不同
     局部变量：方法中
     成员变量：类中方法外
 2.作用域不同
@@ -69,21 +63,21 @@
 5.生命周期不同
     局部变量：随着方法弹栈而消亡
     成员变量：随着对象的回收而消亡
-</code></pre><h3 id="3-private关键字"><a href="#3-private关键字" class="headerlink" title="3. private关键字"></a>3. private关键字</h3><pre><code>* private可以修饰成员内容包括成员方法和成员变量
+</code></pre><h3 id="private关键字"><a href="#private关键字" class="headerlink" title="private关键字"></a>private关键字</h3><pre><code>* private可以修饰成员内容包括成员方法和成员变量
 
 * 被private修饰的内容不能在其他类访问
-</code></pre><h3 id="4-get和set方法"><a href="#4-get和set方法" class="headerlink" title="4. get和set方法"></a>4. get和set方法</h3><pre><code>私有化所有的属性 (成员变量) ,必须写对应的get/set方法
+</code></pre><h3 id="get和set方法"><a href="#get和set方法" class="headerlink" title="get和set方法"></a>get和set方法</h3><pre><code>私有化所有的属性 (成员变量) ,必须写对应的get/set方法
 凡是自定义的类,自定义成员变量,应该私有化,提供get/set
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> String name;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> age;</div><div class="line"></div><div class="line">	<span class="comment">// set方法,变量name,age赋值</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.age = age;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.name = name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">// get方法,变量name,age获取值</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> age;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> name;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
 * 测试代码1
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PersonTest</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		Person p = <span class="keyword">new</span> Person();</div><div class="line">		<span class="comment">//调用set方法,对成员变量赋值</span></div><div class="line">		p.setAge(<span class="number">18</span>);</div><div class="line">		p.setName(<span class="string">"旺财"</span>);</div><div class="line">		<span class="comment">//调用get方法,获取成员变量的值</span></div><div class="line">		System.out.println(p.getName());</div><div class="line">		System.out.println(p.getAge());</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre><h3 id="5-封装"><a href="#5-封装" class="headerlink" title="5. 封装"></a>5. 封装</h3><pre><code>概念: 隐藏实现细节，对外提供可以访问的方式
+</code></pre><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><pre><code>概念: 隐藏实现细节，对外提供可以访问的方式
 好处:
     * 1、提高了代码的复用性
     * 2、隐藏了实现细节，还要对外提供可以访问的方式。便于调用者的使用。
     * 3、提高了安全性    
-</code></pre><h3 id="6-继承"><a href="#6-继承" class="headerlink" title="6. 继承"></a>6. 继承</h3><pre><code>* 子类会自动拥有父类所有非private修饰的属性和方法
+</code></pre><h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><pre><code>* 子类会自动拥有父类所有非private修饰的属性和方法
 
 * 格式: class 子类 extends 父类 {} 
 
@@ -139,7 +133,7 @@
             }
         }
 </code></pre><p>子类父类内存图:<br><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170209/154741718.png" alt=""></p>
-<h3 id="7-重载与重写对比"><a href="#7-重载与重写对比" class="headerlink" title="7. 重载与重写对比"></a>7. 重载与重写对比</h3><pre><code>重载overload: 在同一个类中,方法名相同,参数列表不同
+<h3 id="重载与重写对比"><a href="#重载与重写对比" class="headerlink" title="重载与重写对比"></a>重载与重写对比</h3><pre><code>重载overload: 在同一个类中,方法名相同,参数列表不同
     和权限修饰符(public private 默认)无关,和返回值类型无关
     方法名:重载的两个方法的方法名必须相同
     形参列表(三者至少满足一个):
@@ -159,7 +153,7 @@
        子类方法的返回值类型和父类方法的返回值类型相同
        或者
        子类方法的返回值类型是父类方法的返回值类型的 子类
-</code></pre><h3 id="8-抽象类"><a href="#8-抽象类" class="headerlink" title="8. 抽象类"></a>8. 抽象类</h3><pre><code>* 抽象类定义格式:
+</code></pre><h3 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h3><pre><code>* 抽象类定义格式:
     public abstract class 类名 {    
     }
 * 抽象方法定义格式:
@@ -174,7 +168,7 @@
     * 一个普通类继承抽象类,一定要重写父类所有方法
     * 抽象类中可以有抽象方法,也可以有普通方法
     * 不能和private,final,static一起用 
-</code></pre><h3 id="9-接口"><a href="#9-接口" class="headerlink" title="9. 接口"></a>9. 接口</h3><pre><code>* 概念
+</code></pre><h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><pre><code>* 概念
 接口是功能的集合,同样可看做是一种数据类型,是比抽象类更为抽象的”类”,一般把接口当作功能扩展.
 接口只有抽象方法定义,并没有具体实现。
 * 接口定义格式
@@ -248,7 +242,7 @@
     接口可以多实现, 抽象类只能单继承
     * 抽象类是这个事物中应该具备的内容
     * 接口是这个事物中的额外内容
-</code></pre><h3 id="10-多态"><a href="#10-多态" class="headerlink" title="10. 多态"></a>10. 多态</h3><pre><code>* 概念: 一种事物有多种形态
+</code></pre><h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><pre><code>* 概念: 一种事物有多种形态
     如Student类继承了Person类，一个Student的对象便既是Student，又是Person。
 * 格式:
     父类类型或接口类型  变量名  =  new  子类的对象();
@@ -279,7 +273,7 @@
     (2)向下转型(强制转换): 父类类型转为子类,可以调用子类中特有方法
         格式:　子类类型　变量名　＝（子类类型）父类类型的变量；        
               Student s = (Student) p ;
-</code></pre><h3 id="11-构造方法"><a href="#11-构造方法" class="headerlink" title="11. 构造方法"></a>11. 构造方法</h3><pre><code>* 作用: 在创建对象的同时,为成员变量初始化
+</code></pre><h3 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h3><pre><code>* 作用: 在创建对象的同时,为成员变量初始化
 * 快捷键: ALT+Shift+S (Generate Constructor using Firlds)
 * 格式:　
     权限　方法名（参数列表）{
@@ -334,7 +328,7 @@
     * 无论如何,子类所有的构造方法,都要直接,间接调用父类构造方法
     * 当父类中没有空参数构造方法时，子类的构造方法必须有显示的super语句，指定要访问的父类有参数构造方法。
     * 子类默认会调用父类的无参构造， 但如果父类没有无参构造(即父类自定义了一个有参构造)，子类的构造方法继续调用父类的无参构造就会报错。
-</code></pre><h3 id="12-final"><a href="#12-final" class="headerlink" title="12. final"></a>12. final</h3><pre><code>* final就是固定, 不可变
+</code></pre><h3 id="final"><a href="#final" class="headerlink" title="final"></a>final</h3><pre><code>* final就是固定, 不可变
 * 可修饰 类,方法,成员变量,局部变量
   1.修饰类: 不可以被继承, 但是可以继承别的类
             String类就是final修饰的
@@ -356,7 +350,7 @@
             this.age = age;
         }
       这两种赋值方式它不可以一起使用
-</code></pre><h3 id="13-static"><a href="#13-static" class="headerlink" title="13. static"></a>13. static</h3><pre><code>* 特点: 被static修饰的成员属于类, 被该类的所有对象共享。被static修饰的成员可以通过类名直接调用
+</code></pre><h3 id="static"><a href="#static" class="headerlink" title="static"></a>static</h3><pre><code>* 特点: 被static修饰的成员属于类, 被该类的所有对象共享。被static修饰的成员可以通过类名直接调用
          多个对象在访问或修改static修饰的成员变量时，其中一个对象将static成员变量值进行了修改，
       其他对象中的static成员变量值跟着改变，即多个对象共享同一个static成员变量
 * 可修饰 方法, 成员变量
@@ -377,11 +371,11 @@
     * 格式:  public static final 数据类型 变量名 = 值;
     * 变量名全部大写，多个单词使用下划线连接
 * 记住: 静态和对象没有关系, 静态是属于类的
-</code></pre><h3 id="14-匿名对象"><a href="#14-匿名对象" class="headerlink" title="14. 匿名对象"></a>14. 匿名对象</h3><pre><code>* 指创建对象时，只有创建对象的语句，却没有把对象地址值赋值给某个变量。
+</code></pre><h3 id="匿名对象"><a href="#匿名对象" class="headerlink" title="匿名对象"></a>匿名对象</h3><pre><code>* 指创建对象时，只有创建对象的语句，却没有把对象地址值赋值给某个变量。
 * 特点:　
 　　* 只能使用一次 
 　　* 可以作为方法接收的参数、方法返回值使用
-</code></pre><h3 id="15-内部类"><a href="#15-内部类" class="headerlink" title="15. 内部类"></a>15. 内部类</h3><pre><code>* 当一个类定义在一个类的内部，这个类就是一个内部类
+</code></pre><h3 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h3><pre><code>* 当一个类定义在一个类的内部，这个类就是一个内部类
 * 包括:
     (1)成员内部类: 
             public class Outer {
@@ -397,7 +391,7 @@
         外部类名.内部类名 变量名 = new 外部类对象().new 内部类对象();
         变量名.内部类方法();
     (2) 局部内部类: 把一个类定义到另一个类的方法中
-</code></pre><h3 id="16-匿名内部类"><a href="#16-匿名内部类" class="headerlink" title="16. 匿名内部类"></a>16. 匿名内部类</h3><pre><code>* 实质: 父类类型的子类对象, 或接口的实现类对象
+</code></pre><h3 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h3><pre><code>* 实质: 父类类型的子类对象, 或接口的实现类对象
 * 格式: 
         new 接口或父类(){
             重写接口或者父类中的方法;(注意: 不是只重写抽象方法)
@@ -405,12 +399,12 @@
 * 注意: 匿名方法只能在方法中或构造代码块,局部代码块中使用
 * 优点: 减少代码量
 * 缺点: 可读性差
-</code></pre><h3 id="17-包"><a href="#17-包" class="headerlink" title="17. 包"></a>17. 包</h3><pre><code>* 概念: 实质上就是文件夹，可以对java代码进行分类管理
+</code></pre><h3 id="包"><a href="#包" class="headerlink" title="包"></a>包</h3><pre><code>* 概念: 实质上就是文件夹，可以对java代码进行分类管理
 * 声明包格式: package 包名;
 * 导入包的格式: import 要导入的包名;
   * 注意: java.lang包下的类是不需要导包也可以使用的
 * 包的命名规范: 全部小写，一般是域名的倒叙。 
-</code></pre><h3 id="18-权限修饰符"><a href="#18-权限修饰符" class="headerlink" title="18. 权限修饰符"></a>18. 权限修饰符</h3><pre><code> 从大到小
+</code></pre><h3 id="权限修饰符"><a href="#权限修饰符" class="headerlink" title="权限修饰符"></a>权限修饰符</h3><pre><code> 从大到小
 * public: 公共的，在任何包中都可使用
 * protected: 受保护的，跨包子类中，本包中也可以使用
 * default: 默认的，本包中可以使用。注意，默认的是什么都不写
@@ -418,7 +412,7 @@
 注意:
 1. 修饰类只能使用public、默认的、final、abstract关键字
 2. abstract不能和private,static,final一起用 
-</code></pre><h3 id="19-代码块"><a href="#19-代码块" class="headerlink" title="19. 代码块"></a>19. 代码块</h3><pre><code>代码块中不能创建方法
+</code></pre><h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><pre><code>代码块中不能创建方法
 * 局部代码块：在方法中的   {} : 限定局部变量的生命周期
 * 构造代码块：在类的成员位置的 {} 
      构造代码块在创建对象的时候执行，每创建一次，就执行一次。构造代码块优先于构造方法执行
@@ -431,13 +425,7 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;1-面向过程与面向对象&quot;&gt;&lt;a href=&quot;#1-面向过程与面向对象&quot; class=&quot;headerlink&quot; title=&quot;1. 面向过程与面向对象&quot;&gt;&lt;/a&gt;1. 面向过程与面向对象&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;* 面向过程： 注重实现过程，每件事都是要亲自去做
-* 面向对象： 注重实现结果，强调这件事让别人帮我来做
-
-好处:
-  1. 更符合人类思考的习惯
-  2. 将复杂的事情简单化
-  3. 从执行者变成指挥者
+      &lt;h3 id=&quot;面向过程与面向对象&quot;&gt;&lt;a href=&quot;#面向过程与面向对象&quot; class=&quot;headerlink&quot; title=&quot;面向过程与面向对象&quot;&gt;&lt;/a&gt;面向过程与面向对象&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;* 面向过程： 注重实现过程，每件事都是要亲自去做&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;* 面向对象： 注重实现结果，强调这件事让别人帮我来做&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   好处:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;. 更符合人类思考的习惯&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;     &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;. 将复杂的事情简单化&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;     &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;. 从执行者变成指挥者&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;/code&gt;&lt;/pre&gt;
     
     </summary>
