@@ -86,17 +86,35 @@
 
 
 
-<meta name="description" content="面向过程与面向对象1234567* 面向过程： 注重实现过程，每件事都是要亲自去做* 面向对象： 注重实现结果，强调这件事让别人帮我来做   好处:  1. 更符合人类思考的习惯     2. 将复杂的事情简单化     3. 从执行者变成指挥者">
+<meta name="description" content="面向过程与面向对象* 面向过程： 注重实现过程，每件事都是要亲自去做
+* 面向对象： 注重实现结果，强调这件事让别人帮我来做
+
+好处:
+  1. 更符合人类思考的习惯
+  2. 将复杂的事情简单化
+  3. 从执行者变成指挥者">
 <meta property="og:type" content="article">
 <meta property="og:title" content="12.面向对象">
 <meta property="og:url" content="https://geekhoon.github.io/2017/02/04/12-面向对象/index.html">
 <meta property="og:site_name" content="geekhoon">
-<meta property="og:description" content="面向过程与面向对象1234567* 面向过程： 注重实现过程，每件事都是要亲自去做* 面向对象： 注重实现结果，强调这件事让别人帮我来做   好处:  1. 更符合人类思考的习惯     2. 将复杂的事情简单化     3. 从执行者变成指挥者">
+<meta property="og:description" content="面向过程与面向对象* 面向过程： 注重实现过程，每件事都是要亲自去做
+* 面向对象： 注重实现结果，强调这件事让别人帮我来做
+
+好处:
+  1. 更符合人类思考的习惯
+  2. 将复杂的事情简单化
+  3. 从执行者变成指挥者">
 <meta property="og:image" content="http://oj3s07yy0.bkt.clouddn.com/blog/20170209/154741718.png">
-<meta property="og:updated_time" content="2017-02-09T18:13:27.927Z">
+<meta property="og:updated_time" content="2017-02-09T18:19:39.253Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="12.面向对象">
-<meta name="twitter:description" content="面向过程与面向对象1234567* 面向过程： 注重实现过程，每件事都是要亲自去做* 面向对象： 注重实现结果，强调这件事让别人帮我来做   好处:  1. 更符合人类思考的习惯     2. 将复杂的事情简单化     3. 从执行者变成指挥者">
+<meta name="twitter:description" content="面向过程与面向对象* 面向过程： 注重实现过程，每件事都是要亲自去做
+* 面向对象： 注重实现结果，强调这件事让别人帮我来做
+
+好处:
+  1. 更符合人类思考的习惯
+  2. 将复杂的事情简单化
+  3. 从执行者变成指挥者">
 <meta name="twitter:image" content="http://oj3s07yy0.bkt.clouddn.com/blog/20170209/154741718.png">
 
 
@@ -378,7 +396,13 @@
       
 
       
-        <h3 id="面向过程与面向对象"><a href="#面向过程与面向对象" class="headerlink" title="面向过程与面向对象"></a>面向过程与面向对象</h3><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">* 面向过程： 注重实现过程，每件事都是要亲自去做</div><div class="line">* 面向对象： 注重实现结果，强调这件事让别人帮我来做</div><div class="line"></div><div class="line">   好处:</div><div class="line">  1. 更符合人类思考的习惯</div><div class="line">     2. 将复杂的事情简单化</div><div class="line">     3. 从执行者变成指挥者</div></pre></td></tr></table></figure>
+        <h3 id="面向过程与面向对象"><a href="#面向过程与面向对象" class="headerlink" title="面向过程与面向对象"></a>面向过程与面向对象</h3><pre><code>* 面向过程： 注重实现过程，每件事都是要亲自去做
+* 面向对象： 注重实现结果，强调这件事让别人帮我来做
+
+好处:
+  1. 更符合人类思考的习惯
+  2. 将复杂的事情简单化
+  3. 从执行者变成指挥者
 </code></pre><a id="more"></a> 
 <h3 id="局部变量和成员变量区别"><a href="#局部变量和成员变量区别" class="headerlink" title="局部变量和成员变量区别"></a>局部变量和成员变量区别</h3><pre><code>1.定义位置不同
     局部变量：方法中
@@ -424,9 +448,8 @@
     * 3、Java中，多层继承是可以的，即一个类的父类可以再去继承另外的父类
         如:
         C类继承自B类，而B类又可以去继承A类，这时，C类也可称作A类的子类
-         class A{}
-         class B extends A{}   // 类B继承类A，类B是类A的子类
-         class C extends B{}   // 类C继承类B，类C是类B的子类，同时也是类A的子类
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;&#125;</div><div class="line">   <span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;&#125;   <span class="comment">// 类B继承类A，类B是类A的子类</span></div><div class="line">   <span class="class"><span class="keyword">class</span> <span class="title">C</span> <span class="keyword">extends</span> <span class="title">B</span></span>&#123;&#125;   <span class="comment">// 类C继承类B，类C是类B的子类，同时也是类A的子类</span></div></pre></td></tr></table></figure>
+
     * 4、Java中，子类和父类是一种相对概念，也就是说一个类是某个类父类的同时，也可以是另一个类的子类。
 * 补充: 
      * 父类和子类创建后,编译时,父类.class先进内存方法区,然后子类再进
@@ -439,31 +462,7 @@
     * 当在程序中通过对象调用方法时，会先在子类中查找有没有对应的方法，
       若子类中存在就会执行子类中的方法，若子类中不存在就会执行父类中相应的方法。
     * 子类中出现与父类一模一样的方法时，会出现覆盖操作，也称为override重写
-    //手机类
-        class Phone{
-            public void sendMessage(){
-                System.out.println(&quot;发短信&quot;);
-            }
-            public void call(){
-                System.out.println(&quot;打电话&quot;);
-            }
-            public void showNum(){
-                System.out.println(&quot;来电显示号码&quot;);
-            }
-        }
-
-        //智能手机类
-        class NewPhone extends Phone{
-
-            //覆盖父类的来电显示号码功能，并增加自己的显示姓名和图片功能
-            public void showNum(){
-                //调用父类已经存在的功能使用super
-                super.showNum();
-                //增加自己特有显示姓名和图片功能
-                System.out.println(&quot;显示来电姓名&quot;);
-                System.out.println(&quot;显示头像&quot;);
-            }
-        }
+    <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//手机类</span></div><div class="line">	<span class="class"><span class="keyword">class</span> <span class="title">Phone</span></span>&#123;</div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendMessage</span><span class="params">()</span></span>&#123;</div><div class="line">			System.out.println(<span class="string">"发短信"</span>);</div><div class="line">		&#125;</div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">()</span></span>&#123;</div><div class="line">			System.out.println(<span class="string">"打电话"</span>);</div><div class="line">		&#125;</div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showNum</span><span class="params">()</span></span>&#123;</div><div class="line">			System.out.println(<span class="string">"来电显示号码"</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="comment">//智能手机类</span></div><div class="line">	<span class="class"><span class="keyword">class</span> <span class="title">NewPhone</span> <span class="keyword">extends</span> <span class="title">Phone</span></span>&#123;</div><div class="line">		</div><div class="line">		<span class="comment">//覆盖父类的来电显示号码功能，并增加自己的显示姓名和图片功能</span></div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showNum</span><span class="params">()</span></span>&#123;</div><div class="line">			<span class="comment">//调用父类已经存在的功能使用super</span></div><div class="line">			<span class="keyword">super</span>.showNum();</div><div class="line">			<span class="comment">//增加自己特有显示姓名和图片功能</span></div><div class="line">			System.out.println(<span class="string">"显示来电姓名"</span>);</div><div class="line">			System.out.println(<span class="string">"显示头像"</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
 </code></pre><p>子类父类内存图:<br><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170209/154741718.png" alt=""></p>
 <h3 id="重载与重写对比"><a href="#重载与重写对比" class="headerlink" title="重载与重写对比"></a>重载与重写对比</h3><pre><code>重载overload: 在同一个类中,方法名相同,参数列表不同
     和权限修饰符(public private 默认)无关,和返回值类型无关
@@ -486,10 +485,11 @@
        或者
        子类方法的返回值类型是父类方法的返回值类型的 子类
 </code></pre><h3 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h3><pre><code>* 抽象类定义格式:
-    public abstract class 类名 {    
-    }
+    <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> 类名 </span>&#123;</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
 * 抽象方法定义格式:
-    public abstract 返回值类型 方法名(参数);
+    <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> 返回值类型 方法名(参数);</div></pre></td></tr></table></figure>
+
   抽象方法,没有方法体;
 * 使用:
     * 定义类，继承抽象类，并重写抽象方法
@@ -504,13 +504,11 @@
 接口是功能的集合,同样可看做是一种数据类型,是比抽象类更为抽象的”类”,一般把接口当作功能扩展.
 接口只有抽象方法定义,并没有具体实现。
 * 接口定义格式
-    public interface 接口名 {
-        抽象方法1;
-        抽象方法2;
-        抽象方法3;
-    }
+    <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> 接口名 </span>&#123;</div><div class="line">	抽象方法<span class="number">1</span>;</div><div class="line">	抽象方法<span class="number">2</span>;</div><div class="line">	抽象方法<span class="number">3</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
     * 抽象方法定义格式
-        public abstract 返回值类型 方法名(参数列表);
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> 返回值类型 方法名(参数列表);</div></pre></td></tr></table></figure>
+
 * 类实现接口
     *　类与接口之间为实现关系,不是继承
     *　定义实现类,实现接口,并重写接口中所有抽象方法
@@ -522,15 +520,17 @@
     *  实现类的特点: 重写接口中所有抽象方法,除非该实现类也是抽象类,则不能new         
 * 接口中成员特点
     *  (1)成员变量的特点:(其实是常量,接口中没有变量)
-        *  固定格式: 
-            public static final 数据类型 变量名 = 值;
+        *  固定格式:
+            <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> 数据类型 变量名 = 值;</div></pre></td></tr></table></figure>
+
         public :  公共权限
         static :  静态,可以被　类名．（接口名．）直接调用
         final  :  最终,固定变量的值. 所以再有赋值操作,都会报错
         注意: public static final,可以不写或选择性写.但默认还是被这三个修饰
     *  (2)成员方法的特点:
         *  固定格式:
-            public abstract 返回值类型 方法名(参数列表);
+            <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> 返回值类型 方法名(参数列表);</div></pre></td></tr></table></figure>
+
         注意: public abstract,可以不写或选择性写.但默认还是被这两个修饰
     *  (3)实现类必须覆盖掉接口中所有的抽象方法后，实现类才可以实例化。否则实现类还是一个抽象类。
 * 接口的多实现
@@ -539,29 +539,15 @@
     　　因为父类中方法有主体，调用运行时，不确定运行哪个主体内容。
     *　接口并没有这种安全隐患,因为接口中全是抽象方法,并没有方法体
     *  格式:
-        public class C implements A,B{
-            重写A,B中所有抽象方法,否则不能被实例化
-        }
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">C</span> <span class="keyword">implements</span> <span class="title">A</span>,<span class="title">B</span></span>&#123;</div><div class="line">	重写A,B中所有抽象方法,否则不能被实例化</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
         注意: 如果A,B中有同名方法,但返回值不同,实现类中重写方法会报错
     *  类在继承类的同时,可以实现多个接口(先写继承,再写接口实现)
-          public class D extends C implements A,B{
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">D</span> <span class="keyword">extends</span> <span class="title">C</span> <span class="keyword">implements</span> <span class="title">A</span>,<span class="title">B</span></span>&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
-          }
-* 接口的多继承
-    *      public interface A{
-            public abstract void a();
-        }
-        public interface B{
-            public abstract void b();
-        }
-        public interface C extends A,B{
-            public abstract void c();
-        }
-        public class D implements C{
-            public void a(){}
-            public void b(){}
-            public void c(){}
-        }
+* 接口的多继承 
+    <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"> 	<span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">A</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">a</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">B</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">b</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">C</span> <span class="keyword">extends</span> <span class="title">A</span>,<span class="title">B</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">c</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">D</span> <span class="keyword">implements</span> <span class="title">C</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">a</span><span class="params">()</span></span>&#123;&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">b</span><span class="params">()</span></span>&#123;&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">c</span><span class="params">()</span></span>&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
     //D实现接口C, 需要重写C接口的全部抽象方法,
     //而且C继承A,B, 所以D实现类要重写ABC中所有抽象方法
     注意: 由于接口中的方法是抽象方法，子类实现后也不会发生调用的不确定性    
@@ -635,19 +621,8 @@
           2. 在本类中调用其他构造方法
     格式: this(参数列表);
         调用其他构造方法时,this()必须定义在构造方法的第一行，原因是初始化动作要最先执行。
-        public Person(){
-            this(&quot;geekhoon&quot;,25);//写在方法体的第一行
-         }
-        public Person(String name,int age){
-            this.name = name;
-            this.age = age;
-        }
-        测试类的main方法:
-            main(){
-                Person p = new Person();
-                syso(p.getName());//geekhoom
-                syso(p.getAge());//25
-            }
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">this</span>(<span class="string">"geekhoon"</span>,<span class="number">25</span>);<span class="comment">//写在方法体的第一行</span></div><div class="line">	&#125;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name,<span class="keyword">int</span> age)</span></span>&#123;</div><div class="line">	<span class="keyword">this</span>.name = name;</div><div class="line">	<span class="keyword">this</span>.age = age;</div><div class="line">&#125;</div><div class="line">测试类的main方法:</div><div class="line">	main()&#123;</div><div class="line">		Person p = <span class="keyword">new</span> Person();</div><div class="line">		syso(p.getName());<span class="comment">//geekhoom</span></div><div class="line">		syso(p.getAge());<span class="comment">//25</span></div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+
 * super    
     作用: 调用父类的构造方法和成员变量        
     格式: 
@@ -677,10 +652,8 @@
       (1)直接赋值,定义时用&quot;=&quot;赋值
         final int age = 1;
       (2)使用构造器进行赋值:
-        final int age;
-        public Demo(int age){
-            this.age = age;
-        }
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">final</span> <span class="keyword">int</span> age;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">Demo</span><span class="params">(<span class="keyword">int</span> age)</span></span>&#123;</div><div class="line">	<span class="keyword">this</span>.age = age;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
       这两种赋值方式它不可以一起使用
 </code></pre><h3 id="static"><a href="#static" class="headerlink" title="static"></a>static</h3><pre><code>* 特点: 被static修饰的成员属于类, 被该类的所有对象共享。被static修饰的成员可以通过类名直接调用
          多个对象在访问或修改static修饰的成员变量时，其中一个对象将static成员变量值进行了修改，
@@ -710,13 +683,8 @@
 </code></pre><h3 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h3><pre><code>* 当一个类定义在一个类的内部，这个类就是一个内部类
 * 包括:
     (1)成员内部类: 
-            public class Outer {
-                   修饰符 class 内部类名 {
-                      public void function() {
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Outer</span> </span>&#123;</div><div class="line">				修饰符 <span class="class"><span class="keyword">class</span> 内部类名 </span>&#123;</div><div class="line"> 				 	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">function</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">  					&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
-                      }
-                }
-            }
       注意: 成员内部类可以使用外部类成员,包括私有.
             外部类要使用内部类成员,必须建立内部类对象
       外部类调用内部成员访问方式:
