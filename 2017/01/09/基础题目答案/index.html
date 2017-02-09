@@ -96,7 +96,7 @@
 <meta property="og:description" content="1.数据类型1. JAVA语言中的字符char可以存储一个中文汉字吗?原因?
    *可以.因为Java中字符占两个字节.一个中文汉字也占两个字节
    *Java采用的是Unicode编码">
-<meta property="og:updated_time" content="2017-01-26T14:36:56.530Z">
+<meta property="og:updated_time" content="2017-02-09T07:55:23.579Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基础题目答案">
 <meta name="twitter:description" content="1.数据类型1. JAVA语言中的字符char可以存储一个中文汉字吗?原因?
@@ -619,6 +619,162 @@ char daXie = &apos;A&apos;;
         daXie++;
         xiaoXie++;
     }
+</code></pre><h3 id="6-面向对象"><a href="#6-面向对象" class="headerlink" title="6.面向对象"></a>6.面向对象</h3><pre><code>1.
+    public class Student {
+        //私有空参构造方法
+        private Student(){
+
+        }
+        //设置静态Student类型共享变量 stu
+        //能用static的原因是此时并没有创建对象,只是定义一个Student类型的成员变量
+        private static Student stu;    
+        public static Student getStudent(){
+            //第一次调用该方法,stu为引用变量,存的默认值null
+            if (stu == null) {
+                return new Student();
+            }
+            return stu;
+        }
+    }
+    //测试类
+    public class Test {
+        public static void main(String[] args) { 
+            //静态方法,直接用类名.调用   
+            Student stu = Student.getStudent();
+            System.out.println(stu);
+            System.out.println(stu);
+            System.out.println(stu);
+            System.out.println(stu);
+            System.out.println(stu);
+        }
+    }
+    //打印的地址值一模一样,说明Student对象只被new了一次
+2.
+    //Phone类
+    public abstract class Phone {
+        public abstract void call();
+        public abstract void sendMessage();
+    }
+    //接口
+    public interface IGame {
+        public abstract void playGame();
+    }
+    //NewPhone
+    public class NewPhone extends Phone implements IGame {
+        @Override
+        public void playGame() {
+            System.out.println(&quot;打游戏&quot;);
+        }
+        @Override
+        public void call() {
+        }
+        @Override
+        public void sendMessage() {
+        }            
+    }
+    //OldPhone
+    public class OldPhone extends Phone{    
+        @Override
+        public void call() {
+        }
+        @Override
+        public void sendMessage() {
+        }
+    }
+    //Test
+    public class Test {
+        public static void main(String[] args) {
+            //采用匿名内部类, 其实创建的是NewPhone的子类
+            //NewPhone的子类直接调用NewPhone的playGame()    
+            new NewPhone(){
+
+            }.playGame();
+
+        }
+
+    }
+3. 
+public class Outer{
+    public void function(){
+        //局部变量i , 生命周期是随着方法弹栈而消亡
+        //function弹栈后, Inner类并没有被回收
+        //要想访问i,需要将i设为常量,进入常量池中,局部内部类就可以访问到
+        fianl int i = 10;
+        //局部内部类在方法内
+        class Inner {
+            int j = i;  //不加final,会报错
+            public void method(){
+                syso(j);
+            }
+        }
+        //创建内部类对象,调用method方法
+        //如果不创建,没法执行method方法
+        new Inner().method();
+    }
+}
+//测试类
+public class Test {
+    public static void main(String[] args) {    
+        Outer o = new Outer();
+        o.function();
+    }
+}
+4.
+public class Person {
+    //私有成员内部类
+    private class Heart{
+        public void h(){
+            System.out.println(&quot;私有成员内部类&quot;);
+        }
+    }
+    //为私有成员内部类创建public方法
+    public Heart getHeart(){
+        return new Heart();
+    }
+    public void getHeartMethod(Heart h){
+        h.h();
+    }
+    //静态成员内部类
+    public static class Shen{
+        public void s(){
+            System.out.println(&quot;静态成员内部类&quot;);
+        }
+    }
+    //默认成员内部类
+    class Fei{
+        public void f(){
+            System.out.println(&quot;默认成员内部类&quot;);
+        }
+    }
+    //局部内部类
+    public void method(){
+        class Gan{
+            public void g(){
+                System.out.println(&quot;局部内部类&quot;);
+            }
+        }
+        new Gan().g();
+    }
+}
+//测试类
+public class Test {
+    public static void main(String[] args) {
+        //调用默认成员内部类
+        Person.Fei f = new Person().new Fei();
+        f.f();
+        //调用静态成员内部类
+        new Person.Shen().s();
+        //调用私有成员内部类
+        new Person().getHeartMethod(new Person().getHeart());
+        //调用局部内部类
+        new Person().method();
+    }
+}
+//结果:
+默认成员内部类
+静态成员内部类
+私有成员内部类
+局部内部类
 </code></pre>
       
     </div>
@@ -755,7 +911,7 @@ char daXie = &apos;A&apos;;
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -872,7 +1028,7 @@ char daXie = &apos;A&apos;;
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-数据类型"><span class="nav-number">1.</span> <span class="nav-text">1.数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-运算符"><span class="nav-number">2.</span> <span class="nav-text">2.运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-流程控制语句"><span class="nav-number">3.</span> <span class="nav-text">3.流程控制语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-数组"><span class="nav-number">4.</span> <span class="nav-text">4.数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-ASCII编码及char类型的存储"><span class="nav-number">5.</span> <span class="nav-text">5.ASCII编码及char类型的存储</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-数据类型"><span class="nav-number">1.</span> <span class="nav-text">1.数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-运算符"><span class="nav-number">2.</span> <span class="nav-text">2.运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-流程控制语句"><span class="nav-number">3.</span> <span class="nav-text">3.流程控制语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-数组"><span class="nav-number">4.</span> <span class="nav-text">4.数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-ASCII编码及char类型的存储"><span class="nav-number">5.</span> <span class="nav-text">5.ASCII编码及char类型的存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-面向对象"><span class="nav-number">6.</span> <span class="nav-text">6.面向对象</span></a></li></ol></div>
             
           </div>
         </section>

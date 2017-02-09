@@ -92,12 +92,7 @@
 好处:
   1. 更符合人类思考的习惯
   2. 将复杂的事情简单化
-  3. 从执行者变成指挥者
-2. 局部变量和成员变量区别1.定义位置不同
-    局部变量：方法中
-    成员变量：类中方法外
-2.作用域不同
-    局部变量：方法中，出了方法就不能用了">
+  3. 从执行者变成指挥者">
 <meta property="og:type" content="article">
 <meta property="og:title" content="12.面向对象">
 <meta property="og:url" content="https://geekhoon.github.io/2017/02/04/12-面向对象/index.html">
@@ -108,13 +103,9 @@
 好处:
   1. 更符合人类思考的习惯
   2. 将复杂的事情简单化
-  3. 从执行者变成指挥者
-2. 局部变量和成员变量区别1.定义位置不同
-    局部变量：方法中
-    成员变量：类中方法外
-2.作用域不同
-    局部变量：方法中，出了方法就不能用了">
-<meta property="og:updated_time" content="2017-02-04T12:47:50.250Z">
+  3. 从执行者变成指挥者">
+<meta property="og:image" content="http://oj3s07yy0.bkt.clouddn.com/blog/20170209/154741718.png">
+<meta property="og:updated_time" content="2017-02-09T07:48:27.022Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="12.面向对象">
 <meta name="twitter:description" content="1. 面向过程与面向对象* 面向过程： 注重实现过程，每件事都是要亲自去做
@@ -123,12 +114,8 @@
 好处:
   1. 更符合人类思考的习惯
   2. 将复杂的事情简单化
-  3. 从执行者变成指挥者
-2. 局部变量和成员变量区别1.定义位置不同
-    局部变量：方法中
-    成员变量：类中方法外
-2.作用域不同
-    局部变量：方法中，出了方法就不能用了">
+  3. 从执行者变成指挥者">
+<meta name="twitter:image" content="http://oj3s07yy0.bkt.clouddn.com/blog/20170209/154741718.png">
 
 
 
@@ -416,7 +403,8 @@
   1. 更符合人类思考的习惯
   2. 将复杂的事情简单化
   3. 从执行者变成指挥者
-</code></pre><h3 id="2-局部变量和成员变量区别"><a href="#2-局部变量和成员变量区别" class="headerlink" title="2. 局部变量和成员变量区别"></a>2. 局部变量和成员变量区别</h3><pre><code>1.定义位置不同
+</code></pre><a id="more"></a> 
+<h3 id="2-局部变量和成员变量区别"><a href="#2-局部变量和成员变量区别" class="headerlink" title="2. 局部变量和成员变量区别"></a>2. 局部变量和成员变量区别</h3><pre><code>1.定义位置不同
     局部变量：方法中
     成员变量：类中方法外
 2.作用域不同
@@ -431,14 +419,10 @@
 5.生命周期不同
     局部变量：随着方法弹栈而消亡
     成员变量：随着对象的回收而消亡
-</code></pre><h3 id="3-基本数据类型和引用数据类型做参数"><a href="#3-基本数据类型和引用数据类型做参数" class="headerlink" title="3. 基本数据类型和引用数据类型做参数"></a>3. 基本数据类型和引用数据类型做参数</h3><pre><code>基本数据类型做参数传递的是具体的值
-
-引用数据类型做参数传递的是地址
-</code></pre><h3 id="4-private关键字"><a href="#4-private关键字" class="headerlink" title="4. private关键字"></a>4. private关键字</h3><pre><code>* private可以修饰成员内容包括成员方法和成员变量
+</code></pre><h3 id="3-private关键字"><a href="#3-private关键字" class="headerlink" title="3. private关键字"></a>3. private关键字</h3><pre><code>* private可以修饰成员内容包括成员方法和成员变量
 
 * 被private修饰的内容不能在其他类访问
-</code></pre><h3 id="5-this关键字"><a href="#5-this关键字" class="headerlink" title="5. this关键字"></a>5. this关键字</h3><pre><code>* 用来区别同名的成员变量与局部变量（this.成员变量）
-</code></pre><h3 id="6-get和set方法"><a href="#6-get和set方法" class="headerlink" title="6. get和set方法"></a>6. get和set方法</h3><pre><code>私有化所有的属性 (成员变量) ,必须写对应的get/set方法
+</code></pre><h3 id="4-get和set方法"><a href="#4-get和set方法" class="headerlink" title="4. get和set方法"></a>4. get和set方法</h3><pre><code>私有化所有的属性 (成员变量) ,必须写对应的get/set方法
 凡是自定义的类,自定义成员变量,应该私有化,提供get/set
 
     public class Person {
@@ -475,18 +459,19 @@
             System.out.println(p.getAge());
         }
     }
-</code></pre><h3 id="7-封装"><a href="#7-封装" class="headerlink" title="7. 封装"></a>7. 封装</h3><pre><code>概念: 隐藏实现细节，对外提供可以访问的方式
+</code></pre><h3 id="5-封装"><a href="#5-封装" class="headerlink" title="5. 封装"></a>5. 封装</h3><pre><code>概念: 隐藏实现细节，对外提供可以访问的方式
 好处:
     * 1、提高了代码的复用性
     * 2、隐藏了实现细节，还要对外提供可以访问的方式。便于调用者的使用。
     * 3、提高了安全性    
-</code></pre><h3 id="8-继承"><a href="#8-继承" class="headerlink" title="8. 继承"></a>8. 继承</h3><pre><code>* 子类会自动拥有父类所有非private修饰的属性和方法
+</code></pre><h3 id="6-继承"><a href="#6-继承" class="headerlink" title="6. 继承"></a>6. 继承</h3><pre><code>* 子类会自动拥有父类所有非private修饰的属性和方法
 
 * 格式: class 子类 extends 父类 {} 
 
 * 好处: 
     * 1、提高了代码的复用性，提高软件开发效率。
     * 2、让类与类之间产生了关系，提供了多态的前提。
+* 坏处: 提高了类与类之间的耦合性
 
 * 注意:
     * 1、Java中，类只支持单继承，不允许多继承，也就是说一个类只能有一个直接父类
@@ -498,12 +483,16 @@
          class B extends A{}   // 类B继承类A，类B是类A的子类
          class C extends B{}   // 类C继承类B，类C是类B的子类，同时也是类A的子类
     * 4、Java中，子类和父类是一种相对概念，也就是说一个类是某个类父类的同时，也可以是另一个类的子类。
-
+* 补充: 
+     * 父类和子类创建后,编译时,父类.class先进内存方法区,然后子类再进
+     * 创建子类的对象,子类在堆中划分区域存储,一个区域留给父类,父类成员变量
+       跟随子类对象进入堆内存,另一块区域留给自己(父类区域在子类区域内部)
 * 继承后子类父类成员变量的特点 :
     * 子父类中出现了同名的成员变量时,遵循就近查找原则,访问子类.
       在子类中需要访问父类中非私有成员变量时，需要使用super关键字
 * 重写:
-    * 当在程序中通过对象调用方法时，会先在子类中查找有没有对应的方法，若子类中存在就会执行子类中的方法，若子类中不存在就会执行父类中相应的方法。
+    * 当在程序中通过对象调用方法时，会先在子类中查找有没有对应的方法，
+      若子类中存在就会执行子类中的方法，若子类中不存在就会执行父类中相应的方法。
     * 子类中出现与父类一模一样的方法时，会出现覆盖操作，也称为override重写
     //手机类
         class Phone{
@@ -530,7 +519,8 @@
                 System.out.println(&quot;显示头像&quot;);
             }
         }
-</code></pre><h3 id="9-重载与重写对比"><a href="#9-重载与重写对比" class="headerlink" title="9. 重载与重写对比"></a>9. 重载与重写对比</h3><pre><code>重载overload: 在同一个类中,方法名相同,参数列表不同
+</code></pre><p>子类父类内存图:<br><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170209/154741718.png" alt=""></p>
+<h3 id="7-重载与重写对比"><a href="#7-重载与重写对比" class="headerlink" title="7. 重载与重写对比"></a>7. 重载与重写对比</h3><pre><code>重载overload: 在同一个类中,方法名相同,参数列表不同
     和权限修饰符(public private 默认)无关,和返回值类型无关
     方法名:重载的两个方法的方法名必须相同
     形参列表(三者至少满足一个):
@@ -550,7 +540,7 @@
        子类方法的返回值类型和父类方法的返回值类型相同
        或者
        子类方法的返回值类型是父类方法的返回值类型的 子类
-</code></pre><h3 id="10-抽象类"><a href="#10-抽象类" class="headerlink" title="10. 抽象类"></a>10. 抽象类</h3><pre><code>* 抽象类定义格式:
+</code></pre><h3 id="8-抽象类"><a href="#8-抽象类" class="headerlink" title="8. 抽象类"></a>8. 抽象类</h3><pre><code>* 抽象类定义格式:
     public abstract class 类名 {    
     }
 * 抽象方法定义格式:
@@ -565,7 +555,7 @@
     * 一个普通类继承抽象类,一定要重写父类所有方法
     * 抽象类中可以有抽象方法,也可以有普通方法
     * 不能和private,final,static一起用 
-</code></pre><h3 id="11-接口"><a href="#11-接口" class="headerlink" title="11. 接口"></a>11. 接口</h3><pre><code>* 概念
+</code></pre><h3 id="9-接口"><a href="#9-接口" class="headerlink" title="9. 接口"></a>9. 接口</h3><pre><code>* 概念
 接口是功能的集合,同样可看做是一种数据类型,是比抽象类更为抽象的”类”,一般把接口当作功能扩展.
 接口只有抽象方法定义,并没有具体实现。
 * 接口定义格式
@@ -639,23 +629,26 @@
     接口可以多实现, 抽象类只能单继承
     * 抽象类是这个事物中应该具备的内容
     * 接口是这个事物中的额外内容
-</code></pre><h3 id="12-多态"><a href="#12-多态" class="headerlink" title="12. 多态"></a>12. 多态</h3><pre><code>* 概念: 一种事物有多种形态
+</code></pre><h3 id="10-多态"><a href="#10-多态" class="headerlink" title="10. 多态"></a>10. 多态</h3><pre><code>* 概念: 一种事物有多种形态
     如Student类继承了Person类，一个Student的对象便既是Student，又是Person。
 * 格式:
     父类类型或接口类型  变量名  =  new  子类的对象();
     共有三种表现形式: 
         1.普通类作为父类引用指向子类对象
         2.抽象类作为父类引用指向子类对象
-        3.接口做为父类,指向子类对象
+        3.接口做为父类,指向实现类对象
   注意:(1)父类引用可以指向子类对象
        (2)多态调用方法,方法必须运行子类的重写方法
-* 多态中成员特点:
+* 好处: 让程序更灵活, 提高了扩展性
+* 多态前提:　要有继承(实现)关系
+* 多中成员特点:
     (1)成员变量(编译,运行看父类)
         编译时,参考父类中有无这个变量,有则编译成功,没有则失败
         运行时,运行的是父类中的变量值
-    (2)成员方法(编译看父类,运行看子类)
+    (2)非静态成员方法(编译看父类,运行看子类)
         编译时,参考父类中有无这个方法,有则编译成功,没有则失败
         运行时,运行的是子类中的重写方法
+    (3)静态成员方法(编译,运行看父类)
 * instanceof关键字: 比较引用数据类型
     * 格式:　引用变量  instanceof 类名
                 p    instanceof Student 
@@ -667,6 +660,154 @@
     (2)向下转型(强制转换): 父类类型转为子类,可以调用子类中特有方法
         格式:　子类类型　变量名　＝（子类类型）父类类型的变量；        
               Student s = (Student) p ;
+</code></pre><h3 id="11-构造方法"><a href="#11-构造方法" class="headerlink" title="11. 构造方法"></a>11. 构造方法</h3><pre><code>* 作用: 在创建对象的同时,为成员变量初始化
+* 快捷键: ALT+Shift+S (Generate Constructor using Firlds)
+* 格式:　
+    权限　方法名（参数列表）{
+        方法体；
+    }
+* 注意:
+    １.方法名与类名完全一致
+    ２.不允许写返回值类型
+    ３.构造方法在创建对象的时候执行，每个对象只执行一次
+    ４.每一个类都有一个构造方法，如果我们没给，编译器会自动添加一个空参数的构造方法
+    特别注意: 
+    1.构造方法弹栈退出后,对象才算是创建结束
+    2.一个类中,如果不写构造方法,默认会有一个空参构造,但是如果写了一个,就没有默认的构造方法了
+    3.构造方法中可以有return
+* 重载
+    类中的构造方法可以有无限个, 区别就是参数列表不同
+* 构造方法和普通方法区别
+    * 定义格式不同:
+        构造方法: 没有返回值,且方法名和类名一致
+        普通方法: 有返回值,方法名字随意
+    * 执行:
+        构造方法: 在对象创建时自动执行，而且只执行一次
+        普通方法: 对象创建后,需要手动调用,且可以执行多次  
+* this
+    * 代表本类对象的引用, 由谁调用,this就代表谁
+    作用:  1. 区分成员变量和局部变量的同名情况
+          2. 在本类中调用其他构造方法
+    格式: this(参数列表);
+        调用其他构造方法时,this()必须定义在构造方法的第一行，原因是初始化动作要最先执行。
+        public Person(){
+            this(&quot;geekhoon&quot;,25);//写在方法体的第一行
+         }
+        public Person(String name,int age){
+            this.name = name;
+            this.age = age;
+        }
+        测试类的main方法:
+            main(){
+                Person p = new Person();
+                syso(p.getName());//geekhoom
+                syso(p.getAge());//25
+            }
+* super    
+    作用: 调用父类的构造方法和成员变量        
+    格式: 
+        调用父类中的空参数构造方法   super();
+        调用父类中的有参数构造方法   super(实参列表);
+    注意: 
+    * 只要是构造方法默认(隐式)第一行都是super();
+    * 如果父类中有多个重载构造器,子类任意调用一个即可
+    * super()和this()调用构造方法时,不能放在同一个代码块中,因为都要放在第一行
+    * 无论如何,子类所有的构造方法,都要直接,间接调用父类构造方法
+    * 当父类中没有空参数构造方法时，子类的构造方法必须有显示的super语句，指定要访问的父类有参数构造方法。
+    * 子类默认会调用父类的无参构造， 但如果父类没有无参构造(即父类自定义了一个有参构造)，子类的构造方法继续调用父类的无参构造就会报错。
+</code></pre><h3 id="12-final"><a href="#12-final" class="headerlink" title="12. final"></a>12. final</h3><pre><code>* final就是固定, 不可变
+* 可修饰 类,方法,成员变量,局部变量
+  1.修饰类: 不可以被继承, 但是可以继承别的类
+            String类就是final修饰的
+  2.修饰方法: 不可以被子类重写, 但是可以被子类继承使用
+  3.修饰局部变量: 
+    (1)修饰基本数据类型: 称为常量,只能被赋值一次,终身不可改变
+    (2)修饰引用数据类型: 变量存储的地址不可改变 
+         但被final修饰的引用类型的变量指向的对象的属性是可以发生改变的
+  4.修饰成员变量:
+    * final固定的是成员变量的手动赋值,不是默认值
+    * 一次赋值，终身不可改变
+    * 需要在创建对象前赋值，否则报错,即不能用set赋值
+    * 为成员变量赋值的两种实现方式: 
+      (1)直接赋值,定义时用&quot;=&quot;赋值
+        final int age = 1;
+      (2)使用构造器进行赋值:
+        final int age;
+        public Demo(int age){
+            this.age = age;
+        }
+      这两种赋值方式它不可以一起使用
+</code></pre><h3 id="13-static"><a href="#13-static" class="headerlink" title="13. static"></a>13. static</h3><pre><code>* 特点: 被static修饰的成员属于类, 被该类的所有对象共享。被static修饰的成员可以通过类名直接调用
+         多个对象在访问或修改static修饰的成员变量时，其中一个对象将static成员变量值进行了修改，
+      其他对象中的static成员变量值跟着改变，即多个对象共享同一个static成员变量
+* 可修饰 方法, 成员变量
+* 注意: 
+    1. 被satic修饰的方法不能被重写, 但是可以重载
+    2. 静态不能直接访问非静态(因为生命周期不同,静态优先于非静态存在于内存中,即静态先进入内存)
+    3. 不允许写this/super(因为它们是代表本类对象和父类对象) 
+* 内存中位置: 
+     1.被static修饰的成员存在于方法区
+     2.静态优先于非静态存在
+     3.随着类的加载而加载,随着类的消亡而消亡
+* 应用场景: 
+    1. 什么时候使用static修饰成员变量？  
+       这个成员变量需要被这个类的所有对象共享 
+    2. 什么时候使用static修饰成员方法？
+       静态的方法只能访问静态的成员,如果成员方法中没有调用非静态成员,可以加static 
+* 定义静态常量: 
+    * 格式:  public static final 数据类型 变量名 = 值;
+    * 变量名全部大写，多个单词使用下划线连接
+* 记住: 静态和对象没有关系, 静态是属于类的
+</code></pre><h3 id="14-匿名对象"><a href="#14-匿名对象" class="headerlink" title="14. 匿名对象"></a>14. 匿名对象</h3><pre><code>* 指创建对象时，只有创建对象的语句，却没有把对象地址值赋值给某个变量。
+* 特点:　
+　　* 只能使用一次 
+　　* 可以作为方法接收的参数、方法返回值使用
+</code></pre><h3 id="15-内部类"><a href="#15-内部类" class="headerlink" title="15. 内部类"></a>15. 内部类</h3><pre><code>* 当一个类定义在一个类的内部，这个类就是一个内部类
+* 包括:
+    (1)成员内部类: 
+            public class Outer {
+                   修饰符 class 内部类名 {
+                      public void function() {
+
+                      }
+                }
+            }
+      注意: 成员内部类可以使用外部类成员,包括私有.
+            外部类要使用内部类成员,必须建立内部类对象
+      外部类调用内部成员访问方式:
+        外部类名.内部类名 变量名 = new 外部类对象().new 内部类对象();
+        变量名.内部类方法();
+    (2) 局部内部类: 把一个类定义到另一个类的方法中
+</code></pre><h3 id="16-匿名内部类"><a href="#16-匿名内部类" class="headerlink" title="16. 匿名内部类"></a>16. 匿名内部类</h3><pre><code>* 实质: 父类类型的子类对象, 或接口的实现类对象
+* 格式: 
+        new 接口或父类(){
+            重写接口或者父类中的方法;(注意: 不是只重写抽象方法)
+        };
+* 注意: 匿名方法只能在方法中或构造代码块,局部代码块中使用
+* 优点: 减少代码量
+* 缺点: 可读性差
+</code></pre><h3 id="17-包"><a href="#17-包" class="headerlink" title="17. 包"></a>17. 包</h3><pre><code>* 概念: 实质上就是文件夹，可以对java代码进行分类管理
+* 声明包格式: package 包名;
+* 导入包的格式: import 要导入的包名;
+  * 注意: java.lang包下的类是不需要导包也可以使用的
+* 包的命名规范: 全部小写，一般是域名的倒叙。 
+</code></pre><h3 id="18-权限修饰符"><a href="#18-权限修饰符" class="headerlink" title="18. 权限修饰符"></a>18. 权限修饰符</h3><pre><code> 从大到小
+* public: 公共的，在任何包中都可使用
+* protected: 受保护的，跨包子类中，本包中也可以使用
+* default: 默认的，本包中可以使用。注意，默认的是什么都不写
+* private: 私有的，只能在本类中使用
+注意:
+1. 修饰类只能使用public、默认的、final、abstract关键字
+2. abstract不能和private,static,final一起用 
+</code></pre><h3 id="19-代码块"><a href="#19-代码块" class="headerlink" title="19. 代码块"></a>19. 代码块</h3><pre><code>代码块中不能创建方法
+* 局部代码块：在方法中的   {} : 限定局部变量的生命周期
+* 构造代码块：在类的成员位置的 {} 
+     构造代码块在创建对象的时候执行，每创建一次，就执行一次。构造代码块优先于构造方法执行
+* 静态代码块: 在类的成员位置
+     格式:　static {
+
+            } 
+     静态代码块在类加载的时候执行，并且只会执行一次，优先于构造代码块执行
 </code></pre>
       
     </div>
@@ -706,8 +847,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2117/01/01/致自己/" rel="prev" title="致自己">
-                致自己 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/02/09/test/" rel="prev" title="test">
+                test <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -803,7 +944,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -920,7 +1061,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-面向过程与面向对象"><span class="nav-number">1.</span> <span class="nav-text">1. 面向过程与面向对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-局部变量和成员变量区别"><span class="nav-number">2.</span> <span class="nav-text">2. 局部变量和成员变量区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-基本数据类型和引用数据类型做参数"><span class="nav-number">3.</span> <span class="nav-text">3. 基本数据类型和引用数据类型做参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-private关键字"><span class="nav-number">4.</span> <span class="nav-text">4. private关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-this关键字"><span class="nav-number">5.</span> <span class="nav-text">5. this关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-get和set方法"><span class="nav-number">6.</span> <span class="nav-text">6. get和set方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-封装"><span class="nav-number">7.</span> <span class="nav-text">7. 封装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-继承"><span class="nav-number">8.</span> <span class="nav-text">8. 继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-重载与重写对比"><span class="nav-number">9.</span> <span class="nav-text">9. 重载与重写对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-抽象类"><span class="nav-number">10.</span> <span class="nav-text">10. 抽象类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-接口"><span class="nav-number">11.</span> <span class="nav-text">11. 接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-多态"><span class="nav-number">12.</span> <span class="nav-text">12. 多态</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-面向过程与面向对象"><span class="nav-number">1.</span> <span class="nav-text">1. 面向过程与面向对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-局部变量和成员变量区别"><span class="nav-number">2.</span> <span class="nav-text">2. 局部变量和成员变量区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-private关键字"><span class="nav-number">3.</span> <span class="nav-text">3. private关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-get和set方法"><span class="nav-number">4.</span> <span class="nav-text">4. get和set方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-封装"><span class="nav-number">5.</span> <span class="nav-text">5. 封装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-继承"><span class="nav-number">6.</span> <span class="nav-text">6. 继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-重载与重写对比"><span class="nav-number">7.</span> <span class="nav-text">7. 重载与重写对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-抽象类"><span class="nav-number">8.</span> <span class="nav-text">8. 抽象类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-接口"><span class="nav-number">9.</span> <span class="nav-text">9. 接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-多态"><span class="nav-number">10.</span> <span class="nav-text">10. 多态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-构造方法"><span class="nav-number">11.</span> <span class="nav-text">11. 构造方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-final"><span class="nav-number">12.</span> <span class="nav-text">12. final</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-static"><span class="nav-number">13.</span> <span class="nav-text">13. static</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-匿名对象"><span class="nav-number">14.</span> <span class="nav-text">14. 匿名对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-内部类"><span class="nav-number">15.</span> <span class="nav-text">15. 内部类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-匿名内部类"><span class="nav-number">16.</span> <span class="nav-text">16. 匿名内部类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-包"><span class="nav-number">17.</span> <span class="nav-text">17. 包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18-权限修饰符"><span class="nav-number">18.</span> <span class="nav-text">18. 权限修饰符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19-代码块"><span class="nav-number">19.</span> <span class="nav-text">19. 代码块</span></a></li></ol></div>
             
           </div>
         </section>
