@@ -503,7 +503,7 @@ pre,
 }
 pre,
 code {
-  font-family: "Microsoft YaHei", "Input Mono", "PT Mono", Consolas, Monaco, Menlo, monospace;
+  font-family: "Microsoft YaHei", Verdana, sans-serif;
 }
 code {
   padding: 2px 4px;
@@ -1548,7 +1548,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #931a2e;
+  background: #252a53;
 }
 .links-of-blogroll {
   font-size: 13px;
