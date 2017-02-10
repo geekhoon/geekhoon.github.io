@@ -106,7 +106,7 @@
     8个基本类型要对应8个引用">
 <meta property="og:image" content="http://oj3s07yy0.bkt.clouddn.com/blog/20170115/204404840.bmp">
 <meta property="og:image" content="http://oj3s07yy0.bkt.clouddn.com/blog/20170115/195450789.png">
-<meta property="og:updated_time" content="2017-01-15T12:44:41.129Z">
+<meta property="og:updated_time" content="2017-02-10T01:57:00.716Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="10.ArrayList集合">
 <meta name="twitter:description" content="1. ArrayList创建变量的步骤* 导入包 java.util包中
@@ -420,33 +420,10 @@
 * clear()                     清空集合中的所有元素,对象不会删
 </code></pre><h3 id="4-ArrayList集合的遍历"><a href="#4-ArrayList集合的遍历" class="headerlink" title="4. ArrayList集合的遍历"></a>4. ArrayList集合的遍历</h3><pre><code>* 区别:遍历时,集合存储(Integer类型)与(类),调用get()得到的值是有区别的,分别是值与地址
 Integer类型:
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.ArrayList;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayListDemo_2</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">		ArrayList&lt;Integer&gt; array = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">		array.add(<span class="number">121</span>);</div><div class="line">		array.add(<span class="number">125</span>);</div><div class="line">		array.add(<span class="number">123</span>);</div><div class="line">		array.add(<span class="number">120</span>);</div><div class="line">		array.add(<span class="number">128</span>);</div><div class="line">		</div><div class="line">		<span class="comment">//对集合进行遍历</span></div><div class="line">		<span class="comment">//使用方法 size+get组合进行遍历</span></div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; array.size(); i++)&#123;</div><div class="line">			System.out.println( array.get(i) );</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
-    import java.util.ArrayList;
-    public class ArrayListDemo_2{
-        public static void main(String[] args){
-            ArrayList&lt;Integer&gt; array = new ArrayList&lt;Integer&gt;();
-            array.add(121);
-            array.add(125);
-            array.add(123);
-            array.add(120);
-            array.add(128);
-
-            //对集合进行遍历
-            //使用方法 size+get组合进行遍历
-            for(int i = 0 ; i &lt; array.size(); i++){
-                System.out.println( array.get(i) );
-            }
-        }
-    }
 类:
-//遍历集合,打印所有学生信息
-public static void printArray(ArrayList&lt;Student&gt; array)    {
-    for(int i = 0; i &lt; array.size();i++){
-        //array.get(i)返回的是Student对象,用s接收
-        Student s = array.get(i);
-        System.out.println(&quot;姓名是&quot;+s.name+&quot;,年龄是&quot;+s.age);
-    }
-}
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//遍历集合,打印所有学生信息</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printArray</span><span class="params">(ArrayList&lt;Student&gt; array)</span>	</span>&#123;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.size();i++)&#123;</div><div class="line">		<span class="comment">//array.get(i)返回的是Student对象,用s接收</span></div><div class="line">		Student s = array.get(i);</div><div class="line">		System.out.println(<span class="string">"姓名是"</span>+s.name+<span class="string">",年龄是"</span>+s.age);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </code></pre><p>集合中存储类对象 内存图:</p>
 <p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170115/195450789.png" alt=""></p>
 
@@ -585,7 +562,7 @@ public static void printArray(ArrayList&lt;Student&gt; array)    {
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

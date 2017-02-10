@@ -303,6 +303,138 @@
             
               
                 
+                <a class="post-title-link" href="/2017/01/09/基础题目/" itemprop="url">
+                  基础题目
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-09T20:40:20+08:00" content="2017-01-09">
+              2017-01-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JAVA基础/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVA基础</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/09/基础题目/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/09/基础题目/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/01/09/基础题目/" class="leancloud_visitors" data-flag-title="基础题目">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1.数据类型"></a>1.数据类型</h3><pre><code>1. JAVA语言中的字符char可以存储一个中文汉字吗?原因?
+</code></pre>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/01/09/基础题目/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/01/09/常用快捷键/" itemprop="url">
                   常用快捷键
                 </a>
@@ -542,44 +674,14 @@
     *符号放前放后,在变量自己独立计算时,没有区别
     *在与其他运算符同时计算时会有区别             
      如：
-                int  i = 5;
-                int  j = i++;
-                System.out.println(i);
-                System.out.println(j);
-                //结果为i=6,j=5.
-                //因为int  j = i++;相当于(1)int j = i;
-                                        (2)i++;
-     如：
-                int  m = 5;
-                int  n = ++m;
-                System.out.println(m);
-                System.out.println(n);
-                //结果为m=6,n=6.
-                //因为int  n = ++m;相当于(1)++m;(2)int n = m;
-
-     如：
-            public class Test1 {
-                public static void main(String[] args) {
-                     int x = 4;
-                     int y = (--x)+(x--)+(x*10);
-                     System.out.println(&quot;x = &quot; + x + &quot;,y = &quot; + y);
-                }
-            }
-    思维误区:不要以为(--x)+(x--)+(x*10),都有各自括号,就互不影响
-    执行完(--x),x为3,再执行(x--)后,x为2,(x*10)为20,所以输出x为2,但是y=3+3+20=26,第二个3是因为先赋值,再自减
-    如：
-            public class Test2{
-                public static void main(String[] args){
-                    int a = 1;
-                    if(a++ &gt; 1){
-                        System.out.println(&quot;用2在判断&quot;);
-                    }else{
-                        System.out.println(&quot;用1在判断&quot;);
-                    }
-                    System.out.println(&quot;a=&quot;+a);
-                }
-            }
-    本题证明了(a++ &gt; 1)是用a=1与1做大小判断,而不是2,说明a先比较,再自增.但最终输出a的大小都是2
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">   <span class="keyword">int</span>  i = <span class="number">5</span>;</div><div class="line">   <span class="keyword">int</span>  j = i++;</div><div class="line">   System.out.println(i);</div><div class="line">   System.out.println(j);</div><div class="line"><span class="comment">//结果为i=6,j=5.</span></div><div class="line"><span class="comment">//因为int  j = i++;相当于(1)int j = i;(2)i++;</span></div></pre></td></tr></table></figure>
+<pre><code>如：
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">    <span class="keyword">int</span>  m = <span class="number">5</span>;</div><div class="line">    <span class="keyword">int</span>  n = ++m;</div><div class="line">    System.out.println(m);</div><div class="line">    System.out.println(n);</div><div class="line">	<span class="comment">//结果为m=6,n=6.</span></div><div class="line">	<span class="comment">//因为int  n = ++m;相当于(1)++m;(2)int n = m;</span></div><div class="line">```       </div><div class="line">         如：</div><div class="line">```java</div><div class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test1</span> </span>&#123;</div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"> 			<span class="keyword">int</span> x = <span class="number">4</span>;</div><div class="line"> 			<span class="keyword">int</span> y = (--x)+(x--)+(x*<span class="number">10</span>);</div><div class="line"> 			System.out.println(<span class="string">"x = "</span> + x + <span class="string">",y = "</span> + y);</div><div class="line">		&#125;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<pre><code>思维误区:不要以为(--x)+(x--)+(x*10),都有各自括号,就互不影响
+执行完(--x),x为3,再执行(x--)后,x为2,(x*10)为20,所以输出x为2,但是y=3+3+20=26,第二个3是因为先赋值,再自减
+如：
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">   <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test2</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">		<span class="keyword">int</span> a = <span class="number">1</span>;</div><div class="line">		<span class="keyword">if</span>(a++ &gt; <span class="number">1</span>)&#123;</div><div class="line">			System.out.println(<span class="string">"用2在判断"</span>);</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			System.out.println(<span class="string">"用1在判断"</span>);</div><div class="line">		&#125;</div><div class="line">		System.out.println(<span class="string">"a="</span>+a);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<pre><code>本题证明了(a++ &gt; 1)是用a=1与1做大小判断,而不是2,说明a先比较,再自增.但最终输出a的大小都是2
 </code></pre>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/01/08/04-运算符/#more" rel="contents">
@@ -1328,7 +1430,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

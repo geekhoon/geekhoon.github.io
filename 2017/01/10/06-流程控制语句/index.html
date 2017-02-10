@@ -114,7 +114,7 @@
     if(比较表达式); {
         语句体;
     }">
-<meta property="og:updated_time" content="2017-02-06T08:03:03.691Z">
+<meta property="og:updated_time" content="2017-02-10T02:04:03.659Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="06.流程控制语句">
 <meta name="twitter:description" content="一. 选择结构if1. if语句* 书写格式
@@ -454,47 +454,15 @@
     * 如果是false，接着计算比较表达式3看其返回值是true还是false，
     * 如果都是false，就执行语句体n+1。
 * 案例代码
-    public class IfElseIfDemo{
-        public static void main(String[] args){
-            //成绩判断要求 ,成绩&gt;80  成绩&gt;70  成绩&gt;60  不及格
-            //定义变量,保存成绩
-            int grade = 75;
-            //使用if else if 语句对成绩判断
-            if( grade &gt; 80 ){
-                System.out.println(grade+&quot; 成绩是优&quot;);
-            }else if ( grade &gt; 70){
-                System.out.println(grade+&quot; 成绩是良&quot;);
-            }else if ( grade &gt; 60){
-                System.out.println(grade+&quot; 成绩是中&quot;);
-            }else{
-                System.out.println(grade+&quot; 成绩是差&quot;);
-            }
-
-        }
-    }
-* 注意: 只要有1个if的条件是true,其他的代码,不再执行
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IfElseIfDemo</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">		<span class="comment">//成绩判断要求 ,成绩&gt;80  成绩&gt;70  成绩&gt;60  不及格</span></div><div class="line">		<span class="comment">//定义变量,保存成绩</span></div><div class="line">		<span class="keyword">int</span> grade = <span class="number">75</span>;</div><div class="line">		<span class="comment">//使用if else if 语句对成绩判断</span></div><div class="line">		<span class="keyword">if</span>( grade &gt; <span class="number">80</span> )&#123;</div><div class="line">			System.out.println(grade+<span class="string">" 成绩是优"</span>);</div><div class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span> ( grade &gt; <span class="number">70</span>)&#123;</div><div class="line">			System.out.println(grade+<span class="string">" 成绩是良"</span>);</div><div class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span> ( grade &gt; <span class="number">60</span>)&#123;</div><div class="line">			System.out.println(grade+<span class="string">" 成绩是中"</span>);</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			System.out.println(grade+<span class="string">" 成绩是差"</span>);</div><div class="line">		&#125;</div><div class="line">	 	</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<pre><code>* 注意: 只要有1个if的条件是true,其他的代码,不再执行
 </code></pre><h3 id="4-if语句和三元运算符的互换"><a href="#4-if语句和三元运算符的互换" class="headerlink" title="4. if语句和三元运算符的互换"></a>4. if语句和三元运算符的互换</h3><pre><code>* 使用if语句还是三元表达式
     * 判断条件多,使用if
      * 三元,必须有结果的, if 可以没有结果的
 * 三元运算符可以转换为if,但if不一定能转换为三元
 * 案例代码
-    public class IfElseDemo_1{
-        public static void main(String[] args){
-            int i = 15;
-            int j = 6;
-            //使用if语句,判断出最大值
-            if(i&gt;j){
-                System.out.println(i+&quot; 是最大值&quot;);
-            }else{
-                System.out.println(j+&quot; 是最大值&quot;);
-            }
-
-            //使用三元运算实现
-            int k = i&gt;j ? i : j;
-            System.out.println(k+&quot; 是最大值&quot;);
-        }
-    }
-</code></pre><h2 id="二-循环结构"><a href="#二-循环结构" class="headerlink" title="二. 循环结构"></a>二. 循环结构</h2><h3 id="1-while循环"><a href="#1-while循环" class="headerlink" title="1. while循环"></a>1. while循环</h3><pre><code>* 使用格式
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IfElseDemo_1</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">		<span class="keyword">int</span> i = <span class="number">15</span>;</div><div class="line">		<span class="keyword">int</span> j = <span class="number">6</span>;</div><div class="line">		<span class="comment">//使用if语句,判断出最大值</span></div><div class="line">		<span class="keyword">if</span>(i&gt;j)&#123;</div><div class="line">			System.out.println(i+<span class="string">" 是最大值"</span>);</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			System.out.println(j+<span class="string">" 是最大值"</span>);</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		<span class="comment">//使用三元运算实现</span></div><div class="line">		<span class="keyword">int</span> k = i&gt;j ? i : j;</div><div class="line">		System.out.println(k+<span class="string">" 是最大值"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="二-循环结构"><a href="#二-循环结构" class="headerlink" title="二. 循环结构"></a>二. 循环结构</h2><h3 id="1-while循环"><a href="#1-while循环" class="headerlink" title="1. while循环"></a>1. while循环</h3><pre><code>* 使用格式
      初始化表达式；
      while(条件){
         循环体
@@ -566,33 +534,16 @@
 
 * 案例
     *  打印正三角形
-    public class ForForDemo{
-        public static void main(String[] args){
-            for(int i = 0 ; i &lt; 9 ; i++){
-                for(int j = 0; j &lt; i+1 ;j++){  //++i
-                    System.out.print(&quot;* &quot;);
-                }
-                System.out.println();
-            }
-        }
-    }
-</code></pre><h3 id="6-break语句"><a href="#6-break语句" class="headerlink" title="6. break语句"></a>6. break语句</h3><pre><code>* 作用
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ForForDemo</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; <span class="number">9</span> ; i++)&#123;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i+<span class="number">1</span> ;j++)&#123;  <span class="comment">//++i</span></div><div class="line">				System.out.print(<span class="string">"* "</span>);</div><div class="line">			&#125;</div><div class="line">			System.out.println();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="6-break语句"><a href="#6-break语句" class="headerlink" title="6. break语句"></a>6. break语句</h3><pre><code>* 作用
     * 跳出当前所在的循环体
 * 应用环境
     * 只能应用在循环语句和switch语句中
  * 注意
 * 如果写在循环嵌套的内循环,结束的是内循环.除非在外循环前面加上循环标号,然后break 循环标号;
 * 举例
-        {
-            for(int i=0; i&lt;10; i++) {
-                if(i&gt;5) {
-                break;
-                }
-            System.out.println(“我爱Java”+i);
-            }
-        }
-        //会从0-5输出6次“我爱Java”
-* break详细解释
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>; i++) &#123;</div><div class="line">		<span class="keyword">if</span>(i&gt;<span class="number">5</span>) &#123;</div><div class="line">		<span class="keyword">break</span>;</div><div class="line">		&#125;</div><div class="line">	System.out.println(“我爱Java”+i);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//会从0-5输出6次“我爱Java”</span></div></pre></td></tr></table></figure>
+<pre><code>* break详细解释
     * a: 作用
     * 在loop/switch选择或者循环过程中，我们总是满足布尔表达条件才能执行对应的代码，然而在这些逻辑过程中，
         可以使用一些关键字直接跳出正在执行的代码，去执行后边或者指定位置的代码，
@@ -621,37 +572,11 @@
 * 运行规律
     * 不需要判断任何条件，只要遇到continue变直接跳出本轮循环进行下次循环
 * 案例代码
-        public class ContinueDemo{
-            public static void main(String[] args){
-                for(int i = 0 ; i &lt; 10 ; i++){
-                    if(i%2==0){
-                        continue;
-                    }
-                    System.out.println(i);
-                }
-            }
-        }
-        //会把0-9之间所有的奇数打印到控制台上
-</code></pre><h3 id="7-switch语句"><a href="#7-switch语句" class="headerlink" title="7. switch语句"></a>7. switch语句</h3><pre><code>* switch只能针对某个表达式的值作出判断，从而决定程序执行哪一段代码。    
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContinueDemo</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; <span class="number">10</span> ; i++)&#123;</div><div class="line">			<span class="keyword">if</span>(i%<span class="number">2</span>==<span class="number">0</span>)&#123;</div><div class="line">				<span class="keyword">continue</span>;</div><div class="line">			&#125;</div><div class="line">			System.out.println(i);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//会把0-9之间所有的奇数打印到控制台上</span></div></pre></td></tr></table></figure>
+<h3 id="7-switch语句"><a href="#7-switch语句" class="headerlink" title="7. switch语句"></a>7. switch语句</h3><pre><code>* switch只能针对某个表达式的值作出判断，从而决定程序执行哪一段代码。    
 * 格式:
-          swtich(表达式){
-              case 常量1 :
-                要执行的语句;
-              break;
-
-              case 常量2 :
-                要执行的语句;
-              break;
-
-              case 常量3 :
-                要执行的语句;
-              break;
-
-              default:
-                要执行的语句;
-              break;
-          }
-* 执行流程: 
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">swtich(表达式)&#123;</div><div class="line"> <span class="keyword">case</span> 常量<span class="number">1</span> :</div><div class="line">   要执行的语句;</div><div class="line"> <span class="keyword">break</span>;</div><div class="line"> </div><div class="line"> <span class="keyword">case</span> 常量<span class="number">2</span> :</div><div class="line">   要执行的语句;</div><div class="line"> <span class="keyword">break</span>;</div><div class="line"> </div><div class="line"> <span class="keyword">case</span> 常量<span class="number">3</span> :</div><div class="line">   要执行的语句;</div><div class="line"> <span class="keyword">break</span>;</div><div class="line"> </div><div class="line"> <span class="keyword">default</span>:</div><div class="line">   要执行的语句;</div><div class="line"> <span class="keyword">break</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<pre><code>* 执行流程: 
    表达式和case后面的常量进行比较和哪个case后的常量相同,就执行哪个case后面的程序,
    遇到break,就全结束.若都不匹配,执行default 
 * 关键字: switch case default break
@@ -667,44 +592,8 @@
 </code></pre><h3 id="9-case穿透"><a href="#9-case穿透" class="headerlink" title="9. case穿透"></a>9. case穿透</h3><pre><code>* case穿透
     * 在使用switch语句的过程中，如果多个case条件后面的执行语句是一样的，只需写一次。
 * 举例:
-    * public class SwitchDemo{
-            public static void main(String[] args){
-                int week = 2;
-                    switch(week){
-                        case 1:
-                        case 2:
-                        case 3:
-                        case 4:
-                        case 5:
-                            System.out.println(&quot;工作日&quot;);
-                        break; //(1)
-                        case 6:
-                        case 7:
-                            System.out.println(&quot;休息日&quot;);
-                        break;
-                    }
-            }
-        }
-//因为week=2,从case 2开始穿透,直到碰到break或switch的右大括号,
-//如果(1)处没有break,继续穿透
-//穿透期间,不会再判断case后面的值,还会执行case中的执行语句,即使default在中间,只要没有break,就继续穿透
-    *int x = 2;
-     int y = 3;
-    switch(x){
-        default:
-            y++;
-        break;
-        case 3:
-            y++;
-        case 4:
-            y++;
-        }
-    System.out.println(&quot;y=&quot;+y);
-//执行顺序: x=2先到case 3,不成立,到case 4,不成立,到了default,执行y++,break结束,输出y=4
-//把default中的break删掉,执行顺序:case 3不成立,case 4不成立,default,执行y++,y=4了,穿透case3,执行y++,又穿透case 4,执行y++
-//最后y=6
-
-* 注意:
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">	 <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwitchDemo</span></span>&#123;</div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">				<span class="keyword">int</span> week = <span class="number">2</span>;</div><div class="line">					<span class="keyword">switch</span>(week)&#123;</div><div class="line">						<span class="keyword">case</span> <span class="number">1</span>:</div><div class="line">						<span class="keyword">case</span> <span class="number">2</span>:</div><div class="line">						<span class="keyword">case</span> <span class="number">3</span>:</div><div class="line">						<span class="keyword">case</span> <span class="number">4</span>:</div><div class="line">						<span class="keyword">case</span> <span class="number">5</span>:</div><div class="line">							System.out.println(<span class="string">"工作日"</span>);</div><div class="line">						<span class="keyword">break</span>; <span class="comment">//(1)</span></div><div class="line">						<span class="keyword">case</span> <span class="number">6</span>:</div><div class="line">						<span class="keyword">case</span> <span class="number">7</span>:</div><div class="line">							System.out.println(<span class="string">"休息日"</span>);</div><div class="line">						<span class="keyword">break</span>;</div><div class="line">					&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line"><span class="comment">//因为week=2,从case 2开始穿透,直到碰到break或switch的右大括号,</span></div><div class="line"><span class="comment">//如果(1)处没有break,继续穿透</span></div><div class="line"><span class="comment">//穿透期间,不会再判断case后面的值,还会执行case中的执行语句,即使default在中间,只要没有break,就继续穿透</span></div><div class="line">	*<span class="keyword">int</span> x = <span class="number">2</span>;</div><div class="line">	 <span class="keyword">int</span> y = <span class="number">3</span>;</div><div class="line">	<span class="keyword">switch</span>(x)&#123;</div><div class="line">		<span class="keyword">default</span>:</div><div class="line">			y++;</div><div class="line">		<span class="keyword">break</span>;</div><div class="line">		<span class="keyword">case</span> <span class="number">3</span>:</div><div class="line">			y++;</div><div class="line">		<span class="keyword">case</span> <span class="number">4</span>:</div><div class="line">			y++;</div><div class="line">		&#125;</div><div class="line">	System.out.println(<span class="string">"y="</span>+y);</div><div class="line"><span class="comment">//执行顺序: x=2先到case 3,不成立,到case 4,不成立,到了default,执行y++,break结束,输出y=4</span></div><div class="line"><span class="comment">//把default中的break删掉,执行顺序:case 3不成立,case 4不成立,default,执行y++,y=4了,穿透case3,执行y++,又穿透case 4,执行y++</span></div><div class="line"><span class="comment">//最后y=6</span></div></pre></td></tr></table></figure>
+<pre><code>* 注意:
     1. default中一定要有break吗?
         //不一定,程序只要遇到break或者switch的右大括号,都结束
     2. 多个case后的常量可否相同?
@@ -847,7 +736,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

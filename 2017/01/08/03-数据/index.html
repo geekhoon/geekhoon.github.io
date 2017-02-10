@@ -110,7 +110,7 @@
     * 二进制:以0b(0B)开头,只有0和1  
     * 十六进制:以0x(0X)开头,0-9和A-F,F表示15 
     * 八进制:">
-<meta property="og:updated_time" content="2017-01-13T03:25:18.302Z">
+<meta property="og:updated_time" content="2017-02-10T02:42:33.595Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="03.数据">
 <meta name="twitter:description" content="一.数据1.数据类型* 程序=数据+逻辑
@@ -460,35 +460,12 @@
     数据类型  变量名  =  变量值;
      int        a    =  100;        
 * 代码:
-    public class Variable {
-        public static void main(String[] args) {
-            int a = 10;
-            double b = 3.14;
-            char c = &apos;z&apos;;
-            String s = &quot;i love java&quot;;
-            System.out.println(a);
-        }
-    }    
-* 注意:
-    a.字符串String属于引用类型(类),不属于基本类型,
-    b.变量定义后,不赋值,能编译通过,但运行时会报错.不赋值不能使用。
-    c.变量使用时有作用域的限制。(所在的大括号范围内)
-    如：
-    (1)public class Variable {
-           public static void main(String[] args) {
-                {
-                    int j = 10;
-                }
-                int j = 10;
-       }这是对的,因为第一个j声明的作用区间为它所在的大括号,第二个j再声明,和它就不冲突
-    (2)public class Variable {
-           public static void main(String[] args) {
-                int j = 10;  
-                {
-                    int j = 10;
-                }
-     }这是错的,因为第一个j声明的作用区间为它所在的大括号,即整个main方法,第二个j再在main方法中声明,就产生了冲突
-    d.变量不允许重复定义
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Variable</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="keyword">int</span> a = <span class="number">10</span>;</div><div class="line">		<span class="keyword">double</span> b = <span class="number">3.14</span>;</div><div class="line">		<span class="keyword">char</span> c = <span class="string">'z'</span>;</div><div class="line">		String s = <span class="string">"i love java"</span>;</div><div class="line">		System.out.println(a);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">```	</div><div class="line">    * 注意:</div><div class="line">        a.字符串String属于引用类型(类),不属于基本类型,</div><div class="line">        b.变量定义后,不赋值,能编译通过,但运行时会报错.不赋值不能使用。</div><div class="line">        c.变量使用时有作用域的限制。(所在的大括号范围内)</div><div class="line">		如：</div><div class="line">		(<span class="number">1</span>)</div><div class="line">```java</div><div class="line">		 <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Variable</span> </span>&#123;</div><div class="line">			   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">				    &#123;</div><div class="line">                        <span class="keyword">int</span> j = <span class="number">10</span>;</div><div class="line">					&#125;</div><div class="line">                    <span class="keyword">int</span> j = <span class="number">10</span>;</div><div class="line">           &#125;</div></pre></td></tr></table></figure>
+<pre><code>//这是对的,因为第一个j声明的作用区间为它所在的大括号,第二个j再声明,和它就不冲突
+(2)
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Variable</span> </span>&#123;</div><div class="line">	   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		    <span class="keyword">int</span> j = <span class="number">10</span>;  </div><div class="line">                  &#123;</div><div class="line">                      <span class="keyword">int</span> j = <span class="number">10</span>;</div><div class="line">			&#125;</div><div class="line">       &#125;</div></pre></td></tr></table></figure>
+<pre><code>//这是错的,因为第一个j声明的作用区间为它所在的大括号,即整个main方法,第二个j再在main方法中声明,就产生了冲突
+d.变量不允许重复定义
 </code></pre><h3 id="6-数据类型转换"><a href="#6-数据类型转换" class="headerlink" title="6.数据类型转换"></a>6.数据类型转换</h3><pre><code>* 自动类型转换：(也叫自动类型提升,或叫隐式转换)
     *取值范围小的与取值范围大的数据数据类型做运算时,取值范围小的类型会自动提升为取值范围大的数据类型
     *表示范围小的数据类型转换成范围大的数据类型,如byte转成int
@@ -512,24 +489,22 @@
     *布尔类型不参与类型转换
     *byte &lt; short &lt; int &lt; long &lt; float &lt; double
     *
-        byte b = (byte)200;
-        System.out.println(b);注意输出结果不是127,因为会损失精度
-    *
-        byte b = 10;这是对的.不要以为10为int类型,赋值给byte就需要强制转换.   
-        只要需要赋值的数据值,在byte范围(-128-127)内,就是对的,不需要强制转换.因为java中常量优化机制,只要在范围内自己转换
-    *
-        byte b1=3,b2=4;
-        byte b = b1+b2;// 错
-        因为b1和b2都是byte类型变量,在参加运算时要先转成int类型,所以b1+b2的结果为int类型,把int类型的数据赋值给byte类型的b,就会损失精度,导致编译报错
-        byte b = 3+4;//对 
-        解释一:3和4都是int类型的常量,java虚拟机有常量优化机制,编译时就能确实3+4的结果为7,然后把7赋值给byte类型的b,7正好在byte数据范围内,会有一个隐式类型转换,可以赋值成功
-        解释二:给出了固定值,和不超过范围.由java底层常量优化机制,即可自动转换.如果是byte b = 300+4;那就错了
-    *
-         char c = 98;这是对的,不要以为没加&apos;&apos;,就不是字符.由Ascii码表,只要数字范围i在(0-65535),就可以Ascii为单个字符
-    *
-        long可以自动类型变换至float的原因: 
-        (1)它们底层的存储结构不同
-        (2)遵循IEEE-754格式标准,float类型的指数可从-126到128.float表示的数据范围比long型的范围要大
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">byte</span> b = (<span class="keyword">byte</span>)<span class="number">200</span>;</div><div class="line">System.out.println(b);<span class="comment">//注意输出结果不是127,因为会损失精度</span></div></pre></td></tr></table></figure>
+<pre><code>*
+    byte b = 10;这是对的.不要以为10为int类型,赋值给byte就需要强制转换.   
+    只要需要赋值的数据值,在byte范围(-128-127)内,就是对的,不需要强制转换.因为java中常量优化机制,只要在范围内自己转换
+*
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">byte</span> b1=<span class="number">3</span>,b2=<span class="number">4</span>;</div><div class="line">   <span class="keyword">byte</span> b = b1+b2;<span class="comment">// 错</span></div></pre></td></tr></table></figure>
+<pre><code>    因为b1和b2都是byte类型变量,在参加运算时要先转成int类型,所以b1+b2的结果为int类型,把int类型的数据赋值给byte类型的b,就会损失精度,导致编译报错
+    byte b = 3+4;//对 
+    解释一:3和4都是int类型的常量,java虚拟机有常量优化机制,编译时就能确实3+4的结果为7,然后把7赋值给byte类型的b,7正好在byte数据范围内,会有一个隐式类型转换,可以赋值成功
+    解释二:给出了固定值,和不超过范围.由java底层常量优化机制,即可自动转换.如果是byte b = 300+4;那就错了
+*
+     char c = 98;这是对的,不要以为没加&apos;&apos;,就不是字符.由Ascii码表,只要数字范围i在(0-65535),就可以Ascii为单个字符
+*
+    long可以自动类型变换至float的原因: 
+    (1)它们底层的存储结构不同
+    (2)遵循IEEE-754格式标准,float类型的指数可从-126到128.float表示的数据范围比long型的范围要大
 </code></pre>
       
     </div>
@@ -666,7 +641,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
