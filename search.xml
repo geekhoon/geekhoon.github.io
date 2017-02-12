@@ -83,13 +83,44 @@
 </code></pre><h4 id="String"><a href="#String" class="headerlink" title="String"></a>String</h4><pre><code>* 特点: 字符串是一个常量,一旦创建,不可改变
   如`String str = &quot;abc&quot;` 不变指的是&quot; &quot;内的值不变,不是str的值不可变
 * 注意: 只有显示定义的字符串才会存在于常量池中,
-</code></pre><h3 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h3><pre><code>* 表示特定的时间瞬间,精确到毫秒
-</code></pre><h3 id="Calendar"><a href="#Calendar" class="headerlink" title="Calendar"></a>Calendar</h3><pre><code>* 日历类(抽象类)
-* 创建对象: Calendar类中写了getInstance()静态方法,直接返回子类的对象,不用new子类对象
-  格式如: Calendar c = Calendar.getInstance();
-* 常用方法:
-    * get(日历字段): 获得指定日历字段的值
-</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">Calendar c = Calendar.getInstance();</div><div class="line"><span class="comment">// 获取年份</span></div><div class="line"><span class="keyword">int</span> year = c.get(Calendar.YEAR);</div><div class="line"><span class="comment">// 获取月份</span></div><div class="line"><span class="keyword">int</span> month = c.get(Calendar.MONTH) + <span class="number">1</span>;</div><div class="line"><span class="comment">// 获取天数</span></div><div class="line"><span class="keyword">int</span> day = c.get(Calendar.DAY_OF_MONTH);</div><div class="line">System.out.println(year + <span class="string">"年"</span> + month + <span class="string">"月"</span> + day + <span class="string">"日"</span>);</div><div class="line">```		 </div><div class="line">		* getTime() 把日历对象,转成Date日期对象</div><div class="line">		* set(<span class="keyword">int</span> field,<span class="keyword">int</span> value)  设置指定的时间</div><div class="line">		  field 设置的是哪个日历字段 </div><div class="line">		  value 设置后的具体数值</div><div class="line">		* set(<span class="keyword">int</span> year,<span class="keyword">int</span> month,<span class="keyword">int</span> day) 传递<span class="number">3</span>个整数的年,月,日</div><div class="line">```java</div><div class="line">Calendar c = Calendar.getInstance();</div><div class="line"><span class="comment">// 设置,月份,设置到10月份</span></div><div class="line"><span class="comment">// c.set(Calendar.MONTH, 9);</span></div><div class="line"><span class="comment">// 设置年,月,日</span></div><div class="line">c.set(<span class="number">2017</span>, <span class="number">01</span>, <span class="number">01</span>);</div></pre></td></tr></table></figure>
+</code></pre><h3 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h3><pre><code>* 日期类
+* 毫秒值
+    * 获取当前日期的毫秒值
+      System.currentTimeMillis() 返回值long类型参数
+    * 时间原点: 公元1970年1月1日 00:00:00
+    * 日期对象之间要进行基本运算，需要转成具体的毫秒数值才可以
+* Date类的构造方法
+    * 空参构造 
+      public Date()    :获取当期操作系统的日期,时间
+    * 带参构造
+      public Date(long times) :将传入的毫秒值转为对应的日期,时间
+* Date类的get/set方法
+    * public long getTime()     :将当前的日期对象，转为对应的毫秒值
+    * public void setTime(long times)  :根据给定的毫秒值，生成对应的日期对象
+* 日期格式化SimpleDateFormat
+    * SimpleDateFormat继承自抽象类 DateFormat,使用父类普通方法,重写抽象方法
+    * 作用: 对日期进行格式化(自定义)
+    * 对日期进行格式化的步骤: (Date对象 ==&gt; 字符串)
+       1: 创建SimpleDateFormat对象
+          在类构造方法中,写入字符串的日期格式 (自己定义)
+       2: SimpleDateFormat调用方法format对日期进行格式化
+          public String format(Date date) 
+    * 字符串转成日期对象步骤: (字符串 ==&gt; Date对象)
+       1: 创建SimpleDateFormat的对象
+          在类构造方法中,写入字符串的日期格式 (自己定义)
+       2: 子类对象,调用方法 parse 传递String,返回Date
+          Date parse(String 日期模式)
+          注意传递的Stirng类型日期模式,要和1中定义的格式相同
+    * 日期模式:
+         yyyy    年份
+         MM      月份
+        dd      月中的天数
+        HH      0-23小时
+        mm      小时中的分钟
+         ss      秒
+* 练习: 
+1.计算出生至今活了多少天
+</code></pre><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">public static void function() throws Exception &#123;</div><div class="line">	System.out.println("请输入出生日期 格式 YYYY-MM-dd");</div><div class="line">	//获取出生日期,键盘输入</div><div class="line">	String birthdayString = new Scanner(System.in).next();</div><div class="line">	//将字符串日期,转成Date对象</div><div class="line">	//创建SimpleDateFormat对象,写日期模式</div><div class="line">	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");</div><div class="line">	//调用方法parse,字符串转成日期对象</div><div class="line">	Date birthdayDate = sdf.parse(birthdayString);</div><div class="line">	</div><div class="line">	//获取今天的日期对象</div><div class="line">	Date todayDate = new Date();</div><div class="line">	</div><div class="line">	//将两个日期转成毫秒值,Date类的方法getTime</div><div class="line">	long birthdaySecond = birthdayDate.getTime();</div><div class="line">	long todaySecond = todayDate.getTime();</div><div class="line">	long second = todaySecond-birthdaySecond;</div><div class="line">	</div><div class="line">	if(second &lt; 0)&#123;</div><div class="line">		System.out.println("还没出生呢");</div><div class="line">	&#125;</div><div class="line">	else&#123;</div><div class="line">		System.out.println(second/1000/60/60/24);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div><div class="line">```    </div><div class="line">### Calendar ###</div><div class="line">	* 日历类(抽象类) </div><div class="line">	* 创建对象: Calendar类中写了getInstance()静态方法,直接返回子类的对象,不用new子类对象</div><div class="line">	  格式如: Calendar c = Calendar.getInstance();</div><div class="line">	* 常用方法:</div><div class="line">		* get(日历字段): 获得指定日历字段的值</div><div class="line">```java</div><div class="line">Calendar c = Calendar.getInstance();</div><div class="line">// 获取年份</div><div class="line">int year = c.get(Calendar.YEAR);</div><div class="line">// 获取月份</div><div class="line">int month = c.get(Calendar.MONTH) + 1;</div><div class="line">// 获取天数</div><div class="line">int day = c.get(Calendar.DAY_OF_MONTH);</div><div class="line">System.out.println(year + "年" + month + "月" + day + "日");</div><div class="line">```		 </div><div class="line">		* getTime() 把日历对象,转成Date日期对象</div><div class="line">		* set(int field,int value)  设置指定的时间</div><div class="line">		  field 设置的是哪个日历字段 </div><div class="line">		  value 设置后的具体数值</div><div class="line">		* set(int year,int month,int day) 传递3个整数的年,月,日</div><div class="line">```java</div><div class="line">Calendar c = Calendar.getInstance();</div><div class="line">// 设置,月份,设置到10月份</div><div class="line">// c.set(Calendar.MONTH, 9);</div><div class="line">// 设置年,月,日</div><div class="line">c.set(2017, 01, 01);</div></pre></td></tr></table></figure>
 <pre><code>* add(int field, int value) 进行整数的偏移
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 让日历中的天数,向后偏移30天</span></div><div class="line">c.add(Calendar.DAY_OF_MONTH, <span class="number">30</span>);</div></pre></td></tr></table></figure>
 <pre><code>* 练习: 
