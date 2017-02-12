@@ -86,7 +86,7 @@
 
 
 
-<meta name="description" content="1.创建引用类型变量公式* 引用数据类型的定义格式:
+<meta name="description" content="创建引用类型变量公式* 引用数据类型的定义格式:
     数据类型  变量名  =  new 数据类型();
 * 引用数据类型的使用:
     * 每种引用数据类型都有其功能，我们可以调用该类型实例的功能。
@@ -95,15 +95,15 @@
 <meta property="og:title" content="05.引用数据类型">
 <meta property="og:url" content="https://geekhoon.github.io/2017/01/10/05-引用数据类型/index.html">
 <meta property="og:site_name" content="geekhoon">
-<meta property="og:description" content="1.创建引用类型变量公式* 引用数据类型的定义格式:
+<meta property="og:description" content="创建引用类型变量公式* 引用数据类型的定义格式:
     数据类型  变量名  =  new 数据类型();
 * 引用数据类型的使用:
     * 每种引用数据类型都有其功能，我们可以调用该类型实例的功能。
     * 变量名.方法名();">
-<meta property="og:updated_time" content="2017-02-10T02:38:05.912Z">
+<meta property="og:updated_time" content="2017-02-12T14:12:30.016Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="05.引用数据类型">
-<meta name="twitter:description" content="1.创建引用类型变量公式* 引用数据类型的定义格式:
+<meta name="twitter:description" content="创建引用类型变量公式* 引用数据类型的定义格式:
     数据类型  变量名  =  new 数据类型();
 * 引用数据类型的使用:
     * 每种引用数据类型都有其功能，我们可以调用该类型实例的功能。
@@ -388,13 +388,13 @@
       
 
       
-        <h3 id="1-创建引用类型变量公式"><a href="#1-创建引用类型变量公式" class="headerlink" title="1.创建引用类型变量公式"></a>1.创建引用类型变量公式</h3><pre><code>* 引用数据类型的定义格式:
+        <h3 id="创建引用类型变量公式"><a href="#创建引用类型变量公式" class="headerlink" title="创建引用类型变量公式"></a>创建引用类型变量公式</h3><pre><code>* 引用数据类型的定义格式:
     数据类型  变量名  =  new 数据类型();
 * 引用数据类型的使用:
     * 每种引用数据类型都有其功能，我们可以调用该类型实例的功能。
     * 变量名.方法名();
 </code></pre><a id="more"></a>
-<h3 id="2-Scanner类的使用"><a href="#2-Scanner类的使用" class="headerlink" title="2.Scanner类的使用"></a>2.Scanner类的使用</h3><pre><code>* 作用: 在命令行中,接收键盘的输入
+<h3 id="Scanner类的使用"><a href="#Scanner类的使用" class="headerlink" title="Scanner类的使用"></a>Scanner类的使用</h3><pre><code>* 作用: 在命令行中,接收键盘的输入
 * 使用:
     (1) 导包   import java.util.Scanner;
     (2) 创建Scanner对象的变量 Scanner sc = new Scanner(System.in);
@@ -403,7 +403,7 @@
     (4) 读取键盘录入的字符串,注意字符串不能有空格或tab
           String enterString = sc.next();
 * 案例代码
-</code></pre><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">import java.util.Scanner;//特别注意:后面有分号,别丢掉</div><div class="line">public class Demo05Scanner&#123;</div><div class="line">	public static void main(String[] args) </div><div class="line">	&#123;</div><div class="line">		Scanner sc = new Scanner(System.in);</div><div class="line"></div><div class="line">		int enterNumber = sc.nextInt();</div><div class="line">		System.out.println("用户输入的整数为"+enterNumber);</div><div class="line"></div><div class="line">		String enterString = sc.next();</div><div class="line">		System.out.println("用户输入的字符串为"+enterString);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">```			</div><div class="line">### 3.Random随机数类的使用 ###  </div><div class="line">	* 作用: 生成随机数</div><div class="line">	* 使用:</div><div class="line">        (1) import导包：所属包java.util. Random</div><div class="line">		(2) 创建Random对象的变量：Random  random = new Random ();</div><div class="line">		(3) 调用方法:</div><div class="line">			* nextInt(int maxValue)	产生[0,maxValue)范围的随机数,包含0不包含maxValue</div><div class="line">			* nextDouble()  //产生0.0-1.0之间的数(包括0.0不包括1.0)</div><div class="line">			如：</div><div class="line">```java</div><div class="line">Random  random = new Random ();</div><div class="line">int  myNumber = random.nextInt(100);//结果为0-99的一个数</div></pre></td></tr></table></figure>
+</code></pre><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">import java.util.Scanner;//特别注意:后面有分号,别丢掉</div><div class="line">public class Demo05Scanner&#123;</div><div class="line">	public static void main(String[] args) </div><div class="line">	&#123;</div><div class="line">		Scanner sc = new Scanner(System.in);</div><div class="line"></div><div class="line">		int enterNumber = sc.nextInt();</div><div class="line">		System.out.println("用户输入的整数为"+enterNumber);</div><div class="line"></div><div class="line">		String enterString = sc.next();</div><div class="line">		System.out.println("用户输入的字符串为"+enterString);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">```			</div><div class="line">### Random随机数类的使用 ###  </div><div class="line">	* 作用: 生成随机数</div><div class="line">	* 使用:</div><div class="line">        (1) import导包：所属包java.util. Random</div><div class="line">		(2) 创建Random对象的变量：Random  random = new Random ();</div><div class="line">		(3) 调用方法:</div><div class="line">			* nextInt(int maxValue)	产生[0,maxValue)范围的随机数,包含0不包含maxValue</div><div class="line">			* nextDouble()  //产生0.0-1.0之间的数(包括0.0不包括1.0)</div><div class="line">			如：</div><div class="line">```java</div><div class="line">Random  random = new Random ();</div><div class="line">int  myNumber = random.nextInt(100);//结果为0-99的一个数</div></pre></td></tr></table></figure>
 <pre><code>* 随机数,也叫伪随机数,它是JVM根据人写好的算法,生成的
 * 案例代码
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.Random;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RandomDemo</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">	   Random ran = <span class="keyword">new</span> Random();</div><div class="line">	   <span class="comment">// Random类中的,产生随机数的功能</span></div><div class="line">	   <span class="keyword">int</span> i = ran.nextInt(<span class="number">100</span>);</div><div class="line">	   System.out.println(i);  </div><div class="line">	   <span class="comment">//问题? 产生随机数,范围 1-100之间</span></div><div class="line">	   <span class="comment">// nextInt(100) 0-99 + 1</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -659,7 +659,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-创建引用类型变量公式"><span class="nav-number">1.</span> <span class="nav-text">1.创建引用类型变量公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Scanner类的使用"><span class="nav-number">2.</span> <span class="nav-text">2.Scanner类的使用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建引用类型变量公式"><span class="nav-number">1.</span> <span class="nav-text">创建引用类型变量公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scanner类的使用"><span class="nav-number">2.</span> <span class="nav-text">Scanner类的使用</span></a></li></ol></div>
             
           </div>
         </section>

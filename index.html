@@ -786,8 +786,7 @@
 
       
         
-          <h3 id="1-数组遍历"><a href="#1-数组遍历" class="headerlink" title="1.数组遍历"></a>1.数组遍历</h3><pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">   <span class="comment">//打印结果为[11, 33, 44, 22, 55]</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span>[] arr = &#123;<span class="number">11</span>, <span class="number">33</span>, <span class="number">44</span>, <span class="number">22</span>, <span class="number">55</span>&#125;;</div><div class="line">	printArr(arr);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printArr</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</div><div class="line">	System.out.print(<span class="string">"["</span>);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</div><div class="line">		<span class="keyword">if</span>(i == arr.length - <span class="number">1</span>)&#123;</div><div class="line">			System.out.print(arr[i]);</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			System.out.print(arr[i]+<span class="string">","</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	System.out.print(<span class="string">"]"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre>
+          <h3 id="数组遍历"><a href="#数组遍历" class="headerlink" title="数组遍历"></a>数组遍历</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//打印结果为[11, 33, 44, 22, 55]</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span>[] arr = &#123;<span class="number">11</span>, <span class="number">33</span>, <span class="number">44</span>, <span class="number">22</span>, <span class="number">55</span>&#125;;</div><div class="line">	printArr(arr);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printArr</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</div><div class="line">	System.out.print(<span class="string">"["</span>);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</div><div class="line">		<span class="keyword">if</span>(i == arr.length - <span class="number">1</span>)&#123;</div><div class="line">			System.out.print(arr[i]);</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			System.out.print(arr[i]+<span class="string">","</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	System.out.print(<span class="string">"]"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/01/26/11-数组操作之遍历、逆序、排序及查找/#more" rel="contents">
               阅读全文 &raquo;
@@ -918,7 +917,7 @@
 
       
         
-          <h3 id="1-ArrayList创建变量的步骤"><a href="#1-ArrayList创建变量的步骤" class="headerlink" title="1. ArrayList创建变量的步骤"></a>1. ArrayList创建变量的步骤</h3><pre><code>* 导入包 java.util包中
+          <h3 id="ArrayList创建变量的步骤"><a href="#ArrayList创建变量的步骤" class="headerlink" title="ArrayList创建变量的步骤"></a>ArrayList创建变量的步骤</h3><pre><code>* 导入包 java.util包中
 * 创建引用类型的变量
     数据类型&lt; 集合存储的数据类型&gt;  变量名 = new 数据类型&lt;集合存储的数据类型&gt;();
        创建集合引用变量的时候,必须先指定好存储的数据类型
@@ -1056,11 +1055,11 @@
 
       
         
-          <h3 id="1-类"><a href="#1-类" class="headerlink" title="1. 类"></a>1. 类</h3><pre><code>* 分两种,一种是JAVA提供的,一种是自定义类
+          <h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><pre><code>* 分两种,一种是JAVA提供的,一种是自定义类
 * 类是用于描述事物的.
 * 事物的特征叫属性
 * 事物的功能叫方法
-</code></pre><h3 id="2-自定义类的格式"><a href="#2-自定义类的格式" class="headerlink" title="2. 自定义类的格式"></a>2. 自定义类的格式</h3><pre><code>* 使用类的形式,对现实中的事物进行描述。 
+</code></pre><h3 id="自定义类的格式"><a href="#自定义类的格式" class="headerlink" title="自定义类的格式"></a>自定义类的格式</h3><pre><code>* 使用类的形式,对现实中的事物进行描述。 
 
 * 格式
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> 类名</span>&#123;</div><div class="line">	属性定义(成员变量)</div><div class="line">	  修饰符 数据类型 变量名 = 值</div><div class="line">	</div><div class="line">	方法定义(成员方法)</div><div class="line">	  修饰符 返回值类型  方法名(参数列表)&#123;</div><div class="line">		  </div><div class="line">	  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -1194,7 +1193,7 @@
 
       
         
-          <h3 id="1-方法的概述"><a href="#1-方法的概述" class="headerlink" title="1. 方法的概述"></a>1. 方法的概述</h3><pre><code>* 提高代码的复用性  
+          <h3 id="方法的概述"><a href="#方法的概述" class="headerlink" title="方法的概述"></a>方法的概述</h3><pre><code>* 提高代码的复用性  
 * 完成特定功能的代码块。
 </code></pre>
           <div class="post-more-link text-center">
@@ -1327,7 +1326,7 @@
 
       
         
-          <h2 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h2><h3 id="1-数组概述"><a href="#1-数组概述" class="headerlink" title="1. 数组概述"></a>1. 数组概述</h3><pre><code>* 存储同一种数据类型的多个元素的容器。
+          <h3 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h3><h4 id="1-数组概述"><a href="#1-数组概述" class="headerlink" title="1. 数组概述"></a>1. 数组概述</h4><pre><code>* 存储同一种数据类型的多个元素的容器。
 * 特点:
     (1)元素数据类型必须一致。
     (2)长度固定
@@ -1462,7 +1461,7 @@
 
       
         
-          <h2 id="一-选择结构if"><a href="#一-选择结构if" class="headerlink" title="一. 选择结构if"></a>一. 选择结构if</h2><h3 id="1-if语句"><a href="#1-if语句" class="headerlink" title="1. if语句"></a>1. if语句</h3><pre><code>* 书写格式
+          <h3 id="选择结构if"><a href="#选择结构if" class="headerlink" title="选择结构if"></a>选择结构if</h3><h4 id="1-if语句"><a href="#1-if语句" class="headerlink" title="1. if语句"></a>1. if语句</h4><pre><code>* 书写格式
     if(比较表达式) {
         语句体;
     }
@@ -1606,7 +1605,7 @@
 
       
         
-          <h3 id="1-创建引用类型变量公式"><a href="#1-创建引用类型变量公式" class="headerlink" title="1.创建引用类型变量公式"></a>1.创建引用类型变量公式</h3><pre><code>* 引用数据类型的定义格式:
+          <h3 id="创建引用类型变量公式"><a href="#创建引用类型变量公式" class="headerlink" title="创建引用类型变量公式"></a>创建引用类型变量公式</h3><pre><code>* 引用数据类型的定义格式:
     数据类型  变量名  =  new 数据类型();
 * 引用数据类型的使用:
     * 每种引用数据类型都有其功能，我们可以调用该类型实例的功能。

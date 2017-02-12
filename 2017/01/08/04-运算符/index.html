@@ -86,28 +86,28 @@
 
 
 
-<meta name="description" content="1.算数运算符* 注意事项
+<meta name="description" content="算数运算符* 注意事项
     1.&amp;quot;+&amp;quot;在连接字符串时要注意，只有直接与字符串相加才会转成字符串.
         字符串后面的&amp;quot;+&amp;quot;为&amp;quot;连接&amp;quot;,字符串前面的&amp;quot;+&amp;quot;还是加法
         如:
-            System.out.println(5+5+&amp;quot;=&amp;quot;+5+5);这个输出的">
+            System.out.println(5+5+&amp;quot;=&amp;quot;+5+5);这个输出的是1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="04.运算符">
 <meta property="og:url" content="https://geekhoon.github.io/2017/01/08/04-运算符/index.html">
 <meta property="og:site_name" content="geekhoon">
-<meta property="og:description" content="1.算数运算符* 注意事项
+<meta property="og:description" content="算数运算符* 注意事项
     1.&amp;quot;+&amp;quot;在连接字符串时要注意，只有直接与字符串相加才会转成字符串.
         字符串后面的&amp;quot;+&amp;quot;为&amp;quot;连接&amp;quot;,字符串前面的&amp;quot;+&amp;quot;还是加法
         如:
-            System.out.println(5+5+&amp;quot;=&amp;quot;+5+5);这个输出的">
-<meta property="og:updated_time" content="2017-02-10T02:40:34.944Z">
+            System.out.println(5+5+&amp;quot;=&amp;quot;+5+5);这个输出的是1">
+<meta property="og:updated_time" content="2017-02-12T14:12:21.299Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="04.运算符">
-<meta name="twitter:description" content="1.算数运算符* 注意事项
+<meta name="twitter:description" content="算数运算符* 注意事项
     1.&amp;quot;+&amp;quot;在连接字符串时要注意，只有直接与字符串相加才会转成字符串.
         字符串后面的&amp;quot;+&amp;quot;为&amp;quot;连接&amp;quot;,字符串前面的&amp;quot;+&amp;quot;还是加法
         如:
-            System.out.println(5+5+&amp;quot;=&amp;quot;+5+5);这个输出的">
+            System.out.println(5+5+&amp;quot;=&amp;quot;+5+5);这个输出的是1">
 
 
 
@@ -388,7 +388,7 @@
       
 
       
-        <h3 id="1-算数运算符"><a href="#1-算数运算符" class="headerlink" title="1.算数运算符"></a>1.算数运算符</h3><pre><code>* 注意事项
+        <h3 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h3><pre><code>* 注意事项
     1.&quot;+&quot;在连接字符串时要注意，只有直接与字符串相加才会转成字符串.
         字符串后面的&quot;+&quot;为&quot;连接&quot;,字符串前面的&quot;+&quot;还是加法
         如:
@@ -421,19 +421,19 @@
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">   <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test2</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">		<span class="keyword">int</span> a = <span class="number">1</span>;</div><div class="line">		<span class="keyword">if</span>(a++ &gt; <span class="number">1</span>)&#123;</div><div class="line">			System.out.println(<span class="string">"用2在判断"</span>);</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			System.out.println(<span class="string">"用1在判断"</span>);</div><div class="line">		&#125;</div><div class="line">		System.out.println(<span class="string">"a="</span>+a);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <pre><code>本题证明了(a++ &gt; 1)是用a=1与1做大小判断,而不是2,说明a先比较,再自增.但最终输出a的大小都是2
 </code></pre><a id="more"></a>
-<h3 id="2-赋值运算符"><a href="#2-赋值运算符" class="headerlink" title="2.赋值运算符"></a>2.赋值运算符</h3><pre><code>* 有 =  +=  -=  *=  /=  %=  
+<h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><pre><code>* 有 =  +=  -=  *=  /=  %=  
 * 注意:
      如：
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">byte</span>  b = <span class="number">1</span>;               <span class="comment">//(1)</span></div><div class="line">b = b + <span class="number">1</span>;                 <span class="comment">//(2)</span></div><div class="line">System.out.println(b);     <span class="comment">//(3)</span></div></pre></td></tr></table></figure>
 <pre><code>编译会报错,因为(1)中b为byte型,占1个字节,(2)中1为int类型,占4个字节,它们相加之后,是4字节.然后赋值给1字节大小的b,会损失精度.
 将(2)改成b =(byte) (b + 1);或者b += 1;都对.这两句等价
-</code></pre><h3 id="3-比较运算符"><a href="#3-比较运算符" class="headerlink" title="3.比较运算符"></a>3.比较运算符</h3><pre><code>* 也叫关系运算符
+</code></pre><h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><pre><code>* 也叫关系运算符
 * 有 ==  !=  &gt;  &lt;  &gt;=  &lt;=  
 * 注意:
      如：
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span>  i = <span class="number">3</span>;</div><div class="line"><span class="keyword">int</span>  j = <span class="number">4</span>;</div><div class="line">System.out.println(i=j);</div><div class="line">System.out.println(i==j);</div></pre></td></tr></table></figure>
 <pre><code>结果分别为4和true,因为程序自上而下执行,第一句输出语句执行完之后,i变为4.别忽视了输出语句中,赋值语句对变量在整个作用区间内也起作用.
-</code></pre><h3 id="4-逻辑运算符"><a href="#4-逻辑运算符" class="headerlink" title="4.逻辑运算符"></a>4.逻辑运算符</h3><pre><code>* 对两个布尔数据进行计算,结果也是布尔类型
+</code></pre><h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><pre><code>* 对两个布尔数据进行计算,结果也是布尔类型
 * 有 &amp;与  |或  !非  ^异或  &amp;&amp;短路与  ||短路或
     *^异或: 两边相同为false,不同为true
      如：
@@ -445,9 +445,9 @@
 <pre><code>                结果为3和4.   i == j 为flase, 所以++i &gt; 3并没有执行
     *||短路或: 左边结果为true,右边不执行
 * 短路与 和 短路或 可以提高程序运行效率
-</code></pre><h3 id="5-三元-目-运算符"><a href="#5-三元-目-运算符" class="headerlink" title="5.三元(目)运算符"></a>5.三元(目)运算符</h3><pre><code>* 公式:    布尔表达式 ? 结果1 : 结果2
+</code></pre><h3 id="三元-目-运算符"><a href="#三元-目-运算符" class="headerlink" title="三元(目)运算符"></a>三元(目)运算符</h3><pre><code>* 公式:    布尔表达式 ? 结果1 : 结果2
 *注意:这里的结果1和2,不能是输出语句,必须是确定的结果
-</code></pre><h3 id="6-运算符优先级"><a href="#6-运算符优先级" class="headerlink" title="6.运算符优先级"></a>6.运算符优先级</h3><pre><code>优先级    描述          运算符
+</code></pre><h3 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h3><pre><code>优先级    描述          运算符
 1    括号           ()、[]
 2    正负号           +、-
 3    自增自减，非     ++、--、!
@@ -717,7 +717,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-算数运算符"><span class="nav-number">1.</span> <span class="nav-text">1.算数运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-赋值运算符"><span class="nav-number">2.</span> <span class="nav-text">2.赋值运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-比较运算符"><span class="nav-number">3.</span> <span class="nav-text">3.比较运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-逻辑运算符"><span class="nav-number">4.</span> <span class="nav-text">4.逻辑运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-三元-目-运算符"><span class="nav-number">5.</span> <span class="nav-text">5.三元(目)运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-运算符优先级"><span class="nav-number">6.</span> <span class="nav-text">6.运算符优先级</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#算数运算符"><span class="nav-number">1.</span> <span class="nav-text">算数运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#赋值运算符"><span class="nav-number">2.</span> <span class="nav-text">赋值运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#比较运算符"><span class="nav-number">3.</span> <span class="nav-text">比较运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑运算符"><span class="nav-number">4.</span> <span class="nav-text">逻辑运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三元-目-运算符"><span class="nav-number">5.</span> <span class="nav-text">三元(目)运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运算符优先级"><span class="nav-number">6.</span> <span class="nav-text">运算符优先级</span></a></li></ol></div>
             
           </div>
         </section>

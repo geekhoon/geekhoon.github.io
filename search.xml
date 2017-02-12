@@ -579,19 +579,19 @@
     <entry>
       <title><![CDATA[11.数组操作之遍历、逆序、排序及查找]]></title>
       <url>https://geekhoon.github.io/2017/01/26/11-%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C%E4%B9%8B%E9%81%8D%E5%8E%86%E3%80%81%E9%80%86%E5%BA%8F%E3%80%81%E6%8E%92%E5%BA%8F%E5%8F%8A%E6%9F%A5%E6%89%BE/</url>
-      <content type="html"><![CDATA[<h3 id="1-数组遍历"><a href="#1-数组遍历" class="headerlink" title="1.数组遍历"></a>1.数组遍历</h3><pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">   <span class="comment">//打印结果为[11, 33, 44, 22, 55]</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span>[] arr = &#123;<span class="number">11</span>, <span class="number">33</span>, <span class="number">44</span>, <span class="number">22</span>, <span class="number">55</span>&#125;;</div><div class="line">	printArr(arr);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printArr</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</div><div class="line">	System.out.print(<span class="string">"["</span>);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</div><div class="line">		<span class="keyword">if</span>(i == arr.length - <span class="number">1</span>)&#123;</div><div class="line">			System.out.print(arr[i]);</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			System.out.print(arr[i]+<span class="string">","</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	System.out.print(<span class="string">"]"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre><a id="more"></a> 
-<h3 id="2-逆序"><a href="#2-逆序" class="headerlink" title="2.逆序"></a>2.逆序</h3><pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> start = <span class="number">0</span>,end = arr.length-<span class="number">1</span>;start &lt; end;start++,end--)&#123;</div><div class="line">		<span class="keyword">int</span> temp = arr[start];</div><div class="line">		arr[start] = arr[end];</div><div class="line">		arr[end] = temp;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre><p>原理如图:</p>
+      <content type="html"><![CDATA[<h3 id="数组遍历"><a href="#数组遍历" class="headerlink" title="数组遍历"></a>数组遍历</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//打印结果为[11, 33, 44, 22, 55]</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span>[] arr = &#123;<span class="number">11</span>, <span class="number">33</span>, <span class="number">44</span>, <span class="number">22</span>, <span class="number">55</span>&#125;;</div><div class="line">	printArr(arr);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printArr</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</div><div class="line">	System.out.print(<span class="string">"["</span>);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</div><div class="line">		<span class="keyword">if</span>(i == arr.length - <span class="number">1</span>)&#123;</div><div class="line">			System.out.print(arr[i]);</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			System.out.print(arr[i]+<span class="string">","</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	System.out.print(<span class="string">"]"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a> 
+<h3 id="逆序"><a href="#逆序" class="headerlink" title="逆序"></a>逆序</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> start = <span class="number">0</span>,end = arr.length-<span class="number">1</span>;start &lt; end;start++,end--)&#123;</div><div class="line">		<span class="keyword">int</span> temp = arr[start];</div><div class="line">		arr[start] = arr[end];</div><div class="line">		arr[end] = temp;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>原理如图:</p>
 <p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170111/233540781.bmp" alt=""></p>
-<h3 id="3-选择排序"><a href="#3-选择排序" class="headerlink" title="3.选择排序"></a>3.选择排序</h3><pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">selectSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</div><div class="line"><span class="comment">//外层比较了arr.length-1次</span></div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</div><div class="line"><span class="comment">//i=0时,arr[0]和arr[1]先比,再与arr[2],arr[3]比</span></div><div class="line"><span class="comment">//i=1时,arr[1]和arr[2]先比,再与arr[3]比</span></div><div class="line"><span class="comment">//i=2时,arr[2]和arr[3]比</span></div><div class="line"><span class="comment">//所以令j=i+1,内层循环次数递减</span></div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">1</span>;j &lt; arr.length;j++)&#123;</div><div class="line">		<span class="keyword">if</span> (arr[i] &gt; arr[j]) &#123;</div><div class="line">			<span class="keyword">int</span> temp = arr[i];</div><div class="line">			arr[i] = arr[j];</div><div class="line">			arr[j] = temp;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre><p>原理如图:</p>
+<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">selectSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</div><div class="line"><span class="comment">//外层比较了arr.length-1次</span></div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</div><div class="line"><span class="comment">//i=0时,arr[0]和arr[1]先比,再与arr[2],arr[3]比</span></div><div class="line"><span class="comment">//i=1时,arr[1]和arr[2]先比,再与arr[3]比</span></div><div class="line"><span class="comment">//i=2时,arr[2]和arr[3]比</span></div><div class="line"><span class="comment">//所以令j=i+1,内层循环次数递减</span></div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">1</span>;j &lt; arr.length;j++)&#123;</div><div class="line">		<span class="keyword">if</span> (arr[i] &gt; arr[j]) &#123;</div><div class="line">			<span class="keyword">int</span> temp = arr[i];</div><div class="line">			arr[i] = arr[j];</div><div class="line">			arr[j] = temp;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>原理如图:</p>
 <p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170126/192538430.png" alt=""></p>
-<h3 id="4-冒泡排序"><a href="#4-冒泡排序" class="headerlink" title="4.冒泡排序"></a>4.冒泡排序</h3><pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</div><div class="line">	<span class="comment">//外层循环与选择排序一样,循环arr.length-1次</span></div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length-<span class="number">1</span>; i++) &#123;</div><div class="line">	<span class="comment">//内层循环,索引每次从0开始, 每圈次数递减,若是j &lt; arr.length-i,会报索引越界异常</span></div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; arr.length-i-<span class="number">1</span>; j++) &#123;</div><div class="line">			<span class="keyword">if</span> (arr[j] &gt; arr[j+<span class="number">1</span>]) &#123;</div><div class="line">				<span class="keyword">int</span> temp = arr[j];</div><div class="line">				arr[j] = arr[j+<span class="number">1</span>];</div><div class="line">				arr[j+<span class="number">1</span>] = temp;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre><p>原理如图:</p>
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</div><div class="line">	<span class="comment">//外层循环与选择排序一样,循环arr.length-1次</span></div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length-<span class="number">1</span>; i++) &#123;</div><div class="line">	<span class="comment">//内层循环,索引每次从0开始, 每圈次数递减,若是j &lt; arr.length-i,会报索引越界异常</span></div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; arr.length-i-<span class="number">1</span>; j++) &#123;</div><div class="line">			<span class="keyword">if</span> (arr[j] &gt; arr[j+<span class="number">1</span>]) &#123;</div><div class="line">				<span class="keyword">int</span> temp = arr[j];</div><div class="line">				arr[j] = arr[j+<span class="number">1</span>];</div><div class="line">				arr[j+<span class="number">1</span>] = temp;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>原理如图:</p>
 <p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170126/195527596.png" alt=""></p>
-<h3 id="5-折半查找"><a href="#5-折半查找" class="headerlink" title="5.折半查找"></a>5.折半查找</h3><pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> key)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> min = <span class="number">0</span>;</div><div class="line">	<span class="keyword">int</span> max = arr.length - <span class="number">1</span>;</div><div class="line">	<span class="keyword">int</span> mid = <span class="number">0</span>;</div><div class="line">	<span class="comment">//当min&gt;max,证明未找到,返回-1</span></div><div class="line">	<span class="keyword">while</span>(min &lt;= max)&#123;</div><div class="line">		mid = (min + max)/<span class="number">2</span>;</div><div class="line">		<span class="comment">////让查找元素和中间索引元素进行比较</span></div><div class="line">		<span class="keyword">if</span> (key &gt; arr[mid]) &#123;</div><div class="line">			min = mid + <span class="number">1</span>;</div><div class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span> (key &lt; arr[mid]) &#123;</div><div class="line">			max = mid - <span class="number">1</span>;</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">           <span class="comment">//找到元素,返回元素索引</span></div><div class="line">			<span class="keyword">return</span> mid;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre><p>原理如图:</p>
+<h3 id="折半查找"><a href="#折半查找" class="headerlink" title="折半查找"></a>折半查找</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> key)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> min = <span class="number">0</span>;</div><div class="line">	<span class="keyword">int</span> max = arr.length - <span class="number">1</span>;</div><div class="line">	<span class="keyword">int</span> mid = <span class="number">0</span>;</div><div class="line">	<span class="comment">//当min&gt;max,证明未找到,返回-1</span></div><div class="line">	<span class="keyword">while</span>(min &lt;= max)&#123;</div><div class="line">		mid = (min + max)/<span class="number">2</span>;</div><div class="line">		<span class="comment">////让查找元素和中间索引元素进行比较</span></div><div class="line">		<span class="keyword">if</span> (key &gt; arr[mid]) &#123;</div><div class="line">			min = mid + <span class="number">1</span>;</div><div class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span> (key &lt; arr[mid]) &#123;</div><div class="line">			max = mid - <span class="number">1</span>;</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">        <span class="comment">//找到元素,返回元素索引</span></div><div class="line">			<span class="keyword">return</span> mid;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>原理如图:</p>
 <p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170126/220130538.png" alt=""></p>
 ]]></content>
     </entry>
@@ -599,7 +599,7 @@
     <entry>
       <title><![CDATA[10.ArrayList集合]]></title>
       <url>https://geekhoon.github.io/2017/01/15/10-ArrayList%E9%9B%86%E5%90%88/</url>
-      <content type="html"><![CDATA[<h3 id="1-ArrayList创建变量的步骤"><a href="#1-ArrayList创建变量的步骤" class="headerlink" title="1. ArrayList创建变量的步骤"></a>1. ArrayList创建变量的步骤</h3><pre><code>* 导入包 java.util包中
+      <content type="html"><![CDATA[<h3 id="ArrayList创建变量的步骤"><a href="#ArrayList创建变量的步骤" class="headerlink" title="ArrayList创建变量的步骤"></a>ArrayList创建变量的步骤</h3><pre><code>* 导入包 java.util包中
 * 创建引用类型的变量
     数据类型&lt; 集合存储的数据类型&gt;  变量名 = new 数据类型&lt;集合存储的数据类型&gt;();
        创建集合引用变量的时候,必须先指定好存储的数据类型
@@ -608,11 +608,11 @@
     8个基本类型要对应8个引用类型
 </code></pre><a id="more"></a> 
 <p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170115/204404840.bmp" alt=""></p>
-<h3 id="2-集合和数组区别"><a href="#2-集合和数组区别" class="headerlink" title="2. 集合和数组区别"></a>2. 集合和数组区别</h3><pre><code>          集合                        数组
+<h3 id="集合和数组区别"><a href="#集合和数组区别" class="headerlink" title="集合和数组区别"></a>集合和数组区别</h3><pre><code>          集合                        数组
 长度:       可变                         |    固定
 数据类型:  只能引用                  |    既可以基本既可以引用
 内容:     可以存储不同数据类型的元素 |  只能存储同类型元素
-</code></pre><h3 id="3-ArrayList的常见方法"><a href="#3-ArrayList的常见方法" class="headerlink" title="3. ArrayList的常见方法"></a>3. ArrayList的常见方法</h3><pre><code>* add(参数)           向集合中添加元素
+</code></pre><h3 id="ArrayList的常见方法"><a href="#ArrayList的常见方法" class="headerlink" title="ArrayList的常见方法"></a>ArrayList的常见方法</h3><pre><code>* add(参数)           向集合中添加元素
 * get(int index)   取出集合中的元素,get方法的参数,写入索引
 * size()            返回集合的长度, 集合存储元素的个数
 
@@ -620,7 +620,7 @@
 * set(int 索引,修改后的元素)     将指定索引的元素,进行修改
 * remove(int 索引)             删除指定索引上的元素
 * clear()                     清空集合中的所有元素,对象不会删
-</code></pre><h3 id="4-ArrayList集合的遍历"><a href="#4-ArrayList集合的遍历" class="headerlink" title="4. ArrayList集合的遍历"></a>4. ArrayList集合的遍历</h3><pre><code>* 区别:遍历时,集合存储(Integer类型)与(类),调用get()得到的值是有区别的,分别是值与地址
+</code></pre><h3 id="ArrayList集合的遍历"><a href="#ArrayList集合的遍历" class="headerlink" title="ArrayList集合的遍历"></a>ArrayList集合的遍历</h3><pre><code>* 区别:遍历时,集合存储(Integer类型)与(类),调用get()得到的值是有区别的,分别是值与地址
 Integer类型:
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.ArrayList;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayListDemo_2</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">		ArrayList&lt;Integer&gt; array = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">		array.add(<span class="number">121</span>);</div><div class="line">		array.add(<span class="number">125</span>);</div><div class="line">		array.add(<span class="number">123</span>);</div><div class="line">		array.add(<span class="number">120</span>);</div><div class="line">		array.add(<span class="number">128</span>);</div><div class="line">		</div><div class="line">		<span class="comment">//对集合进行遍历</span></div><div class="line">		<span class="comment">//使用方法 size+get组合进行遍历</span></div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; array.size(); i++)&#123;</div><div class="line">			System.out.println( array.get(i) );</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
@@ -634,16 +634,16 @@ Integer类型:
     <entry>
       <title><![CDATA[09.自定义类]]></title>
       <url>https://geekhoon.github.io/2017/01/15/09-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB/</url>
-      <content type="html"><![CDATA[<h3 id="1-类"><a href="#1-类" class="headerlink" title="1. 类"></a>1. 类</h3><pre><code>* 分两种,一种是JAVA提供的,一种是自定义类
+      <content type="html"><![CDATA[<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><pre><code>* 分两种,一种是JAVA提供的,一种是自定义类
 * 类是用于描述事物的.
 * 事物的特征叫属性
 * 事物的功能叫方法
-</code></pre><h3 id="2-自定义类的格式"><a href="#2-自定义类的格式" class="headerlink" title="2. 自定义类的格式"></a>2. 自定义类的格式</h3><pre><code>* 使用类的形式,对现实中的事物进行描述。 
+</code></pre><h3 id="自定义类的格式"><a href="#自定义类的格式" class="headerlink" title="自定义类的格式"></a>自定义类的格式</h3><pre><code>* 使用类的形式,对现实中的事物进行描述。 
 
 * 格式
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> 类名</span>&#123;</div><div class="line">	属性定义(成员变量)</div><div class="line">	  修饰符 数据类型 变量名 = 值</div><div class="line">	</div><div class="line">	方法定义(成员方法)</div><div class="line">	  修饰符 返回值类型  方法名(参数列表)&#123;</div><div class="line">		  </div><div class="line">	  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <a id="more"></a> 
-<h3 id="3-自定义类的内存图"><a href="#3-自定义类的内存图" class="headerlink" title="3. 自定义类的内存图"></a>3. 自定义类的内存图</h3><p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170115/200111098.png" alt=""></p>
+<h3 id="自定义类的内存图"><a href="#自定义类的内存图" class="headerlink" title="自定义类的内存图"></a>自定义类的内存图</h3><p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170115/200111098.png" alt=""></p>
 <p>注意一点: new一个对象后,类中的成员变量,一并进入堆内存,并被赋予默认值<br>new出来对象的属性,存在堆里面<br>根据内存图,可知,即使没被赋值,打印 类名.属性 ,也会有默认值</p>
 ]]></content>
     </entry>
@@ -651,10 +651,10 @@ Integer类型:
     <entry>
       <title><![CDATA[08.方法]]></title>
       <url>https://geekhoon.github.io/2017/01/13/08-%E6%96%B9%E6%B3%95/</url>
-      <content type="html"><![CDATA[<h3 id="1-方法的概述"><a href="#1-方法的概述" class="headerlink" title="1. 方法的概述"></a>1. 方法的概述</h3><pre><code>* 提高代码的复用性  
+      <content type="html"><![CDATA[<h3 id="方法的概述"><a href="#方法的概述" class="headerlink" title="方法的概述"></a>方法的概述</h3><pre><code>* 提高代码的复用性  
 * 完成特定功能的代码块。
 </code></pre><a id="more"></a> 
-<h3 id="2-方法的定义格式"><a href="#2-方法的定义格式" class="headerlink" title="2. 方法的定义格式"></a>2. 方法的定义格式</h3><pre><code>* 修饰符 返回值类型 方法名(参数类型 参数名1,参数类型 参数名2...) {
+<h3 id="方法的定义格式"><a href="#方法的定义格式" class="headerlink" title="方法的定义格式"></a>方法的定义格式</h3><pre><code>* 修饰符 返回值类型 方法名(参数类型 参数名1,参数类型 参数名2...) {
         方法体语句;
         return 返回值; 
   } 
@@ -668,12 +668,12 @@ Integer类型:
 * 两个明确：
     返回值类型：结果的数据类型
     参数列表：参数的个数及对应的数据类型    
-</code></pre><h3 id="3-调用方法执行流程"><a href="#3-调用方法执行流程" class="headerlink" title="3. 调用方法执行流程"></a>3. 调用方法执行流程</h3><pre><code>* 方法的定义是没有顺序的，写在main函数的上边或者下边都可以。
+</code></pre><h3 id="调用方法执行流程"><a href="#调用方法执行流程" class="headerlink" title="调用方法执行流程"></a>调用方法执行流程</h3><pre><code>* 方法的定义是没有顺序的，写在main函数的上边或者下边都可以。
 * 方法的执行，是把实参传递给形参，从而来执行的。
 * 方法只有被调用才会执行。
 </code></pre><p>方法调用的内存图:</p>
 <p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170113/200111183.bmp" alt=""></p>
-<h3 id="4-注意事项"><a href="#4-注意事项" class="headerlink" title="4. 注意事项"></a>4. 注意事项</h3><pre><code>* 方法不调用不执行
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><pre><code>* 方法不调用不执行
 * 方法之间是平级关系，不能嵌套定义
 * 方法返回值是void,方法中可以省略return 不写
        return 下面不能有代码
@@ -681,18 +681,18 @@ Integer类型:
 * 方法在调用的时候，不用再传递数据类型
 * 调用方法的时候,返回值是void, 不能写在输出语句中
 * 不能重复定义(指的是方法名,参数列表都相同的不能在同一类中定义)
-</code></pre><h3 id="5-方法的重载"><a href="#5-方法的重载" class="headerlink" title="5. 方法的重载"></a>5. 方法的重载</h3><pre><code>* 在同一个类中，方法名相同，参数列表不同。    
+</code></pre><h3 id="方法的重载"><a href="#方法的重载" class="headerlink" title="方法的重载"></a>方法的重载</h3><pre><code>* 在同一个类中，方法名相同，参数列表不同。    
 * 参数列表不同：
     * 个数不同
     * 类型不同
     * 顺序不同(算重载)
-</code></pre><h3 id="6-方法重载注意事项"><a href="#6-方法重载注意事项" class="headerlink" title="6. 方法重载注意事项"></a>6. 方法重载注意事项</h3><pre><code>* 参数列表必须不同
+</code></pre><h3 id="方法重载注意事项"><a href="#方法重载注意事项" class="headerlink" title="方法重载注意事项"></a>方法重载注意事项</h3><pre><code>* 参数列表必须不同
 * 重载和参数变量名无关
 * 重载和返回值类型无关
 * 重载和修饰符无关
 
 * 技巧: 重载看方法名和参数列表
-</code></pre><h3 id="7-方法参数"><a href="#7-方法参数" class="headerlink" title="7. 方法参数"></a>7. 方法参数</h3><pre><code>* 方法参数是基本数据类型时，传递的是值。
+</code></pre><h3 id="方法参数"><a href="#方法参数" class="headerlink" title="方法参数"></a>方法参数</h3><pre><code>* 方法参数是基本数据类型时，传递的是值。
 * 方法参数是引用数据类型时，传递的是内存地址值。
 </code></pre>]]></content>
     </entry>
@@ -700,12 +700,12 @@ Integer类型:
     <entry>
       <title><![CDATA[07.数组]]></title>
       <url>https://geekhoon.github.io/2017/01/11/07-%E6%95%B0%E7%BB%84/</url>
-      <content type="html"><![CDATA[<h2 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h2><h3 id="1-数组概述"><a href="#1-数组概述" class="headerlink" title="1. 数组概述"></a>1. 数组概述</h3><pre><code>* 存储同一种数据类型的多个元素的容器。
+      <content type="html"><![CDATA[<h3 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h3><h4 id="1-数组概述"><a href="#1-数组概述" class="headerlink" title="1. 数组概述"></a>1. 数组概述</h4><pre><code>* 存储同一种数据类型的多个元素的容器。
 * 特点:
     (1)元素数据类型必须一致。
     (2)长度固定
 </code></pre><a id="more"></a>
-<h3 id="2-数组的定义"><a href="#2-数组的定义" class="headerlink" title="2. 数组的定义"></a>2. 数组的定义</h3><pre><code>* 格式:
+<h4 id="2-数组的定义"><a href="#2-数组的定义" class="headerlink" title="2. 数组的定义"></a>2. 数组的定义</h4><pre><code>* 格式:
     数据类型[] 数组名 = new 数据类型[元素个数或数组长度];
     数据类型 数组名[]  = new 数据类型[元素个数或数组长度];//也对
     * 举例:
@@ -719,7 +719,7 @@ Integer类型:
     char                &apos;\u0000&apos;
     boolean             false
     引用类型             null
-</code></pre><h3 id="3-数组初始化"><a href="#3-数组初始化" class="headerlink" title="3. 数组初始化"></a>3. 数组初始化</h3><pre><code>* 动态初始化 : 只给长度，系统给出默认值
+</code></pre><h4 id="3-数组初始化"><a href="#3-数组初始化" class="headerlink" title="3. 数组初始化"></a>3. 数组初始化</h4><pre><code>* 动态初始化 : 只给长度，系统给出默认值
         类型[] 数组名 = new 类型[长度];
         `int[] arr = new int[4];`
 * 静态初始化 : 给出值，系统决定长度
@@ -732,7 +732,7 @@ Integer类型:
         (2) 类型[] 数组名 = {元素1，元素2，元素3，……};     
         `int[] arr = { 1, 2, 3, 4 };`
         //这种形式不能改成声明+赋值分开写的形式
-</code></pre><h3 id="4-JVM内存划分"><a href="#4-JVM内存划分" class="headerlink" title="4. JVM内存划分"></a>4. JVM内存划分</h3><pre><code>* JVM对自己的内存划分为5个区域
+</code></pre><h4 id="4-JVM内存划分"><a href="#4-JVM内存划分" class="headerlink" title="4. JVM内存划分"></a>4. JVM内存划分</h4><pre><code>* JVM对自己的内存划分为5个区域
       * 寄存器:内存和CPU之间
       * 本地方法区: JVM调用了系统中的功能
       * 方法区(方法和数据共享区): 运行时期class文件进入的地方
@@ -747,7 +747,7 @@ Integer类型:
             栈：数据使用完毕，就消失。
             堆：每一个new出来的东西都有地址
         数据使用完毕后，在垃圾回收器空闲的时候回收。
-</code></pre><h3 id="5-数组的内存"><a href="#5-数组的内存" class="headerlink" title="5. 数组的内存"></a>5. 数组的内存</h3><pre><code>*   int[] x;                // 声明一个int[]类型的变量
+</code></pre><h4 id="5-数组的内存"><a href="#5-数组的内存" class="headerlink" title="5. 数组的内存"></a>5. 数组的内存</h4><pre><code>*   int[] x;                // 声明一个int[]类型的变量
 *    x = new int[100];        // 创建一个长度为100的数组
 *    arr引用类型,保存的不是数据,是内存的地址,通常是十六进制保存.每次分配的内存地址不一定一样
     *    [:一维数组
@@ -760,17 +760,17 @@ Integer类型:
 2.找到程序入口main方法,进入方法栈,main方法压栈运行
 3.执行int[] arr = new int[3];在堆内存中,开辟一段连续空间,长度为3.
 4.arr中保存开辟空间的首地址
-</code></pre><h3 id="6-遍历数组"><a href="#6-遍历数组" class="headerlink" title="6. 遍历数组"></a>6. 遍历数组</h3><pre><code>* 依次访问数组中的每个元素
+</code></pre><h4 id="6-遍历数组"><a href="#6-遍历数组" class="headerlink" title="6. 遍历数组"></a>6. 遍历数组</h4><pre><code>* 依次访问数组中的每个元素
 * 举例
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayDemo04</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="keyword">int</span>[] arr = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> &#125;; <span class="comment">// 定义数组</span></div><div class="line">		<span class="comment">// 使用for循环遍历数组的元素</span></div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</div><div class="line">			System.out.println(arr[i]); <span class="comment">// 通过索引访问元素</span></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="7-逆序-反转"><a href="#7-逆序-反转" class="headerlink" title="7. 逆序(反转)"></a>7. 逆序(反转)</h3><pre><code>方式1：
-</code></pre><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">	public static void reverse(int[] arr) &#123;</div><div class="line">		for(int x=0; x&lt;arr.length/2; x++) &#123;</div><div class="line">			int temp = arr[x];</div><div class="line">			arr[x] = arr[arr.length-1-x];</div><div class="line">			arr[arr.length-1-x] = temp;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">```			</div><div class="line">		方式2：</div><div class="line">```java</div><div class="line">	public static void reverse(int[] arr) &#123;</div><div class="line">		for(int start=0,end=arr.length-1; start&lt;=end; start++,end--) &#123;</div><div class="line">			int temp = arr[start];</div><div class="line">			arr[start] = arr[end];</div><div class="line">			arr[end] = temp;</div><div class="line">		&#125;</div><div class="line">	&#125;	</div><div class="line">``` </div><div class="line">### 8. 数组中常见的异常 ###  </div><div class="line">	* 数组操作中,常见的两个异常</div><div class="line">    	 数组的索引越界异常(ArrayIndexOutOfBoundsException)</div><div class="line">	 	 空指针异常(NullPointerException)</div><div class="line"></div><div class="line">	* 练习</div><div class="line">```java</div><div class="line">	public class ArrayDemo_4&#123;</div><div class="line">		public static void main(String[] args)&#123;</div><div class="line"></div><div class="line">		//(1)数组的索引越界异常: 访问了数组中不存在的元素</div><div class="line">			//int[] arr = &#123;5,2,1&#125;;</div><div class="line">			//数组中3个元素,索引 0,1,2</div><div class="line">			//System.out.println(arr[3]);</div><div class="line">			//编译不报错,运行出错</div><div class="line">			//java.lang.ArrayIndexOutOfBoundsException: 3</div><div class="line">			</div><div class="line">		//(2)空指针异常</div><div class="line">			int[] arr2 = &#123;1,5,8&#125;;</div><div class="line">			System.out.println(arr2[2]);</div><div class="line">			arr2 = null; // arr2 不在保存数组的地址了</div><div class="line">			System.out.println(arr2[2]);</div><div class="line">			//编译不报错,运行出错</div><div class="line">			//java.lang.NullPointerException</div><div class="line">		&#125;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
-<h3 id="9-数组获取最值代码实现"><a href="#9-数组获取最值代码实现" class="headerlink" title="9. 数组获取最值代码实现"></a>9. 数组获取最值代码实现</h3><pre><code>* 数组获取最值的原理思想
+<h4 id="7-逆序-反转"><a href="#7-逆序-反转" class="headerlink" title="7. 逆序(反转)"></a>7. 逆序(反转)</h4><pre><code>方式1：
+</code></pre><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">	public static void reverse(int[] arr) &#123;</div><div class="line">		for(int x=0; x&lt;arr.length/2; x++) &#123;</div><div class="line">			int temp = arr[x];</div><div class="line">			arr[x] = arr[arr.length-1-x];</div><div class="line">			arr[arr.length-1-x] = temp;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">```			</div><div class="line">		方式2：</div><div class="line">```java</div><div class="line">	public static void reverse(int[] arr) &#123;</div><div class="line">		for(int start=0,end=arr.length-1; start&lt;=end; start++,end--) &#123;</div><div class="line">			int temp = arr[start];</div><div class="line">			arr[start] = arr[end];</div><div class="line">			arr[end] = temp;</div><div class="line">		&#125;</div><div class="line">	&#125;	</div><div class="line">``` </div><div class="line">#### 8. 数组中常见的异常 ####  </div><div class="line">	* 数组操作中,常见的两个异常</div><div class="line">    	 数组的索引越界异常(ArrayIndexOutOfBoundsException)</div><div class="line">	 	 空指针异常(NullPointerException)</div><div class="line"></div><div class="line">	* 练习</div><div class="line">```java</div><div class="line">	public class ArrayDemo_4&#123;</div><div class="line">		public static void main(String[] args)&#123;</div><div class="line"></div><div class="line">		//(1)数组的索引越界异常: 访问了数组中不存在的元素</div><div class="line">			//int[] arr = &#123;5,2,1&#125;;</div><div class="line">			//数组中3个元素,索引 0,1,2</div><div class="line">			//System.out.println(arr[3]);</div><div class="line">			//编译不报错,运行出错</div><div class="line">			//java.lang.ArrayIndexOutOfBoundsException: 3</div><div class="line">			</div><div class="line">		//(2)空指针异常</div><div class="line">			int[] arr2 = &#123;1,5,8&#125;;</div><div class="line">			System.out.println(arr2[2]);</div><div class="line">			arr2 = null; // arr2 不在保存数组的地址了</div><div class="line">			System.out.println(arr2[2]);</div><div class="line">			//编译不报错,运行出错</div><div class="line">			//java.lang.NullPointerException</div><div class="line">		&#125;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h4 id="9-数组获取最值代码实现"><a href="#9-数组获取最值代码实现" class="headerlink" title="9. 数组获取最值代码实现"></a>9. 数组获取最值代码实现</h4><pre><code>* 数组获取最值的原理思想
     * 定义数组的第一个元素arr[0]为最大值;循环arr数组,判断如果有比arr[0] 大的就交换,直到arr数组遍历完毕,那么arr[0]中就保存了最大的元素
     * 为什么选择数组中的一个元素作为最大值,因为如果自己定义的一个数据比数组所有数据都大,那比较完,得不出数组最大值
 * 代码实现
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayDemo05</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="keyword">int</span>[] arr = &#123; <span class="number">4</span>, <span class="number">1</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">9</span>, <span class="number">8</span> &#125;; 	<span class="comment">// 定义一个数组</span></div><div class="line">		<span class="keyword">int</span> max = arr[<span class="number">0</span>]; 					<span class="comment">// 定义变量max用于记住最大数，首先假设第一个元素为最大值</span></div><div class="line">		<span class="comment">// 下面通过一个for循环遍历数组中的元素</span></div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">1</span>; x &lt; arr.length; x++) &#123;</div><div class="line">			<span class="keyword">if</span> (arr[x] &gt; max) &#123; 			<span class="comment">// 比较 arr[x]的值是否大于max</span></div><div class="line">				max = arr[x]; 				<span class="comment">// 条件成立，将arr[x]的值赋给max</span></div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		System.out.println(<span class="string">"max="</span> + max); 	<span class="comment">// 打印最大值</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h2><h3 id="1-二维数组的定义"><a href="#1-二维数组的定义" class="headerlink" title="1. 二维数组的定义"></a>1. 二维数组的定义</h3><pre><code>* 作用
+<h3 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h3><h4 id="1-二维数组的定义"><a href="#1-二维数组的定义" class="headerlink" title="1. 二维数组的定义"></a>1. 二维数组的定义</h4><pre><code>* 作用
     * 要统计一个学校各个班级学生的考试成绩，又该如何实现呢？
     * 这时就需要用到多维数组，多维数组可以简单地理解为在数组中嵌套数组。
 * 格式
@@ -784,13 +784,13 @@ Integer类型:
         *      int[][] arr = {{1,2},{3,4,5,6},{7,8,9}};
         *      每个一维数组用大括号,不是小括号,别忽视了
         *      二维数组中定义了三个元素，这三个元素都是数组，分别为{1,2}、{3,4,5,6}、{7,8,9}
-</code></pre><h3 id="2-二维数组元素的访问"><a href="#2-二维数组元素的访问" class="headerlink" title="2. 二维数组元素的访问"></a>2. 二维数组元素的访问</h3><pre><code>* 案例:
+</code></pre><h4 id="2-二维数组元素的访问"><a href="#2-二维数组元素的访问" class="headerlink" title="2. 二维数组元素的访问"></a>2. 二维数组元素的访问</h4><pre><code>* 案例:
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ArrayDemo08</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">	</div><div class="line">		<span class="comment">//定义二维数组的方式</span></div><div class="line">		<span class="keyword">int</span>[][] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>][<span class="number">4</span>];</div><div class="line">		System.out.println( arr );</div><div class="line">		System.out.println(<span class="string">"二维数组的长度: "</span> + arr.length);</div><div class="line">		<span class="comment">//获取二维数组的3个元素</span></div><div class="line">		System.out.println( arr[<span class="number">0</span>] );</div><div class="line">		System.out.println( arr[<span class="number">1</span>] );</div><div class="line">		System.out.println( arr[<span class="number">2</span>] );</div><div class="line">		</div><div class="line">		System.out.println(<span class="string">"打印第一个一维数组的元素值"</span>);</div><div class="line">		System.out.println( arr[<span class="number">0</span>][<span class="number">0</span>] );</div><div class="line">		System.out.println( arr[<span class="number">0</span>][<span class="number">1</span>] );<span class="comment">//访问的为二维数组中第1个一维数组的第2个元素</span></div><div class="line">		System.out.println( arr[<span class="number">0</span>][<span class="number">2</span>] );</div><div class="line">		System.out.println( arr[<span class="number">0</span>][<span class="number">3</span>] );</div><div class="line">		</div><div class="line">		System.out.println(<span class="string">"打印第二个一维数组的元素值"</span>);</div><div class="line">		System.out.println( arr[<span class="number">1</span>][<span class="number">0</span>] );</div><div class="line">		System.out.println( arr[<span class="number">1</span>][<span class="number">1</span>] );</div><div class="line">		System.out.println( arr[<span class="number">1</span>][<span class="number">2</span>] );</div><div class="line">		System.out.println( arr[<span class="number">1</span>][<span class="number">3</span>] );</div><div class="line">		</div><div class="line">		System.out.println(<span class="string">"打印第三个一维数组的元素值"</span>);</div><div class="line">		System.out.println( arr[<span class="number">2</span>][<span class="number">0</span>] );</div><div class="line">		System.out.println( arr[<span class="number">2</span>][<span class="number">1</span>] );</div><div class="line">		System.out.println( arr[<span class="number">2</span>][<span class="number">2</span>] );</div><div class="line">		System.out.println( arr[<span class="number">2</span>][<span class="number">3</span>] );</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="3-二维数组内存图"><a href="#3-二维数组内存图" class="headerlink" title="3. 二维数组内存图"></a>3. 二维数组内存图</h3><pre><code>* 举例:int[][] arr = new int[3][2];
+<h4 id="3-二维数组内存图"><a href="#3-二维数组内存图" class="headerlink" title="3. 二维数组内存图"></a>3. 二维数组内存图</h4><pre><code>* 举例:int[][] arr = new int[3][2];
 * 外层数组在内存开辟连续的3个大的内存空间,每一个内存空间都对应的有地址值
 * 每一个大内存空间里又开辟连续的两个小的内存空间.
 </code></pre><p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170112/095418411.png" alt=""></p>
-<h3 id="4-二维数组的定义和访问"><a href="#4-二维数组的定义和访问" class="headerlink" title="4. 二维数组的定义和访问"></a>4. 二维数组的定义和访问</h3><pre><code>* 定义
+<h4 id="4-二维数组的定义和访问"><a href="#4-二维数组的定义和访问" class="headerlink" title="4. 二维数组的定义和访问"></a>4. 二维数组的定义和访问</h4><pre><code>* 定义
     * 格式1: 
       int[][] arr = new int[3][]; 不推荐
     * 格式2
@@ -799,14 +799,14 @@ Integer类型:
       举例:int[][] arr = {{1,2,4},{5,8,7},{0,9,3}};  
      想要打印数组中7这个元素需要先找到大的元素索引{5,8,7} 索引为1 ,在找7在{5,8,7}中的索引2
      那么结果为 arr[1][2]  [1]代表大数组中{5,8,7}这个元素索引,[2]代表{5,8,7}中7元素的索引
-</code></pre><h3 id="5-二维数组的遍历"><a href="#5-二维数组的遍历" class="headerlink" title="5. 二维数组的遍历"></a>5. 二维数组的遍历</h3><pre><code>* 二维数组遍历
+</code></pre><h4 id="5-二维数组的遍历"><a href="#5-二维数组的遍历" class="headerlink" title="5. 二维数组的遍历"></a>5. 二维数组的遍历</h4><pre><code>* 二维数组遍历
    int[][] arr = {{1,2,4},{4,7},{0,9,3}};
      先使用for循环遍历arr这个二维数组,得到每一个元素为arr[i]为一维数组
    在外层for循环中嵌套一个for循环遍历每一个一维数组arr[i],得到每一元素
 
 *    举例
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayArrayDemo_2</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">		<span class="keyword">int</span>[][] arr = &#123; &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;,&#123;<span class="number">4</span>,<span class="number">5</span>&#125;,&#123;<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>&#125;,&#123;<span class="number">0</span>&#125; &#125;;</div><div class="line">		</div><div class="line">		<span class="comment">//外循环,遍历二维数组</span></div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; arr.length ;i++)&#123;</div><div class="line">			<span class="comment">//内循环,遍历每个一维数组 arr[0] arr[1] arr[i]</span></div><div class="line">			<span class="comment">//注意内层for的条件是,j&lt; 每个一维数组的长度</span></div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span> ; j &lt; arr[i].length; j++)&#123;</div><div class="line">				System.out.print(arr[i][j]);</div><div class="line">			&#125;</div><div class="line">			System.out.println();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">```		</div><div class="line">	  * 累加求和</div><div class="line">```java</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ArrayDemo09</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">	  	<span class="keyword">int</span>[][] arr2 = &#123; &#123;<span class="number">1</span>,<span class="number">2</span>&#125;,&#123;<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;,&#123;<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>&#125; &#125;;</div><div class="line">		<span class="keyword">int</span> sum2 = <span class="number">0</span>;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;arr2.length; i++) &#123;</div><div class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;arr2[i].length; j++) &#123;</div><div class="line">                 <span class="comment">//System.out.println(arr2[i][j])</span></div><div class="line">				sum2 += arr2[i][j];</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		System.out.println(<span class="string">"sum2= "</span>+ sum2);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="6-二维数组的求和练习"><a href="#6-二维数组的求和练习" class="headerlink" title="6. 二维数组的求和练习"></a>6. 二维数组的求和练习</h3><pre><code>* 例如要统计一个公司三个销售小组中每个小组的总销售额以及整个公司的销售额。如下所示
+<h4 id="6-二维数组的求和练习"><a href="#6-二维数组的求和练习" class="headerlink" title="6. 二维数组的求和练习"></a>6. 二维数组的求和练习</h4><pre><code>* 例如要统计一个公司三个销售小组中每个小组的总销售额以及整个公司的销售额。如下所示
    * 第一小组销售额为{11, 12}万元
    * 第二小组销售额为{21, 22, 23}万元
    * 第三小组销售额为{31, 32, 33, 34}万元。
@@ -819,7 +819,7 @@ Integer类型:
     <entry>
       <title><![CDATA[06.流程控制语句]]></title>
       <url>https://geekhoon.github.io/2017/01/10/06-%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/</url>
-      <content type="html"><![CDATA[<h2 id="一-选择结构if"><a href="#一-选择结构if" class="headerlink" title="一. 选择结构if"></a>一. 选择结构if</h2><h3 id="1-if语句"><a href="#1-if语句" class="headerlink" title="1. if语句"></a>1. if语句</h3><pre><code>* 书写格式
+      <content type="html"><![CDATA[<h3 id="选择结构if"><a href="#选择结构if" class="headerlink" title="选择结构if"></a>选择结构if</h3><h4 id="1-if语句"><a href="#1-if语句" class="headerlink" title="1. if语句"></a>1. if语句</h4><pre><code>* 书写格式
     if(比较表达式) {
         语句体;
     }
@@ -833,7 +833,7 @@ Integer类型:
     }
     加上分号&quot;;&quot; ,则代表if语句已经结束,大括号内的内容不管if的比较表达式true或false都会执行
 </code></pre><a id="more"></a>
-<h3 id="2-if…else语句"><a href="#2-if…else语句" class="headerlink" title="2. if…else语句"></a>2. if…else语句</h3><pre><code>* 书写格式
+<h4 id="2-if…else语句"><a href="#2-if…else语句" class="headerlink" title="2. if…else语句"></a>2. if…else语句</h4><pre><code>* 书写格式
     if(比较表达式) {
         语句体1;
     }else {
@@ -843,7 +843,7 @@ Integer类型:
     * 首先计算比较表达式的值，看其返回值是true还是false。
     * 如果是true，就执行语句体1；
     * 如果是false，就执行语句体2；
-</code></pre><h3 id="3-if…else-if…else语句"><a href="#3-if…else-if…else语句" class="headerlink" title="3. if…else if…else语句"></a>3. if…else if…else语句</h3><pre><code>* 适合在程序中,实现多条件的判断
+</code></pre><h4 id="3-if…else-if…else语句"><a href="#3-if…else-if…else语句" class="headerlink" title="3. if…else if…else语句"></a>3. if…else if…else语句</h4><pre><code>* 适合在程序中,实现多条件的判断
 * 书写格式 
     if(比较表达式1) {
         语句体1;
@@ -866,13 +866,13 @@ Integer类型:
 * 案例代码
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IfElseIfDemo</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">		<span class="comment">//成绩判断要求 ,成绩&gt;80  成绩&gt;70  成绩&gt;60  不及格</span></div><div class="line">		<span class="comment">//定义变量,保存成绩</span></div><div class="line">		<span class="keyword">int</span> grade = <span class="number">75</span>;</div><div class="line">		<span class="comment">//使用if else if 语句对成绩判断</span></div><div class="line">		<span class="keyword">if</span>( grade &gt; <span class="number">80</span> )&#123;</div><div class="line">			System.out.println(grade+<span class="string">" 成绩是优"</span>);</div><div class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span> ( grade &gt; <span class="number">70</span>)&#123;</div><div class="line">			System.out.println(grade+<span class="string">" 成绩是良"</span>);</div><div class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span> ( grade &gt; <span class="number">60</span>)&#123;</div><div class="line">			System.out.println(grade+<span class="string">" 成绩是中"</span>);</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			System.out.println(grade+<span class="string">" 成绩是差"</span>);</div><div class="line">		&#125;</div><div class="line">	 	</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <pre><code>* 注意: 只要有1个if的条件是true,其他的代码,不再执行
-</code></pre><h3 id="4-if语句和三元运算符的互换"><a href="#4-if语句和三元运算符的互换" class="headerlink" title="4. if语句和三元运算符的互换"></a>4. if语句和三元运算符的互换</h3><pre><code>* 使用if语句还是三元表达式
+</code></pre><h4 id="4-if语句和三元运算符的互换"><a href="#4-if语句和三元运算符的互换" class="headerlink" title="4. if语句和三元运算符的互换"></a>4. if语句和三元运算符的互换</h4><pre><code>* 使用if语句还是三元表达式
     * 判断条件多,使用if
      * 三元,必须有结果的, if 可以没有结果的
 * 三元运算符可以转换为if,但if不一定能转换为三元
 * 案例代码
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IfElseDemo_1</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">		<span class="keyword">int</span> i = <span class="number">15</span>;</div><div class="line">		<span class="keyword">int</span> j = <span class="number">6</span>;</div><div class="line">		<span class="comment">//使用if语句,判断出最大值</span></div><div class="line">		<span class="keyword">if</span>(i&gt;j)&#123;</div><div class="line">			System.out.println(i+<span class="string">" 是最大值"</span>);</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			System.out.println(j+<span class="string">" 是最大值"</span>);</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		<span class="comment">//使用三元运算实现</span></div><div class="line">		<span class="keyword">int</span> k = i&gt;j ? i : j;</div><div class="line">		System.out.println(k+<span class="string">" 是最大值"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="二-循环结构"><a href="#二-循环结构" class="headerlink" title="二. 循环结构"></a>二. 循环结构</h2><h3 id="1-while循环"><a href="#1-while循环" class="headerlink" title="1. while循环"></a>1. while循环</h3><pre><code>* 使用格式
+<h3 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h3><h4 id="1-while循环"><a href="#1-while循环" class="headerlink" title="1. while循环"></a>1. while循环</h4><pre><code>* 使用格式
      初始化表达式；
      while(条件){
         循环体
@@ -881,7 +881,7 @@ Integer类型:
     当条件是true,就执行循环体,执行完循环体后
     程序再次执行while中的条件,如果条件还是true,继续执行循环体
     直到条件是false的时候,循环就结束        
-</code></pre><h3 id="2-for循环"><a href="#2-for循环" class="headerlink" title="2. for循环"></a>2. for循环</h3><pre><code>* 使用格式
+</code></pre><h4 id="2-for循环"><a href="#2-for循环" class="headerlink" title="2. for循环"></a>2. for循环</h4><pre><code>* 使用格式
     for(初始化表达式 ; 条件表达式 ; 循环后操作表达式){
             循环体;
     }
@@ -900,7 +900,7 @@ Integer类型:
     1.for与while循环可以相互转换,但不建议转换
     2.for循环中的初始化表达式中变量的作用范围只在for语句中有效
     3.while初始化表达式是在while循环上边定义,作用范围大
-</code></pre><h3 id="3-do-while循环"><a href="#3-do-while循环" class="headerlink" title="3. do_while循环"></a>3. do_while循环</h3><pre><code>* 使用格式
+</code></pre><h4 id="3-do-while循环"><a href="#3-do-while循环" class="headerlink" title="3. do_while循环"></a>3. do_while循环</h4><pre><code>* 使用格式
     do{
          循环体;
       }while(条件);//别丢了这个分号
@@ -909,7 +909,7 @@ Integer类型:
     如果条件为false，循环结束。
 * 特点
     无条件先执行一次
-</code></pre><h3 id="4-死循环"><a href="#4-死循环" class="headerlink" title="4. 死循环"></a>4. 死循环</h3><pre><code>* 概述
+</code></pre><h4 id="4-死循环"><a href="#4-死循环" class="headerlink" title="4. 死循环"></a>4. 死循环</h4><pre><code>* 概述
     * 无限循环存在的原因是并不知道循环多少次，而是根据某些条件，来控制循环
 * 格式
     * while(true){}
@@ -917,7 +917,7 @@ Integer类型:
     * for(;true;){}
 * 注意:无限循环语句后面不允许再写代码,会编译失败.
     * 但不是没有机会执行,当程序满足一定条件(break),可以控制,让死循环停止,执行后面的代码
-</code></pre><h3 id="5-嵌套for循环"><a href="#5-嵌套for循环" class="headerlink" title="5. 嵌套for循环"></a>5. 嵌套for循环</h3><pre><code>* 概述
+</code></pre><h4 id="5-嵌套for循环"><a href="#5-嵌套for循环" class="headerlink" title="5. 嵌套for循环"></a>5. 嵌套for循环</h4><pre><code>* 概述
     * 嵌套循环是指在一个循环语句的循环体中再定义一个循环语句的语法结构。
     * while、do…while、for循环语句都可以进行嵌套，并且它们之间也可以互相嵌套
 * 嵌套循环的格式
@@ -945,7 +945,7 @@ Integer类型:
 * 案例
     *  打印正三角形
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ForForDemo</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; <span class="number">9</span> ; i++)&#123;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i+<span class="number">1</span> ;j++)&#123;  <span class="comment">//++i</span></div><div class="line">				System.out.print(<span class="string">"* "</span>);</div><div class="line">			&#125;</div><div class="line">			System.out.println();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="6-break语句"><a href="#6-break语句" class="headerlink" title="6. break语句"></a>6. break语句</h3><pre><code>* 作用
+<h4 id="6-break语句"><a href="#6-break语句" class="headerlink" title="6. break语句"></a>6. break语句</h4><pre><code>* 作用
     * 跳出当前所在的循环体
 * 应用环境
     * 只能应用在循环语句和switch语句中
@@ -975,7 +975,7 @@ Integer类型:
         * 当外层循环外定义了标号
           内层使用break，终止内外双层循环。
           内层使用continue，终止内层循环，继续外层循环。
-</code></pre><h3 id="6-continue语句"><a href="#6-continue语句" class="headerlink" title="6. continue语句"></a>6. continue语句</h3><pre><code>* 作用
+</code></pre><h4 id="7-continue语句"><a href="#7-continue语句" class="headerlink" title="7. continue语句"></a>7. continue语句</h4><pre><code>* 作用
     * 提前结束本次循环，继续进行下次循环
 * 应用环境
     * 无法单独使用，只能应用于循环中
@@ -983,7 +983,7 @@ Integer类型:
     * 不需要判断任何条件，只要遇到continue变直接跳出本轮循环进行下次循环
 * 案例代码
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContinueDemo</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; <span class="number">10</span> ; i++)&#123;</div><div class="line">			<span class="keyword">if</span>(i%<span class="number">2</span>==<span class="number">0</span>)&#123;</div><div class="line">				<span class="keyword">continue</span>;</div><div class="line">			&#125;</div><div class="line">			System.out.println(i);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//会把0-9之间所有的奇数打印到控制台上</span></div></pre></td></tr></table></figure>
-<h3 id="7-switch语句"><a href="#7-switch语句" class="headerlink" title="7. switch语句"></a>7. switch语句</h3><pre><code>* switch只能针对某个表达式的值作出判断，从而决定程序执行哪一段代码。    
+<h4 id="8-switch语句"><a href="#8-switch语句" class="headerlink" title="8. switch语句"></a>8. switch语句</h4><pre><code>* switch只能针对某个表达式的值作出判断，从而决定程序执行哪一段代码。    
 * 格式:
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">swtich(表达式)&#123;</div><div class="line"> <span class="keyword">case</span> 常量<span class="number">1</span> :</div><div class="line">   要执行的语句;</div><div class="line"> <span class="keyword">break</span>;</div><div class="line"> </div><div class="line"> <span class="keyword">case</span> 常量<span class="number">2</span> :</div><div class="line">   要执行的语句;</div><div class="line"> <span class="keyword">break</span>;</div><div class="line"> </div><div class="line"> <span class="keyword">case</span> 常量<span class="number">3</span> :</div><div class="line">   要执行的语句;</div><div class="line"> <span class="keyword">break</span>;</div><div class="line"> </div><div class="line"> <span class="keyword">default</span>:</div><div class="line">   要执行的语句;</div><div class="line"> <span class="keyword">break</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <pre><code>* 执行流程: 
@@ -994,12 +994,12 @@ Integer类型:
     1. case后,必须是常量
     2. 常量后,有冒号
     3. 要执行的语句可以是多条语句,包括循环都可以写
-</code></pre><h3 id="8-switch语句接收的数据类型"><a href="#8-switch语句接收的数据类型" class="headerlink" title="8. switch语句接收的数据类型"></a>8. switch语句接收的数据类型</h3><pre><code>* switch语句中的表达式的数据类型,是有要求的
+</code></pre><h4 id="9-switch语句接收的数据类型"><a href="#9-switch语句接收的数据类型" class="headerlink" title="9. switch语句接收的数据类型"></a>9. switch语句接收的数据类型</h4><pre><code>* switch语句中的表达式的数据类型,是有要求的
 
         JDK1.0 - 1.4  数据类型接受 byte short int char
         JDK1.5   数据类型接受 byte short int char enum(枚举)
         JDK1.7   数据类型接受 byte short int char enum(枚举), String    
-</code></pre><h3 id="9-case穿透"><a href="#9-case穿透" class="headerlink" title="9. case穿透"></a>9. case穿透</h3><pre><code>* case穿透
+</code></pre><h4 id="10-case穿透"><a href="#10-case穿透" class="headerlink" title="10. case穿透"></a>10. case穿透</h4><pre><code>* case穿透
     * 在使用switch语句的过程中，如果多个case条件后面的执行语句是一样的，只需写一次。
 * 举例:
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">	 <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwitchDemo</span></span>&#123;</div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">				<span class="keyword">int</span> week = <span class="number">2</span>;</div><div class="line">					<span class="keyword">switch</span>(week)&#123;</div><div class="line">						<span class="keyword">case</span> <span class="number">1</span>:</div><div class="line">						<span class="keyword">case</span> <span class="number">2</span>:</div><div class="line">						<span class="keyword">case</span> <span class="number">3</span>:</div><div class="line">						<span class="keyword">case</span> <span class="number">4</span>:</div><div class="line">						<span class="keyword">case</span> <span class="number">5</span>:</div><div class="line">							System.out.println(<span class="string">"工作日"</span>);</div><div class="line">						<span class="keyword">break</span>; <span class="comment">//(1)</span></div><div class="line">						<span class="keyword">case</span> <span class="number">6</span>:</div><div class="line">						<span class="keyword">case</span> <span class="number">7</span>:</div><div class="line">							System.out.println(<span class="string">"休息日"</span>);</div><div class="line">						<span class="keyword">break</span>;</div><div class="line">					&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line"><span class="comment">//因为week=2,从case 2开始穿透,直到碰到break或switch的右大括号,</span></div><div class="line"><span class="comment">//如果(1)处没有break,继续穿透</span></div><div class="line"><span class="comment">//穿透期间,不会再判断case后面的值,还会执行case中的执行语句,即使default在中间,只要没有break,就继续穿透</span></div><div class="line">	*<span class="keyword">int</span> x = <span class="number">2</span>;</div><div class="line">	 <span class="keyword">int</span> y = <span class="number">3</span>;</div><div class="line">	<span class="keyword">switch</span>(x)&#123;</div><div class="line">		<span class="keyword">default</span>:</div><div class="line">			y++;</div><div class="line">		<span class="keyword">break</span>;</div><div class="line">		<span class="keyword">case</span> <span class="number">3</span>:</div><div class="line">			y++;</div><div class="line">		<span class="keyword">case</span> <span class="number">4</span>:</div><div class="line">			y++;</div><div class="line">		&#125;</div><div class="line">	System.out.println(<span class="string">"y="</span>+y);</div><div class="line"><span class="comment">//执行顺序: x=2先到case 3,不成立,到case 4,不成立,到了default,执行y++,break结束,输出y=4</span></div><div class="line"><span class="comment">//把default中的break删掉,执行顺序:case 3不成立,case 4不成立,default,执行y++,y=4了,穿透case3,执行y++,又穿透case 4,执行y++</span></div><div class="line"><span class="comment">//最后y=6</span></div></pre></td></tr></table></figure>
@@ -1016,13 +1016,13 @@ Integer类型:
     <entry>
       <title><![CDATA[05.引用数据类型]]></title>
       <url>https://geekhoon.github.io/2017/01/10/05-%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
-      <content type="html"><![CDATA[<h3 id="1-创建引用类型变量公式"><a href="#1-创建引用类型变量公式" class="headerlink" title="1.创建引用类型变量公式"></a>1.创建引用类型变量公式</h3><pre><code>* 引用数据类型的定义格式:
+      <content type="html"><![CDATA[<h3 id="创建引用类型变量公式"><a href="#创建引用类型变量公式" class="headerlink" title="创建引用类型变量公式"></a>创建引用类型变量公式</h3><pre><code>* 引用数据类型的定义格式:
     数据类型  变量名  =  new 数据类型();
 * 引用数据类型的使用:
     * 每种引用数据类型都有其功能，我们可以调用该类型实例的功能。
     * 变量名.方法名();
 </code></pre><a id="more"></a>
-<h3 id="2-Scanner类的使用"><a href="#2-Scanner类的使用" class="headerlink" title="2.Scanner类的使用"></a>2.Scanner类的使用</h3><pre><code>* 作用: 在命令行中,接收键盘的输入
+<h3 id="Scanner类的使用"><a href="#Scanner类的使用" class="headerlink" title="Scanner类的使用"></a>Scanner类的使用</h3><pre><code>* 作用: 在命令行中,接收键盘的输入
 * 使用:
     (1) 导包   import java.util.Scanner;
     (2) 创建Scanner对象的变量 Scanner sc = new Scanner(System.in);
@@ -1031,7 +1031,7 @@ Integer类型:
     (4) 读取键盘录入的字符串,注意字符串不能有空格或tab
           String enterString = sc.next();
 * 案例代码
-</code></pre><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">import java.util.Scanner;//特别注意:后面有分号,别丢掉</div><div class="line">public class Demo05Scanner&#123;</div><div class="line">	public static void main(String[] args) </div><div class="line">	&#123;</div><div class="line">		Scanner sc = new Scanner(System.in);</div><div class="line"></div><div class="line">		int enterNumber = sc.nextInt();</div><div class="line">		System.out.println("用户输入的整数为"+enterNumber);</div><div class="line"></div><div class="line">		String enterString = sc.next();</div><div class="line">		System.out.println("用户输入的字符串为"+enterString);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">```			</div><div class="line">### 3.Random随机数类的使用 ###  </div><div class="line">	* 作用: 生成随机数</div><div class="line">	* 使用:</div><div class="line">        (1) import导包：所属包java.util. Random</div><div class="line">		(2) 创建Random对象的变量：Random  random = new Random ();</div><div class="line">		(3) 调用方法:</div><div class="line">			* nextInt(int maxValue)	产生[0,maxValue)范围的随机数,包含0不包含maxValue</div><div class="line">			* nextDouble()  //产生0.0-1.0之间的数(包括0.0不包括1.0)</div><div class="line">			如：</div><div class="line">```java</div><div class="line">Random  random = new Random ();</div><div class="line">int  myNumber = random.nextInt(100);//结果为0-99的一个数</div></pre></td></tr></table></figure>
+</code></pre><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">import java.util.Scanner;//特别注意:后面有分号,别丢掉</div><div class="line">public class Demo05Scanner&#123;</div><div class="line">	public static void main(String[] args) </div><div class="line">	&#123;</div><div class="line">		Scanner sc = new Scanner(System.in);</div><div class="line"></div><div class="line">		int enterNumber = sc.nextInt();</div><div class="line">		System.out.println("用户输入的整数为"+enterNumber);</div><div class="line"></div><div class="line">		String enterString = sc.next();</div><div class="line">		System.out.println("用户输入的字符串为"+enterString);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">```			</div><div class="line">### Random随机数类的使用 ###  </div><div class="line">	* 作用: 生成随机数</div><div class="line">	* 使用:</div><div class="line">        (1) import导包：所属包java.util. Random</div><div class="line">		(2) 创建Random对象的变量：Random  random = new Random ();</div><div class="line">		(3) 调用方法:</div><div class="line">			* nextInt(int maxValue)	产生[0,maxValue)范围的随机数,包含0不包含maxValue</div><div class="line">			* nextDouble()  //产生0.0-1.0之间的数(包括0.0不包括1.0)</div><div class="line">			如：</div><div class="line">```java</div><div class="line">Random  random = new Random ();</div><div class="line">int  myNumber = random.nextInt(100);//结果为0-99的一个数</div></pre></td></tr></table></figure>
 <pre><code>* 随机数,也叫伪随机数,它是JVM根据人写好的算法,生成的
 * 案例代码
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.Random;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RandomDemo</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">	   Random ran = <span class="keyword">new</span> Random();</div><div class="line">	   <span class="comment">// Random类中的,产生随机数的功能</span></div><div class="line">	   <span class="keyword">int</span> i = ran.nextInt(<span class="number">100</span>);</div><div class="line">	   System.out.println(i);  </div><div class="line">	   <span class="comment">//问题? 产生随机数,范围 1-100之间</span></div><div class="line">	   <span class="comment">// nextInt(100) 0-99 + 1</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
@@ -1176,7 +1176,7 @@ System.out.println(&quot;hello&quot;+(&apos;a&apos;+1));
     <entry>
       <title><![CDATA[04.运算符]]></title>
       <url>https://geekhoon.github.io/2017/01/08/04-%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
-      <content type="html"><![CDATA[<h3 id="1-算数运算符"><a href="#1-算数运算符" class="headerlink" title="1.算数运算符"></a>1.算数运算符</h3><pre><code>* 注意事项
+      <content type="html"><![CDATA[<h3 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h3><pre><code>* 注意事项
     1.&quot;+&quot;在连接字符串时要注意，只有直接与字符串相加才会转成字符串.
         字符串后面的&quot;+&quot;为&quot;连接&quot;,字符串前面的&quot;+&quot;还是加法
         如:
@@ -1209,19 +1209,19 @@ System.out.println(&quot;hello&quot;+(&apos;a&apos;+1));
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">   <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test2</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">		<span class="keyword">int</span> a = <span class="number">1</span>;</div><div class="line">		<span class="keyword">if</span>(a++ &gt; <span class="number">1</span>)&#123;</div><div class="line">			System.out.println(<span class="string">"用2在判断"</span>);</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			System.out.println(<span class="string">"用1在判断"</span>);</div><div class="line">		&#125;</div><div class="line">		System.out.println(<span class="string">"a="</span>+a);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <pre><code>本题证明了(a++ &gt; 1)是用a=1与1做大小判断,而不是2,说明a先比较,再自增.但最终输出a的大小都是2
 </code></pre><a id="more"></a>
-<h3 id="2-赋值运算符"><a href="#2-赋值运算符" class="headerlink" title="2.赋值运算符"></a>2.赋值运算符</h3><pre><code>* 有 =  +=  -=  *=  /=  %=  
+<h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><pre><code>* 有 =  +=  -=  *=  /=  %=  
 * 注意:
      如：
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">byte</span>  b = <span class="number">1</span>;               <span class="comment">//(1)</span></div><div class="line">b = b + <span class="number">1</span>;                 <span class="comment">//(2)</span></div><div class="line">System.out.println(b);     <span class="comment">//(3)</span></div></pre></td></tr></table></figure>
 <pre><code>编译会报错,因为(1)中b为byte型,占1个字节,(2)中1为int类型,占4个字节,它们相加之后,是4字节.然后赋值给1字节大小的b,会损失精度.
 将(2)改成b =(byte) (b + 1);或者b += 1;都对.这两句等价
-</code></pre><h3 id="3-比较运算符"><a href="#3-比较运算符" class="headerlink" title="3.比较运算符"></a>3.比较运算符</h3><pre><code>* 也叫关系运算符
+</code></pre><h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><pre><code>* 也叫关系运算符
 * 有 ==  !=  &gt;  &lt;  &gt;=  &lt;=  
 * 注意:
      如：
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span>  i = <span class="number">3</span>;</div><div class="line"><span class="keyword">int</span>  j = <span class="number">4</span>;</div><div class="line">System.out.println(i=j);</div><div class="line">System.out.println(i==j);</div></pre></td></tr></table></figure>
 <pre><code>结果分别为4和true,因为程序自上而下执行,第一句输出语句执行完之后,i变为4.别忽视了输出语句中,赋值语句对变量在整个作用区间内也起作用.
-</code></pre><h3 id="4-逻辑运算符"><a href="#4-逻辑运算符" class="headerlink" title="4.逻辑运算符"></a>4.逻辑运算符</h3><pre><code>* 对两个布尔数据进行计算,结果也是布尔类型
+</code></pre><h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><pre><code>* 对两个布尔数据进行计算,结果也是布尔类型
 * 有 &amp;与  |或  !非  ^异或  &amp;&amp;短路与  ||短路或
     *^异或: 两边相同为false,不同为true
      如：
@@ -1233,9 +1233,9 @@ System.out.println(&quot;hello&quot;+(&apos;a&apos;+1));
 <pre><code>                结果为3和4.   i == j 为flase, 所以++i &gt; 3并没有执行
     *||短路或: 左边结果为true,右边不执行
 * 短路与 和 短路或 可以提高程序运行效率
-</code></pre><h3 id="5-三元-目-运算符"><a href="#5-三元-目-运算符" class="headerlink" title="5.三元(目)运算符"></a>5.三元(目)运算符</h3><pre><code>* 公式:    布尔表达式 ? 结果1 : 结果2
+</code></pre><h3 id="三元-目-运算符"><a href="#三元-目-运算符" class="headerlink" title="三元(目)运算符"></a>三元(目)运算符</h3><pre><code>* 公式:    布尔表达式 ? 结果1 : 结果2
 *注意:这里的结果1和2,不能是输出语句,必须是确定的结果
-</code></pre><h3 id="6-运算符优先级"><a href="#6-运算符优先级" class="headerlink" title="6.运算符优先级"></a>6.运算符优先级</h3><pre><code>优先级    描述          运算符
+</code></pre><h3 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h3><pre><code>优先级    描述          运算符
 1    括号           ()、[]
 2    正负号           +、-
 3    自增自减，非     ++、--、!
@@ -1258,11 +1258,11 @@ System.out.println(&quot;hello&quot;+(&apos;a&apos;+1));
     <entry>
       <title><![CDATA[03.数据]]></title>
       <url>https://geekhoon.github.io/2017/01/08/03-%E6%95%B0%E6%8D%AE/</url>
-      <content type="html"><![CDATA[<h2 id="一-数据"><a href="#一-数据" class="headerlink" title="一.数据"></a>一.数据</h2><h3 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1.数据类型"></a>1.数据类型</h3><pre><code>* 程序=数据+逻辑
+      <content type="html"><![CDATA[<h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><h4 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1.数据类型"></a>1.数据类型</h4><pre><code>* 程序=数据+逻辑
 * 数据类型包括 
     * 1.基本数据类型:整数、小数、字符、布尔 
     * 2.引用数据类型:数组、类、接口
-</code></pre><h3 id="2-常量"><a href="#2-常量" class="headerlink" title="2.常量"></a>2.常量</h3><pre><code>* 程序在运行过程中,其值不会发生变化的量
+</code></pre><h4 id="2-常量"><a href="#2-常量" class="headerlink" title="2.常量"></a>2.常量</h4><pre><code>* 程序在运行过程中,其值不会发生变化的量
 * 整数类型 
     * 十进制
     * 二进制:以0b(0B)开头,只有0和1  
@@ -1273,10 +1273,10 @@ System.out.println(&quot;hello&quot;+(&apos;a&apos;+1));
 * 字符类型:单引号中仅能包含一个字符,不能不写字符,可以用一个空格
 * 字符串类型:可以写0-n个字符  
 </code></pre><a id="more"></a>
-<h2 id="二-变量"><a href="#二-变量" class="headerlink" title="二.变量"></a>二.变量</h2><h3 id="1-变量概述"><a href="#1-变量概述" class="headerlink" title="1.变量概述"></a>1.变量概述</h3><pre><code>* 什么是变量?
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><h4 id="1-变量概述"><a href="#1-变量概述" class="headerlink" title="1.变量概述"></a>1.变量概述</h4><pre><code>* 什么是变量?
     * 变量是内存中装载数据的小盒子，你只能用它来存数据和取数据
     * 在程序运行过程中,其值可以发生改变的量
-</code></pre><h3 id="2-计算机存储单元"><a href="#2-计算机存储单元" class="headerlink" title="2.计算机存储单元"></a>2.计算机存储单元</h3><pre><code>* 计算机中最小信息单元是?
+</code></pre><h4 id="2-计算机存储单元"><a href="#2-计算机存储单元" class="headerlink" title="2.计算机存储单元"></a>2.计算机存储单元</h4><pre><code>* 计算机中最小信息单元是?
     * 位(bit),也叫比特位.用b表示
     * 8个位,表示一个数据
 * 计算机中储存和运算的最小单位是?
@@ -1288,7 +1288,7 @@ System.out.println(&quot;hello&quot;+(&apos;a&apos;+1));
         *1GB = 1024MB
         *1TB = 1024GB
         *1PB = 1024TB
-</code></pre><h3 id="3-Java中数据类型四类八种"><a href="#3-Java中数据类型四类八种" class="headerlink" title="3.Java中数据类型四类八种"></a>3.Java中数据类型四类八种</h3><pre><code>* 数据类型四类八种
+</code></pre><h4 id="3-Java中数据类型四类八种"><a href="#3-Java中数据类型四类八种" class="headerlink" title="3.Java中数据类型四类八种"></a>3.Java中数据类型四类八种</h4><pre><code>* 数据类型四类八种
     * 四类    八种    字节数    数据表示范围
     * 整型    byte    1    -128～127
             short     2    
@@ -1298,7 +1298,7 @@ System.out.println(&quot;hello&quot;+(&apos;a&apos;+1));
               double   8    
     * 字符型    char    2    表示一个字符，如(&apos;a&apos;，&apos;A&apos;，&apos;0&apos;，&apos;家&apos;)
     * 布尔型    boolean    1    只有两个值true与false,默认是false
-</code></pre><h3 id="4-常量和数据类型"><a href="#4-常量和数据类型" class="headerlink" title="4.常量和数据类型"></a>4.常量和数据类型</h3><pre><code>* 常量
+</code></pre><h4 id="4-常量和数据类型"><a href="#4-常量和数据类型" class="headerlink" title="4.常量和数据类型"></a>4.常量和数据类型</h4><pre><code>* 常量
     * 常量是程序在运行过程中,其值不会发生改变的量
     * 整型常量默认是int类型.
     * 定义长整型数据如果值超过int取值范围后面要+&quot;L&quot;,凡添加了&quot;L&quot;,都是long类型
@@ -1311,7 +1311,7 @@ System.out.println(&quot;hello&quot;+(&apos;a&apos;+1));
     * float f = 1.0; 错
     * float f = 1.0F; 对
     * float f = 10; 对
-</code></pre><h3 id="5-定义变量"><a href="#5-定义变量" class="headerlink" title="5.定义变量"></a>5.定义变量</h3><pre><code>* 语法格式：
+</code></pre><h4 id="5-定义变量"><a href="#5-定义变量" class="headerlink" title="5.定义变量"></a>5.定义变量</h4><pre><code>* 语法格式：
     数据类型  变量名  =  变量值;
      int        a    =  100;        
 * 代码:
@@ -1321,7 +1321,7 @@ System.out.println(&quot;hello&quot;+(&apos;a&apos;+1));
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Variable</span> </span>&#123;</div><div class="line">	   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		    <span class="keyword">int</span> j = <span class="number">10</span>;  </div><div class="line">                  &#123;</div><div class="line">                      <span class="keyword">int</span> j = <span class="number">10</span>;</div><div class="line">			&#125;</div><div class="line">       &#125;</div></pre></td></tr></table></figure>
 <pre><code>//这是错的,因为第一个j声明的作用区间为它所在的大括号,即整个main方法,第二个j再在main方法中声明,就产生了冲突
 d.变量不允许重复定义
-</code></pre><h3 id="6-数据类型转换"><a href="#6-数据类型转换" class="headerlink" title="6.数据类型转换"></a>6.数据类型转换</h3><pre><code>* 自动类型转换：(也叫自动类型提升,或叫隐式转换)
+</code></pre><h4 id="6-数据类型转换"><a href="#6-数据类型转换" class="headerlink" title="6.数据类型转换"></a>6.数据类型转换</h4><pre><code>* 自动类型转换：(也叫自动类型提升,或叫隐式转换)
     *取值范围小的与取值范围大的数据数据类型做运算时,取值范围小的类型会自动提升为取值范围大的数据类型
     *表示范围小的数据类型转换成范围大的数据类型,如byte转成int
     *自动类型转换格式：
@@ -1366,16 +1366,16 @@ d.变量不允许重复定义
     <entry>
       <title><![CDATA[02.注释、关键字、标识符]]></title>
       <url>https://geekhoon.github.io/2017/01/08/02-%E6%B3%A8%E9%87%8A%E3%80%81%E5%85%B3%E9%94%AE%E5%AD%97%E3%80%81%E6%A0%87%E8%AF%86%E7%AC%A6/</url>
-      <content type="html"><![CDATA[<h3 id="1-注释"><a href="#1-注释" class="headerlink" title="1.注释"></a>1.注释</h3><pre><code>* 编译时,编译器会忽略注释
+      <content type="html"><![CDATA[<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><pre><code>* 编译时,编译器会忽略注释
 * 包含
     * 单行注释:// 
     * 多行注释:/*....*/ 
     * 文档注释:/**...*/ 
 * 多行注释不能嵌套多行注释
-</code></pre><h3 id="2-关键字"><a href="#2-关键字" class="headerlink" title="2.关键字"></a>2.关键字</h3><pre><code>* 被JAVA赋予特殊含义,具有专门用途的单词
+</code></pre><h3 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h3><pre><code>* 被JAVA赋予特殊含义,具有专门用途的单词
 * JAVA中关键字均为小写
 * main不是关键字
-</code></pre><h3 id="3-标识符"><a href="#3-标识符" class="headerlink" title="3.标识符"></a>3.标识符</h3><pre><code>* JAVA中,程序员自己定义的内容
+</code></pre><h3 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h3><pre><code>* JAVA中,程序员自己定义的内容
 * 规则: 
     * 1.组成:字母52个(a-z,A-Z)、数字(0-9)、下划线_、美元符$
     * 2.注意:不能以数字开头、不能是关键字、标识符不能有空格、严格区分大小写
@@ -1387,31 +1387,31 @@ d.变量不允许重复定义
     <entry>
       <title><![CDATA[01.JAVA开发概述及HelloWorld]]></title>
       <url>https://geekhoon.github.io/2017/01/08/01-JAVA%E5%BC%80%E5%8F%91%E6%A6%82%E8%BF%B0%E5%8F%8AHelloWorld/</url>
-      <content type="html"><![CDATA[<h2 id="一-JAVA环境搭建"><a href="#一-JAVA环境搭建" class="headerlink" title="一.JAVA环境搭建"></a>一.JAVA环境搭建</h2><h3 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h3><pre><code>* 创始团队:詹姆斯-高斯林
+      <content type="html"><![CDATA[<h3 id="JAVA环境搭建"><a href="#JAVA环境搭建" class="headerlink" title="JAVA环境搭建"></a>JAVA环境搭建</h3><h4 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h4><pre><code>* 创始团队:詹姆斯-高斯林
 * sun开发,已被oracle收购.
 * 版本(平台)
     * JAVASE(标准版):开发简单桌面应用,不能开发大型项目.也叫J2SE 
     * JAVAEE(企业版或Web版):可做电商、企业级应用(如ERP、CRM、BOS、OA等)，也叫J2EE
     * JAVAME（嵌入式开发）：也叫J2ME
 </code></pre><a id="more"></a>
-<h3 id="2-常用DOS命令"><a href="#2-常用DOS命令" class="headerlink" title="2.常用DOS命令"></a>2.常用DOS命令</h3><pre><code>* 清屏：cls(clear screen)
+<h4 id="2-常用DOS命令"><a href="#2-常用DOS命令" class="headerlink" title="2.常用DOS命令"></a>2.常用DOS命令</h4><pre><code>* 清屏：cls(clear screen)
 * 切换盘符：盘符:
 * 进入指定目录：cd（change directory）
 * 返回上一级目录：cd..
 * 返回盘符根目录：cd\
 * 进入其他盘符文件夹：cd 盘符:\文件夹名
 * 显示当前目录下的文件和子目录信息：dir
-</code></pre><h3 id="3-开发环境"><a href="#3-开发环境" class="headerlink" title="3.开发环境"></a>3.开发环境</h3><pre><code>* JDK(JAVA Development Kit):java开发工具包
+</code></pre><h4 id="3-开发环境"><a href="#3-开发环境" class="headerlink" title="3.开发环境"></a>3.开发环境</h4><pre><code>* JDK(JAVA Development Kit):java开发工具包
 * JDK包含
     * JRE(JAVA Runtime Environment):JAVA运行环境
     * JAVA开发工具
-</code></pre><h3 id="4-跨平台特性"><a href="#4-跨平台特性" class="headerlink" title="4.跨平台特性"></a>4.跨平台特性</h3><pre><code>* 平台指操作系统(Windows/Linux/mac)
+</code></pre><h4 id="4-跨平台特性"><a href="#4-跨平台特性" class="headerlink" title="4.跨平台特性"></a>4.跨平台特性</h4><pre><code>* 平台指操作系统(Windows/Linux/mac)
 * 一次编写,到处运行
 * 跨平台特性依赖于JVM(JAVA Virtual Machine)
 * JRE包含
     * JVM 
     * 类库  
-</code></pre><h2 id="二-HelloWorld"><a href="#二-HelloWorld" class="headerlink" title="二.HelloWorld"></a>二.HelloWorld</h2><pre><code>* 源文件:  .java 
+</code></pre><h3 id="HelloWorld"><a href="#HelloWorld" class="headerlink" title="HelloWorld"></a>HelloWorld</h3><pre><code>* 源文件:  .java 
 * 编译(编译器):    .java   →    .class(字节码文件)
 * 运行(解释器):    运行.class
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">   <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">		System.out.println(<span class="string">"HelloWorld"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
