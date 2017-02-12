@@ -92,7 +92,7 @@
 <meta property="og:url" content="https://geekhoon.github.io/2017/02/11/14-正则表达式/index.html">
 <meta property="og:site_name" content="geekhoon">
 <meta property="og:description" content="概念*　操作字符串数据的规则表达式">
-<meta property="og:updated_time" content="2017-02-12T09:25:57.011Z">
+<meta property="og:updated_time" content="2017-02-12T15:20:42.032Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="14.正则表达式">
 <meta name="twitter:description" content="概念*　操作字符串数据的规则表达式">
@@ -421,7 +421,7 @@
     注意: 
       1. 返回值类型是String类型的数组
       2. 如果用原字符串中没有的字符来切, 切割后数组长度为1
-      3. 切割符是&quot;.&quot;的时候, 要转义,用&quot;\\.&quot;
+      3. 切割符是&quot;.&quot;的时候, 要转义,用&quot;\\.&quot; 两个反斜杠的原因: 第一个是java中先转义 第二个是正则中转义
       4. 切割符是&quot; &quot;的时候, 要转义,用&quot;\\s&quot;,或者&quot; +&quot;
 3.替换。
       使用的是String类中的replaceAll方法。
