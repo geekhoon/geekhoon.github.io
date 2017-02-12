@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-02-11T03:12:43.372Z</updated>
+  <updated>2017-02-12T09:12:44.747Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -20,12 +20,72 @@
     <link href="https://geekhoon.github.io/2017/02/11/14-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     <id>https://geekhoon.github.io/2017/02/11/14-正则表达式/</id>
     <published>2017-02-11T03:12:43.000Z</published>
-    <updated>2017-02-11T03:12:43.372Z</updated>
+    <updated>2017-02-12T09:12:44.747Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><pre><code>*　操作字符串数据的规则表达式
+</code></pre><a id="more"></a> 
+<h3 id="语法规则"><a href="#语法规则" class="headerlink" title="语法规则"></a>语法规则</h3><pre><code>注意: 一个[ ]代表一个字符
+* 字符
+    * x  代表的是 字符x
+    * \\ 代表的是 反斜线字符&apos;\&apos;
+    * \t 代表的是 制表符
+    * \n 代表的是 换行符
+    * \r 代表的是 回车符
+    * \s 代表的是 空格
+* 字符类
+    * [abc]    a、b 或 c 范围中的一个
+    * [^abc]   任何字符，除了 a、b 或 c
+    * [a-zA-Z] a到 z 或 A到 Z，两头的字母包括在内（范围） 
+    * [0-9]    0到9的字符都包括
+    * [^0-9]   不是数字
+    * [a-zA-Z_0-9] 代表的字母或者数字或者下划线
+* 预定义字符类
+    * .  任何字符
+    * \d 数字：[0-9]
+    * \D 不是数字    
+    * \w 单词字符：[a-zA-Z_0-9]
+* 边界匹配器
+    * ^  代表的是行的开头
+    * $  代表的是行的结尾
+    * \b 代表的是单词边界
+* 数量词
+    * X?     X，一次或一次也没有
+    * X*     X，零次或多次
+    * X+     X，一次或多次
+    * X{n}   X，恰好 n 次 
+    * X{n,}  X，至少 n 次 
+    * X{n,m} X，至少 n 次，但是不超过 m 次
+</code></pre><h3 id="正则表达式和String类相关的方法"><a href="#正则表达式和String类相关的方法" class="headerlink" title="正则表达式和String类相关的方法"></a>正则表达式和String类相关的方法</h3><pre><code>1.匹配。
+      使用的是String类中的matchers方法。
+    `boolean matches(String 正则表达式)`
+    如`boolean b = &quot;abc&quot;.matches(&quot;[a]&quot;);`
+    //返回false, 因为abc为三个字符,正则只有a一个,改成&quot;[abc]+&quot;返回true
+2.切割。
+      使用的是String类中的split方法。 
+    `String[] split(String 正则表达式)`
+    如`String[] strArr = &quot;abc&quot;.split(&quot;a&quot;);`
+    //注意返回值类型是String类型的数组
+3.替换。
+      使用的是String类中的replaceAll方法。
+    `String replaceAll( String 正则表达式,String 字符串)`
+    如`String str = &quot;abc0123&quot;.repalceAll(&quot;[\\d]&quot;,&quot;#&quot;); `
+    //打印abc####  若要打印成abc# ,将正则表达式改为&quot;[\\d]+&quot;
+</code></pre><h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><pre><code>1.要求: 输入aaa_bbbb_ccc_ddd,输出AaaBbbbCccDdd
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RegexDemo</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		String str = <span class="string">"aaa_bbbb_ccc_ddd"</span>;</div><div class="line">		change(str);</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">change</span><span class="params">(String str)</span></span>&#123;</div><div class="line">		String[] strArr = str.split(<span class="string">"_"</span>);</div><div class="line">		StringBuilder sb = <span class="keyword">new</span> StringBuilder();</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; strArr.length; i++) &#123;</div><div class="line">			String word = strArr[i];</div><div class="line">			sb.append(wordLowerToUpper(word));	</div><div class="line">		&#125;</div><div class="line">		System.out.println(sb.toString());</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">wordLowerToUpper</span><span class="params">(String word)</span></span>&#123;</div><div class="line">		String first = word.charAt(<span class="number">0</span>)+<span class="string">""</span>;</div><div class="line">		first = first.toUpperCase();</div><div class="line">		String other = word.substring(<span class="number">1</span>);</div><div class="line">		<span class="keyword">return</span> first + other;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<pre><code>2.简式邮箱格式正则表达式
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Email_Test</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		String str = <span class="string">"fsd1111fdsfsddsdsad22@2.com.cn"</span>;</div><div class="line">		email_judge(str);</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">email_judge</span><span class="params">(String str)</span></span>&#123;</div><div class="line">		<span class="comment">//.com.cn  .字母 可以有多个</span></div><div class="line">		<span class="keyword">boolean</span> b = str.matches(<span class="string">"[\\w]+@[a-z0-9]+(\\.[a-z]+)+"</span>);</div><div class="line">		System.out.println(b);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
+      &lt;h3 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;*　操作字符串数据的规则表达式
+&lt;/code&gt;&lt;/pre&gt;
+    
     </summary>
     
+      <category term="JAVA基础" scheme="https://geekhoon.github.io/categories/JAVA%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="JAVA基础语法" scheme="https://geekhoon.github.io/tags/JAVA%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"/>
     
   </entry>
   
