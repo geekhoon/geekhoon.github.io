@@ -1336,7 +1336,8 @@ public class Test01 {
 * 数据类型包括 
     * 1.基本数据类型:整数、小数、字符、布尔 
     * 2.引用数据类型:数组、类、接口
-</code></pre><h4 id="2-常量"><a href="#2-常量" class="headerlink" title="2.常量"></a>2.常量</h4><pre><code>* 程序在运行过程中,其值不会发生变化的量
+</code></pre><a id="more"></a>
+<h4 id="2-常量"><a href="#2-常量" class="headerlink" title="2.常量"></a>2.常量</h4><pre><code>* 程序在运行过程中,其值不会发生变化的量
 * 整数类型 
     * 十进制
     * 二进制:以0b(0B)开头,只有0和1  
@@ -1346,8 +1347,7 @@ public class Test01 {
 * 布尔类型:true和flase为关键字
 * 字符类型:单引号中仅能包含一个字符,不能不写字符,可以用一个空格
 * 字符串类型:可以写0-n个字符  
-</code></pre><a id="more"></a>
-<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><h4 id="1-变量概述"><a href="#1-变量概述" class="headerlink" title="1.变量概述"></a>1.变量概述</h4><pre><code>* 什么是变量?
+</code></pre><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><h4 id="1-变量概述"><a href="#1-变量概述" class="headerlink" title="1.变量概述"></a>1.变量概述</h4><pre><code>* 什么是变量?
     * 变量是内存中装载数据的小盒子，你只能用它来存数据和取数据
     * 在程序运行过程中,其值可以发生改变的量
 </code></pre><h4 id="2-计算机存储单元"><a href="#2-计算机存储单元" class="headerlink" title="2.计算机存储单元"></a>2.计算机存储单元</h4><pre><code>* 计算机中最小信息单元是?
@@ -1449,7 +1449,8 @@ public class Test01 {
     * 多行注释:/*....*/ 
     * 文档注释:/**...*/ 
 * 多行注释不能嵌套多行注释
-</code></pre><h3 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h3><pre><code>* 被JAVA赋予特殊含义,具有专门用途的单词
+</code></pre><a id="more"></a>
+<h3 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h3><pre><code>* 被JAVA赋予特殊含义,具有专门用途的单词
 * JAVA中关键字均为小写
 * main不是关键字
 </code></pre><h3 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h3><pre><code>* JAVA中,程序员自己定义的内容
@@ -1500,9 +1501,9 @@ public class Test01 {
       <title><![CDATA[JAVA基础题]]></title>
       <url>https://geekhoon.github.io/2017/01/05/JAVA%E5%9F%BA%E7%A1%80%E9%A2%98/</url>
       <content type="html"><![CDATA[<p>1.Java注释有3种，单行注释、多行注释和文档注释，下列有关注释的说法，不正确的是（）</p>
-<p>A. 注释指的是用来对程序的某个功能或者某行代码进行解释说明<br>B. 注释只在Java源文件中有效<br>C. 在多行注释中，能够嵌套多行注释<br>D. 注释不会被编译到class字节码文</p>
-<p>2.下面哪种类型的文件可以在Java虚拟机中运行？（）</p>
-<p>A. .java<br>B. .jre<br>C. .exe<br>D. .class<br><a id="more"></a><br>3.下列关于变量和常量的说法正确的是（）</p>
+<p>A. 注释指的是用来对程序的某个功能或者某行代码进行解释说明<br>B. 注释只在Java源文件中有效<br>C. 在多行注释中，能够嵌套多行注释<br>D. 注释不会被编译到class字节码文<br><a id="more"></a><br>2.下面哪种类型的文件可以在Java虚拟机中运行？（）</p>
+<p>A. .java<br>B. .jre<br>C. .exe<br>D. .class</p>
+<p>3.下列关于变量和常量的说法正确的是（）</p>
 <p>A. 常量表示不能被改变的值，例如1、2、“abc”都是常量<br>B. 常量表示常见的变量<br>C. int x = 0;代码中，x表示常量，0表示变量<br>D. 在同一个大括号｛｝内，定义的变量不能够重名</p>
 <p>4.下列定义变量格式，错误的是（）</p>
 <p>A. float x,y=0;<br>B. float f = 1999.99F;<br>C. String str = 字符串;<br>D. char x = ‘0’;</p>
