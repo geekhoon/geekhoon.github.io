@@ -100,7 +100,7 @@
     <link href="https://geekhoon.github.io/2017/02/10/13-API/"/>
     <id>https://geekhoon.github.io/2017/02/10/13-API/</id>
     <published>2017-02-10T02:50:27.000Z</published>
-    <updated>2017-02-12T10:31:21.662Z</updated>
+    <updated>2017-02-12T10:32:20.027Z</updated>
     
     <content type="html"><![CDATA[<h3 id="API概念"><a href="#API概念" class="headerlink" title="API概念"></a>API概念</h3><pre><code>* API(Application Programming Interface) 
   应用程序编程接口
@@ -158,11 +158,9 @@
 * 创建对象: Calendar类中写了getInstance()静态方法,直接返回子类的对象,不用new子类对象
   格式如: Calendar c = Calendar.getInstance();
 * 常用方法:
-</code></pre><p>1        </p>
-<ul>
-<li>get(日历字段): 获得指定日历字段的值<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Calendar c = Calendar.getInstance();</div><div class="line"><span class="comment">// 获取年份</span></div><div class="line"><span class="keyword">int</span> year = c.get(Calendar.YEAR);</div><div class="line"><span class="comment">// 获取月份</span></div><div class="line"><span class="keyword">int</span> month = c.get(Calendar.MONTH) + <span class="number">1</span>;</div><div class="line"><span class="comment">// 获取天数</span></div><div class="line"><span class="keyword">int</span> day = c.get(Calendar.DAY_OF_MONTH);</div><div class="line">System.out.println(year + <span class="string">"年"</span> + month + <span class="string">"月"</span> + day + <span class="string">"日"</span>);</div></pre></td></tr></table></figure>
-</li>
-</ul>
+
+* get(日历字段): 获得指定日历字段的值
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Calendar c = Calendar.getInstance();</div><div class="line"><span class="comment">// 获取年份</span></div><div class="line"><span class="keyword">int</span> year = c.get(Calendar.YEAR);</div><div class="line"><span class="comment">// 获取月份</span></div><div class="line"><span class="keyword">int</span> month = c.get(Calendar.MONTH) + <span class="number">1</span>;</div><div class="line"><span class="comment">// 获取天数</span></div><div class="line"><span class="keyword">int</span> day = c.get(Calendar.DAY_OF_MONTH);</div><div class="line">System.out.println(year + <span class="string">"年"</span> + month + <span class="string">"月"</span> + day + <span class="string">"日"</span>);</div></pre></td></tr></table></figure>
 <pre><code>* getTime() 把日历对象,转成Date日期对象
 * set(int field,int value)  设置指定的时间
   field 设置的是哪个日历字段 
