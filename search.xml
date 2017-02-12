@@ -107,15 +107,9 @@
     1. 2和3中,将字节数组转成字符串,会通过使用机器操作系统的默认编码表(GBK)解码byte数组,构造新的String
        Java语言使用的就是unicode(字符串用GBK，字符用unicode码表)
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">byte</span>[] bytes = &#123;<span class="number">97</span>,<span class="number">98</span>,-<span class="number">99</span>,-<span class="number">100</span>,-<span class="number">112</span>&#125;;</div><div class="line"><span class="comment">//调用String类的构造方法,传递字节数组</span></div><div class="line">String s = <span class="keyword">new</span> String(bytes);</div><div class="line">System.out.println(s);  <span class="comment">//打印结果为 ab潨?</span></div><div class="line"><span class="comment">//汉字的字节编码就是负数, 两个负数代表一个汉字, 多一个负数,会打出?</span></div><div class="line"></div><div class="line"><span class="keyword">byte</span>[] bytes1 =&#123;<span class="number">65</span>,<span class="number">66</span>,<span class="number">67</span>,<span class="number">68</span>,<span class="number">69</span>&#125;;</div><div class="line"><span class="comment">//调用String构造方法,传递数组,传递2个int值,offset代表数组的起始的索引,length代表转的个数</span></div><div class="line">String s1 = <span class="keyword">new</span> String(bytes1,<span class="number">1</span>,<span class="number">3</span>);</div><div class="line">System.out.println(s1);</div></pre></td></tr></table></figure>
-<pre><code>    2. 4和5中,把字符数组转成字符串,如果是字符型数据,不查询编码表
-        char[] c = {97,&apos;8&apos;,&apos;c&apos;,&apos;d&apos;,&apos;e&apos;,&apos;f&apos;};
-        //调用String构造方法,传递字符数组
-        String s = new String(c);
-        System.out.println(s);//打印a8cdef ,97会查编码表ASCii 
-
-        String s1 = new String(c,1,4);
-        System.out.println(s1);//打印8cde
-* String的常用判断方法
+<pre><code>2. 4和5中,把字符数组转成字符串,如果是字符型数据,不查询编码表
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span>[] c = &#123;<span class="number">97</span>,<span class="string">'8'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'e'</span>,<span class="string">'f'</span>&#125;;</div><div class="line"><span class="comment">//调用String构造方法,传递字符数组</span></div><div class="line">String s = <span class="keyword">new</span> String(c);</div><div class="line">System.out.println(s);<span class="comment">//打印a8cdef ,97会查编码表ASCii </span></div><div class="line">	</div><div class="line">String s1 = <span class="keyword">new</span> String(c,<span class="number">1</span>,<span class="number">4</span>);</div><div class="line">System.out.println(s1);<span class="comment">//打印8cde</span></div></pre></td></tr></table></figure>
+<pre><code>* String的常用判断方法
     1. boolean equals(Object obj):比较字符串的内容是否相同,区分大小写
     2. boolean equalsIgnoreCase(String str):比较字符串的内容是否相同,忽略大小写
     3. boolean contains(String str):判断大字符串中是否包含小字符串
