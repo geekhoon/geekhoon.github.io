@@ -1320,7 +1320,7 @@ Integer类型:
     <link href="https://geekhoon.github.io/2017/01/09/%E5%9F%BA%E7%A1%80%E9%A2%98%E7%9B%AE/"/>
     <id>https://geekhoon.github.io/2017/01/09/基础题目/</id>
     <published>2017-01-09T12:40:20.000Z</published>
-    <updated>2017-02-10T13:59:21.709Z</updated>
+    <updated>2017-02-12T14:06:25.486Z</updated>
     
     <content type="html"><![CDATA[<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><pre><code>1. JAVA语言中的字符char可以存储一个中文汉字吗?原因?
 </code></pre><a id="more"></a>       
@@ -1354,29 +1354,31 @@ System.out.println(&quot;hello&quot;+(&apos;a&apos;+1));
     (4)最后将数组最后一个角标为奇数的元素 和数组中第一个角标为奇数的元素交换
     (5)打印最终的数组(实现了1-4步之后的数组)
     (6)如：用户输入的6个int数字为[1,2,3,4,5,6],最后输出的结果为[6, 5, 4, 1, 2, 3]
-</code></pre><h3 id="ASCII编码及char类型的存储"><a href="#ASCII编码及char类型的存储" class="headerlink" title="ASCII编码及char类型的存储"></a>ASCII编码及char类型的存储</h3><ul>
-<li><p>American Standard Code for Information Interchange，美国标准信息交换代码<br>   ASCII编码，统一规定了常用符号用哪些二进制数来表示。</p>
-<pre><code>数字0-9对应ASCII编码十进制为48-57
-字母A-Z对应ASCII编码十进制为65-90
-字母a-z对应ASCII编码十进制为97-122
-</code></pre></li>
-<li><p>取值范围</p>
-<pre><code>* short:占两个字节,是有符号数据,取值范围-32768-32767
-* char: 占两个字节,是无符号数据,取值范围0-65535
-</code></pre></li>
-<li><p>题目:<br>  输出所有英文字母</p>
-<h3 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h3><ol>
-<li>Student类中有一个私有化空参构造方法, 写一个方法来new一个Student对象,且只能被创建一次</li>
-<li>请编写一个抽象类Phone,两个抽象方法,call()  sendMessage()<br>   两个子类OldPhone 和 NewPhone , 其中NewPhone想添加一个玩游戏的功能.<br>   请根据接口的思想实现,并用匿名内部类的方式调用玩游戏的功能.</li>
-<li>局部内部类访问局部变量, 该局部变量必须使用哪个关键子修饰,为什么</li>
-<li><p>内部类完整测试,包括各种内部类类型,及使用public,默认类型,private,访问内部类方式</p>
-<h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><p>1.分析以下需求，并用代码实现：<br>(1)定义数字字符串数组{“010”,”3223”,”666”,”7890987”,”123123”}<br>(2)判断该数字字符串数组中的数字字符串是否是对称(第一个数字和最后一个数字相等，第二个数字和倒数第二个数字是相等的，依次类推)的，并逐个输出<br>(3)如：010 是对称的，3223 是对称的，123123 不是对称的<br>(4)最终打印该数组中对称字符串的个数</p>
-<p>提示：循环获取字符串的每一个字符，依次比较第一个和最后一个，第二个和倒数第二个。。。</p>
-</li>
-</ol>
-</li>
-</ul>
-]]></content>
+</code></pre><h3 id="ASCII编码及char类型的存储"><a href="#ASCII编码及char类型的存储" class="headerlink" title="ASCII编码及char类型的存储"></a>ASCII编码及char类型的存储</h3><pre><code>* American Standard Code for Information Interchange，美国标准信息交换代码
+     ASCII编码，统一规定了常用符号用哪些二进制数来表示。
+        数字0-9对应ASCII编码十进制为48-57
+        字母A-Z对应ASCII编码十进制为65-90
+        字母a-z对应ASCII编码十进制为97-122
+
+* 取值范围
+    * short:占两个字节,是有符号数据,取值范围-32768-32767
+    * char: 占两个字节,是无符号数据,取值范围0-65535
+* 题目:
+    输出所有英文字母
+</code></pre><h3 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h3><pre><code>1. Student类中有一个私有化空参构造方法, 写一个方法来new一个Student对象,且只能被创建一次
+2.  请编写一个抽象类Phone,两个抽象方法,call()  sendMessage()
+       两个子类OldPhone 和 NewPhone , 其中NewPhone想添加一个玩游戏的功能. 
+       请根据接口的思想实现,并用匿名内部类的方式调用玩游戏的功能.
+3. 局部内部类访问局部变量, 该局部变量必须使用哪个关键子修饰,为什么
+4. 内部类完整测试,包括各种内部类类型,及使用public,默认类型,private,访问内部类方式
+</code></pre><h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><pre><code>1.分析以下需求，并用代码实现：
+    (1)定义数字字符串数组{&quot;010&quot;,&quot;3223&quot;,&quot;666&quot;,&quot;7890987&quot;,&quot;123123&quot;}
+    (2)判断该数字字符串数组中的数字字符串是否是对称(第一个数字和最后一个数字相等，第二个数字和倒数第二个数字是相等的，依次类推)的，并逐个输出
+    (3)如：010 是对称的，3223 是对称的，123123 不是对称的
+    (4)最终打印该数组中对称字符串的个数
+
+    提示：循环获取字符串的每一个字符，依次比较第一个和最后一个，第二个和倒数第二个。。。
+</code></pre>]]></content>
     
     <summary type="html">
     
