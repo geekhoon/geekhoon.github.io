@@ -82,7 +82,7 @@
     * String toString()
       返回对象的地址值。(对象调用toString()默认不用写,自动调用)
       我们一般会在子类中重写toString方法来返回对象的内容
-</code></pre><h4 id="String类"><a href="#String类" class="headerlink" title="String类"></a>String类</h4><pre><code>* 特点: 1. 字符串是一个常量,一旦创建,不可改变
+</code></pre><h3 id="String类"><a href="#String类" class="headerlink" title="String类"></a>String类</h3><pre><code>* 特点: 1. 字符串是一个常量,一旦创建,不可改变
           如String str = &quot;abc&quot; 不变指的是&quot; &quot;内的值不变,不是str的值不可变
         2. 所有的 &quot;&quot; 都是String类的对象
 * 注意: 
