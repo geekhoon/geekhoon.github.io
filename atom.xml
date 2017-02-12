@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-02-10T10:11:10.524Z</updated>
+  <updated>2017-02-11T03:12:43.372Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -16,17 +16,40 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>14.正则表达式</title>
+    <link href="https://geekhoon.github.io/2017/02/11/14-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    <id>https://geekhoon.github.io/2017/02/11/14-正则表达式/</id>
+    <published>2017-02-11T03:12:43.000Z</published>
+    <updated>2017-02-11T03:12:43.372Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>13.API</title>
     <link href="https://geekhoon.github.io/2017/02/10/13-API/"/>
     <id>https://geekhoon.github.io/2017/02/10/13-API/</id>
     <published>2017-02-10T02:50:27.000Z</published>
-    <updated>2017-02-10T10:11:10.524Z</updated>
+    <updated>2017-02-10T17:30:24.823Z</updated>
     
     <content type="html"><![CDATA[<h3 id="API概念"><a href="#API概念" class="headerlink" title="API概念"></a>API概念</h3><pre><code>* API(Application Programming Interface) 
   应用程序编程接口
 * Java API
-  Java提供给我们使用的类，这些类将底层的实现封装了起来
+  Java jdk给我们提供好的类
 </code></pre><h3 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h3><pre><code>* 所有类的父类
+* 常用方法
+    * ` boolean equals(Object obj){} `
+      比较两个对象的地址值是否一致
+
+    * `String toString()` 
+      返回对象的地址值。我们一般会在子类中重写toString方法来返回对象的内容
+</code></pre><h4 id="String"><a href="#String" class="headerlink" title="String"></a>String</h4><pre><code>* 特点: 字符串是一个常量,一旦创建,不可改变
+  如`String str = &quot;abc&quot;` 不变指的是&quot; &quot;内的值不变,不是str的值不可变
+* 注意: 只有显示定义的字符串才会存在于常量池中,
 </code></pre>]]></content>
     
     <summary type="html">
@@ -1146,7 +1169,7 @@ System.out.println(&quot;hello&quot;+(&apos;a&apos;+1));
     <link href="https://geekhoon.github.io/2017/01/09/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
     <id>https://geekhoon.github.io/2017/01/09/常用快捷键/</id>
     <published>2017-01-09T09:50:28.000Z</published>
-    <updated>2017-02-08T03:25:58.529Z</updated>
+    <updated>2017-02-11T08:25:15.456Z</updated>
     
     <content type="html"><![CDATA[<h3 id="1-Dos"><a href="#1-Dos" class="headerlink" title="1.Dos"></a>1.Dos</h3><pre><code>* Shift + 右键    : 当前文件夹下打开dos
 * Tab             : 注意dos下,&quot;Tab键&quot;的使用,可方便输入
@@ -1177,6 +1200,9 @@ System.out.println(&quot;hello&quot;+(&apos;a&apos;+1));
 * Ctrl+Shift+F        :格式化当前代码
 * Ctrl+点击 / F3        :查看源码
 * Ctrl+Shift+S        :生成构造方法,get/set
+* Ctrl+Shift+O        :导包
+* Ctrl+2(松手) 再L    :写完方法后,自动接收返回值
+* Alt+Shift+R        :统一修改同名变量名
 </code></pre>]]></content>
     
     <summary type="html">
