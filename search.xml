@@ -175,8 +175,8 @@
    1. public StringBuffer():无参构造方法
    2. public StringBuffer(String str) :向StringBuffer对象中插入一个字符串
  * 常用方法
-    1. StringBuffer append(), 将任意类型的数据,添加缓冲区
-          * 调用者是谁,返回值就是谁
+   1. StringBuffer append(), 将任意类型的数据,添加缓冲区
+      * 调用者是谁,返回值就是谁
    2. delete(int start,int end): 删除缓冲区中字符
       * 开始索引包含,结尾索引不包含
    3. insert(int index, 任意类型): 将任意类型数据,插入到缓冲区的指定索引上
