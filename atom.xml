@@ -100,22 +100,141 @@
     <link href="https://geekhoon.github.io/2017/02/10/13-API/"/>
     <id>https://geekhoon.github.io/2017/02/10/13-API/</id>
     <published>2017-02-10T02:50:27.000Z</published>
-    <updated>2017-02-12T10:32:20.027Z</updated>
+    <updated>2017-02-12T13:43:24.392Z</updated>
     
     <content type="html"><![CDATA[<h3 id="API概念"><a href="#API概念" class="headerlink" title="API概念"></a>API概念</h3><pre><code>* API(Application Programming Interface) 
   应用程序编程接口
 * Java API
   Java jdk给我们提供好的类
-</code></pre><h3 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h3><pre><code>* 所有类的父类
+</code></pre><a id="more"></a>
+<h3 id="Object类"><a href="#Object类" class="headerlink" title="Object类"></a>Object类</h3><pre><code>* 所有类的父类
 * 常用方法
-    * ` boolean equals(Object obj){} `
+    * boolean equals(Object obj){}
       比较两个对象的地址值是否一致
 
-    * `String toString()` 
-      返回对象的地址值。我们一般会在子类中重写toString方法来返回对象的内容
-</code></pre><h4 id="String"><a href="#String" class="headerlink" title="String"></a>String</h4><pre><code>* 特点: 字符串是一个常量,一旦创建,不可改变
-  如`String str = &quot;abc&quot;` 不变指的是&quot; &quot;内的值不变,不是str的值不可变
-* 注意: 只有显示定义的字符串才会存在于常量池中,
+    * String toString()
+      返回对象的地址值。(对象调用toString()默认不用写,自动调用)
+      我们一般会在子类中重写toString方法来返回对象的内容
+</code></pre><h4 id="String类"><a href="#String类" class="headerlink" title="String类"></a>String类</h4><pre><code>* 特点: 1. 字符串是一个常量,一旦创建,不可改变
+          如`String str = &quot;abc&quot;` 不变指的是&quot; &quot;内的值不变,不是str的值不可变
+        2. 所有的 &quot;&quot; 都是String类的对象
+* 注意: 
+    1. 只有显示定义的字符串才会存在于常量池中
+        * JDK1.6及以前, 常量池位于方法区
+        * JDK1.7之后, 常量池位于堆中
+    2. 源码分析,String类底层采用的是字符数组 
+        字符串的本质是一个char数组, 字符串以字符形式存储于常量池中  
+* String类创建方式和比较
+    1. String s1 = &quot;abc&quot;;
+       在内存中只有一个对象。这个对象在字符串常量池中
+    2. String s2 = new String(&quot;abc&quot;);
+       在内存中有两个对象。一个new的对象在堆中，一个字符串本身对象，在字符串常量池中
+* String类常见构造方法
+    1. public String():空构造
+    2. public String(byte[] bytes):把字节数组转成字符串
+    3. public String(byte[] bytes,int offset,int length):把字节数组的一部分转成字符串 
+     4. public String(char[] value):把字符数组转成字符串
+      5. public String(char[] value,int offset,int count):把字符数组的一部分转成字符串
+      6. public String(String original):把字符串常量值转成字符串
+    注意: 
+    1. 2和3中,将字节数组转成字符串,会通过使用机器操作系统的默认编码表(GBK)解码byte数组,构造新的String
+       Java语言使用的就是unicode(字符串用GBK，字符用unicode码表)
+        byte[] bytes = {97,98,-99,-100,-112};
+        //调用String类的构造方法,传递字节数组
+        String s = new String(bytes);
+        System.out.println(s);  //打印结果为 ab潨?
+        //汉字的字节编码就是负数, 两个负数代表一个汉字, 多一个负数,会打出?
+
+        byte[] bytes1 ={65,66,67,68,69};
+        //调用String构造方法,传递数组,传递2个int值,offset代表数组的起始的索引,length代表转的个数
+        String s1 = new String(bytes1,1,3);
+        System.out.println(s1);
+    2. 4和5中,把字符数组转成字符串,如果是字符型数据,不查询编码表
+        char[] c = {97,&apos;8&apos;,&apos;c&apos;,&apos;d&apos;,&apos;e&apos;,&apos;f&apos;};
+        //调用String构造方法,传递字符数组
+        String s = new String(c);
+        System.out.println(s);//打印a8cdef ,97会查编码表ASCii 
+
+        String s1 = new String(c,1,4);
+        System.out.println(s1);//打印8cde
+* String的常用判断方法
+    1. boolean equals(Object obj):比较字符串的内容是否相同,区分大小写
+    2. boolean equalsIgnoreCase(String str):比较字符串的内容是否相同,忽略大小写
+    3. boolean contains(String str):判断大字符串中是否包含小字符串
+    4. boolean startsWith(String str):判断字符串是否以某个指定的字符串开头
+    5. boolean endsWith(String str):判断字符串是否以某个指定的字符串结尾
+    6. boolean isEmpty():判断字符串是否为空。
+* String类的获取功能
+    1. int length():获取字符串的长度。
+    2. char charAt(int index):获取指定索引位置的字符
+    3. int indexOf(int ch):返回指定字符在此字符串中第一次出现处的索引。被查找的字符不存在,返回-1
+    4. int indexOf(String str):返回指定字符串在此字符串中第一次出现处的索引。
+    5. String substring(int start):从指定位置开始截取字符串,默认到末尾。
+    6. String substring(int start,int end):从指定位置开始到指定位置结束截取字符串。(包含头，不包含尾)
+    7. char[] toCharArray() 将字符串转成字符数组
+    8. byte[] getBytes() 将字符串转成字节数组 (byte数组相关的功能,查询编码表)
+    9. String toUpperCase();转成大写
+    10. String toLowerCase();转成小写
+* String的替换功能
+    1. String replace(char old,char new)
+    2. String replace(String old,String new)
+     注：如果要被替换字符或字符串在原字符串中不存在，则返回原字符串。
+* 空串与null区别 
+    * &quot;&quot;是字符串常量,同时也是一个String类的对象,既然是对象当然可以调用String类中的方法
+     * null是空常量,不能调用任何的方法,否则会出现空指针异常,null常量可以给任意的引用数据类型赋值
+     * 声明一个String str
+       如果说str是null，那么内存根本没有创建字符串对象，没有str引用。
+       如果说str是空串，那么确定存在一个由str引用的字符串对象，只不过这个字符串的值是空。
+       null用来表示没有实例存在，而“”本身就是一个实例，有自己的对象空间，和“123456”这样的字符串没有区别。
+    使用注意事项：
+        对象用equals比较，null用等号比较。因此，如果str1=null;下面的写法运行会有错误： 
+        if(str1.equals(&quot;&quot;)||str1==null){//当str1为null, str1.equals(&quot;&quot;)会报空指针异常
+          //。。。。 
+        } 
+        正确的写法是 
+        if(str1==null||str1.equals(&quot;&quot;)){ //先判断是不是对象，如果不是， 不需要判断是不是空字符串 
+            //... 
+        }
+</code></pre><h3 id="StringBuffer类"><a href="#StringBuffer类" class="headerlink" title="StringBuffer类"></a>StringBuffer类</h3><pre><code>* 概述
+    * 字符串缓冲区 
+    * 线程安全的可变字符序列 
+    * 底层采用字符数组实现,初始容量为16
+* StringBuffer和String的区别
+    * String是一个不可变的字符序列
+    * StringBuffer是一个可变的字符序列
+    其实字符串String的底层也是用StringBuffer来完成的。
+    比如：String str = &quot;abc&quot; + 4 + &apos;c&apos;;
+    这句话的底层其实就是：
+    String str = new StringBuffer().append(&quot;abc&quot;).append(4).append(&apos;c&apos;).toString();
+* StringBuffer和数组容器的区别？ 
+    1. 数组容器是固定长度的。
+       StringBuffer是可变长度的。
+    2. 数组容器一旦初始化就明确了元素的类型。
+       StringBuffer可以存储任意类型。包括基本和引用。
+    3. 数组存储完元素可以对元素进行操作（通过角标）。
+       StringBuffer存储完元素后，都会变成字符串，只能用字符串的方法来操作。
+* 特点
+   1. 缓冲区就是用来缓存数据，意味着它是一个容器。
+   2. 该容器的长度是可变的。 
+   3. 提供了对容器中内容的操作的方法(最多无外乎四种：增删改查.)
+   4. 该缓冲区中可以添加多种类型的元素，基本类型和引用类型。 
+   5. 无论怎么样的改变容器中的数据，最终要使用结果，还是必须要将其转成字符串，使用toString方法。
+* 构造方法
+   1. public StringBuffer():无参构造方法
+   2. public StringBuffer(String str) :向StringBuffer对象中插入一个字符串
+ * 常用方法
+    1. StringBuffer append(), 将任意类型的数据,添加缓冲区
+          * 调用者是谁,返回值就是谁
+   2. delete(int start,int end): 删除缓冲区中字符
+      * 开始索引包含,结尾索引不包含
+   3. insert(int index, 任意类型): 将任意类型数据,插入到缓冲区的指定索引上
+   4. replace(int start,int end, String str): 将指定的索引范围内的所有字符,替换成新的字符串
+   5. reverse(): 将缓冲区中的字符反转
+   6. String toString(): 继承Object,重写toString()
+      * 将缓冲区中的所有字符,变成字符串
+</code></pre><h3 id="StringBuilder类"><a href="#StringBuilder类" class="headerlink" title="StringBuilder类"></a>StringBuilder类</h3><pre><code>* StringBuffer和StringBuilder的区别
+    * StringBuffer是jdk1.0版本的,是线程安全的,效率低
+    * StringBuilder是jdk1.5版本的,是线程不安全的,效率高
 </code></pre><h3 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h3><pre><code>* 日期类
 * 毫秒值
     * 获取当前日期的毫秒值
@@ -171,12 +290,15 @@
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 让日历中的天数,向后偏移30天</span></div><div class="line">c.add(Calendar.DAY_OF_MONTH, <span class="number">30</span>);</div></pre></td></tr></table></figure>
 <pre><code>* 练习: 
 1.输入年份,判断是否为闰年
-</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">judge</span><span class="params">()</span></span>&#123;</div><div class="line">		System.out.println(<span class="string">"请输入一个年份: "</span>);</div><div class="line">		<span class="keyword">int</span> year = <span class="keyword">new</span> Scanner(System.in).nextInt();</div><div class="line">		 Calendar c = Calendar.getInstance();</div><div class="line">		 <span class="comment">//把日期设置成输入年份,当年的3月1日</span></div><div class="line">		 c.set(year, <span class="number">2</span>, <span class="number">1</span>);</div><div class="line">		 <span class="comment">//利用偏移方法,前移一天,get二月的天数</span></div><div class="line">		 c.add(Calendar.DAY_OF_MONTH, -<span class="number">1</span>);</div><div class="line">		 <span class="comment">//闰年29天</span></div><div class="line">		 <span class="keyword">if</span>(c.get(Calendar.DAY_OF_MONTH) == <span class="number">29</span>)&#123;</div><div class="line">			 System.out.println(<span class="string">"闰年"</span>);</div><div class="line">		 &#125;<span class="keyword">else</span>&#123;</div><div class="line">			 <span class="comment">//平年28天</span></div><div class="line">			 System.out.println(<span class="string">"平年"</span>);</div><div class="line">		 &#125;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>]]></content>
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">judge</span><span class="params">()</span></span>&#123;</div><div class="line">	System.out.println(<span class="string">"请输入一个年份: "</span>);</div><div class="line">	<span class="keyword">int</span> year = <span class="keyword">new</span> Scanner(System.in).nextInt();</div><div class="line">	 Calendar c = Calendar.getInstance();</div><div class="line">	 <span class="comment">//把日期设置成输入年份,当年的3月1日</span></div><div class="line">	 c.set(year, <span class="number">2</span>, <span class="number">1</span>);</div><div class="line">	 <span class="comment">//利用偏移方法,前移一天,get二月的天数</span></div><div class="line">	 c.add(Calendar.DAY_OF_MONTH, -<span class="number">1</span>);</div><div class="line">	 <span class="comment">//闰年29天</span></div><div class="line">	 <span class="keyword">if</span>(c.get(Calendar.DAY_OF_MONTH) == <span class="number">29</span>)&#123;</div><div class="line">		 System.out.println(<span class="string">"闰年"</span>);</div><div class="line">	 &#125;<span class="keyword">else</span>&#123;</div><div class="line">		 <span class="comment">//平年28天</span></div><div class="line">		 System.out.println(<span class="string">"平年"</span>);</div><div class="line">	 &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       &lt;h3 id=&quot;API概念&quot;&gt;&lt;a href=&quot;#API概念&quot; class=&quot;headerlink&quot; title=&quot;API概念&quot;&gt;&lt;/a&gt;API概念&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;* API(Application Programming Interface) 
-  应用程序编程
+  应用程序编程接口
+* Java API
+  Java jdk给我们提供好的类
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     
