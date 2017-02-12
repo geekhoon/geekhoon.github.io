@@ -98,7 +98,7 @@
   应用程序编程接口
 * Java API
   Java jdk给我们提供好的类">
-<meta property="og:updated_time" content="2017-02-12T13:43:24.392Z">
+<meta property="og:updated_time" content="2017-02-12T13:56:23.970Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="13.API">
 <meta name="twitter:description" content="API概念* API(Application Programming Interface) 
@@ -399,7 +399,7 @@
       返回对象的地址值。(对象调用toString()默认不用写,自动调用)
       我们一般会在子类中重写toString方法来返回对象的内容
 </code></pre><h4 id="String类"><a href="#String类" class="headerlink" title="String类"></a>String类</h4><pre><code>* 特点: 1. 字符串是一个常量,一旦创建,不可改变
-          如`String str = &quot;abc&quot;` 不变指的是&quot; &quot;内的值不变,不是str的值不可变
+          如String str = &quot;abc&quot; 不变指的是&quot; &quot;内的值不变,不是str的值不可变
         2. 所有的 &quot;&quot; 都是String类的对象
 * 注意: 
     1. 只有显示定义的字符串才会存在于常量池中
@@ -416,23 +416,14 @@
     1. public String():空构造
     2. public String(byte[] bytes):把字节数组转成字符串
     3. public String(byte[] bytes,int offset,int length):把字节数组的一部分转成字符串 
-     4. public String(char[] value):把字符数组转成字符串
-      5. public String(char[] value,int offset,int count):把字符数组的一部分转成字符串
-      6. public String(String original):把字符串常量值转成字符串
+    4. public String(char[] value):把字符数组转成字符串
+    5. public String(char[] value,int offset,int count):把字符数组的一部分转成字符串
+    6. public String(String original):把字符串常量值转成字符串
     注意: 
     1. 2和3中,将字节数组转成字符串,会通过使用机器操作系统的默认编码表(GBK)解码byte数组,构造新的String
        Java语言使用的就是unicode(字符串用GBK，字符用unicode码表)
-        byte[] bytes = {97,98,-99,-100,-112};
-        //调用String类的构造方法,传递字节数组
-        String s = new String(bytes);
-        System.out.println(s);  //打印结果为 ab潨?
-        //汉字的字节编码就是负数, 两个负数代表一个汉字, 多一个负数,会打出?
-
-        byte[] bytes1 ={65,66,67,68,69};
-        //调用String构造方法,传递数组,传递2个int值,offset代表数组的起始的索引,length代表转的个数
-        String s1 = new String(bytes1,1,3);
-        System.out.println(s1);
-    2. 4和5中,把字符数组转成字符串,如果是字符型数据,不查询编码表
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">byte</span>[] bytes = &#123;<span class="number">97</span>,<span class="number">98</span>,-<span class="number">99</span>,-<span class="number">100</span>,-<span class="number">112</span>&#125;;</div><div class="line"><span class="comment">//调用String类的构造方法,传递字节数组</span></div><div class="line">String s = <span class="keyword">new</span> String(bytes);</div><div class="line">System.out.println(s);  <span class="comment">//打印结果为 ab潨?</span></div><div class="line"><span class="comment">//汉字的字节编码就是负数, 两个负数代表一个汉字, 多一个负数,会打出?</span></div><div class="line"></div><div class="line"><span class="keyword">byte</span>[] bytes1 =&#123;<span class="number">65</span>,<span class="number">66</span>,<span class="number">67</span>,<span class="number">68</span>,<span class="number">69</span>&#125;;</div><div class="line"><span class="comment">//调用String构造方法,传递数组,传递2个int值,offset代表数组的起始的索引,length代表转的个数</span></div><div class="line">String s1 = <span class="keyword">new</span> String(bytes1,<span class="number">1</span>,<span class="number">3</span>);</div><div class="line">System.out.println(s1);</div></pre></td></tr></table></figure>
+<pre><code>    2. 4和5中,把字符数组转成字符串,如果是字符型数据,不查询编码表
         char[] c = {97,&apos;8&apos;,&apos;c&apos;,&apos;d&apos;,&apos;e&apos;,&apos;f&apos;};
         //调用String构造方法,传递字符数组
         String s = new String(c);
