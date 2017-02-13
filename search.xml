@@ -131,7 +131,9 @@
     1. String replace(char old,char new)
     2. String replace(String old,String new)
     3. String replaceFirst(String regex, String replacement) 
-       使用给定的 replacement 替换此字符串匹配给定的正则表达式的第一个子字符串。
+        使用给定的 replacement 替换此字符串匹配给定的正则表达式的第一个子字符串。
+    4. String replaceAll(String regex, String replacement) 
+        使用给定的 replacement 替换此字符串所有匹配给定的正则表达式的子字符串。
      注：如果要被替换字符或字符串在原字符串中不存在，则返回原字符串。
 * 空串与null区别 
     * &quot;&quot;是字符串常量,同时也是一个String类的对象,既然是对象当然可以调用String类中的方法
@@ -244,7 +246,171 @@
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 让日历中的天数,向后偏移30天</span></div><div class="line">c.add(Calendar.DAY_OF_MONTH, <span class="number">30</span>);</div></pre></td></tr></table></figure>
 <pre><code>* 练习: 
 1.输入年份,判断是否为闰年
-</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">judge</span><span class="params">()</span></span>&#123;</div><div class="line">	System.out.println(<span class="string">"请输入一个年份: "</span>);</div><div class="line">	<span class="keyword">int</span> year = <span class="keyword">new</span> Scanner(System.in).nextInt();</div><div class="line">	 Calendar c = Calendar.getInstance();</div><div class="line">	 <span class="comment">//把日期设置成输入年份,当年的3月1日</span></div><div class="line">	 c.set(year, <span class="number">2</span>, <span class="number">1</span>);</div><div class="line">	 <span class="comment">//利用偏移方法,前移一天,get二月的天数</span></div><div class="line">	 c.add(Calendar.DAY_OF_MONTH, -<span class="number">1</span>);</div><div class="line">	 <span class="comment">//闰年29天</span></div><div class="line">	 <span class="keyword">if</span>(c.get(Calendar.DAY_OF_MONTH) == <span class="number">29</span>)&#123;</div><div class="line">		 System.out.println(<span class="string">"闰年"</span>);</div><div class="line">	 &#125;<span class="keyword">else</span>&#123;</div><div class="line">		 <span class="comment">//平年28天</span></div><div class="line">		 System.out.println(<span class="string">"平年"</span>);</div><div class="line">	 &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">judge</span><span class="params">()</span></span>&#123;</div><div class="line">	System.out.println(<span class="string">"请输入一个年份: "</span>);</div><div class="line">	<span class="keyword">int</span> year = <span class="keyword">new</span> Scanner(System.in).nextInt();</div><div class="line">	 Calendar c = Calendar.getInstance();</div><div class="line">	 <span class="comment">//把日期设置成输入年份,当年的3月1日</span></div><div class="line">	 c.set(year, <span class="number">2</span>, <span class="number">1</span>);</div><div class="line">	 <span class="comment">//利用偏移方法,前移一天,get二月的天数</span></div><div class="line">	 c.add(Calendar.DAY_OF_MONTH, -<span class="number">1</span>);</div><div class="line">	 <span class="comment">//闰年29天</span></div><div class="line">	 <span class="keyword">if</span>(c.get(Calendar.DAY_OF_MONTH) == <span class="number">29</span>)&#123;</div><div class="line">		 System.out.println(<span class="string">"闰年"</span>);</div><div class="line">	 &#125;<span class="keyword">else</span>&#123;</div><div class="line">		 <span class="comment">//平年28天</span></div><div class="line">		 System.out.println(<span class="string">"平年"</span>);</div><div class="line">	 &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="基本类型包装类"><a href="#基本类型包装类" class="headerlink" title="基本类型包装类"></a>基本类型包装类</h3><pre><code>* 可以将字符串转换成对应的基本数据类型
+* 八种基本类型对应的包装类:
+   char    Character
+   int     Integer
+   byte    Byte
+   short   Short
+   long    Long
+   float   Float
+   double  Double
+   boolean Boolean
+</code></pre><h3 id="Integer"><a href="#Integer" class="headerlink" title="Integer"></a>Integer</h3><pre><code>* int对应的包装类
+* 构造方法
+  Integer(String s) : 将数字格式的字符串作为参数
+  如: Integer i = new Integer(&quot;100&quot;);
+      int num = i.intValue();
+    //intValue()方法返回值为int类型,以 int 类型返回该 Integer 的值
+    //后面哟用到自动装箱可以直接 Integer i = 100;
+* int与String之间互转方法
+   1. 字符串转为int
+      (1)static int parseInt(String s) :要求s要是数字形式的字符串
+     (2)static int parseINt(String s,int radix) : 将指定进制的字符串转成十进制的int类型
+     注意: parseInt方法的最后返回值都是十进制的int类型
+       如: radix为2 ,则将2进制的String s转成10进制的int
+   2. int转为字符串
+        (1)方式一: 添加空字符串
+        int i = 3;
+        String str = i + &quot;&quot; ;
+     (2)方式二: 
+        * static String toString(int i): 
+          注意这个方法不是Object类中toString的重写,因为Object类在tOString是空参方法
+        * static String toString(int i,int radix):
+          将int类型的数据转成radix进制的数字形式的字符串
+        注意:　Java中最高支持36进制, 0-9A-Z
+* 其他方法: 
+  * 两个静态成员变量: 
+      * MAX_VALUE : int范围最大值
+      * MIN_VALUE
+  * 三个静态方法:
+      　1. toBinarString(int) : 10进制--&gt;2进制
+      　2. toOctalString(int) : 10进制--&gt;8进制
+      　3. toHexString(int)   : 10进制--&gt;16进制
+       三个方法的返回值都是String类型
+</code></pre><h3 id="自动装箱-自动拆箱"><a href="#自动装箱-自动拆箱" class="headerlink" title="自动装箱/自动拆箱"></a>自动装箱/自动拆箱</h3><pre><code>* 概述
+    * 自动装箱: 基本数据类型,直接变成对象
+    * 自动拆箱: 对象中的数据,变回基本数据类型
+* 举例: 
+    * 装箱: Integer i = 1;  //这步的实际操作是 Integer i = new Integer(1);
+    * 拆箱: i = i + 1; 
+            //实际操作是(1) i + 1 为  i.intValue() + 1;
+                       (2) i = 2; 
+* 好处: 基本数据类型与引用类型可以直接计算
+* 坏处: 有可能会抛空指针异常, 如
+        Integer i = null;
+        i = i + 1;
+        System.out.println(i);//会抛异常 
+</code></pre><pre><code class="java">Integer a1 = <span class="number">500</span>;
+Integer b1 = <span class="number">500</span>;
+System.out.println(a1==b1);
+<span class="comment">//因为自动装箱实质上也new了一个Integer对象,所以a1和b1地址值不同,false</span>
+System.out.println(a1.equals(b1));
+<span class="comment">//</span>
+
+Integer a2 = <span class="number">127</span>;
+Integer b2 = <span class="number">127</span>;
+System.out.println(a2==b2);
+System.out.println(a2.equals(b2));
+
+Integer i1 = <span class="number">60</span>;
+Integer i2 = <span class="number">60</span>;
+Integer i3 = <span class="number">60</span> + <span class="number">60</span>;
+Integer i4 = i1 + i2;
+System.out.println(i3 == i4);
+
+String s1 = <span class="string">"he"</span>; 
+String s2 = <span class="string">"llo"</span>; 
+String s3 = <span class="string">"he"</span> + <span class="string">"llo"</span>; 
+String s4 =  s1 + s2;     
+System.out.println(s3 == s4);
+
+<span class="keyword">byte</span> b1 = <span class="number">60</span>;
+<span class="keyword">byte</span> b2 = <span class="number">60</span>;
+<span class="keyword">byte</span> b3 = <span class="number">60</span> + <span class="number">60</span>;
+<span class="keyword">int</span> b4 = (<span class="keyword">byte</span>) (b1 + b2);
+System.out.println(b3 == b4);
+
+Byte by1 = <span class="number">60</span>;
+Byte by2 = <span class="number">60</span>;
+Byte by3 = <span class="number">60</span> + <span class="number">60</span>;
+<span class="keyword">int</span> by4 = by1 + by2;
+System.out.println(by3 == by4);
+</code></pre>
+<h3 id="System类"><a href="#System类" class="headerlink" title="System类"></a>System类</h3><pre><code>* 概述
+    * 不能new, 因为构造方法是private的
+    * 全是静态方法
+* 常用方法
+    1. static long currentMillis() : 获得当前时间毫秒值
+    2. static void exit(int status) : 退出JVM,所有程序停止
+        status传0 ,程序正常退出
+        status传非0 ,程序异常时退出
+    3. static void gc() :  调用垃圾回收器,但不能100%回收
+        对象在被回收前,会调用对象的finalize方法,且只会执行一次
+    4. static Properties getProperties() : 获取JVM和当前操作系统的属性
+    5. static void arrayCopy(Object src, int srcPos, Object dest, int destPos, int length) 
+       复制一个数组
+        src : 要复制的源数组
+        srcPos :　源数组的起始索引
+        dest : 复制后的目标数组
+        destPos : 目标数组起始索引
+        length : 拷贝长度
+</code></pre><h3 id="Math类"><a href="#Math类" class="headerlink" title="Math类"></a>Math类</h3><pre><code>* 概述
+    * 数学计算工具类
+    * java.lang.Math
+    * 全是静态方法
+* 常用方法
+    1. static int abs(int i) : 获取绝对值
+    2. static double ceil(double d) : 返回大于或等于参数d的最小整数(向上取整)
+    3. static double floor(doublr d) : 返回小于或等于参数d的最大整数(向下取整)
+    4. static double pow(double a, double b) : 返回a的b次方
+    5. static double sqrt(double a) : 开方
+       输入负数,返回NaN,意思是not a number
+    6. static double random() : 返回随机数0.0-1.0, [0.0-1.0)
+    7. static double round(double d) : 获取d的四舍五入的值
+        5.415622 得 5.0
+        5.5222455555 得 6.0  
+</code></pre><h3 id="Arrays类"><a href="#Arrays类" class="headerlink" title="Arrays类"></a>Arrays类</h3><pre><code>* 概述
+    * 数组工具类 
+    * 位于java.util.Arrays
+    * 全是静态方法
+* 常用方法
+    1. static void sort(数组) : 将数组进行升序排序
+    2. static int binarySearch(数组,查找元素) :　返回查找元素在数组中的索引
+    　  注意:　查找元素不存在时，返回(-插入点 - 1)
+    3. static String toString(数组) : 将数组变成字符串
+</code></pre><h3 id="大数据运算"><a href="#大数据运算" class="headerlink" title="大数据运算"></a>大数据运算</h3><h4 id="BigInteger类"><a href="#BigInteger类" class="headerlink" title="BigInteger类"></a>BigInteger类</h4><pre><code>* 概述
+    * 将一个超大整数封装到BigInteger对象中
+    * java.math.BigInteger
+* 构造方法
+    * BigInteger(String num) :  将BigInteger的十进制字符串表示形式转换为BigInteger对象。
+* 四则运算(结果也是BigInteger对象)
+    * 加  BigInteger add(BigInteger val) 
+      BigInteger b = b1.add(b2);
+    * 减  BigInteger subtract(BigInteger val)  
+    * 乘  BigInteger multiply(BigInteger val)  
+    * 除  BigInteger divide(BigInteger val) 
+</code></pre><h4 id="BigDecimal类"><a href="#BigDecimal类" class="headerlink" title="BigDecimal类"></a>BigDecimal类</h4><pre><code>* 概述
+    * 解决浮点数计算不准确的问题
+* 构造方法
+    * BigDecimal(String val) :　将 BigDecimal 的字符串表示形式转换为 BigDecimal
+* 三则运算(结果也是BigDecimal对象)
+    * 加  BigDecimal add(BigDecimal val) 
+      BigDecimal b = b1.add(b2);
+    * 减  BigDecimal subtract(BigDecimal val)
+    * 乘  BigDecimal multiply(BigDecimal val)  
+* 除  
+    * divide(BigDecimal val) 除不尽会产生无限不循环小数,抛异常
+    * 用BigDecimal divide(BigDecimal divisor, int scale,  int roundingMode) 
+      scale : 保留几位数
+      roundingMode : 保留模式,写下面这些静态成员变量
+* 静态成员变量
+    * static int ROUND_UP : 向上加１
+    * static int ROUND_DOWN : 直接舍去
+    * static int ROUND_HALF_UP : 如果舍弃部分&gt;=0.5,向上加1,否则直接舍去
+    * static int ROUND_HALF_DOWN : &gt;0.5,向上加1,否则直接舍去
+</code></pre>]]></content>
     </entry>
     
     <entry>
