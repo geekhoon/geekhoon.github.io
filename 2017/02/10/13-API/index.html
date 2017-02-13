@@ -98,7 +98,7 @@
   应用程序编程接口
 * Java API
   Java jdk给我们提供好的类">
-<meta property="og:updated_time" content="2017-02-13T10:29:24.924Z">
+<meta property="og:updated_time" content="2017-02-13T16:07:37.705Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="13.API">
 <meta name="twitter:description" content="API概念* API(Application Programming Interface) 
@@ -625,8 +625,9 @@ System.out.println(a1==b1);
 System.out.println(a1.equals(b1));
 <span class="comment">//</span>
 
-Integer a2 = <span class="number">127</span>;
-Integer b2 = <span class="number">127</span>;
+<span class="comment">//数据在byte范围内,JVM不会重新new对象</span>
+Integer a2 = <span class="number">127</span>;   <span class="comment">//Integer a2 = new Integer(127);</span>
+Integer b2 = <span class="number">127</span>;    <span class="comment">//Integer b2 = a2;</span>
 System.out.println(a2==b2);
 System.out.println(a2.equals(b2));
 

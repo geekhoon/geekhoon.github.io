@@ -100,7 +100,7 @@
     <link href="https://geekhoon.github.io/2017/02/10/13-API/"/>
     <id>https://geekhoon.github.io/2017/02/10/13-API/</id>
     <published>2017-02-10T02:50:27.000Z</published>
-    <updated>2017-02-13T10:29:24.924Z</updated>
+    <updated>2017-02-13T16:07:37.705Z</updated>
     
     <content type="html"><![CDATA[<h3 id="API概念"><a href="#API概念" class="headerlink" title="API概念"></a>API概念</h3><pre><code>* API(Application Programming Interface) 
   应用程序编程接口
@@ -342,8 +342,9 @@ System.out.println(a1==b1);
 System.out.println(a1.equals(b1));
 <span class="comment">//</span>
 
-Integer a2 = <span class="number">127</span>;
-Integer b2 = <span class="number">127</span>;
+<span class="comment">//数据在byte范围内,JVM不会重新new对象</span>
+Integer a2 = <span class="number">127</span>;   <span class="comment">//Integer a2 = new Integer(127);</span>
+Integer b2 = <span class="number">127</span>;    <span class="comment">//Integer b2 = a2;</span>
 System.out.println(a2==b2);
 System.out.println(a2.equals(b2));
 
