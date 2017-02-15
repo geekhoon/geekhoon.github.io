@@ -797,7 +797,7 @@ System.out.println(by3 == by4);
     * 区别:遍历时,集合存储(Integer类型)与(类),调用get()得到的值是有区别的,分别是值与地址
     * 但是类中如果重写了Object的toString()方法,可以打印出内容
 * 四种遍历方式: 
-  1. System.out.println(集合变量名);
+  1. System.out.println(集合变量名);(这个其实不算遍历,只是打印而已)
      这种方式适用于String类型和基本数据类型对应的引用类型如Integer做泛型的情况,如果是自定义类,需要重写toString()
   2. 普通for循环遍历
   3. zengqiangfor循环
@@ -825,6 +825,7 @@ Integer类型:
     * List: 存储有序,有索引,可以重复
         * ArrayList  : 底层依赖的是数组, 查询快, 增删慢
         * LinkedList : 底层依赖的是链表, 查询慢, 增删快
+        * Vector : 线程安全,效率低(过时了)
     * Set : 存储无序,无索引,不能重复
         * HashSet : 顶层使用的是hash算法
             * LinkedHashSet : 可以保证存取有序
@@ -923,7 +924,68 @@ ArrayList类   LinkedList类                                              HashSe
     * 可以匹配所有的数据类型:  ? 
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">	ArrayList&lt;String&gt; array = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">  </div><div class="line">  	HashSet&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;Integer&gt;();</div><div class="line">  </div><div class="line">	  array.add(<span class="string">"123"</span>);</div><div class="line">	  array.add(<span class="string">"456"</span>);</div><div class="line">	  </div><div class="line">	  set.add(<span class="number">789</span>);</div><div class="line">	  set.add(<span class="number">890</span>);</div><div class="line">	  </div><div class="line">	  iterator(array);</div><div class="line">	  iterator(set);</div><div class="line">&#125;</div><div class="line">	<span class="comment">/*</span></div><div class="line">     *  定义方法,可以同时迭代2个集合</div><div class="line">     *  参数:不能写ArrayList,也不能写HashSet,所以可以写它们共同实现的接口</div><div class="line">     *  数据类型写泛型通配符 ?</div><div class="line">     */</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">iterator</span><span class="params">(Collection&lt;?&gt; coll)</span></span>&#123;</div><div class="line">	Iterator&lt;?&gt; it = coll.iterator();</div><div class="line">	<span class="keyword">while</span>(it.hasNext())&#123;</div><div class="line">		<span class="comment">//it.next();  注意这里不能强转,因为要匹配多个集合,不能指定单一类型</span></div><div class="line">		System.out.println(it.next()); <span class="comment">//直接放入打印语句中</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <pre><code>* 泛型限定
-</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">  <span class="comment">//创建3个集合对象</span></div><div class="line">  ArrayList&lt;ChuShi&gt; cs = <span class="keyword">new</span> ArrayList&lt;ChuShi&gt;();</div><div class="line">  ArrayList&lt;FuWuYuan&gt; fwy = <span class="keyword">new</span> ArrayList&lt;FuWuYuan&gt;();</div><div class="line">  ArrayList&lt;JingLi&gt; jl = <span class="keyword">new</span> ArrayList&lt;JingLi&gt;();</div><div class="line">  </div><div class="line">  <span class="comment">//每个集合存储自己的元素</span></div><div class="line">  cs.add(<span class="keyword">new</span> ChuShi(<span class="string">"张三"</span>, <span class="string">"后厨001"</span>));</div><div class="line">  cs.add(<span class="keyword">new</span> ChuShi(<span class="string">"李四"</span>, <span class="string">"后厨002"</span>));</div><div class="line">  </div><div class="line">  fwy.add(<span class="keyword">new</span> FuWuYuan(<span class="string">"翠花"</span>, <span class="string">"服务部001"</span>));</div><div class="line">  fwy.add(<span class="keyword">new</span> FuWuYuan(<span class="string">"酸菜"</span>, <span class="string">"服务部002"</span>));</div><div class="line">  </div><div class="line">  jl.add(<span class="keyword">new</span> JingLi(<span class="string">"小名"</span>, <span class="string">"董事会001"</span>, <span class="number">123456789.32</span>));</div><div class="line">  jl.add(<span class="keyword">new</span> JingLi(<span class="string">"小强"</span>, <span class="string">"董事会002"</span>, <span class="number">123456789.33</span>));</div><div class="line">  </div><div class="line">  ArrayList&lt;String&gt; arrayString = <span class="keyword">new</span> ArrayList&lt;String&gt;();<span class="comment">//1处</span></div><div class="line">  iterator(jl);</div><div class="line">  iterator(fwy);</div><div class="line">  iterator(cs);</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="comment">/*</span></div><div class="line"> * 定义方法,可以同时遍历3集合,遍历三个集合的同时,可以调用工作方法 work</div><div class="line"> * ? 通配符,迭代器it.next()方法取出来的是Object类型,怎么调用work方法</div><div class="line"> * 强制转换: 只写? ,是Object类型 it.next() = Object o ==&gt; Employee</div><div class="line"> * 写完泛型限定后,1处就会报错,不允许传入String类型</div><div class="line"> * 方法参数: 控制,可以传递Employee对象,也可以传递Employee的子类的对象</div><div class="line"> * 泛型的限定  本案例,父类固定Employee,但是子类可以无限</div><div class="line"> *   ? extends Employee 限制的是父类, 称为上限限定, 可以传递Employee,传递他的子类对象</div><div class="line"> *   ? super   Employee 限制的是子类, 称为下限限定, 可以传递Employee,传递他的父类对象</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">iterator</span><span class="params">(ArrayList&lt;? extends Employee&gt; array)</span></span>&#123;</div><div class="line">  </div><div class="line">   Iterator&lt;? extends Employee&gt; it = array.iterator();</div><div class="line">   <span class="keyword">while</span>(it.hasNext())&#123;</div><div class="line">     <span class="comment">//获取出的next() 数据类型,是什么Employee</span></div><div class="line">     Employee e = it.next();</div><div class="line">     e.work();</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">  <span class="comment">//创建3个集合对象</span></div><div class="line">  ArrayList&lt;ChuShi&gt; cs = <span class="keyword">new</span> ArrayList&lt;ChuShi&gt;();</div><div class="line">  ArrayList&lt;FuWuYuan&gt; fwy = <span class="keyword">new</span> ArrayList&lt;FuWuYuan&gt;();</div><div class="line">  ArrayList&lt;JingLi&gt; jl = <span class="keyword">new</span> ArrayList&lt;JingLi&gt;();</div><div class="line">  </div><div class="line">  <span class="comment">//每个集合存储自己的元素</span></div><div class="line">  cs.add(<span class="keyword">new</span> ChuShi(<span class="string">"张三"</span>, <span class="string">"后厨001"</span>));</div><div class="line">  cs.add(<span class="keyword">new</span> ChuShi(<span class="string">"李四"</span>, <span class="string">"后厨002"</span>));</div><div class="line">  </div><div class="line">  fwy.add(<span class="keyword">new</span> FuWuYuan(<span class="string">"翠花"</span>, <span class="string">"服务部001"</span>));</div><div class="line">  fwy.add(<span class="keyword">new</span> FuWuYuan(<span class="string">"酸菜"</span>, <span class="string">"服务部002"</span>));</div><div class="line">  </div><div class="line">  jl.add(<span class="keyword">new</span> JingLi(<span class="string">"小名"</span>, <span class="string">"董事会001"</span>, <span class="number">123456789.32</span>));</div><div class="line">  jl.add(<span class="keyword">new</span> JingLi(<span class="string">"小强"</span>, <span class="string">"董事会002"</span>, <span class="number">123456789.33</span>));</div><div class="line">  </div><div class="line">  ArrayList&lt;String&gt; arrayString = <span class="keyword">new</span> ArrayList&lt;String&gt;();<span class="comment">//1处</span></div><div class="line">  iterator(jl);</div><div class="line">  iterator(fwy);</div><div class="line">  iterator(cs);</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="comment">/*</span></div><div class="line"> * 定义方法,可以同时遍历3集合,遍历三个集合的同时,可以调用工作方法 work</div><div class="line"> * ? 通配符,迭代器it.next()方法取出来的是Object类型,怎么调用work方法</div><div class="line"> * 强制转换: 只写? ,是Object类型 it.next() = Object o ==&gt; Employee</div><div class="line"> * 写完泛型限定后,1处就会报错,不允许传入String类型</div><div class="line"> * 方法参数: 控制,可以传递Employee对象,也可以传递Employee的子类的对象</div><div class="line"> * 泛型的限定  本案例,父类固定Employee,但是子类可以无限</div><div class="line"> *   ? extends Employee 限制的是父类, 称为上限限定, 可以传递Employee,传递他的子类对象</div><div class="line"> *   ? super   Employee 限制的是子类, 称为下限限定, 可以传递Employee,传递他的父类对象</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">iterator</span><span class="params">(ArrayList&lt;? extends Employee&gt; array)</span></span>&#123;</div><div class="line">  </div><div class="line">   Iterator&lt;? extends Employee&gt; it = array.iterator();</div><div class="line">   <span class="keyword">while</span>(it.hasNext())&#123;</div><div class="line">     <span class="comment">//获取出的next() 数据类型,是什么Employee</span></div><div class="line">     Employee e = it.next();</div><div class="line">     e.work();</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="List接口"><a href="#List接口" class="headerlink" title="List接口"></a>List接口</h3><pre><code>* 概述
+    * 特点: 有序,索引,可以重复
+    * 它的实现类ArrayList,LinkedList也满足上述特点
+* 特有方法
+    * 注意:　特有方法,带有索引
+    * 带有索引的操作,防止越界问题(集合中索引越界异常:　java.lang.IndexrOutOfBoundException)
+        * ArrayIndexrOutOfBoundException : 数组索引越界异常
+        * StringIndexrOutOfBoundException :字符串索引越界异常
+    1. 增: add(int index, E): 将元素插入到列表的指定索引上
+    2. 删: E remove(int index): 移除指定索引上的元素 , 返回被删除之前的元素
+    3. 改:　E set(int index, E): 修改指定索引上的元素 , 返回被修改之前的元素
+* 三种遍历方式
+    1. 迭代器
+    2. 普通for
+    3. 增强for
+</code></pre><h3 id="迭代器的并发修改异常"><a href="#迭代器的并发修改异常" class="headerlink" title="迭代器的并发修改异常"></a>迭代器的并发修改异常</h3><pre><code>* 迭代器原理: 通过集合获取一个迭代器后,迭代器里面的内容是集合内容的映射
+* 迭代器遍历过程中,使用了集合方法修改了集合长度(注意是修改长度,才会出错),会java.util.ConcurrentModificationException
+* 处理办法: 使用迭代器自身的办法, 有remove(),但会全删掉 .....?,没add
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">图<span class="number">1</span></div><div class="line">TestList.java</div></pre></td></tr></table></figure>
+<h3 id="List集合存储数据的结构"><a href="#List集合存储数据的结构" class="headerlink" title="List集合存储数据的结构"></a>List集合存储数据的结构</h3><pre><code>* 概述
+    * 常用数据存储结构: 栈,队列,数组,链表
+    * 栈:   先进后出(手枪装弹)
+    * 队列: 先进先出(火车安检)
+    * 数组: 查询快, 增删慢
+    * 链表: 查询慢, 增删快
+</code></pre><h4 id="ArrayList集合"><a href="#ArrayList集合" class="headerlink" title="ArrayList集合"></a>ArrayList集合</h4><pre><code>* 底层采用的是数组结构, 查询快,增删慢, 主要用来查询,遍历数据
+
+    ArrayList al=new ArrayList();//创建了一个长度为0的Object类型数组
+     al.add(&quot;abc&quot;);//底层会创建一个长度为10的Object数组 Object[] obj=new Object[10]
+    //obj[0]=&quot;abc&quot;
+    //如果添加的元素的超过10个,底层会开辟一个1.5*10的长度的新数组
+    //把原数组中的元素拷贝到新数组,再把最后一个元素添加到新数组中
+    原数组:
+     a b c d e f g h k l
+    添加m:
+     a b c d e f g h k l m null null null null
+    注意: 打印集合长度,还是根据集合中存入数据的个数,而不是开辟空间的长度,即存入一个数据,打印长度为1
+</code></pre><h4 id="LinkedList集合"><a href="#LinkedList集合" class="headerlink" title="LinkedList集合"></a>LinkedList集合</h4><pre><code>* 底层是链表实现, 查询慢,增删快
+    * 自身特点:　
+
+    * 特有功能: (别使用多态了)
+        1. addFirst(E): 添加到链表开头
+        2. addLast(E) : 添加到链表结尾
+         3. E getFirst(): 获取链表开头
+         4. E getLast() : 获取链表结尾
+            3和4在获取时,要判断是否元素,否则报错 if(list.size() != 0 )
+        5. E removeFirst() : 移除并返回链表开头
+        6. E removeLast()  : 移除并返回链表结尾
+        5. isEmpty() : 判空  //这个不是特有,是Collection的方法
+</code></pre><h4 id="Vector集合"><a href="#Vector集合" class="headerlink" title="Vector集合"></a>Vector集合</h4><pre><code>* 过时了,了解, 被ArrayList取代
+* 弱点:　运行速度慢
+</code></pre><h3 id="Set接口"><a href="#Set接口" class="headerlink" title="Set接口"></a>Set接口</h3><h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><pre><code>* 特点: 不重复元素, 无索引
+* 元素取出方式:
+    1. 迭代器
+    2. 增强for
+* 方法与Collection接口一模一样
+</code></pre><h4 id="Set接口存储和迭代"><a href="#Set接口存储和迭代" class="headerlink" title="Set接口存储和迭代"></a>Set接口存储和迭代</h4><pre><code>* Set接口的实现类, HashSet(哈希表)
+* 特点: 无序集合,存储和取出的顺序不同, 没有索引,不存储重复元素
+    * HashSet代码编写,和ArrayList一致
+     * 注意: 取出顺序和存储顺序不同,但不管取出多少次,元素打乱取出的顺序是不变的,即遍历几次结果是一样的
+</code></pre>]]></content>
     </entry>
     
     <entry>
