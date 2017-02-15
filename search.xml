@@ -862,10 +862,7 @@ ArrayList类   LinkedList类                                              HashSe
      3. 如果有元素, 取出元素并打印
       System.out.println(it.next());//it.next()的返回值类型为泛型E
     }
-</code></pre><h4 id="for循环迭代写法"><a href="#for循环迭代写法" class="headerlink" title="for循环迭代写法:"></a>for循环迭代写法:</h4><pre><code>//for循环节约内存(因为迭代期在for里面)
-for (Iterator&lt;String&gt; it = coll.iterator(); it.hasNext();  ) {
- System.out.println(it.next());
-</code></pre><p>   } </p>
+</code></pre><h4 id="for循环迭代写法"><a href="#for循环迭代写法" class="headerlink" title="for循环迭代写法:"></a>for循环迭代写法:</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//for循环节约内存(因为迭代期在for里面)</span></div><div class="line"><span class="keyword">for</span> (Iterator&lt;String&gt; it = coll.iterator(); it.hasNext();  ) &#123;</div><div class="line"> 	System.out.println(it.next());</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="集合迭代中的转型"><a href="#集合迭代中的转型" class="headerlink" title="集合迭代中的转型"></a>集合迭代中的转型</h4><pre><code>* 注意:　
 1. 集合中存储其实都是对象的地址。
 2. 集合中可以存储基本数值吗？jdk1.5版本以后可以存储了。
