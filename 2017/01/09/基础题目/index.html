@@ -92,7 +92,7 @@
 <meta property="og:url" content="https://geekhoon.github.io/2017/01/09/基础题目/index.html">
 <meta property="og:site_name" content="geekhoon">
 <meta property="og:description" content="数据类型1. JAVA语言中的字符char可以存储一个中文汉字吗?原因?">
-<meta property="og:updated_time" content="2017-02-14T15:20:23.504Z">
+<meta property="og:updated_time" content="2017-02-16T15:43:30.069Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基础题目">
 <meta name="twitter:description" content="数据类型1. JAVA语言中的字符char可以存储一个中文汉字吗?原因?">
@@ -490,7 +490,50 @@ public class Test01 {
         System.out.println(s1.equals(s2));         //比较的是字符串的内容:
     }
 }
+5.用循环实现不死神兔
+    故事得从西元1202年说起，话说有一位意大利青年，名叫斐波那契。
+    在他的一部著作中提出了一个有趣的问题：假设一对刚出生的小兔一个月后就能长成大兔，
+    再过一个月就能生下一对小兔，并且此后每个月都生一对小兔，一年内没有发生死亡，
+    问：一对刚出生的兔子，第100个月繁殖多少对兔子?(利用BigInteger完成)
+     1 1 2 3 5 8 13 21    
+     0 1 2 3 4 5  6  7   
 </code></pre><h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><pre><code>1.生成10个1至100之间的随机整数(不能重复)，存入一个List集合
+2.定义一个方法，从控制台获取用户输入的3个任意0-9之间的数字(3个数字不重复),并将其拼接为完全不重复的三位数。
+  统计一共多少种组合、并且将每种组合进行排序输出。
+3.有如下代码：
+    public static void main(String[] args) {
+        List&lt;String&gt; list = new ArrayList&lt;&gt;();
+        list.add(&quot;b&quot;);
+        list.add(&quot;f&quot;);
+        list.add(&quot;e&quot;);
+        list.add(&quot;c&quot;);
+        list.add(&quot;a&quot;);
+        list.add(&quot;d&quot;);
+        定义sort方法。对集合内容排序
+        sort(list);
+        System.out.println(list);    // a, b, c, d, e, f
+4.完成如下需求：
+    1、创建一个Person类。属性：姓名、年龄  生成对应的方法
+    2、创建一个测试类，在测试类中创建四个Person对象。姓名和年龄要求通过键盘录入(至少录入一个相同的姓名和年龄)。
+    3、将四个Person对象存储到一个List集合中，并打印集合
+    4、要求通过Set集合对List集合进行去除重复。打印去重后的List集合(按照年龄从大到小的顺序打印)
+5.一个小写的字符串,替换字符串中字母，然后输出
+              a 替换成 b
+              b 替换成 c
+              .....
+            z 替换成 a
+6.随机生成8个1-100之间的奇数，存放到合适的集合中
+7.有如下代码：
+    public static void main(String[] args) {
+        ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();
+        list.add(&quot;a&quot;);
+        list.add(&quot;f&quot;);
+        list.add(&quot;b&quot;);
+        list.add(&quot;c&quot;);
+        list.add(&quot;a&quot;);
+        list.add(&quot;d&quot;); 
+    }
+    利用HashSet对list集合去重(最终结果:list中没有重复元素)
 </code></pre>
       
     </div>

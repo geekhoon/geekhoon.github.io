@@ -105,7 +105,7 @@
   2. 将复杂的事情简单化
   3. 从执行者变成指挥者">
 <meta property="og:image" content="http://oj3s07yy0.bkt.clouddn.com/blog/20170209/154741718.png">
-<meta property="og:updated_time" content="2017-02-14T02:05:56.725Z">
+<meta property="og:updated_time" content="2017-02-16T14:34:35.531Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="12.面向对象">
 <meta name="twitter:description" content="面向过程与面向对象* 面向过程： 注重实现过程，每件事都是要亲自去做
@@ -570,7 +570,11 @@
         3.接口做为父类,指向实现类对象
   注意:(1)父类引用可以指向子类对象
        (2)多态调用方法,方法必须运行子类的重写方法
-* 好处: 让程序更灵活, 提高了扩展性
+* 好处: 
+    1. 提高了代码扩展性(多态来保证)
+    2. 提高了代码维护性(继承来保证)
+* 坏处: 
+    1. 无法调用子类特有的属性
 * 多态前提:　
     1. 要有继承(实现)关系
     2. 要有方法重写(否则多态没有意义)
