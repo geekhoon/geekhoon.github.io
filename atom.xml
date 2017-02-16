@@ -867,7 +867,7 @@ System.out.println(by3 == by4);
     <link href="https://geekhoon.github.io/2017/01/15/10-%E9%9B%86%E5%90%88/"/>
     <id>https://geekhoon.github.io/2017/01/15/10-集合/</id>
     <published>2017-01-15T12:04:38.000Z</published>
-    <updated>2017-02-16T14:29:31.299Z</updated>
+    <updated>2017-02-16T17:08:54.004Z</updated>
     
     <content type="html"><![CDATA[<h3 id="ArrayList创建变量的步骤"><a href="#ArrayList创建变量的步骤" class="headerlink" title="ArrayList创建变量的步骤"></a>ArrayList创建变量的步骤</h3><pre><code>* 导入包 java.util包中
 * 创建引用类型的变量
@@ -878,12 +878,10 @@ System.out.println(by3 == by4);
     8个基本类型要对应8个引用类型
 </code></pre><a id="more"></a> 
 <p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170115/204404840.bmp" alt=""></p>
-<h3 id="集合和数组区别"><a href="#集合和数组区别" class="headerlink" title="集合和数组区别"></a>集合和数组区别</h3><pre><code>          集合                        数组
-长度:       可变                         |    固定
-数据类型:  只能引用                  |    既可以基本既可以引用
-内容:     可以存储不同数据类型的元素 |  只能存储同类型元素
-</code></pre><p>集合长度为什么可变, 怎样的可变方式?</p>
-<h3 id="ArrayList的常见方法"><a href="#ArrayList的常见方法" class="headerlink" title="ArrayList的常见方法"></a>ArrayList的常见方法</h3><pre><code>* add(参数)           向集合中添加元素
+<h3 id="集合和数组区别"><a href="#集合和数组区别" class="headerlink" title="集合和数组区别"></a>集合和数组区别</h3><pre><code>          集合            数组
+长度:       可变        |    固定
+数据类型:  只能引用    |    既可以基本既可以引用
+</code></pre><h3 id="ArrayList的常见方法"><a href="#ArrayList的常见方法" class="headerlink" title="ArrayList的常见方法"></a>ArrayList的常见方法</h3><pre><code>* add(参数)           向集合中添加元素
 * get(int index)   取出集合中的元素,get方法的参数,写入索引
 * size()            返回集合的长度, 集合存储元素的个数
 
