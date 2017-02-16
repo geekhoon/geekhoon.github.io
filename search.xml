@@ -769,8 +769,8 @@ System.out.println(by3 == by4);
     </entry>
     
     <entry>
-      <title><![CDATA[10.ArrayList集合]]></title>
-      <url>https://geekhoon.github.io/2017/01/15/10-ArrayList%E9%9B%86%E5%90%88/</url>
+      <title><![CDATA[10.集合]]></title>
+      <url>https://geekhoon.github.io/2017/01/15/10-%E9%9B%86%E5%90%88/</url>
       <content type="html"><![CDATA[<h3 id="ArrayList创建变量的步骤"><a href="#ArrayList创建变量的步骤" class="headerlink" title="ArrayList创建变量的步骤"></a>ArrayList创建变量的步骤</h3><pre><code>* 导入包 java.util包中
 * 创建引用类型的变量
     数据类型&lt; 集合存储的数据类型&gt;  变量名 = new 数据类型&lt;集合存储的数据类型&gt;();
