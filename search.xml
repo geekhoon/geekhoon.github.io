@@ -127,6 +127,7 @@
     8. byte[] getBytes() 将字符串转成字节数组 (byte数组相关的功能,查询编码表)
     9. String toUpperCase();转成大写
     10. String toLowerCase();转成小写
+    11. static String valueOf(char[] data) : 将字符数组,转成String类型
 * String的替换功能
     1. String replace(char old,char new)
     2. String replace(String old,String new)
@@ -267,6 +268,7 @@
 * int与String之间互转方法
    1. 字符串转为int
       (1)static int parseInt(String s) :要求s要是数字形式的字符串
+        static int valueof(string s) : 要求s要是数字形式的字符串
      (2)static int parseINt(String s,int radix) : 将指定进制的字符串转成十进制的int类型
      注意: parseInt方法的最后返回值都是十进制的int类型
        如: radix为2 ,则将2进制的String s转成10进制的int
