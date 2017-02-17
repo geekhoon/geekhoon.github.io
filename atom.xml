@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-02-12T15:20:42.032Z</updated>
+  <updated>2017-02-17T18:15:15.315Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -14,6 +14,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>15.异常</title>
+    <link href="https://geekhoon.github.io/2017/02/18/15-%E5%BC%82%E5%B8%B8/"/>
+    <id>https://geekhoon.github.io/2017/02/18/15-异常/</id>
+    <published>2017-02-17T18:15:15.000Z</published>
+    <updated>2017-02-17T18:15:15.315Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>14.正则表达式</title>
