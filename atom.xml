@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-02-17T18:15:15.315Z</updated>
+  <updated>2017-02-18T12:15:10.703Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -20,12 +20,98 @@
     <link href="https://geekhoon.github.io/2017/02/18/15-%E5%BC%82%E5%B8%B8/"/>
     <id>https://geekhoon.github.io/2017/02/18/15-异常/</id>
     <published>2017-02-17T18:15:15.000Z</published>
-    <updated>2017-02-17T18:15:15.315Z</updated>
+    <updated>2017-02-18T12:15:10.703Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="异常继承体系"><a href="#异常继承体系" class="headerlink" title="异常继承体系"></a>异常继承体系</h3><pre><code>* Throwable类是所有错误,异常的超类
+    | - Error     : 错误, Throwable的子类
+    | - Exception : 异常, Throwable的子类
+        |-RuntimeException :　运行期异常, JAVA程序运行过程中出现的问题, Exception的子类
+* 异常与错误的区别
+ 1. 异常: 
+    * 异常指程序在编译、运行期间发生了某种异常(XxxException)，我们可以对异常进行具体的处理。
+    * 若不处理异常，程序将会结束运行。
+ 2. 错误:
+    * 指程序在运行期间发生了某种错误，Error错误通常没有具体的处理方式，程序将会结束运行。
+    * Error错误的发生往往都是系统级别的问题，都是jvm所在系统发生的，并反馈给jvm的。
+    * 我们无法针对处理，只能修正代码
+</code></pre><h3 id="异常处理方式"><a href="#异常处理方式" class="headerlink" title="异常处理方式"></a>异常处理方式</h3><pre><code>1. JVM的默认处理方式
+    * 把异常的名称,原因,位置等信息输出在控制台，同时会结束程序。
+    * 一旦有异常发生，其后来的代码不能继续执行。
+2. 解决程序中异常的手动方式
+    * 编写处理代码 try...catch...finally
+    * 抛出 throws
+</code></pre><h3 id="异常中关键字"><a href="#异常中关键字" class="headerlink" title="异常中关键字"></a>异常中关键字</h3><h4 id="抛出异常对象-throw"><a href="#抛出异常对象-throw" class="headerlink" title="抛出异常对象 throw"></a>抛出异常对象 throw</h4><pre><code>* 在方法内部,抛出异常
+* 用来抛出一个指定的异常对象, 
+* 以抛出异常的方式,告诉调用者main,(如果是main方法调用的话)
+* throw 后面, 必须写new 对象,必须是异常的对象,只能写一个对象
+</code></pre><h4 id="方法中声明异常关键字-throws"><a href="#方法中声明异常关键字-throws" class="headerlink" title="方法中声明异常关键字 throws"></a>方法中声明异常关键字 throws</h4><pre><code>* 在方法声明上, 表明此方法,可能出现异常 
+* throws 后面, 必须写异常类的类名,可以写多个异常类名
+* 格式: 修饰符 返回值类型 方法名(参数) throws 异常类名1,异常类名2… {   }
+* 当调用了一个抛出异常的方法,调用者就必须处理, 不处理,编译失败
+</code></pre><h4 id="throw-throws区别"><a href="#throw-throws区别" class="headerlink" title="throw,throws区别"></a>throw,throws区别</h4><pre><code>1. 书写位置:
+    throw : 方法内部
+    throws: 方法声明上
+2. 内容: 
+    throw :　new异常对象, 只能new一个
+    throws: 异常类类名, 可以写多个
+</code></pre><h3 id="try-catch异常处理"><a href="#try-catch异常处理" class="headerlink" title="try..catch异常处理"></a>try..catch异常处理</h3><pre><code>* 格式:　
+try{
+   被检测代码
+}catch (异常类名1 变量){
+    异常处理方式
+}catch (异常类名2 变量){
+    ...
+}catch ...
+}finally{
+    必须要执行的代码
+}
+* 注意: 
+    如果出现了上下级关系的异常, 越高级越要写在catch下面
+* finally,无论程序是否有异常出现,程序必须执行释放资源
+      如：IO流操作和数据库操作中会见到
+* finally：是try-catch的一部分！被它修饰的代码一定会被执行到！除非在这之前退出了虚拟机
+   System.exit(0);
+* 方法中, 在catch语句中有return, return语句在finally之前执行, 还是之后执行?
+  return , 先建立了一个返回的链接, 先检测一下, 如果有finally, 那么执行完finally代码块后, 继续返回
+</code></pre><h3 id="运行时期异常处理"><a href="#运行时期异常处理" class="headerlink" title="运行时期异常处理"></a>运行时期异常处理</h3><pre><code>* 编译异常: 调用了抛出异常的方法, 不处理编译失败 (try  throws)
+* 运行异常: 抛出的异常是RuntimeException类, 或者它的子类, 除此之外,都是编译异常
+
+* throws Exception : 抛的是编译异常
+* throws NullPointerException : 抛的是运行异常
+* 运行异常的特点:
+    * 方法中抛出运行异常,方法定义中无需throws声明,调用者也无需处理此异常。
+    * 运行异常一旦发生,后面的代码没有执行的意义,需要程序人员修改源代码
+* 设计原因: (不写throws, 调用者也不用处理)
+    * 运行异常, 不能发生, 但是如果发生, 程序人员停止程序, 修改源代码
+</code></pre><h3 id="方法重写时异常的处理"><a href="#方法重写时异常的处理" class="headerlink" title="方法重写时异常的处理"></a>方法重写时异常的处理</h3><pre><code>* 继承后, 在子类重写父类方法的时候, 异常处理
+* 结论: 
+    1.父类的方法如果抛出异常, 子类重写后, 
+        1. 可以不抛出异常
+        2. 也可以抛出异常, 但是抛的异常不能大于父类的异常(异常的继承关系)
+           如果抛同级异常, 只能和父类抛的异常一模一样
+
+    2.父类的方法如果不抛出异常, 子类重写后, 也不能抛出异常
+        如果子类重写的方法调用了抛出编译异常(注意,如果调用了抛运行异常的方法,不会出问题)的方法, 只能try/catch处理, 子类重写的方法不可以向外抛异常
+</code></pre><h3 id="Throwable类常用方法"><a href="#Throwable类常用方法" class="headerlink" title="Throwable类常用方法"></a>Throwable类常用方法</h3><pre><code>* 都和异常的信息有关系
+1. String getMessage() : 对异常信息的详细描述
+2. String toString()   : 对异常信息的简短描述
+3. void printStackTrace(): 将异常信息追踪到标准的错误流
+</code></pre><h3 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h3><pre><code>* 步骤: 
+    1. 自定义类, 继承Exception, 或RuntimeException, 一般写运行异常
+    2. 构造方法中, super将异常信息传递给父类
+</code></pre>]]></content>
     
     <summary type="html">
     
+      &lt;h3 id=&quot;异常继承体系&quot;&gt;&lt;a href=&quot;#异常继承体系&quot; class=&quot;headerlink&quot; title=&quot;异常继承体系&quot;&gt;&lt;/a&gt;异常继承体系&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;* Throwable类是所有错误,异常的超类
+    | - Error     : 错误
+    
     </summary>
     
+      <category term="JAVA基础" scheme="https://geekhoon.github.io/categories/JAVA%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="JAVA基础语法" scheme="https://geekhoon.github.io/tags/JAVA%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"/>
     
   </entry>
   
@@ -114,7 +200,7 @@
     <link href="https://geekhoon.github.io/2017/02/10/13-API/"/>
     <id>https://geekhoon.github.io/2017/02/10/13-API/</id>
     <published>2017-02-10T02:50:27.000Z</published>
-    <updated>2017-02-16T17:03:52.775Z</updated>
+    <updated>2017-02-18T13:17:15.533Z</updated>
     
     <content type="html"><![CDATA[<h3 id="API概念"><a href="#API概念" class="headerlink" title="API概念"></a>API概念</h3><pre><code>* API(Application Programming Interface) 
   应用程序编程接口
@@ -356,37 +442,43 @@ Integer b1 = <span class="number">500</span>;
 System.out.println(a1==b1);
 <span class="comment">//因为自动装箱实质上也new了一个Integer对象,所以a1和b1地址值不同,false</span>
 System.out.println(a1.equals(b1));
-<span class="comment">//</span>
+<span class="comment">//内容相同, 为true</span>
 
 <span class="comment">//数据在byte范围内,JVM不会重新new对象</span>
 Integer a2 = <span class="number">127</span>;   <span class="comment">//Integer a2 = new Integer(127);</span>
 Integer b2 = <span class="number">127</span>;    <span class="comment">//Integer b2 = a2;</span>
-System.out.println(a2==b2);
-System.out.println(a2.equals(b2));
+System.out.println(a2==b2);  <span class="comment">//a2, b2指向的是同一个对象,地址相同</span>
+System.out.println(a2.equals(b2)); <span class="comment">//内容相同,true</span>
 
 Integer i1 = <span class="number">60</span>;
 Integer i2 = <span class="number">60</span>;
-Integer i3 = <span class="number">60</span> + <span class="number">60</span>;
+Integer i3 = <span class="number">60</span> + <span class="number">60</span>; 
 Integer i4 = i1 + i2;
 System.out.println(i3 == i4);
+<span class="comment">//这个我判断错了, 答案是true</span>
+<span class="comment">//因为i3 = 120, 在byte范围内, i4也=120 ,不会重新new对象 ,所以它们地址相同</span>
 
 String s1 = <span class="string">"he"</span>; 
 String s2 = <span class="string">"llo"</span>; 
 String s3 = <span class="string">"he"</span> + <span class="string">"llo"</span>; 
 String s4 =  s1 + s2;     
-System.out.println(s3 == s4);
+System.out.println(s3 == s4); <span class="comment">//比较的是地址, false</span>
 
 <span class="keyword">byte</span> b1 = <span class="number">60</span>;
 <span class="keyword">byte</span> b2 = <span class="number">60</span>;
 <span class="keyword">byte</span> b3 = <span class="number">60</span> + <span class="number">60</span>;
 <span class="keyword">int</span> b4 = (<span class="keyword">byte</span>) (b1 + b2);
-System.out.println(b3 == b4);
+System.out.println(b3 == b4); <span class="comment">//比较的是值, true</span>
 
 Byte by1 = <span class="number">60</span>;
 Byte by2 = <span class="number">60</span>;
 Byte by3 = <span class="number">60</span> + <span class="number">60</span>;
 <span class="keyword">int</span> by4 = by1 + by2;
-System.out.println(by3 == by4);
+System.out.println(by3 == by4); 
+<span class="comment">//这个我判断错了,比较的不是地址, 因为by4是int类型</span>
+<span class="comment">//Byte by3 有个自动拆箱 即 byte by3</span>
+<span class="comment">//基本数据类型比较 比较的就是值的大小</span>
+<span class="comment">//结果是true</span>
 </code></pre>
 <h3 id="System类"><a href="#System类" class="headerlink" title="System类"></a>System类</h3><pre><code>* 概述
     * 不能new, 因为构造方法是private的
@@ -1764,7 +1856,7 @@ ArrayList类   LinkedList类                                              HashSe
     <link href="https://geekhoon.github.io/2017/01/09/%E5%9F%BA%E7%A1%80%E9%A2%98%E7%9B%AE%E7%AD%94%E6%A1%88/"/>
     <id>https://geekhoon.github.io/2017/01/09/基础题目答案/</id>
     <published>2017-01-09T12:40:31.000Z</published>
-    <updated>2017-02-16T16:01:49.216Z</updated>
+    <updated>2017-02-18T12:09:27.534Z</updated>
     
     <content type="html"><![CDATA[<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><pre><code>1. JAVA语言中的字符char可以存储一个中文汉字吗?原因?
    *可以.因为Java中字符占两个字节.一个中文汉字也占两个字节
@@ -1816,6 +1908,9 @@ ArrayList类   LinkedList类                                              HashSe
 <p>6.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">saveList</span><span class="params">(ArrayList&lt;Integer&gt; list)</span> </span>&#123;</div><div class="line">	<span class="comment">//创建随机数对象</span></div><div class="line">	Random r = <span class="keyword">new</span> Random();</div><div class="line">	<span class="comment">//只要集合长度小于8个，那么就一直生成随机数进行存储</span></div><div class="line">	<span class="keyword">while</span>(list.size() != <span class="number">8</span>) &#123;</div><div class="line">		<span class="comment">//生成一个随机数</span></div><div class="line">		<span class="keyword">int</span> num = r.nextInt(<span class="number">100</span>)+<span class="number">1</span>;</div><div class="line">		<span class="comment">//如果这个随机数是奇数</span></div><div class="line">		<span class="keyword">if</span>(num % <span class="number">2</span> == <span class="number">1</span>) &#123;</div><div class="line">			<span class="comment">//存入集合</span></div><div class="line">			list.add(num);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>7.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">	ArrayList&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">	list.add(<span class="string">"a"</span>);</div><div class="line">	list.add(<span class="string">"f"</span>);</div><div class="line">	list.add(<span class="string">"b"</span>);</div><div class="line">	list.add(<span class="string">"b"</span>);</div><div class="line">	list.add(<span class="string">"b"</span>);</div><div class="line">	list.add(<span class="string">"b"</span>);</div><div class="line">	list.add(<span class="string">"b"</span>);</div><div class="line">	list.add(<span class="string">"c"</span>);</div><div class="line">	list.add(<span class="string">"a"</span>);</div><div class="line">	list.add(<span class="string">"d"</span>); </div><div class="line">	</div><div class="line">	<span class="comment">//利用HashSet对list集合去重(最终结果:list中没有重复元素)</span></div><div class="line">	HashSet&lt;String&gt; hs = <span class="keyword">new</span> HashSet&lt;String&gt;();</div><div class="line">	hs.addAll(list);	<span class="comment">//将list集合中的内容全部添加到HashSet集合中</span></div><div class="line">	list.clear();		<span class="comment">//将list集合清空</span></div><div class="line">	list.addAll(hs);	<span class="comment">//将去重后的集合全部添加到list集合中		</span></div><div class="line">	</div><div class="line">	<span class="comment">/*ArrayList&lt;String&gt; newList = new ArrayList&lt;String&gt;();</span></div><div class="line">	for(int i = 0 ; i &lt; list.size(); i++) &#123;</div><div class="line">		//如果新集合中不包含此元素，则存入</div><div class="line">		if(!newList.contains(list.get(i))) &#123;</div><div class="line">			newList.add(list.get(i));</div><div class="line">		&#125;</div><div class="line">	&#125;*/</div><div class="line">	System.out.println(list);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>8.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"> * ArrayList嵌套ArrayList</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">	<span class="comment">//创建一个学科集合</span></div><div class="line">	ArrayList&lt;ArrayList&lt;Student&gt;&gt; classRoom = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">	</div><div class="line">	</div><div class="line">	<span class="comment">//创建基础班集合</span></div><div class="line">	ArrayList&lt;Student&gt; javase = <span class="keyword">new</span> ArrayList&lt;Student&gt;();</div><div class="line">	javase.add(<span class="keyword">new</span> Student(<span class="string">"张三"</span>, <span class="number">23</span>));</div><div class="line">	javase.add(<span class="keyword">new</span> Student(<span class="string">"李四"</span>, <span class="number">24</span>));</div><div class="line">	</div><div class="line">	<span class="comment">//创建就业班集合</span></div><div class="line">	ArrayList&lt;Student&gt; javaee = <span class="keyword">new</span> ArrayList&lt;Student&gt;();</div><div class="line">	javaee.add(<span class="keyword">new</span> Student(<span class="string">"王五"</span>, <span class="number">25</span>));</div><div class="line">	javaee.add(<span class="keyword">new</span> Student(<span class="string">"赵六"</span>, <span class="number">26</span>));</div><div class="line">	</div><div class="line">	<span class="comment">//将基础班集合和就业班集合添加到学科集合中</span></div><div class="line">	classRoom.add(javase);</div><div class="line">	classRoom.add(javaee);</div><div class="line">	</div><div class="line">	<span class="comment">//使用迭代器遍历集合</span></div><div class="line">	print1(classRoom);</div><div class="line">	<span class="comment">//使用增强for遍历集合</span></div><div class="line">	print2(classRoom);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">print2</span><span class="params">(ArrayList&lt;ArrayList&lt;Student&gt;&gt; classRoom)</span> </span>&#123;</div><div class="line">	<span class="comment">//第一层循环，获取的是班级集合</span></div><div class="line">	<span class="keyword">for</span>(ArrayList&lt;Student&gt; list : classRoom) &#123;</div><div class="line">		<span class="comment">//第二层循环，获取的是学生对象</span></div><div class="line">		<span class="keyword">for</span>(Student stu : list) &#123;</div><div class="line">			System.out.println(stu);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">print1</span><span class="params">(ArrayList&lt;ArrayList&lt;Student&gt;&gt; classRoom)</span> </span>&#123;</div><div class="line">	<span class="comment">//获取学科迭代器</span></div><div class="line">	Iterator&lt;ArrayList&lt;Student&gt;&gt; it = classRoom.iterator();</div><div class="line">	<span class="keyword">while</span>(it.hasNext()) &#123;</div><div class="line">		<span class="comment">//获取到每个班级集合</span></div><div class="line">		ArrayList&lt;Student&gt; list = it.next();</div><div class="line">		<span class="comment">//通过班级集合获取迭代器</span></div><div class="line">		Iterator&lt;Student&gt; it2 = list.iterator();</div><div class="line">		<span class="keyword">while</span>(it2.hasNext()) &#123;</div><div class="line">			<span class="comment">//获取每一个学生对象</span></div><div class="line">			Student stu = it2.next();</div><div class="line">			<span class="comment">//打印学生对象</span></div><div class="line">			System.out.println(stu);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>9.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">	<span class="comment">//将A-Z,a-z,0-9这些字符存入一个List中</span></div><div class="line">	List&lt;Character&gt; list = getList();</div><div class="line">	<span class="comment">//System.out.println(list);</span></div><div class="line">	<span class="comment">//获得生成字符串集合</span></div><div class="line">	HashSet&lt;String&gt; stringSet= getSet(list);</div><div class="line">	<span class="comment">//遍历输出</span></div><div class="line">	<span class="keyword">for</span>(String s : stringSet)&#123;</div><div class="line">		System.out.println(s);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> HashSet&lt;String&gt; <span class="title">getSet</span><span class="params">(List&lt;Character&gt; list)</span> </span>&#123;</div><div class="line">	<span class="comment">//创建两个HashSet集合,第一个用来存10个不重复的字符串,第二个用来存10个字符不重复的字符</span></div><div class="line">	HashSet&lt;String&gt; stringSet = <span class="keyword">new</span> LinkedHashSet&lt;String&gt;();</div><div class="line">	HashSet&lt;Character&gt; charSet = <span class="keyword">new</span> LinkedHashSet&lt;Character&gt;();</div><div class="line">	<span class="comment">//定义随机数对象, 来获取随机数</span></div><div class="line">	Random ran = <span class="keyword">new</span> Random();</div><div class="line">	<span class="comment">//当字符串集合长度&lt;10</span></div><div class="line">	<span class="keyword">while</span>(stringSet.size()&lt;<span class="number">10</span>)&#123;</div><div class="line">		<span class="comment">//当字符集合长度&lt;10</span></div><div class="line">		<span class="keyword">while</span>(charSet.size()&lt;<span class="number">10</span>)&#123;</div><div class="line">			<span class="comment">//生成0-61的随机数</span></div><div class="line">			<span class="keyword">int</span> ranNum = ran.nextInt(list.size());</div><div class="line">			<span class="comment">//获取List集合中该元素</span></div><div class="line">			<span class="keyword">char</span> c = list.get(ranNum);</div><div class="line">			<span class="comment">//向charSet集合中添加</span></div><div class="line">			charSet.add(c);</div><div class="line">		&#125;</div><div class="line">		<span class="comment">//此时获得的charSet是一个长度为10的字符集合</span></div><div class="line">		<span class="comment">//要向stringSet里添加,需要先转成字符串</span></div><div class="line">		<span class="comment">//遍历charSet</span></div><div class="line">		String str = <span class="string">""</span>;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">char</span> c : charSet)&#123;</div><div class="line">			str+=c;</div><div class="line">		&#125;</div><div class="line">		<span class="comment">//此时获得了一个长度为10的字符串,添加至stringSet</span></div><div class="line">		stringSet.add(str);</div><div class="line">		<span class="comment">//将charSet清空,否则再次执行,charSet长度为10,不再进内层while</span></div><div class="line">		charSet.clear();</div><div class="line">		</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> stringSet;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> List&lt;Character&gt; <span class="title">getList</span><span class="params">()</span> </span>&#123;</div><div class="line">	ArrayList&lt;Character&gt; list = <span class="keyword">new</span> ArrayList&lt;Character&gt;();</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">char</span> i = <span class="string">'A'</span>; i &lt;= <span class="string">'Z'</span>; i++) &#123;</div><div class="line">		list.add(i);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">char</span> i = <span class="string">'a'</span>; i &lt;= <span class="string">'z'</span>; i++) &#123;</div><div class="line">		list.add(i);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">char</span> i = <span class="string">'0'</span>; i &lt;= <span class="string">'9'</span>; i++) &#123;</div><div class="line">		list.add(i);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> list;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>10.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">	<span class="comment">//创建一个List集合,存储字符串元素</span></div><div class="line">	List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">	<span class="comment">//创建一盒Map集合, 键存字符, 值存字符个数, 使用双列集合的原因是 键不重复, 添加相同键时, 会被覆盖掉</span></div><div class="line">	<span class="comment">//定一个LinkedHashMap,而不是HashMap的原因是 : 输出格式中, 按照存储顺序进行打印,所以使用存取有序的LinkedHashMap</span></div><div class="line">	LinkedHashMap&lt;Character,Integer&gt; map = <span class="keyword">new</span> LinkedHashMap&lt;Character, Integer&gt;();</div><div class="line">	<span class="comment">//list集合添加元素</span></div><div class="line">	list.add(<span class="string">"abc"</span>);</div><div class="line">	list.add(<span class="string">"bcd"</span>);</div><div class="line">	<span class="comment">//遍历list集合,拿出每一个元素</span></div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size(); i++) &#123;</div><div class="line">		String str = list.get(i);</div><div class="line">		<span class="comment">//将字符串str传成char数组</span></div><div class="line">		<span class="keyword">char</span>[] arr = str.toCharArray();</div><div class="line">		<span class="comment">//遍历char数组,判断map集合中是否存在当前的键</span></div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; arr.length; j++) &#123;</div><div class="line">			<span class="comment">//如果不存在, 添加字符,值为1</span></div><div class="line">			<span class="keyword">if</span> (!map.containsKey(arr[j])) &#123;</div><div class="line">				map.put(arr[j], <span class="number">1</span>);</div><div class="line">			&#125;<span class="keyword">else</span>&#123;</div><div class="line">				<span class="comment">//如果存在,根据键获取当前字符的值, 即个数 ,进行加1操作, 再添加</span></div><div class="line">				map.put(arr[j], map.get(arr[j])+<span class="number">1</span>);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//按照指定格式,遍历打印map</span></div><div class="line">	<span class="comment">//keySet增强for</span></div><div class="line">	Set&lt;Character&gt; charSet =  map.keySet();</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">char</span> key : charSet)&#123;</div><div class="line">		<span class="keyword">int</span> value = map.get(key);</div><div class="line">		System.out.println(key+<span class="string">" = "</span>+value);</div><div class="line">	&#125;</div><div class="line">	System.out.println(<span class="string">"--------分割线----------"</span>);</div><div class="line">	<span class="comment">//entrySet增强for</span></div><div class="line">	Set&lt;Map.Entry&lt;Character, Integer&gt;&gt; entrySet = map.entrySet();</div><div class="line">	<span class="keyword">for</span>(Map.Entry&lt;Character, Integer&gt; entry : entrySet)&#123;</div><div class="line">		<span class="keyword">char</span> key = entry.getKey();</div><div class="line">		<span class="keyword">int</span> value = entry.getValue();</div><div class="line">		System.out.println(key+<span class="string">" = "</span>+value);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>11.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">	<span class="comment">//定义List集合存商品名</span></div><div class="line">	ArrayList&lt;String&gt; list1 = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">	list1.add(<span class="string">"苹果"</span>);</div><div class="line">	list1.add(<span class="string">"香蕉"</span>);</div><div class="line">	list1.add(<span class="string">"西瓜"</span>);</div><div class="line">	list1.add(<span class="string">"橘子"</span>);</div><div class="line">	<span class="comment">//定义List集合存商品号</span></div><div class="line">	<span class="comment">//备注: 惯性思维, 存储不重复的元素, 定义HashSet</span></div><div class="line">	<span class="comment">//但这里定义成ArrayList的原因是: </span></div><div class="line">	<span class="comment">//因为要把商品号添加至双列集合,HashSet没有索引,要想双列集合添加,</span></div><div class="line">	<span class="comment">//还要新建一个List集合存HashSet里面的商品号,再用List集合往双列集合填,比较麻烦</span></div><div class="line">	<span class="comment">//直接定义成List集合,然后加一个contains判断, 也可达到HashSet去重的目的</span></div><div class="line">	ArrayList&lt;String&gt; list2 = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">	Random ran = <span class="keyword">new</span> Random();</div><div class="line">	<span class="keyword">while</span>(list2.size()&lt;<span class="number">4</span>)&#123;</div><div class="line">		String num = <span class="string">""</span>;</div><div class="line">		<span class="keyword">while</span>(num.length()!=<span class="number">8</span>)&#123;</div><div class="line">			num += ran.nextInt(<span class="number">10</span>);</div><div class="line">		&#125;</div><div class="line">		<span class="comment">//判断商品号集合中是否包含此号, 不含则添加</span></div><div class="line">		<span class="keyword">if</span> (!list2.contains(num)) &#123;</div><div class="line">			list2.add(num);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//将商品号,与商品信息添加值双列集合</span></div><div class="line">	LinkedHashMap&lt;String, String&gt; map = <span class="keyword">new</span> LinkedHashMap&lt;String, String&gt;();</div><div class="line">	<span class="comment">//遍历List集合,向map中添加商品信息</span></div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list1.size(); i++) &#123;</div><div class="line">		map.put(list2.get(i), list1.get(i));</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//遍历双列集合,显示商品信息</span></div><div class="line">	Set&lt;String&gt; keySet = map.keySet();</div><div class="line">	<span class="keyword">for</span>(String key : keySet)&#123;</div><div class="line">		String value = map.get(key);</div><div class="line">		System.out.println(<span class="string">"商品号:"</span> + key+<span class="string">" | 商品: "</span>+value);</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//提示用户输入商品</span></div><div class="line">	Scanner sc = <span class="keyword">new</span> Scanner(System.in);</div><div class="line">	System.out.println(<span class="string">"请输入商品号进行查询: "</span>);</div><div class="line">	String str = sc.next();</div><div class="line">	<span class="keyword">if</span> (map.containsKey(str)) &#123;</div><div class="line">		System.out.println(<span class="string">"根据商品号："</span>+str+<span class="string">"，查询到对应的商品为："</span>+map.get(str));</div><div class="line">	&#125;<span class="keyword">else</span>&#123;</div><div class="line">		System.out.println(<span class="string">"查无此商品"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 ]]></content>
     
     <summary type="html">
@@ -1839,7 +1934,7 @@ ArrayList类   LinkedList类                                              HashSe
     <link href="https://geekhoon.github.io/2017/01/09/%E5%9F%BA%E7%A1%80%E9%A2%98%E7%9B%AE/"/>
     <id>https://geekhoon.github.io/2017/01/09/基础题目/</id>
     <published>2017-01-09T12:40:20.000Z</published>
-    <updated>2017-02-16T16:01:17.762Z</updated>
+    <updated>2017-02-18T12:55:44.002Z</updated>
     
     <content type="html"><![CDATA[<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><pre><code>1. JAVA语言中的字符char可以存储一个中文汉字吗?原因?
 </code></pre><a id="more"></a>       
@@ -1925,8 +2020,8 @@ public class Test01 {
     private static void demo5() {
         String s1 = &quot;ab&quot;;
         String s2 = &quot;abc&quot;;
-        String s3 = s1 + &quot;c&quot;;
-        System.out.println(s3 == s2);
+        String s3 = s1 + &quot;c&quot;;       //只要是变量+ 字符串 ,就会创建一个新对象
+        System.out.println(s3 == s2);        //flase
         System.out.println(s3.equals(s2));         //
     }
     private static void demo4() {
@@ -2001,6 +2096,26 @@ public class Test01 {
     }
     利用HashSet对list集合去重(最终结果:list中没有重复元素)
 8.ArrayList嵌套ArrayList
+9.按需求完成指定功能，题目如下：
+    产生10个长度为10的字符串，并遍历打印输出
+    要求：
+     1.每个字符串中只能包含大写字母或者小写字母或者0-9的数字
+     2.每个字符串中的10个字符不能重复
+     3.10个字符串也不能重复
+10.按需求完成指定功能，题目如下：
+    定义一个List集合,泛型为String类型。统计整个集合中所有字符（注意，不是字符串）的个数。例如：    
+    集合中有”abc”、”bcd”两个元素
+    程序最终输出结果为:
+    a = 1
+    b = 2
+    c = 2
+    d = 1
+11.按需求完成指定功能，题目如下：
+    有四种水果(苹果，香蕉，西瓜，橘子)
+     1、给每种水果设定一个商品号，商品号是8个0-9的随机数，商品号码不能重复
+     2、根据商品号查询对应的商品。
+    如果查不到输出：“查无此商品”
+    如果能查到打印：”根据商品号：12345678，查询到对应的商品为：西瓜”
 </code></pre>]]></content>
     
     <summary type="html">
@@ -2022,7 +2137,7 @@ public class Test01 {
     <link href="https://geekhoon.github.io/2017/01/09/%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
     <id>https://geekhoon.github.io/2017/01/09/常用快捷键/</id>
     <published>2017-01-09T09:50:28.000Z</published>
-    <updated>2017-02-16T14:37:59.563Z</updated>
+    <updated>2017-02-18T07:19:04.188Z</updated>
     
     <content type="html"><![CDATA[<h3 id="1-Dos"><a href="#1-Dos" class="headerlink" title="1.Dos"></a>1.Dos</h3><pre><code>* Shift + 右键    : 当前文件夹下打开dos
 * Tab             : 注意dos下,&quot;Tab键&quot;的使用,可方便输入
@@ -2049,7 +2164,7 @@ public class Test01 {
 * Ctrl+Alt+↑         :复制当前行到上一行(复制增加)
 * Alt+↓             :当前行和下面一行交互位置(特别实用,可以省去先剪切,再粘贴了)
 * Alt+↑             :当前行和上面一行交互位置(同上)
-* Ctrl+T            :快速显示当前类的继承结构
+* Ctrl+T            :选择一个类, 显示当前类的继承结构
 * Ctrl+Shift+F        :格式化当前代码
 * Ctrl+点击 / F3        :查看源码
 * Ctrl+Shift+S        :生成构造方法,get/set
@@ -2057,6 +2172,7 @@ public class Test01 {
 * Ctrl+2(松手) 再L    :写完方法后,自动接收返回值
 * Alt+Shift+R        :统一修改同名变量名
 * Alt+Shift+M        :选择一段代码封装成方法
+* Alt+Shift+Z        :选择一段代码添加try/catch
 </code></pre>]]></content>
     
     <summary type="html">

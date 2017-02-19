@@ -98,7 +98,7 @@
   应用程序编程接口
 * Java API
   Java jdk给我们提供好的类">
-<meta property="og:updated_time" content="2017-02-16T17:03:52.775Z">
+<meta property="og:updated_time" content="2017-02-18T13:17:15.533Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="13.API">
 <meta name="twitter:description" content="API概念* API(Application Programming Interface) 
@@ -625,37 +625,43 @@ Integer b1 = <span class="number">500</span>;
 System.out.println(a1==b1);
 <span class="comment">//因为自动装箱实质上也new了一个Integer对象,所以a1和b1地址值不同,false</span>
 System.out.println(a1.equals(b1));
-<span class="comment">//</span>
+<span class="comment">//内容相同, 为true</span>
 
 <span class="comment">//数据在byte范围内,JVM不会重新new对象</span>
 Integer a2 = <span class="number">127</span>;   <span class="comment">//Integer a2 = new Integer(127);</span>
 Integer b2 = <span class="number">127</span>;    <span class="comment">//Integer b2 = a2;</span>
-System.out.println(a2==b2);
-System.out.println(a2.equals(b2));
+System.out.println(a2==b2);  <span class="comment">//a2, b2指向的是同一个对象,地址相同</span>
+System.out.println(a2.equals(b2)); <span class="comment">//内容相同,true</span>
 
 Integer i1 = <span class="number">60</span>;
 Integer i2 = <span class="number">60</span>;
-Integer i3 = <span class="number">60</span> + <span class="number">60</span>;
+Integer i3 = <span class="number">60</span> + <span class="number">60</span>; 
 Integer i4 = i1 + i2;
 System.out.println(i3 == i4);
+<span class="comment">//这个我判断错了, 答案是true</span>
+<span class="comment">//因为i3 = 120, 在byte范围内, i4也=120 ,不会重新new对象 ,所以它们地址相同</span>
 
 String s1 = <span class="string">"he"</span>; 
 String s2 = <span class="string">"llo"</span>; 
 String s3 = <span class="string">"he"</span> + <span class="string">"llo"</span>; 
 String s4 =  s1 + s2;     
-System.out.println(s3 == s4);
+System.out.println(s3 == s4); <span class="comment">//比较的是地址, false</span>
 
 <span class="keyword">byte</span> b1 = <span class="number">60</span>;
 <span class="keyword">byte</span> b2 = <span class="number">60</span>;
 <span class="keyword">byte</span> b3 = <span class="number">60</span> + <span class="number">60</span>;
 <span class="keyword">int</span> b4 = (<span class="keyword">byte</span>) (b1 + b2);
-System.out.println(b3 == b4);
+System.out.println(b3 == b4); <span class="comment">//比较的是值, true</span>
 
 Byte by1 = <span class="number">60</span>;
 Byte by2 = <span class="number">60</span>;
 Byte by3 = <span class="number">60</span> + <span class="number">60</span>;
 <span class="keyword">int</span> by4 = by1 + by2;
-System.out.println(by3 == by4);
+System.out.println(by3 == by4); 
+<span class="comment">//这个我判断错了,比较的不是地址, 因为by4是int类型</span>
+<span class="comment">//Byte by3 有个自动拆箱 即 byte by3</span>
+<span class="comment">//基本数据类型比较 比较的就是值的大小</span>
+<span class="comment">//结果是true</span>
 </code></pre>
 <h3 id="System类"><a href="#System类" class="headerlink" title="System类"></a>System类</h3><pre><code>* 概述
     * 不能new, 因为构造方法是private的

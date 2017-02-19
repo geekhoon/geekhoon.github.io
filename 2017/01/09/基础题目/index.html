@@ -92,7 +92,7 @@
 <meta property="og:url" content="https://geekhoon.github.io/2017/01/09/基础题目/index.html">
 <meta property="og:site_name" content="geekhoon">
 <meta property="og:description" content="数据类型1. JAVA语言中的字符char可以存储一个中文汉字吗?原因?">
-<meta property="og:updated_time" content="2017-02-16T16:01:17.762Z">
+<meta property="og:updated_time" content="2017-02-18T12:55:44.002Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基础题目">
 <meta name="twitter:description" content="数据类型1. JAVA语言中的字符char可以存储一个中文汉字吗?原因?">
@@ -460,8 +460,8 @@ public class Test01 {
     private static void demo5() {
         String s1 = &quot;ab&quot;;
         String s2 = &quot;abc&quot;;
-        String s3 = s1 + &quot;c&quot;;
-        System.out.println(s3 == s2);
+        String s3 = s1 + &quot;c&quot;;       //只要是变量+ 字符串 ,就会创建一个新对象
+        System.out.println(s3 == s2);        //flase
         System.out.println(s3.equals(s2));         //
     }
     private static void demo4() {
@@ -536,6 +536,26 @@ public class Test01 {
     }
     利用HashSet对list集合去重(最终结果:list中没有重复元素)
 8.ArrayList嵌套ArrayList
+9.按需求完成指定功能，题目如下：
+    产生10个长度为10的字符串，并遍历打印输出
+    要求：
+     1.每个字符串中只能包含大写字母或者小写字母或者0-9的数字
+     2.每个字符串中的10个字符不能重复
+     3.10个字符串也不能重复
+10.按需求完成指定功能，题目如下：
+    定义一个List集合,泛型为String类型。统计整个集合中所有字符（注意，不是字符串）的个数。例如：    
+    集合中有”abc”、”bcd”两个元素
+    程序最终输出结果为:
+    a = 1
+    b = 2
+    c = 2
+    d = 1
+11.按需求完成指定功能，题目如下：
+    有四种水果(苹果，香蕉，西瓜，橘子)
+     1、给每种水果设定一个商品号，商品号是8个0-9的随机数，商品号码不能重复
+     2、根据商品号查询对应的商品。
+    如果查不到输出：“查无此商品”
+    如果能查到打印：”根据商品号：12345678，查询到对应的商品为：西瓜”
 </code></pre>
       
     </div>
