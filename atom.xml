@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-02-19T14:10:59.550Z</updated>
+  <updated>2017-02-19T16:01:57.021Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -16,13 +16,31 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>16.IO流</title>
+    <link href="https://geekhoon.github.io/2017/02/20/16-IO%E6%B5%81/"/>
+    <id>https://geekhoon.github.io/2017/02/20/16-IO流/</id>
+    <published>2017-02-19T16:01:42.000Z</published>
+    <updated>2017-02-19T16:01:57.021Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="JAVA基础" scheme="https://geekhoon.github.io/categories/JAVA%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="JAVA基础语法" scheme="https://geekhoon.github.io/tags/JAVA%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Java基础知识总结</title>
     <link href="https://geekhoon.github.io/2017/02/19/Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
     <id>https://geekhoon.github.io/2017/02/19/Java基础知识总结/</id>
     <published>2017-02-19T13:57:17.000Z</published>
-    <updated>2017-02-19T14:10:59.550Z</updated>
+    <updated>2017-02-19T16:02:50.015Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="基本知识"><a href="#基本知识" class="headerlink" title="基本知识"></a>基本知识</h3><p>1.JDK和JRE的区别<br>答：JDK是java语言开发工具包，包含JRE和开发工具（javac.exe等）；JRE是java语言的运行环境，包含JVM和核心类库；JVM是java虚拟机，保证了java的跨平台性。<br><a id="more"></a><br>2.JVM跨平台吗？<br>答：JVM不具有跨平台性，不同的操作系统所对应的JVM不一样。正是因为JVM的不跨平台，才能够使java语言具有跨平台性。</p>
+    <content type="html"><![CDATA[<h3 id="基本知识"><a href="#基本知识" class="headerlink" title="基本知识"></a>基本知识</h3><p>1.JDK和JRE的区别<br>答：JDK是java语言开发工具包，包含JRE和开发工具（javac.exe等）；JRE是java语言的运行环境，包含JVM和核心类库；JVM是java虚拟机，保证了java的跨平台性。<br><a id="more"></a><br>2.JVM跨平台吗？<br>答：JVM不具有跨平台性，不同的操作系统所对应的JVM不一样。正是因为JVM的不跨平台，才能够使java语言具有<strong>跨平台性</strong>。</p>
 <p>3.保留字是什么？<br>答：保留字是还未使用的关键字，可能在java以后的版本中使用。有goto和const。</p>
 <p>4.java语言的特点？<br>答：开源，跨平台性，面向对象，多线程，多态。 </p>
 <p>5.main是关键字吗？<br>答：不是的。main是主函数的名字，能够被虚拟机识别，是程序执行的入口。</p>
@@ -2733,85 +2751,6 @@ public class Test01 {
     
     
       <category term="JAVA基础语法" scheme="https://geekhoon.github.io/tags/JAVA%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JAVA基础题</title>
-    <link href="https://geekhoon.github.io/2017/01/05/JAVA%E5%9F%BA%E7%A1%80%E9%A2%98/"/>
-    <id>https://geekhoon.github.io/2017/01/05/JAVA基础题/</id>
-    <published>2017-01-05T12:51:09.000Z</published>
-    <updated>2017-02-12T17:29:38.192Z</updated>
-    
-    <content type="html"><![CDATA[<p>1.Java注释有3种，单行注释、多行注释和文档注释，下列有关注释的说法，不正确的是（）</p>
-<p>A. 注释指的是用来对程序的某个功能或者某行代码进行解释说明<br>B. 注释只在Java源文件中有效<br>C. 在多行注释中，能够嵌套多行注释<br>D. 注释不会被编译到class字节码文<br><a id="more"></a><br>2.下面哪种类型的文件可以在Java虚拟机中运行？（）</p>
-<p>A. .java<br>B. .jre<br>C. .exe<br>D. .class</p>
-<p>3.下列关于变量和常量的说法正确的是（）</p>
-<p>A. 常量表示不能被改变的值，例如1、2、“abc”都是常量<br>B. 常量表示常见的变量<br>C. int x = 0;代码中，x表示常量，0表示变量<br>D. 在同一个大括号｛｝内，定义的变量不能够重名</p>
-<p>4.下列定义变量格式，错误的是（）</p>
-<p>A. float x,y=0;<br>B. float f = 1999.99F;<br>C. String str = 字符串;<br>D. char x = ‘0’;</p>
-<p>5.下列各种符号的定义格式，那种在java语言中是错误的变量定义（）</p>
-<p>A. int myVal =1;<br>B. char $myVal =1;<br>C. byte _myVal =1;<br>D.float 3.14myVal=1;</p>
-<p>6.Java语言中的int及char数据类型的长度分别为（）</p>
-<p>A. 16位和8位<br>B. 8位和16位<br>C. 32位和16位<br>D. 32位和8位</p>
-<p>7.语句System.out.println(1+2+”java”+3+4)输出的结果是（）</p>
-<p>A. 3java34<br>B. 12java34<br>C. 3java7<br>D. 12java7</p>
-<p>8.下列关于Java函数的说法不正确的是（）</p>
-<p>A.函数也叫方法，函数就是定义在类中，具有特定功能的一段小程序<br>B.方法体中不能有任何代码（抽象函数除外）<br>C.函数必须先定义，才能被调用<br>D.函数（构造函数除外）要有返回值类型</p>
-<p>9.以下关于函数重载的说法正确的有（）</p>
-<p>A. 方法名必须一样<br>B. 与返回值类型无关<br>C. 参数个数或者顺序不一样<br>D. 参数类型不一样</p>
-<p>10.关于数组的说法，正确的是（）</p>
-<p>A. 数组里面存放的是相同类型的数据<br>B. 获取数组的长度使用length属性<br>C. 获取数组的大小使用size方法<br>D. 数组的长度是可变的</p>
-<p>11.想要结果输出为0，则可以做哪些修改？（）</p>
-<pre><code>int [] arr = new int[1];
-arr[0] = 3;               
-System.out.println( arr[1] )
-</code></pre><p>A. 2修改为<code>arr[3] = 0;</code><br>B. 3修改为<code>System.out.println(0)</code><br>C. 1修改为<code>int [ ] arr = new int[2];</code><br>D. 不用修改了，结果就是0会报错</p>
-<p>12.下列二维数组定义错误的是（）</p>
-<pre><code>A.int[][] arr = new int[3][2];
-B.int arr[][] = new int[3][]; 
-C.int[][] arr = {{1,2,3},{4,5},{6,7,8,9}};
-D.int arr[][] ={{2,3},{6},9};
-</code></pre><p>13.下面代码的运行结果是（）</p>
-<pre><code class="java"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>{
-    <span class="keyword">int</span> x = <span class="number">80</span>;
-    x ++;
-    <span class="keyword">switch</span>(x){
-        <span class="keyword">case</span> <span class="number">80</span>:
-        System.out.println(<span class="number">80</span>);
-        <span class="keyword">case</span> <span class="number">81</span>:
-        System.out.println(<span class="number">81</span>);
-        <span class="keyword">default</span>:
-        System.out.println(<span class="number">82</span>);
-    }
-}
-</code></pre>
-<p>A. 80<br>B. 80 81<br>C. 81<br>D. 81 82</p>
-<p>14.下面程序运行的结果是（）</p>
-<pre><code class="java"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>{
-    <span class="keyword">int</span> a = <span class="number">1</span>;
-    <span class="keyword">if</span>(a++&gt;<span class="number">1</span>){
-        System.out.println(a);
-    }<span class="keyword">else</span>{
-        System.out.println(a);
-    }
-}
-</code></pre>
-<p>A.1<br>B.2<br>C.0<br>D.编译报错</p>
-<p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>答案:1~5:C,D,AD,C,D 6~10:C,A,B,ABCD,AB 11~14:BC,D,D,B</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;1.Java注释有3种，单行注释、多行注释和文档注释，下列有关注释的说法，不正确的是（）&lt;/p&gt;
-&lt;p&gt;A. 注释指的是用来对程序的某个功能或者某行代码进行解释说明&lt;br&gt;B. 注释只在Java源文件中有效&lt;br&gt;C. 在多行注释中，能够嵌套多行注释&lt;br&gt;D. 注释不会被编译到class字节码文&lt;br&gt;
-    
-    </summary>
-    
-      <category term="JAVA基础" scheme="https://geekhoon.github.io/categories/JAVA%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="题目" scheme="https://geekhoon.github.io/tags/%E9%A2%98%E7%9B%AE/"/>
     
   </entry>
   

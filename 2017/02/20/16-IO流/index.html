@@ -86,27 +86,16 @@
 
 
 
-<meta name="description" content="类* 分两种,一种是JAVA提供的,一种是自定义类
-* 类是用于描述事物的.
-* 事物的特征叫属性
-* 事物的功能叫方法">
+<meta name="description" content="技术博客">
 <meta property="og:type" content="article">
-<meta property="og:title" content="09.自定义类">
-<meta property="og:url" content="https://geekhoon.github.io/2017/01/15/09-自定义类/index.html">
+<meta property="og:title" content="16.IO流">
+<meta property="og:url" content="https://geekhoon.github.io/2017/02/20/16-IO流/index.html">
 <meta property="og:site_name" content="geekhoon">
-<meta property="og:description" content="类* 分两种,一种是JAVA提供的,一种是自定义类
-* 类是用于描述事物的.
-* 事物的特征叫属性
-* 事物的功能叫方法">
-<meta property="og:image" content="http://oj3s07yy0.bkt.clouddn.com/blog/20170115/200111098.png">
-<meta property="og:updated_time" content="2017-02-12T17:26:08.962Z">
+<meta property="og:description" content="技术博客">
+<meta property="og:updated_time" content="2017-02-19T16:01:57.021Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="09.自定义类">
-<meta name="twitter:description" content="类* 分两种,一种是JAVA提供的,一种是自定义类
-* 类是用于描述事物的.
-* 事物的特征叫属性
-* 事物的功能叫方法">
-<meta name="twitter:image" content="http://oj3s07yy0.bkt.clouddn.com/blog/20170115/200111098.png">
+<meta name="twitter:title" content="16.IO流">
+<meta name="twitter:description" content="技术博客">
 
 
 
@@ -127,9 +116,9 @@
 
 
 
-  <link rel="canonical" href="https://geekhoon.github.io/2017/01/15/09-自定义类/"/>
+  <link rel="canonical" href="https://geekhoon.github.io/2017/02/20/16-IO流/"/>
 
-  <title> 09.自定义类 | geekhoon </title>
+  <title> 16.IO流 | geekhoon </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -312,7 +301,7 @@
             
             
               
-                09.自定义类
+                16.IO流
               
             
           </h1>
@@ -324,8 +313,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-15T20:04:20+08:00" content="2017-01-15">
-              2017-01-15
+            <time itemprop="dateCreated" datetime="2017-02-20T00:01:42+08:00" content="2017-02-20">
+              2017-02-20
             </time>
           </span>
 
@@ -354,8 +343,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/01/15/09-自定义类/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/15/09-自定义类/" itemprop="commentsCount"></span>
+                <a href="/2017/02/20/16-IO流/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/20/16-IO流/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -365,7 +354,7 @@
 
           
           
-             <span id="/2017/01/15/09-自定义类/" class="leancloud_visitors" data-flag-title="09.自定义类">
+             <span id="/2017/02/20/16-IO流/" class="leancloud_visitors" data-flag-title="16.IO流">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -387,18 +376,7 @@
       
 
       
-        <h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><pre><code>* 分两种,一种是JAVA提供的,一种是自定义类
-* 类是用于描述事物的.
-* 事物的特征叫属性
-* 事物的功能叫方法
-</code></pre><a id="more"></a> 
-<h3 id="自定义类的格式"><a href="#自定义类的格式" class="headerlink" title="自定义类的格式"></a>自定义类的格式</h3><pre><code>* 使用类的形式,对现实中的事物进行描述。 
-
-* 格式
-</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> 类名</span>&#123;</div><div class="line">	属性定义(成员变量)</div><div class="line">	  修饰符 数据类型 变量名 = 值</div><div class="line">	</div><div class="line">	方法定义(成员方法)</div><div class="line">	  修饰符 返回值类型  方法名(参数列表)&#123;</div><div class="line">		  </div><div class="line">	  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="自定义类的内存图"><a href="#自定义类的内存图" class="headerlink" title="自定义类的内存图"></a>自定义类的内存图</h3><p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170115/200111098.png" alt=""></p>
-<p>注意一点: new一个对象后,类中的成员变量,一并进入堆内存,并被赋予默认值<br>new出来对象的属性,存在堆里面<br>根据内存图,可知,即使没被赋值,打印 类名.属性 ,也会有默认值</p>
-
+        
       
     </div>
 
@@ -429,17 +407,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/13/08-方法/" rel="next" title="08.方法">
-                <i class="fa fa-chevron-left"></i> 08.方法
+              <a href="/2017/02/19/Java基础知识总结/" rel="next" title="Java基础知识总结">
+                <i class="fa fa-chevron-left"></i> Java基础知识总结
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/15/10-集合/" rel="prev" title="10.集合">
-                10.集合 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -488,8 +462,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/01/15/09-自定义类/"
-           data-title="09.自定义类" data-url="https://geekhoon.github.io/2017/01/15/09-自定义类/">
+      <div class="ds-thread" data-thread-key="2017/02/20/16-IO流/"
+           data-title="16.IO流" data-url="https://geekhoon.github.io/2017/02/20/16-IO流/">
       </div>
     
   </div>
@@ -651,7 +625,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#类"><span class="nav-number">1.</span> <span class="nav-text">类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义类的格式"><span class="nav-number">2.</span> <span class="nav-text">自定义类的格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义类的内存图"><span class="nav-number">3.</span> <span class="nav-text">自定义类的内存图</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
