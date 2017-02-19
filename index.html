@@ -381,86 +381,16 @@
 
       
         
-          
-            <h3 id="异常继承体系"><a href="#异常继承体系" class="headerlink" title="异常继承体系"></a>异常继承体系</h3><pre><code>* Throwable类是所有错误,异常的超类
+          <h3 id="异常继承体系"><a href="#异常继承体系" class="headerlink" title="异常继承体系"></a>异常继承体系</h3><pre><code>* Throwable类是所有错误,异常的超类
     | - Error     : 错误, Throwable的子类
     | - Exception : 异常, Throwable的子类
         |-RuntimeException :　运行期异常, JAVA程序运行过程中出现的问题, Exception的子类
-* 异常与错误的区别
- 1. 异常: 
-    * 异常指程序在编译、运行期间发生了某种异常(XxxException)，我们可以对异常进行具体的处理。
-    * 若不处理异常，程序将会结束运行。
- 2. 错误:
-    * 指程序在运行期间发生了某种错误，Error错误通常没有具体的处理方式，程序将会结束运行。
-    * Error错误的发生往往都是系统级别的问题，都是jvm所在系统发生的，并反馈给jvm的。
-    * 我们无法针对处理，只能修正代码
-</code></pre><h3 id="异常处理方式"><a href="#异常处理方式" class="headerlink" title="异常处理方式"></a>异常处理方式</h3><pre><code>1. JVM的默认处理方式
-    * 把异常的名称,原因,位置等信息输出在控制台，同时会结束程序。
-    * 一旦有异常发生，其后来的代码不能继续执行。
-2. 解决程序中异常的手动方式
-    * 编写处理代码 try...catch...finally
-    * 抛出 throws
-</code></pre><h3 id="异常中关键字"><a href="#异常中关键字" class="headerlink" title="异常中关键字"></a>异常中关键字</h3><h4 id="抛出异常对象-throw"><a href="#抛出异常对象-throw" class="headerlink" title="抛出异常对象 throw"></a>抛出异常对象 throw</h4><pre><code>* 在方法内部,抛出异常
-* 用来抛出一个指定的异常对象, 
-* 以抛出异常的方式,告诉调用者main,(如果是main方法调用的话)
-* throw 后面, 必须写new 对象,必须是异常的对象,只能写一个对象
-</code></pre><h4 id="方法中声明异常关键字-throws"><a href="#方法中声明异常关键字-throws" class="headerlink" title="方法中声明异常关键字 throws"></a>方法中声明异常关键字 throws</h4><pre><code>* 在方法声明上, 表明此方法,可能出现异常 
-* throws 后面, 必须写异常类的类名,可以写多个异常类名
-* 格式: 修饰符 返回值类型 方法名(参数) throws 异常类名1,异常类名2… {   }
-* 当调用了一个抛出异常的方法,调用者就必须处理, 不处理,编译失败
-</code></pre><h4 id="throw-throws区别"><a href="#throw-throws区别" class="headerlink" title="throw,throws区别"></a>throw,throws区别</h4><pre><code>1. 书写位置:
-    throw : 方法内部
-    throws: 方法声明上
-2. 内容: 
-    throw :　new异常对象, 只能new一个
-    throws: 异常类类名, 可以写多个
-</code></pre><h3 id="try-catch异常处理"><a href="#try-catch异常处理" class="headerlink" title="try..catch异常处理"></a>try..catch异常处理</h3><pre><code>* 格式:　
-try{
-   被检测代码
-}catch (异常类名1 变量){
-    异常处理方式
-}catch (异常类名2 变量){
-    ...
-}catch ...
-}finally{
-    必须要执行的代码
-}
-* 注意: 
-    如果出现了上下级关系的异常, 越高级越要写在catch下面
-* finally,无论程序是否有异常出现,程序必须执行释放资源
-      如：IO流操作和数据库操作中会见到
-* finally：是try-catch的一部分！被它修饰的代码一定会被执行到！除非在这之前退出了虚拟机
-   System.exit(0);
-* 方法中, 在catch语句中有return, return语句在finally之前执行, 还是之后执行?
-  return , 先建立了一个返回的链接, 先检测一下, 如果有finally, 那么执行完finally代码块后, 继续返回
-</code></pre><h3 id="运行时期异常处理"><a href="#运行时期异常处理" class="headerlink" title="运行时期异常处理"></a>运行时期异常处理</h3><pre><code>* 编译异常: 调用了抛出异常的方法, 不处理编译失败 (try  throws)
-* 运行异常: 抛出的异常是RuntimeException类, 或者它的子类, 除此之外,都是编译异常
-
-* throws Exception : 抛的是编译异常
-* throws NullPointerException : 抛的是运行异常
-* 运行异常的特点:
-    * 方法中抛出运行异常,方法定义中无需throws声明,调用者也无需处理此异常。
-    * 运行异常一旦发生,后面的代码没有执行的意义,需要程序人员修改源代码
-* 设计原因: (不写throws, 调用者也不用处理)
-    * 运行异常, 不能发生, 但是如果发生, 程序人员停止程序, 修改源代码
-</code></pre><h3 id="方法重写时异常的处理"><a href="#方法重写时异常的处理" class="headerlink" title="方法重写时异常的处理"></a>方法重写时异常的处理</h3><pre><code>* 继承后, 在子类重写父类方法的时候, 异常处理
-* 结论: 
-    1.父类的方法如果抛出异常, 子类重写后, 
-        1. 可以不抛出异常
-        2. 也可以抛出异常, 但是抛的异常不能大于父类的异常(异常的继承关系)
-           如果抛同级异常, 只能和父类抛的异常一模一样
-
-    2.父类的方法如果不抛出异常, 子类重写后, 也不能抛出异常
-        如果子类重写的方法调用了抛出编译异常(注意,如果调用了抛运行异常的方法,不会出问题)的方法, 只能try/catch处理, 子类重写的方法不可以向外抛异常
-</code></pre><h3 id="Throwable类常用方法"><a href="#Throwable类常用方法" class="headerlink" title="Throwable类常用方法"></a>Throwable类常用方法</h3><pre><code>* 都和异常的信息有关系
-1. String getMessage() : 对异常信息的详细描述
-2. String toString()   : 对异常信息的简短描述
-3. void printStackTrace(): 将异常信息追踪到标准的错误流
-</code></pre><h3 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h3><pre><code>* 步骤: 
-    1. 自定义类, 继承Exception, 或RuntimeException, 一般写运行异常
-    2. 构造方法中, super将异常信息传递给父类
 </code></pre>
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/02/18/15-异常/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>

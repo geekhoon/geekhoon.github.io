@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-02-18T12:15:10.703Z</updated>
+  <updated>2017-02-19T13:10:32.221Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -20,13 +20,14 @@
     <link href="https://geekhoon.github.io/2017/02/18/15-%E5%BC%82%E5%B8%B8/"/>
     <id>https://geekhoon.github.io/2017/02/18/15-异常/</id>
     <published>2017-02-17T18:15:15.000Z</published>
-    <updated>2017-02-18T12:15:10.703Z</updated>
+    <updated>2017-02-19T13:10:32.221Z</updated>
     
     <content type="html"><![CDATA[<h3 id="异常继承体系"><a href="#异常继承体系" class="headerlink" title="异常继承体系"></a>异常继承体系</h3><pre><code>* Throwable类是所有错误,异常的超类
     | - Error     : 错误, Throwable的子类
     | - Exception : 异常, Throwable的子类
         |-RuntimeException :　运行期异常, JAVA程序运行过程中出现的问题, Exception的子类
-* 异常与错误的区别
+</code></pre><a id="more"></a> 
+<pre><code>* 异常与错误的区别
  1. 异常: 
     * 异常指程序在编译、运行期间发生了某种异常(XxxException)，我们可以对异常进行具体的处理。
     * 若不处理异常，程序将会结束运行。
@@ -104,7 +105,10 @@ try{
     <summary type="html">
     
       &lt;h3 id=&quot;异常继承体系&quot;&gt;&lt;a href=&quot;#异常继承体系&quot; class=&quot;headerlink&quot; title=&quot;异常继承体系&quot;&gt;&lt;/a&gt;异常继承体系&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;* Throwable类是所有错误,异常的超类
-    | - Error     : 错误
+    | - Error     : 错误, Throwable的子类
+    | - Exception : 异常, Throwable的子类
+        |-RuntimeException :　运行期异常, JAVA程序运行过程中出现的问题, Exception的子类
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     

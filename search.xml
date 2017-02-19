@@ -10,7 +10,8 @@
     | - Error     : 错误, Throwable的子类
     | - Exception : 异常, Throwable的子类
         |-RuntimeException :　运行期异常, JAVA程序运行过程中出现的问题, Exception的子类
-* 异常与错误的区别
+</code></pre><a id="more"></a> 
+<pre><code>* 异常与错误的区别
  1. 异常: 
     * 异常指程序在编译、运行期间发生了某种异常(XxxException)，我们可以对异常进行具体的处理。
     * 若不处理异常，程序将会结束运行。
