@@ -89,7 +89,8 @@
 <meta name="description" content="异常继承体系* Throwable类是所有错误,异常的超类
     | - Error     : 错误, Throwable的子类
     | - Exception : 异常, Throwable的子类
-        |-RuntimeException :　运行期异常, JAVA程序运行过程中出现的问题, Exception的子类">
+        |-RuntimeException :　运行期异常, JAVA程序运行过程中出现的问题, Exception的子类
+        |-非RuntimeException :">
 <meta property="og:type" content="article">
 <meta property="og:title" content="15.异常">
 <meta property="og:url" content="https://geekhoon.github.io/2017/02/18/15-异常/index.html">
@@ -97,14 +98,16 @@
 <meta property="og:description" content="异常继承体系* Throwable类是所有错误,异常的超类
     | - Error     : 错误, Throwable的子类
     | - Exception : 异常, Throwable的子类
-        |-RuntimeException :　运行期异常, JAVA程序运行过程中出现的问题, Exception的子类">
-<meta property="og:updated_time" content="2017-02-19T13:10:32.221Z">
+        |-RuntimeException :　运行期异常, JAVA程序运行过程中出现的问题, Exception的子类
+        |-非RuntimeException :">
+<meta property="og:updated_time" content="2017-02-20T00:50:26.437Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="15.异常">
 <meta name="twitter:description" content="异常继承体系* Throwable类是所有错误,异常的超类
     | - Error     : 错误, Throwable的子类
     | - Exception : 异常, Throwable的子类
-        |-RuntimeException :　运行期异常, JAVA程序运行过程中出现的问题, Exception的子类">
+        |-RuntimeException :　运行期异常, JAVA程序运行过程中出现的问题, Exception的子类
+        |-非RuntimeException :">
 
 
 
@@ -389,6 +392,7 @@
     | - Error     : 错误, Throwable的子类
     | - Exception : 异常, Throwable的子类
         |-RuntimeException :　运行期异常, JAVA程序运行过程中出现的问题, Exception的子类
+        |-非RuntimeException : 编译期异常，必须处理的，否则程序编译不通过, Exception的子类
 </code></pre><a id="more"></a> 
 <pre><code>* 异常与错误的区别
  1. 异常: 
@@ -403,7 +407,9 @@
     * 一旦有异常发生，其后来的代码不能继续执行。
 2. 解决程序中异常的手动方式
     * 编写处理代码 try...catch...finally
+        自己编写处理代码,后面的程序可以继续执行
     * 抛出 throws
+        把自己处理不了的，在方法上声明，告诉调用者，这里有问题
 </code></pre><h3 id="异常中关键字"><a href="#异常中关键字" class="headerlink" title="异常中关键字"></a>异常中关键字</h3><h4 id="抛出异常对象-throw"><a href="#抛出异常对象-throw" class="headerlink" title="抛出异常对象 throw"></a>抛出异常对象 throw</h4><pre><code>* 在方法内部,抛出异常
 * 用来抛出一个指定的异常对象, 
 * 以抛出异常的方式,告诉调用者main,(如果是main方法调用的话)
@@ -412,12 +418,16 @@
 * throws 后面, 必须写异常类的类名,可以写多个异常类名
 * 格式: 修饰符 返回值类型 方法名(参数) throws 异常类名1,异常类名2… {   }
 * 当调用了一个抛出异常的方法,调用者就必须处理, 不处理,编译失败
-</code></pre><h4 id="throw-throws区别"><a href="#throw-throws区别" class="headerlink" title="throw,throws区别"></a>throw,throws区别</h4><pre><code>1. 书写位置:
-    throw : 方法内部
-    throws: 方法声明上
-2. 内容: 
-    throw :　new异常对象, 只能new一个
-    throws: 异常类类名, 可以写多个
+</code></pre><h4 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h4><pre><code>1. 编译期异常和运行期异常的区别
+    编译期异常 必须要处理的，否则编译不通过
+    运行期异常 可以不处理，也可以处理
+2. throw,throws区别
+    throw:
+        在方法体中,后面跟的是异常对象名,并且只能是一个
+        throw抛出的是一个异常对象，说明这里肯定有一个异常产生了
+    throws:
+        在方法声明上,后面跟的是异常的类名,可以是多个
+        throws是声明方法有异常，是一种可能性，这个异常并不一定会产生
 </code></pre><h3 id="try-catch异常处理"><a href="#try-catch异常处理" class="headerlink" title="try..catch异常处理"></a>try..catch异常处理</h3><pre><code>* 格式:　
 try{
    被检测代码
@@ -461,7 +471,7 @@ try{
 2. String toString()   : 对异常信息的简短描述
 3. void printStackTrace(): 将异常信息追踪到标准的错误流
 </code></pre><h3 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h3><pre><code>* 步骤: 
-    1. 自定义类, 继承Exception, 或RuntimeException, 一般写运行异常
+    1. 继承自Exception或者RuntimeException,只需要提供无参构造和一个带参构造即可, 一般写运行异常
     2. 构造方法中, super将异常信息传递给父类
 </code></pre>
       
@@ -716,7 +726,7 @@ try{
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#异常继承体系"><span class="nav-number">1.</span> <span class="nav-text">异常继承体系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常处理方式"><span class="nav-number">2.</span> <span class="nav-text">异常处理方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常中关键字"><span class="nav-number">3.</span> <span class="nav-text">异常中关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#抛出异常对象-throw"><span class="nav-number">3.1.</span> <span class="nav-text">抛出异常对象 throw</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法中声明异常关键字-throws"><span class="nav-number">3.2.</span> <span class="nav-text">方法中声明异常关键字 throws</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#throw-throws区别"><span class="nav-number">3.3.</span> <span class="nav-text">throw,throws区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#try-catch异常处理"><span class="nav-number">4.</span> <span class="nav-text">try..catch异常处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行时期异常处理"><span class="nav-number">5.</span> <span class="nav-text">运行时期异常处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法重写时异常的处理"><span class="nav-number">6.</span> <span class="nav-text">方法重写时异常的处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Throwable类常用方法"><span class="nav-number">7.</span> <span class="nav-text">Throwable类常用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义异常"><span class="nav-number">8.</span> <span class="nav-text">自定义异常</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#异常继承体系"><span class="nav-number">1.</span> <span class="nav-text">异常继承体系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常处理方式"><span class="nav-number">2.</span> <span class="nav-text">异常处理方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常中关键字"><span class="nav-number">3.</span> <span class="nav-text">异常中关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#抛出异常对象-throw"><span class="nav-number">3.1.</span> <span class="nav-text">抛出异常对象 throw</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法中声明异常关键字-throws"><span class="nav-number">3.2.</span> <span class="nav-text">方法中声明异常关键字 throws</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#面试题"><span class="nav-number">3.3.</span> <span class="nav-text">面试题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#try-catch异常处理"><span class="nav-number">4.</span> <span class="nav-text">try..catch异常处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行时期异常处理"><span class="nav-number">5.</span> <span class="nav-text">运行时期异常处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法重写时异常的处理"><span class="nav-number">6.</span> <span class="nav-text">方法重写时异常的处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Throwable类常用方法"><span class="nav-number">7.</span> <span class="nav-text">Throwable类常用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义异常"><span class="nav-number">8.</span> <span class="nav-text">自定义异常</span></a></li></ol></div>
             
           </div>
         </section>
