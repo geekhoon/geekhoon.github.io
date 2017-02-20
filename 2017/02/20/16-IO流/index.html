@@ -100,7 +100,7 @@
 * 将操作系统中文件,目录(文件夹),路径,封装成File对象
 * 提供方法, 操作系统中的内容
 * File是与系统无关的类">
-<meta property="og:updated_time" content="2017-02-20T16:26:57.252Z">
+<meta property="og:updated_time" content="2017-02-20T16:29:45.175Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="16.IO流">
 <meta name="twitter:description" content="File类概述* java.io.File 
@@ -439,7 +439,7 @@
 9. 获取到File构造方法中封装的路径中的文件和文件夹名: File[] listFiles()
     获取的是目录或者文件的全路径
     8和9中如果要获得D盘根目录下的内容,要写成&quot;D:\\&quot;,如果只写成&quot;D:&quot;,获得是当前工程目录下的内容
-10. 
+10. 返回的是根目录盘符: static File[] listRoots()
 </code></pre><h5 id="4-判断功能"><a href="#4-判断功能" class="headerlink" title="4.判断功能"></a>4.判断功能</h5><pre><code>1. 判断File构造方法中封装路径是否存在: boolean exists()
 2. 判断File构造方法中封装的路径是不是文件夹 boolean isDirectorty()
 3. 判断File构造方法中封装的路径是不是文件 boolean isFile()
