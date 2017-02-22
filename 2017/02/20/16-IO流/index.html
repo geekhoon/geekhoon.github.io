@@ -100,7 +100,7 @@
 * 将操作系统中文件,目录(文件夹),路径,封装成File对象
 * 提供方法, 操作系统中的内容
 * File是与系统无关的类">
-<meta property="og:updated_time" content="2017-02-22T10:06:23.538Z">
+<meta property="og:updated_time" content="2017-02-22T12:55:44.447Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="16.IO流">
 <meta name="twitter:description" content="File类概述* java.io.File 
@@ -677,8 +677,8 @@
                          |-- FileReader(字符输入流的子类)
                                 |- read(char c) : 读取单个字符
                                 |- read(char[] ch): 读取字符数组
-                         |-- BufferedReader(Reader r)
-                                |- readLine() : 读取一整行
+                |-- BufferedReader(Reader r)
+                         |- readLine() : 读取一整行
         输出流:  
             Writer:
                 |-- OutputStreamWriter(将字符转成字节)
@@ -686,8 +686,8 @@
                                 |- write(char c) : 写出单个字符
                                 |- write(char[] ch): 写出字符数组
                                 |- write(String str): 写出字符串
-                         |-- BufferedWriter(Writer w)
-                                |- newLine() : 写出一个换行
+                |-- BufferedWriter(Writer w)
+                         |- newLine() : 写出一个换行
 </code></pre><h4 id="操作规律"><a href="#操作规律" class="headerlink" title="操作规律"></a>操作规律</h4><pre><code>1. 如果操作的是纯文本文件, 直接使用带缓冲的字符流即可! 读一行,写一行
 2. 如果操作的是所有文件,直接使用待缓冲的字节流即可! 带上小数组
 3. 如果需要编码转换, 直接使用转换流即可!
