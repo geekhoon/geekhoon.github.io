@@ -309,7 +309,53 @@
 </code></pre><h4 id="操作规律"><a href="#操作规律" class="headerlink" title="操作规律"></a>操作规律</h4><pre><code>1. 如果操作的是纯文本文件, 直接使用带缓冲的字符流即可! 读一行,写一行
 2. 如果操作的是所有文件,直接使用待缓冲的字节流即可! 带上小数组
 3. 如果需要编码转换, 直接使用转换流即可!
-</code></pre>]]></content>
+</code></pre><h3 id="Properties集合类"><a href="#Properties集合类" class="headerlink" title="Properties集合类"></a>Properties集合类</h3><h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><pre><code>* HashTable的子类, 实现Map接口
+* 集合都是临时存储, 但Properties可以与IO对象结合使用,实现持久化存储
+* 没有泛型(不能写泛型), 键值对都是字符串
+</code></pre><h4 id="存储键值对"><a href="#存储键值对" class="headerlink" title="存储键值对"></a>存储键值对</h4><pre><code>* 特有方法:
+    1. setProperty(String key, String value): 功能等同于Map中的put
+    2. getProperty(String key): 通过键获取值, 功能等同于Map中的get(index)
+    3. StringPropertyNames(): 将集合的键存储到Set集合, 类似与keySet
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">Properties pro = <span class="keyword">new</span> Properties();</div><div class="line">pro.setProperty(<span class="string">"a"</span>, <span class="string">"1"</span>);</div><div class="line">pro.setProperty(<span class="string">"b"</span>, <span class="string">"2"</span>);</div><div class="line">pro.setProperty(<span class="string">"c"</span>, <span class="string">"3"</span>);	</div><div class="line">System.out.println(pro.getProperty(<span class="string">"a"</span>)); <span class="comment">//1</span></div><div class="line">System.out.println(pro.getProperty(<span class="string">"b"</span>)); <span class="comment">//2</span></div><div class="line">System.out.println(pro.getProperty(<span class="string">"c"</span>)); <span class="comment">//3</span></div><div class="line">System.out.println(pro.getProperty(<span class="string">"d"</span>)); <span class="comment">//null</span></div><div class="line"><span class="comment">//遍历</span></div><div class="line">Set&lt;String&gt; keySet = pro.stringPropertyNames();</div><div class="line"><span class="keyword">for</span> (String key : keySet) &#123;</div><div class="line">	System.out.println(key+<span class="string">"..."</span>+pro.getProperty(key));<span class="comment">//存取无序</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="特有方法"><a href="#特有方法" class="headerlink" title="特有方法"></a>特有方法</h4><h5 id="load"><a href="#load" class="headerlink" title="load"></a>load</h5><pre><code>1. load(InputStream in)
+2. load(Reader r)
+* 传递任意的字节或字符输入流
+* 流对象读取文件中的键值对,保存到集合
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">注意config.properties中写简直的时候,键和值后不要加空格或分号,否则就成为键或值的一部分了</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">function_2</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">	Properties pro = <span class="keyword">new</span> Properties();</div><div class="line">	FileReader fr = <span class="keyword">new</span> FileReader(<span class="string">"config.properties"</span>);</div><div class="line">	pro.load(fr);</div><div class="line">	fr.close();</div><div class="line">	System.out.println(pro);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="store"><a href="#store" class="headerlink" title="store"></a>store</h5><pre><code>1. store(OutputStream o, String comments)
+2. store(Writer w, String comments)
+* 接收所有的字节或字符输出流, 将集合中的键值对, 写回文件中保存
+* String类型的comments写的是: 写回文件的原因,可以写&quot;&quot;,或者英文形式,如&quot;abc&quot;
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">function_3</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">	Properties pro = <span class="keyword">new</span> Properties();</div><div class="line">	pro.setProperty(<span class="string">"name"</span>, <span class="string">"geekhoon"</span>);</div><div class="line">	pro.setProperty(<span class="string">"age"</span>, <span class="string">"11"</span>);</div><div class="line">	pro.setProperty(<span class="string">"blog"</span>, <span class="string">"www.geekhoon.com"</span>);</div><div class="line">	FileWriter fw = <span class="keyword">new</span> FileWriter(<span class="string">"config.properties"</span>);</div><div class="line">	pro.store(fw, <span class="string">"just a test"</span>);<span class="comment">//后面写原因,可以写""</span></div><div class="line">	fw.close();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="对象操作流"><a href="#对象操作流" class="headerlink" title="对象操作流"></a>对象操作流</h3><h4 id="对象的序列化与反序列化"><a href="#对象的序列化与反序列化" class="headerlink" title="对象的序列化与反序列化"></a>对象的序列化与反序列化</h4><pre><code>* 序列化: 对象中的数据,以流的形式,写入到文件中保存
+* 反序列化: 在文件中,以流的形式,将对象读取出来
+</code></pre><h4 id="ObjectOutputStream流写对象"><a href="#ObjectOutputStream流写对象" class="headerlink" title="ObjectOutputStream流写对象"></a>ObjectOutputStream流写对象</h4><pre><code>* 将对象写到文件中, 实现序列化
+* 构造方法:
+    * ObjectOutputStream(OutputStream out),传递任意的字节输出流
+* 方法:
+    * void writeObject(Object obj): 写出对象的方法
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">对象类,要实现Serializable接口</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> String name;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> age;</div><div class="line">	构造方法;</div><div class="line">	get/set;</div><div class="line">	toString();</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">writeObjec</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">	<span class="comment">//创建字符输出流,封装文件</span></div><div class="line">	FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(<span class="string">"d:\\person.txt"</span>);</div><div class="line">	<span class="comment">//创建序列化流的对象,构造方法传递字节输出流</span></div><div class="line">	ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(fos);</div><div class="line">	Person p = <span class="keyword">new</span> Person(<span class="string">"张三"</span>,<span class="number">11</span>);</div><div class="line">	<span class="comment">//调用序列化流的方法writeObject,写出对象</span></div><div class="line">	oos.writeObject(p);</div><div class="line">	oos.close();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="ObjectInputStream流读取对象"><a href="#ObjectInputStream流读取对象" class="headerlink" title="ObjectInputStream流读取对象"></a>ObjectInputStream流读取对象</h4><pre><code>* 从文件中读取对象, 实现反序列化
+* 构造方法:
+    * ObjectInputStream(InputStream in), 传递任意的字节输入流
+    * 注意: 字节输入流封装的文件,必须是序列化的文件
+* 方法:
+    * Object readObject(): 读取对象
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">readObject</span><span class="params">()</span> <span class="keyword">throws</span> IOException, ClassNotFoundException </span>&#123;</div><div class="line">	FileInputStream fis = <span class="keyword">new</span> FileInputStream(<span class="string">"d:\\person.txt"</span>);</div><div class="line">	<span class="comment">//创建反序列化流的对象,构造方法传递字节输入流</span></div><div class="line">	ObjectInputStream ois = <span class="keyword">new</span> ObjectInputStream(fis);</div><div class="line">	<span class="comment">//调用反序列化的方法readObject(),读取对象</span></div><div class="line">	Object obj = ois.readObject();<span class="comment">//readObject()要抛ClassNotFoundException这个异常</span></div><div class="line">	System.out.println(obj); <span class="comment">//打印Person [name=张三, age=11]</span></div><div class="line">	ois.close();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="静态不能序列化"><a href="#静态不能序列化" class="headerlink" title="静态不能序列化"></a>静态不能序列化</h4><pre><code>* 被static修饰的成员变量,属于类
+* 非静态成员变量才属于对象
+* 对象序列化和反序列化操作的是对象, 静态变量不能序列化
+* 如: private static int age;
+    * readObject()打印的结果就是Person [name=张三, age=0]
+</code></pre><h4 id="transient关键字"><a href="#transient关键字" class="headerlink" title="transient关键字"></a>transient关键字</h4><pre><code>* 不能写成静态变量, 也不想被序列化, 需要使用transient关键字
+* 作用: 阻止成员变量序列化
+* 如:　private transient int age;
+    * readObject()打印的结果就是Person [name=张三, age=0]
+</code></pre><h4 id="Serializable接口的含义"><a href="#Serializable接口的含义" class="headerlink" title="Serializable接口的含义"></a>Serializable接口的含义</h4><pre><code>* 接口中并没有方法
+* 这种接口称为标记接口
+* 实现标记接口的实现类, 才可以序列化
+</code></pre><h4 id="序列化中的序列号冲突问题"><a href="#序列化中的序列号冲突问题" class="headerlink" title="序列化中的序列号冲突问题"></a>序列化中的序列号冲突问题</h4><pre><code>* 序列化之后,还没进行反序列化,去把person类的内容进行了修改,再进行反序列化,会报错
+</code></pre><h4 id="序列化中自定义的序列号"><a href="#序列化中自定义的序列号" class="headerlink" title="序列化中自定义的序列号"></a>序列化中自定义的序列号</h4><h3 id="打印流"><a href="#打印流" class="headerlink" title="打印流"></a>打印流</h3><h4 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h4><h4 id="打印流输出目的是File对象"><a href="#打印流输出目的是File对象" class="headerlink" title="打印流输出目的是File对象"></a>打印流输出目的是File对象</h4><h4 id="输出语句是char数组"><a href="#输出语句是char数组" class="headerlink" title="输出语句是char数组"></a>输出语句是char数组</h4><h4 id="打印流输出目的是String和流对象"><a href="#打印流输出目的是String和流对象" class="headerlink" title="打印流输出目的是String和流对象"></a>打印流输出目的是String和流对象</h4><h4 id="打印流开启自动刷新"><a href="#打印流开启自动刷新" class="headerlink" title="打印流开启自动刷新"></a>打印流开启自动刷新</h4><h4 id="打印流复制文本文件"><a href="#打印流复制文本文件" class="headerlink" title="打印流复制文本文件"></a>打印流复制文本文件</h4><h3 id="第三方jar包"><a href="#第三方jar包" class="headerlink" title="第三方jar包"></a>第三方jar包</h3><h4 id="commons–io工具类"><a href="#commons–io工具类" class="headerlink" title="commons–io工具类"></a>commons–io工具类</h4><h4 id="FilenameUtils–io工具类"><a href="#FilenameUtils–io工具类" class="headerlink" title="FilenameUtils–io工具类"></a>FilenameUtils–io工具类</h4><h4 id="FileUtils–io工具类"><a href="#FileUtils–io工具类" class="headerlink" title="FileUtils–io工具类"></a>FileUtils–io工具类</h4>]]></content>
     </entry>
     
     <entry>
@@ -1676,8 +1722,8 @@ ArrayList类   LinkedList类                                              HashSe
         1. 底层都是哈希算法
         2. 都是双列集合
     * 区别一: 
-        1. HashMap   JDk1.2出现, 线程不安全集合, 运行速度快
-        2. Hashtable JDk1.0出现, 线程安全集合,   运行速度慢 
+        1. HashMap   JDk1.2出现, 线程不安全集合, 效率较高
+        2. Hashtable JDk1.0出现, 线程安全集合,   效率较低 
     * 区别二: 
         1. HashMap 允许存储null键,null值
         2. Hashtable 不允许存储null键,null值
