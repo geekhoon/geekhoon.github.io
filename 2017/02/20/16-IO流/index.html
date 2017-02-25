@@ -100,7 +100,7 @@
 * 将操作系统中文件,目录(文件夹),路径,封装成File对象
 * 提供方法, 操作系统中的内容
 * File是与系统无关的类">
-<meta property="og:updated_time" content="2017-02-24T10:25:15.765Z">
+<meta property="og:updated_time" content="2017-02-25T01:17:46.800Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="16.IO流">
 <meta name="twitter:description" content="File类概述* java.io.File 
@@ -688,6 +688,17 @@
                                 |- write(String str): 写出字符串
                 |-- BufferedWriter(Writer w)
                          |- newLine() : 写出一个换行
+        对象操作流：
+                |-- ObjectInputStream(对象输入流)
+                         |- readObject();        对象必须实现序列化接口
+
+                |-- ObjectOutputStream(对象输出流)
+                            |- writeObject(Object obj)   
+        打印流：
+                PrintWriter:（流对象,boolean b）  如果是true、自动刷新
+                    1.可以自动刷新
+                    2.只能输出
+                    3.println()(原样输出、并且自带换行)   print()   printf()
 </code></pre><h4 id="操作规律"><a href="#操作规律" class="headerlink" title="操作规律"></a>操作规律</h4><pre><code>1. 如果操作的是纯文本文件, 直接使用带缓冲的字符流即可! 读一行,写一行
 2. 如果操作的是所有文件,直接使用待缓冲的字节流即可! 带上小数组
 3. 如果需要编码转换, 直接使用转换流即可!
@@ -811,6 +822,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/02/25/17-多线程/" rel="prev" title="17.多线程">
+                17.多线程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -904,7 +919,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
