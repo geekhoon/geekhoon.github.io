@@ -100,7 +100,7 @@
 * 将操作系统中文件,目录(文件夹),路径,封装成File对象
 * 提供方法, 操作系统中的内容
 * File是与系统无关的类">
-<meta property="og:updated_time" content="2017-02-25T01:17:46.800Z">
+<meta property="og:updated_time" content="2017-02-25T11:54:17.172Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="16.IO流">
 <meta name="twitter:description" content="File类概述* java.io.File 
@@ -714,6 +714,8 @@
 2. load(Reader r)
 * 传递任意的字节或字符输入流
 * 作用: 读取文件中的键值对到集合
+* Properties并不是只能读.properties配置文件,.txt等文本也可以读,只是通常而已
+* .properties代表键值对格式存储的文件
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">注意config.properties中写键值的时候,键和值后不要加空格或分号,否则就成为键或值的一部分了</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">function_2</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">	Properties pro = <span class="keyword">new</span> Properties();</div><div class="line">	FileReader fr = <span class="keyword">new</span> FileReader(<span class="string">"config.properties"</span>);</div><div class="line">	pro.load(fr);</div><div class="line">	fr.close();</div><div class="line">	System.out.println(pro);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h5 id="store"><a href="#store" class="headerlink" title="store"></a>store</h5><pre><code>1. store(OutputStream o, String comments)
 2. store(Writer w, String comments)

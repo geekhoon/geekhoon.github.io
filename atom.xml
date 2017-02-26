@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-02-25T10:25:38.776Z</updated>
+  <updated>2017-02-25T10:51:35.400Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -20,31 +20,34 @@
     <link href="https://geekhoon.github.io/2017/02/25/17-%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
     <id>https://geekhoon.github.io/2017/02/25/17-多线程/</id>
     <published>2017-02-25T00:36:15.000Z</published>
-    <updated>2017-02-25T10:25:38.776Z</updated>
+    <updated>2017-02-25T10:51:35.400Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="线程与进程"><a href="#线程与进程" class="headerlink" title="线程与进程"></a>线程与进程</h3><pre><code>* 进程: 正在运行的程序.当一个程序进去内存运行,即变成一个进程
+    <content type="html"><![CDATA[<h3 id="线程与进程"><a href="#线程与进程" class="headerlink" title="线程与进程"></a>线程与进程</h3><pre><code>* 进程: 正在运行的程序. 当一个程序进入内存运行,即变成一个进程
 * 线程: 是进程中的一个执行单元.
-    * 单线程: 多个任务只能依次执行
-    * 多线程: 多个任务可以同时执行
-* 一个程序运行后至少有一个进程,一个进程中可以包含多个线程
+    * 单线程: 一个进程中的多个线程只能依次执行
+    * 多线程: 一个进程中的多个线程可以同时执行
+</code></pre><a id="more"></a>
+<pre><code>* 一个程序运行后至少有一个进程,一个进程中可以包含多个线程
 * 运行原理:
     * 分时调度: 所有线程轮流使用CPU的使用权,平均分配每个线程占用 CPU 的时间。
-    * 抢占式调度: 优先让优先级高的线程使用 CPU，如果线程的优先级相同，那么会随机选择一个
-* 多线程程序并不能提高程序的运行速度，但能够提高程序运行效率，让CPU的使用率更高
+    * 抢占式调度: 优先让优先级高的线程使用 CPU,如果线程的优先级相同,那么会随机选择一个
+* 对于CPU的一个核而言,某个时刻,只能执行一个线程,
+   而 CPU的在多个线程间切换速度相对我们的感觉要快,看上去就是在同一时刻运行。
+* 多线程程序并不能提高程序的运行速度,但能够提高程序运行效率,让CPU的使用率更高
 * main的主线程: &quot;main&quot;
 </code></pre><h3 id="Thread类"><a href="#Thread类" class="headerlink" title="Thread类"></a>Thread类</h3><h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><pre><code>* 是线程的一种实现方式
 * Thread是程序中的执行线程。Java 虚拟机允许应用程序并发地运行多个执行线程
 * 发现创建新执行线程有两种方法。
     1. 将类声明为 Thread 的子类。
         该子类应重写 Thread 类的 run 方法。创建对象，开启线程。run方法相当于其他线程的main方法。
-     2. 另一种方法是声明一个实现 Runnable 接口的类。
-        该类然后实现 run 方法, 然后创建Runnable的子类对象，传入到某个线程的构造方法中，开启线程。
+    2. 另一种方法是声明一个实现 Runnable 接口的类。
+        该类实现 run 方法, 然后创建Runnable的子类对象，传入到Thread子类的构造方法中，开启线程。
 </code></pre><h4 id="实现线程程序继承Thread类"><a href="#实现线程程序继承Thread类" class="headerlink" title="实现线程程序继承Thread类"></a>实现线程程序继承Thread类</h4><pre><code>* 创建和启动一个线程:
     1. 创建Thread子类对象, 继承Thread, 重写方法run()
     2. 子类对象调用start(): 让线程程序执行, JVM调用线程中的run 
         一个对象只能开启一次start(),多次启动一个线程是非法的
-</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SubThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</div><div class="line">			System.out.println(<span class="string">"SubThread...."</span>+i);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		SubThread st = <span class="keyword">new</span> SubThread();</div><div class="line">		st.start();</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</div><div class="line">			System.out.println(<span class="string">"main...."</span>+i);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//打印结果是SubThread....和main....无规律交叉打印</span></div></pre></td></tr></table></figure>
-<h4 id="为什么要继承Thread类"><a href="#为什么要继承Thread类" class="headerlink" title="为什么要继承Thread类"></a>为什么要继承Thread类</h4><pre><code>* 因为可以重写run方法
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SubThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</div><div class="line">			System.out.println(<span class="string">"SubThread...."</span>+i);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		SubThread st = <span class="keyword">new</span> SubThread();</div><div class="line">		st.start();</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</div><div class="line">			System.out.println(<span class="string">"main...."</span>+i);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//打印结果是SubThread....和main....无规律交叉打印,因为线程执行的随机性</span></div></pre></td></tr></table></figure>
+<h4 id="为什么要继承Thread类"><a href="#为什么要继承Thread类" class="headerlink" title="为什么要继承Thread类"></a>为什么要继承Thread类</h4><pre><code>* 因为可以根据自己的需求重写run方法
 * 注意start()和run()的区别:
     start(): 开启线程,并让JVM调用run()
     run(): 不开启线程
@@ -112,8 +115,11 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;线程与进程&quot;&gt;&lt;a href=&quot;#线程与进程&quot; class=&quot;headerlink&quot; title=&quot;线程与进程&quot;&gt;&lt;/a&gt;线程与进程&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;* 进程: 正在运行的程序.当一个程序进去内存运行,即变成一个进程
-* 线程: 是进程中的一个执行单
+      &lt;h3 id=&quot;线程与进程&quot;&gt;&lt;a href=&quot;#线程与进程&quot; class=&quot;headerlink&quot; title=&quot;线程与进程&quot;&gt;&lt;/a&gt;线程与进程&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;* 进程: 正在运行的程序. 当一个程序进入内存运行,即变成一个进程
+* 线程: 是进程中的一个执行单元.
+    * 单线程: 一个进程中的多个线程只能依次执行
+    * 多线程: 一个进程中的多个线程可以同时执行
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     
@@ -129,7 +135,7 @@
     <link href="https://geekhoon.github.io/2017/02/20/16-IO%E6%B5%81/"/>
     <id>https://geekhoon.github.io/2017/02/20/16-IO流/</id>
     <published>2017-02-19T16:01:42.000Z</published>
-    <updated>2017-02-25T01:17:46.800Z</updated>
+    <updated>2017-02-25T11:54:17.172Z</updated>
     
     <content type="html"><![CDATA[<h3 id="File类"><a href="#File类" class="headerlink" title="File类"></a>File类</h3><h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><pre><code>* java.io.File 
 * 文件和目录路径名的抽象表示形式
@@ -457,6 +463,8 @@
 2. load(Reader r)
 * 传递任意的字节或字符输入流
 * 作用: 读取文件中的键值对到集合
+* Properties并不是只能读.properties配置文件,.txt等文本也可以读,只是通常而已
+* .properties代表键值对格式存储的文件
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">注意config.properties中写键值的时候,键和值后不要加空格或分号,否则就成为键或值的一部分了</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">function_2</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">	Properties pro = <span class="keyword">new</span> Properties();</div><div class="line">	FileReader fr = <span class="keyword">new</span> FileReader(<span class="string">"config.properties"</span>);</div><div class="line">	pro.load(fr);</div><div class="line">	fr.close();</div><div class="line">	System.out.println(pro);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h5 id="store"><a href="#store" class="headerlink" title="store"></a>store</h5><pre><code>1. store(OutputStream o, String comments)
 2. store(Writer w, String comments)
