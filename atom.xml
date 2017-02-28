@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-02-28T08:42:19.167Z</updated>
+  <updated>2017-02-28T10:24:03.998Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://geekhoon.github.io/2017/02/28/18-MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     <id>https://geekhoon.github.io/2017/02/28/18-MySQL数据库/</id>
     <published>2017-02-27T18:46:36.000Z</published>
-    <updated>2017-02-28T08:42:19.167Z</updated>
+    <updated>2017-02-28T10:24:03.998Z</updated>
     
     <content type="html"><![CDATA[<h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><pre><code>* 存储数据的仓库
 * 数据库管理系统DBMS: 操作和管理数据库的大型软件
@@ -50,7 +50,7 @@
     * date: 日期,只有年月日,没有时分秒: yyyy-MM-dd
     * datetime: 日期时间都有
 </code></pre><h3 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h3><pre><code>1. 创建数据库: create database geekhoon;
-2. 查看数据库: show databases;
+2. 查看所有数据库: show databases;
 3. 删除数据库: drop database geekhoon;
 4. 使用数据库: use geekhoon;
 </code></pre><h3 id="数据表操作"><a href="#数据表操作" class="headerlink" title="数据表操作"></a>数据表操作</h3><pre><code>1. 创建数据表: create table 表名(
@@ -67,7 +67,7 @@
         3. 唯一约束 
         4. 外键约束 
 2. 删除数据表: drop table 表名;
-3. 查显示所有数据表: show tables 
+3. 显示所有数据表: show tables 
 4. 查看表结构: desc 表名;
 5. 修改表结构:
     * 添加列: alter table 表名 add 列名 数据类型 约束;
@@ -119,7 +119,23 @@
 * asc 升序,默认升序
 * 升序: select * from 表名 order by 列名
 * 降序: select * from 表名 order by 列名 desc;
-</code></pre>]]></content>
+</code></pre><h3 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h3><pre><code>* count：统计指定列不为NULL的记录行数；
+* sum：计算指定列的数值和，如果指定列类型不是数值类型,则计算结果为0；
+* max：计算指定列的最大值，如果指定列是字符串类型，那么使用字符串类型排序运算；
+* min：计算指定列的最小值，如果指定列是字符串类型，那么使用字符串排序运算；
+* avg：计算指定列的平均值，如果指定列类型不是数值类型，那么计算结果为0；
+</code></pre><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- 统计行数</span></div><div class="line"><span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">as</span> <span class="string">'count'</span> <span class="keyword">from</span> 表名;</div><div class="line"><span class="comment">-- 求和</span></div><div class="line"><span class="keyword">select</span> <span class="keyword">sum</span>(money) <span class="keyword">from</span> zhangwu <span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">like</span> <span class="string">'%支出%'</span>;</div><div class="line"><span class="comment">-- 求最大值</span></div><div class="line"><span class="keyword">select</span> <span class="keyword">max</span>(money) <span class="keyword">from</span> zhangwu;//null值不会计算</div><div class="line"><span class="comment">-- 求平均值</span></div><div class="line"><span class="keyword">select</span> <span class="keyword">avg</span>(money) <span class="keyword">from</span> zhangwu;//null值不会计算</div></pre></td></tr></table></figure>
+<h3 id="分组查询"><a href="#分组查询" class="headerlink" title="分组查询"></a>分组查询</h3><pre><code>* 格式:
+    select 列1,列2 from 表名 where 条件 group by 列名 having 条件 order by 列名;
+* group by 被分组的列名 : 要放在最后,有排序的话,排序放最后
+* having 和 where的区别:
+    1. having是在分组后对数据进行过滤
+        where是在分组前对数据进行过滤
+    2. having后面可以使用聚合函数进行判断
+        where后面不可以使用聚合函数进行判断
+* 分组查询必须跟随聚合函数
+* 被分组的列也要在select中
+</code></pre><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- 分组查询</span></div><div class="line"><span class="keyword">SELECT</span> zname,<span class="keyword">SUM</span>(zmoney) <span class="keyword">FROM</span> zhangwu <span class="keyword">GROUP</span> <span class="keyword">BY</span> zname</div><div class="line"><span class="comment">-- 对zname内容进行分组查询求和,但是只要名称中包含"支付"的</span></div><div class="line"><span class="keyword">SELECT</span> zname,<span class="keyword">SUM</span>(zmoney) <span class="keyword">AS</span> <span class="string">'getsum'</span> <span class="keyword">FROM</span> zhangwu <span class="keyword">WHERE</span> zname <span class="keyword">LIKE</span> <span class="string">'%支出%'</span></div><div class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> zname</div><div class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> getsum <span class="keyword">DESC</span></div><div class="line"><span class="comment">-- 对zname内容进行分组查询求和,但是只要名称中包含"支付"的,且和超过100的</span></div><div class="line"><span class="comment">-- 结果集是分组查询后,再次进行筛选,不能用where,要用having</span></div><div class="line"><span class="keyword">SELECT</span> zname,<span class="keyword">SUM</span>(zmoney) <span class="keyword">AS</span> <span class="string">'getsum'</span> <span class="keyword">FROM</span> zhangwu <span class="keyword">WHERE</span> zname <span class="keyword">LIKE</span> <span class="string">'%支出%'</span></div><div class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> zname</div><div class="line"><span class="keyword">HAVING</span> getsum &gt; <span class="number">100</span></div><div class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> zmoney <span class="keyword">DESC</span></div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
