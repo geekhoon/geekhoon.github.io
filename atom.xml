@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-02-28T08:37:47.082Z</updated>
+  <updated>2017-02-28T08:42:19.167Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://geekhoon.github.io/2017/02/28/18-MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     <id>https://geekhoon.github.io/2017/02/28/18-MySQL数据库/</id>
     <published>2017-02-27T18:46:36.000Z</published>
-    <updated>2017-02-28T08:37:47.082Z</updated>
+    <updated>2017-02-28T08:42:19.167Z</updated>
     
     <content type="html"><![CDATA[<h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><pre><code>* 存储数据的仓库
 * 数据库管理系统DBMS: 操作和管理数据库的大型软件
@@ -76,7 +76,7 @@
     * 删除列: alter table 表名 drop 列名;
     * 修改表名: rename table 表名 to 新表名;
     * 修改表的字符集:alter table 表名 character set 字符集;
-</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function">CREATE TABLE <span class="title">users</span><span class="params">(</span></span></div><div class="line">	uid INT PRIMARY KEY AUTO_INCREMENT,</div><div class="line">	uname VARCHAR(<span class="number">20</span>) NOT NULL,</div><div class="line">	uaddress <span class="title">VARCHAR</span><span class="params">(<span class="number">100</span>)</span> NOT NULL</div><div class="line">);</div><div class="line">-- 展示所有表</div><div class="line">SHOW TABLES;</div><div class="line">-- 显示表结构</div><div class="line">DESC users;</div></pre></td></tr></table></figure>
+</code></pre><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">users</span>(</div><div class="line">	uid <span class="built_in">INT</span> PRIMARY <span class="keyword">KEY</span> AUTO_INCREMENT,</div><div class="line">	uname <span class="built_in">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">	uaddress <span class="built_in">VARCHAR</span>(<span class="number">100</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span></div><div class="line">);</div><div class="line"><span class="comment">-- 展示所有表</span></div><div class="line"><span class="keyword">SHOW</span> <span class="keyword">TABLES</span>;</div><div class="line"><span class="comment">-- 显示表结构</span></div><div class="line">DESC users;</div></pre></td></tr></table></figure>
 <h3 id="数据操作"><a href="#数据操作" class="headerlink" title="数据操作"></a>数据操作</h3><pre><code>1. 增加数据:(列名1为主键)
     * insert into 表名(列名1,列名2,列名3) values(值1,值2,值2);
     * insert into 表名(列名2,列名3) values (值2,值3); 省去主键不写
