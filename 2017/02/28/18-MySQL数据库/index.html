@@ -87,36 +87,33 @@
 
 
 <meta name="description" content="数据库* 存储数据的仓库
-* 数据库管理系统DBMS: 操作和管理数据库的大型软件
+* 数据库管理系统DBMS(DataBase Management System): 操作和管理数据库的大型软件
 * 常用数据库: 
     1. MySQL: 开源免费.被Oracle收购.MySQL6.x后开始收费
     2. Oracle: 收费的大型数据库
     3. DB2: IBM公司的收费数据库,常用于银行系统
-    4. SQLServer: 微软,收费的中型数据库
-    5. SyBase: 淡出历史">
+    4. SQLServer: 微软,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="18.MySQL数据库">
 <meta property="og:url" content="https://geekhoon.github.io/2017/02/28/18-MySQL数据库/index.html">
 <meta property="og:site_name" content="geekhoon">
 <meta property="og:description" content="数据库* 存储数据的仓库
-* 数据库管理系统DBMS: 操作和管理数据库的大型软件
+* 数据库管理系统DBMS(DataBase Management System): 操作和管理数据库的大型软件
 * 常用数据库: 
     1. MySQL: 开源免费.被Oracle收购.MySQL6.x后开始收费
     2. Oracle: 收费的大型数据库
     3. DB2: IBM公司的收费数据库,常用于银行系统
-    4. SQLServer: 微软,收费的中型数据库
-    5. SyBase: 淡出历史">
-<meta property="og:updated_time" content="2017-02-28T10:27:42.702Z">
+    4. SQLServer: 微软,">
+<meta property="og:updated_time" content="2017-02-28T10:50:08.414Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="18.MySQL数据库">
 <meta name="twitter:description" content="数据库* 存储数据的仓库
-* 数据库管理系统DBMS: 操作和管理数据库的大型软件
+* 数据库管理系统DBMS(DataBase Management System): 操作和管理数据库的大型软件
 * 常用数据库: 
     1. MySQL: 开源免费.被Oracle收购.MySQL6.x后开始收费
     2. Oracle: 收费的大型数据库
     3. DB2: IBM公司的收费数据库,常用于银行系统
-    4. SQLServer: 微软,收费的中型数据库
-    5. SyBase: 淡出历史">
+    4. SQLServer: 微软,">
 
 
 
@@ -398,7 +395,7 @@
 
       
         <h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><pre><code>* 存储数据的仓库
-* 数据库管理系统DBMS: 操作和管理数据库的大型软件
+* 数据库管理系统DBMS(DataBase Management System): 操作和管理数据库的大型软件
 * 常用数据库: 
     1. MySQL: 开源免费.被Oracle收购.MySQL6.x后开始收费
     2. Oracle: 收费的大型数据库
@@ -406,15 +403,20 @@
     4. SQLServer: 微软,收费的中型数据库
     5. SyBase: 淡出历史舞台了
     6. SQLite: 嵌入式的小型数据库,应用于手机端
-</code></pre><a id="more"></a>
-<h3 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h3><pre><code>* 结构化查询语言
+</code></pre><a id="more"></a>    
+<pre><code>* dos窗口开关MySQL服务:
+    开: net start mysql
+    关: net stop mysql
+* dos窗口登录MySQL:
+    mysql -u用户名 -p密码
+</code></pre><h3 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h3><pre><code>* 结构化查询语言
 * 分类:
     1. DDL:数据定义语言,用来定义数据库对象: create,alter,drop
-    2. DML:数据操作语言: insert,delete,update
-    3. DCL:数据控制语言: 
+    2. DML:数据操作语言,用来对数据库中表的数据进行更新: insert,delete,update
+    3. DCL:数据控制语言,用来定义数据库的访问权限和安全级别，及创建用户 
     4. DQL:数据查询语言,用来查询数据库中表的数据: select,from,where
 * 语法:
-    1. 分号结尾
+    1. 可以单行或多行书写, 分号结尾
     2. 不区分大小写. 但关键字一般大写
 * 注释：
     * 单行: --
@@ -426,9 +428,12 @@
     * date: 日期,只有年月日,没有时分秒: yyyy-MM-dd
     * datetime: 日期时间都有
 </code></pre><h3 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h3><pre><code>1. 创建数据库: create database geekhoon;
-2. 查看所有数据库: show databases;
+   创建数据库,并指定数据库中数据的编码: create database geekhoon character set utf8;
+2. 查看MySQL服务器中所有数据库: show databases;
+   查看某个数据库的定义的信息: show create database geekhoon;
 3. 删除数据库: drop database geekhoon;
-4. 使用数据库: use geekhoon;
+4. 切换数据库: use geekhoon;
+5. 查看正在使用的数据库: select database();
 </code></pre><h3 id="数据表操作"><a href="#数据表操作" class="headerlink" title="数据表操作"></a>数据表操作</h3><pre><code>1. 创建数据表: create table 表名(
                 列名1 数据类型 约束,
                 列名2 数据类型 约束,
@@ -443,7 +448,7 @@
         3. 唯一约束 
         4. 外键约束 
 2. 删除数据表: drop table 表名;
-3. 显示所有数据表: show tables 
+3. 查看数据库中的所有表: show tables 
 4. 查看表结构: desc 表名;
 5. 修改表结构:
     * 添加列: alter table 表名 add 列名 数据类型 约束;
@@ -479,6 +484,10 @@
     * 查询去掉重复数据: select distinct 列名 from 表名
     * 查询重新命名列: select 列名 AS 新名 from 表名
     * 查询时直接运算: select 列名1,列名2+1000 as 新名 from 表名 : 列名2进行了运算,并用新名查询结果
+* 命令行乱码问题: 
+    * mysql的客户端编码的问题我们的是utf8,而系统的cmd窗口编码是gbk,在cmd下输出中文会乱码
+    * 解决方案: 修改mysql客户端编码。
+    * dos下:  set character_set_results=gbk;  或  set names gbk;
 </code></pre><h3 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h3><pre><code>* 格式: select 字段  from 表名  where 条件;    
 * 比较运算符: 
     * &gt;  &lt;  &lt;=   &gt;=   =  &lt;&gt;
