@@ -94,10 +94,15 @@
     * IN(set) :显示在in列表中的值，例：in(100,200)
     * LIKE :模糊查询
         * Like语句中有两个通配符：
-        % 用来匹配多个字符；例first_name like ‘a%’;
-        _ 用来匹配一个字符。例first_name like ‘a_’;
+        % 用来匹配多个字符；例 &apos;%a%&apos;;
+        _ 用来匹配一个字符。例 &apos;a_&apos;;
     * is null :判断是空
     * is not null &quot;:判断不为空
+</code></pre><h3 id="排序查询"><a href="#排序查询" class="headerlink" title="排序查询"></a>排序查询</h3><pre><code>* order by 列名 [desc][asc]:排序要放在最后
+* desc 降序
+* asc 升序,默认升序
+* 升序: select * from 表名 order by 列名
+* 降序: select * from 表名 order by 列名 desc;
 </code></pre>]]></content>
     </entry>
     

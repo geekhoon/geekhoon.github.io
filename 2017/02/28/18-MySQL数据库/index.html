@@ -106,7 +106,7 @@
     3. DB2: IBM公司的收费数据库,常用于银行系统
     4. SQLServer: 微软,收费的中型数据库
     5. SyBase: 淡出历史">
-<meta property="og:updated_time" content="2017-02-28T08:21:46.310Z">
+<meta property="og:updated_time" content="2017-02-28T08:37:47.082Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="18.MySQL数据库">
 <meta name="twitter:description" content="数据库* 存储数据的仓库
@@ -485,10 +485,15 @@
     * IN(set) :显示在in列表中的值，例：in(100,200)
     * LIKE :模糊查询
         * Like语句中有两个通配符：
-        % 用来匹配多个字符；例first_name like ‘a%’;
-        _ 用来匹配一个字符。例first_name like ‘a_’;
+        % 用来匹配多个字符；例 &apos;%a%&apos;;
+        _ 用来匹配一个字符。例 &apos;a_&apos;;
     * is null :判断是空
     * is not null &quot;:判断不为空
+</code></pre><h3 id="排序查询"><a href="#排序查询" class="headerlink" title="排序查询"></a>排序查询</h3><pre><code>* order by 列名 [desc][asc]:排序要放在最后
+* desc 降序
+* asc 升序,默认升序
+* 升序: select * from 表名 order by 列名
+* 降序: select * from 表名 order by 列名 desc;
 </code></pre>
       
     </div>
@@ -738,7 +743,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库"><span class="nav-number">1.</span> <span class="nav-text">数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL语句"><span class="nav-number">2.</span> <span class="nav-text">SQL语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库操作"><span class="nav-number">3.</span> <span class="nav-text">数据库操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据表操作"><span class="nav-number">4.</span> <span class="nav-text">数据表操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据操作"><span class="nav-number">5.</span> <span class="nav-text">数据操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#条件查询"><span class="nav-number">6.</span> <span class="nav-text">条件查询</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库"><span class="nav-number">1.</span> <span class="nav-text">数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL语句"><span class="nav-number">2.</span> <span class="nav-text">SQL语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库操作"><span class="nav-number">3.</span> <span class="nav-text">数据库操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据表操作"><span class="nav-number">4.</span> <span class="nav-text">数据表操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据操作"><span class="nav-number">5.</span> <span class="nav-text">数据操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#条件查询"><span class="nav-number">6.</span> <span class="nav-text">条件查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序查询"><span class="nav-number">7.</span> <span class="nav-text">排序查询</span></a></li></ol></div>
             
           </div>
         </section>
