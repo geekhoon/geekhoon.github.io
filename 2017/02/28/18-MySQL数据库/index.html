@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JAVA基础语法," />
 
 
 
@@ -86,16 +86,37 @@
 
 
 
-<meta name="description" content="技术博客">
+<meta name="description" content="数据库* 存储数据的仓库
+* 数据库管理系统DBMS: 操作和管理数据库的大型软件
+* 常用数据库: 
+    1. MySQL: 开源免费.被Oracle收购.MySQL6.x后开始收费
+    2. Oracle: 收费的大型数据库
+    3. DB2: IBM公司的收费数据库,常用于银行系统
+    4. SQLServer: 微软,收费的中型数据库
+    5. SyBase: 淡出历史">
 <meta property="og:type" content="article">
 <meta property="og:title" content="18.MySQL数据库">
 <meta property="og:url" content="https://geekhoon.github.io/2017/02/28/18-MySQL数据库/index.html">
 <meta property="og:site_name" content="geekhoon">
-<meta property="og:description" content="技术博客">
-<meta property="og:updated_time" content="2017-02-27T18:46:36.810Z">
+<meta property="og:description" content="数据库* 存储数据的仓库
+* 数据库管理系统DBMS: 操作和管理数据库的大型软件
+* 常用数据库: 
+    1. MySQL: 开源免费.被Oracle收购.MySQL6.x后开始收费
+    2. Oracle: 收费的大型数据库
+    3. DB2: IBM公司的收费数据库,常用于银行系统
+    4. SQLServer: 微软,收费的中型数据库
+    5. SyBase: 淡出历史">
+<meta property="og:updated_time" content="2017-02-28T08:21:46.310Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="18.MySQL数据库">
-<meta name="twitter:description" content="技术博客">
+<meta name="twitter:description" content="数据库* 存储数据的仓库
+* 数据库管理系统DBMS: 操作和管理数据库的大型软件
+* 常用数据库: 
+    1. MySQL: 开源免费.被Oracle收购.MySQL6.x后开始收费
+    2. Oracle: 收费的大型数据库
+    3. DB2: IBM公司的收费数据库,常用于银行系统
+    4. SQLServer: 微软,收费的中型数据库
+    5. SyBase: 淡出历史">
 
 
 
@@ -319,6 +340,25 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JAVA基础/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVA基础</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -357,7 +397,99 @@
       
 
       
-        
+        <h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><pre><code>* 存储数据的仓库
+* 数据库管理系统DBMS: 操作和管理数据库的大型软件
+* 常用数据库: 
+    1. MySQL: 开源免费.被Oracle收购.MySQL6.x后开始收费
+    2. Oracle: 收费的大型数据库
+    3. DB2: IBM公司的收费数据库,常用于银行系统
+    4. SQLServer: 微软,收费的中型数据库
+    5. SyBase: 淡出历史舞台了
+    6. SQLite: 嵌入式的小型数据库,应用于手机端
+</code></pre><h3 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h3><pre><code>* 结构化查询语言
+* 分类:
+    1. DDL:数据定义语言,用来定义数据库对象: create,alter,drop
+    2. DML:数据操作语言: insert,delete,update
+    3. DCL:数据控制语言: 
+    4. DQL:数据查询语言,用来查询数据库中表的数据: select,from,where
+* 语法:
+    1. 分号结尾
+    2. 不区分大小写. 但关键字一般大写
+* 注释：
+    * 单行: --
+    * 多行: /* ... */
+* 数据类型
+    * int: 整型
+    * double: 浮点
+    * varchar(M): 字符,M为0-65535之间的整数
+    * date: 日期,只有年月日,没有时分秒: yyyy-MM-dd
+    * datetime: 日期时间都有
+</code></pre><h3 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h3><pre><code>1. 创建数据库: create database geekhoon;
+2. 查看数据库: show databases;
+3. 删除数据库: drop database geekhoon;
+4. 使用数据库: use geekhoon;
+</code></pre><h3 id="数据表操作"><a href="#数据表操作" class="headerlink" title="数据表操作"></a>数据表操作</h3><pre><code>1. 创建数据表: create table 表名(
+                列名1 数据类型 约束,
+                列名2 数据类型 约束,
+                ...
+                列名n 数据类型 约束
+              );
+* 约束: 限制每一列能写什么数据,不能写什么数据
+    分类:    
+        1. 主键约束 primary key: 非空 唯一. 通常没有实际意义.
+            加上AUTO_INCREMENT可实现自增长
+        2. 非空约束 not null
+        3. 唯一约束 
+        4. 外键约束 
+2. 删除数据表: drop table 表名;
+3. 查显示所有数据表: show tables 
+4. 查看表结构: desc 表名;
+5. 修改表结构:
+    * 添加列: alter table 表名 add 列名 数据类型 约束;
+    * 修改列: alter table 表名 modify 列名 数据类型 约束;
+    * 修改列名: alter table 表名 change 旧列名 新列名 数据类型 约束;
+    * 删除列: alter table 表名 drop 列名;
+    * 修改表名: rename table 表名 to 新表名;
+    * 修改表的字符集:alter table 表名 character set 字符集;
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function">CREATE TABLE <span class="title">users</span><span class="params">(</span></span></div><div class="line">	uid INT PRIMARY KEY AUTO_INCREMENT,</div><div class="line">	uname VARCHAR(<span class="number">20</span>) NOT NULL,</div><div class="line">	uaddress <span class="title">VARCHAR</span><span class="params">(<span class="number">100</span>)</span> NOT NULL</div><div class="line">);</div><div class="line">-- 展示所有表</div><div class="line">SHOW TABLES;</div><div class="line">-- 显示表结构</div><div class="line">DESC users;</div></pre></td></tr></table></figure>
+<h3 id="数据操作"><a href="#数据操作" class="headerlink" title="数据操作"></a>数据操作</h3><pre><code>1. 增加数据:(列名1为主键)
+    * insert into 表名(列名1,列名2,列名3) values(值1,值2,值2);
+    * insert into 表名(列名2,列名3) values (值2,值3); 省去主键不写
+    * insert into 表名 values (全列值); 包括主键值也要写
+    * 批量写入数据: insert into 表名 (列名1,列名2,列名3) values (值1,值2,值3),(值1,值2,值3),...;
+2. 修改数据: (在数据原有基础上修改)
+    * update 表名 set 列1=值1,列2=值2 where 条件
+    * 条件的写法: 
+        1. id = 5
+        2. id &lt;&gt; 5 : 不等于5
+        3. id &lt;= 5
+        4. or : 或
+        5. and : 与
+        6. not : 非
+        7. id in (1,3,4,5,6) : 表示包含的id
+        8. id not in (1,3,4,5,6)
+3. 删除数据: delete from 表名 where 条件
+    * 删除表中所有记录使用delete from 表名, 还是用truncate table 表名 ?
+      delete是一条一条的删, 不清空AUTO_INCREMENT记录数
+      truncate直接将表删除,重新建表,AUTO_INCREMENT将置为0,重新开始
+4. 查询数据
+    * 查询指定列的数据: select 列名1,列名2 from 表名
+    * 查询全部列的数据: select * from 表名
+    * 查询去掉重复数据: select distinct 列名 from 表名
+    * 查询重新命名列: select 列名 AS 新名 from 表名
+    * 查询时直接运算: select 列名1,列名2+1000 as 新名 from 表名 : 列名2进行了运算,并用新名查询结果
+</code></pre><h3 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h3><pre><code>* 格式: select 字段  from 表名  where 条件;    
+* 比较运算符: 
+    * &gt;  &lt;  &lt;=   &gt;=   =  &lt;&gt;
+    * BETWEEN  ...AND... :显示在某一区间的值(含头含尾)
+    * IN(set) :显示在in列表中的值，例：in(100,200)
+    * LIKE :模糊查询
+        * Like语句中有两个通配符：
+        % 用来匹配多个字符；例first_name like ‘a%’;
+        _ 用来匹配一个字符。例first_name like ‘a_’;
+    * is null :判断是空
+    * is not null &quot;:判断不为空
+</code></pre>
       
     </div>
 
@@ -376,6 +508,12 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JAVA基础语法/" rel="tag">#JAVA基础语法</a>
+          
+        </div>
       
 
       
@@ -600,7 +738,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库"><span class="nav-number">1.</span> <span class="nav-text">数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL语句"><span class="nav-number">2.</span> <span class="nav-text">SQL语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库操作"><span class="nav-number">3.</span> <span class="nav-text">数据库操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据表操作"><span class="nav-number">4.</span> <span class="nav-text">数据表操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据操作"><span class="nav-number">5.</span> <span class="nav-text">数据操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#条件查询"><span class="nav-number">6.</span> <span class="nav-text">条件查询</span></a></li></ol></div>
             
           </div>
         </section>

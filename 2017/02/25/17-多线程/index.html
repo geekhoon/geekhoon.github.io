@@ -98,7 +98,7 @@
 * 线程: 进程中的一个执行单元,执行路径.
     * 单线程: 一个应用程序只有一条执行路径
     * 多线程: 一个应用程序有多条执行路径">
-<meta property="og:updated_time" content="2017-02-27T18:56:55.690Z">
+<meta property="og:updated_time" content="2017-02-28T01:59:06.493Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="17.多线程">
 <meta name="twitter:description" content="线程与进程* 进程: 正在执行的程序. 当一个程序进入内存执行,即变成一个进程
@@ -517,6 +517,7 @@
            遇到同步代码块, 再一次判断有没有同步锁
        没有: 线程不能进去同步代码, 被阻挡在同步代码块外面
 * 一个线程进入了同步代码块, 其余线程就进不去, 只能在线程代码块外面等
+* 没有锁的线程,不能进入同步,在同步中的线程,不出去同步,不会释放锁
 </code></pre><h4 id="同步方法"><a href="#同步方法" class="headerlink" title="同步方法"></a>同步方法</h4><pre><code>* 采用同步方法形式, 解决线程的安全问题
 * 好处: 代码简洁
 * 将线程共享数据,同步,抽取到方法
