@@ -4,6 +4,15 @@
   
     
     <entry>
+      <title><![CDATA[19.JDBC&DBUtils]]></title>
+      <url>https://geekhoon.github.io/2017/03/01/19-JDBC-DBUtils/</url>
+      <content type="html"><![CDATA[<h3 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h3><h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><pre><code>* 一种用于执行SQL语句的Java API,可以为多做关系数据库提供统一访问,它由一组用Java语言
+  编写的类和接口组成.是Java访问数据库的标准规范.
+* 原理:
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[设计模式之01-简单工厂模式]]></title>
       <url>https://geekhoon.github.io/2017/03/01/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B01-%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</url>
       <content type="html"></content>
