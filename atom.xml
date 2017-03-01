@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-03-01T12:33:59.651Z</updated>
+  <updated>2017-03-01T12:39:01.608Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://geekhoon.github.io/2017/03/01/19-JDBC-DBUtils/"/>
     <id>https://geekhoon.github.io/2017/03/01/19-JDBC-DBUtils/</id>
     <published>2017-03-01T01:09:43.000Z</published>
-    <updated>2017-03-01T12:33:59.651Z</updated>
+    <updated>2017-03-01T12:39:01.608Z</updated>
     
     <content type="html"><![CDATA[<h3 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h3><h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><pre><code>* 一种用于执行SQL语句的Java API,可以为多种关系数据库提供统一访问,它由一组用Java语言
   编写的类和接口组成.是Java访问数据库的规范.
@@ -28,7 +28,8 @@
     * Java提供访问数据库规范称为JDBC,JDBC需要连接驱动,驱动是生产厂商提供规范的实现类
     * JDBC是接口,驱动是接口的实现,没有驱动将无法完成数据库连接
     * 每个数据库厂商都需要提供自己的驱动，用来连接自己公司的数据库
-</code></pre><h4 id="开发步骤"><a href="#开发步骤" class="headerlink" title="开发步骤"></a>开发步骤</h4><pre><code>1.注册驱动
+</code></pre><a id="more"></a>    
+<h4 id="开发步骤"><a href="#开发步骤" class="headerlink" title="开发步骤"></a>开发步骤</h4><pre><code>1.注册驱动
     告知JVM使用的是哪一个数据库的驱动
 2.获取数据库的连接对象
     使用JDBC中的类,完成对MySQL数据库的连接
@@ -49,7 +50,13 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;JDBC&quot;&gt;&lt;a href=&quot;#JDBC&quot; class=&quot;headerlink&quot; title=&quot;JDBC&quot;&gt;&lt;/a&gt;JDBC&lt;/h3&gt;&lt;h4 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h
+      &lt;h3 id=&quot;JDBC&quot;&gt;&lt;a href=&quot;#JDBC&quot; class=&quot;headerlink&quot; title=&quot;JDBC&quot;&gt;&lt;/a&gt;JDBC&lt;/h3&gt;&lt;h4 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;* 一种用于执行SQL语句的Java API,可以为多种关系数据库提供统一访问,它由一组用Java语言
+  编写的类和接口组成.是Java访问数据库的规范.
+* 原理: 
+    * Java提供访问数据库规范称为JDBC,JDBC需要连接驱动,驱动是生产厂商提供规范的实现类
+    * JDBC是接口,驱动是接口的实现,没有驱动将无法完成数据库连接
+    * 每个数据库厂商都需要提供自己的驱动，用来连接自己公司的数据库
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     
