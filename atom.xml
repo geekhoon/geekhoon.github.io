@@ -83,24 +83,6 @@ where条件都为true, 永远都可以查询出结果,那么用户就直接登�
   </entry>
   
   <entry>
-    <title>设计模式之01-简单工厂模式</title>
-    <link href="https://geekhoon.github.io/2017/03/01/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B01-%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
-    <id>https://geekhoon.github.io/2017/03/01/设计模式之01-简单工厂模式/</id>
-    <published>2017-02-28T16:08:14.000Z</published>
-    <updated>2017-02-28T16:42:04.615Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="设计模式" scheme="https://geekhoon.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    
-      <category term="设计模式" scheme="https://geekhoon.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
     <title>18.MySQL数据库</title>
     <link href="https://geekhoon.github.io/2017/02/28/18-MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     <id>https://geekhoon.github.io/2017/02/28/18-MySQL数据库/</id>
@@ -3328,6 +3310,101 @@ public class Test01 {
     
     
       <category term="技巧" scheme="https://geekhoon.github.io/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>04.运算符</title>
+    <link href="https://geekhoon.github.io/2017/01/08/04-%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
+    <id>https://geekhoon.github.io/2017/01/08/04-运算符/</id>
+    <published>2017-01-08T01:58:55.000Z</published>
+    <updated>2017-02-12T17:26:39.004Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h3><pre><code>* 注意事项
+    1.&quot;+&quot;在连接字符串时要注意，只有直接与字符串相加才会转成字符串.
+        字符串后面的&quot;+&quot;为&quot;连接&quot;,字符串前面的&quot;+&quot;还是加法
+        如:
+            System.out.println(5+5+&quot;=&quot;+5+5);这个输出的是10=55
+    2.&quot;/&quot;除法运算符,整数与整数除,结果为整数;整数与小数除,结果是小数类型
+</code></pre><a id="more"></a>
+<pre><code>    3.&quot;%&quot;取模,取余运算符
+              -5  % 5 = 0;
+              -10 % 5 = 0;
+              -7  % 5 = -2;
+               10 % 5 = 0;
+               2  % 5 = 2;
+              -2  % 5 = -2;
+        结论:
+        (1)正负符号位取得是左边,与右边无关
+        (2)如果左边的绝对值是右边绝对值的整数倍,结果为0
+        (3)如果左边的绝对值大于右边的绝对值,结果为余数(正常取余就行,注意正负号)
+        (4)如果左边的绝对值小于右边的绝对值,结果为左边
+        (5)任何一个整数%2,结果不是0就是1,可以用来当作切换条件
+
+* ++和--放前放后区别:
+    *符号放前放后,在变量自己独立计算时,没有区别
+    *在与其他运算符同时计算时会有区别             
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">如：</div><div class="line">    <span class="keyword">int</span>  i = <span class="number">5</span>;</div><div class="line">    <span class="keyword">int</span>  j = i++;</div><div class="line">    System.out.println(i);</div><div class="line">    System.out.println(j);</div><div class="line">	<span class="comment">//结果为i=6,j=5.</span></div><div class="line">	<span class="comment">//因为int  j = i++;相当于(1)int j = i;(2)i++;</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">如：</div><div class="line">    <span class="keyword">int</span>  m = <span class="number">5</span>;</div><div class="line">    <span class="keyword">int</span>  n = ++m;</div><div class="line">    System.out.println(m);</div><div class="line">    System.out.println(n);</div><div class="line">	<span class="comment">//结果为m=6,n=6.</span></div><div class="line">	<span class="comment">//因为int  n = ++m;相当于(1)++m;(2)int n = m;</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">如：</div><div class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test1</span> </span>&#123;</div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"> 			<span class="keyword">int</span> x = <span class="number">4</span>;</div><div class="line"> 			<span class="keyword">int</span> y = (--x)+(x--)+(x*<span class="number">10</span>);</div><div class="line"> 			System.out.println(<span class="string">"x = "</span> + x + <span class="string">",y = "</span> + y);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"><span class="comment">//思维误区:不要以为(--x)+(x--)+(x*10),都有各自括号,就互不影响</span></div><div class="line"><span class="comment">//执行完(--x),x为3,再执行(x--)后,x为2,(x*10)为20,所以输出x为2,但是y=3+3+20=26,第二个3是因为先赋值,再自减</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">如：</div><div class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test2</span></span>&#123;</div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">			<span class="keyword">int</span> a = <span class="number">1</span>;</div><div class="line">			<span class="keyword">if</span>(a++ &gt; <span class="number">1</span>)&#123;</div><div class="line">				System.out.println(<span class="string">"用2在判断"</span>);</div><div class="line">			&#125;<span class="keyword">else</span>&#123;</div><div class="line">				System.out.println(<span class="string">"用1在判断"</span>);</div><div class="line">			&#125;</div><div class="line">			System.out.println(<span class="string">"a="</span>+a);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"><span class="comment">//本题证明了(a++ &gt; 1)是用a=1与1做大小判断,而不是2,说明a先比较,再自增.但最终输出a的大小都是2</span></div></pre></td></tr></table></figure>
+<h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><pre><code>* 有 =  +=  -=  *=  /=  %=  
+* 注意:
+     如：
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">	 <span class="keyword">byte</span>  b = <span class="number">1</span>;               <span class="comment">//(1)</span></div><div class="line">	 b = b + <span class="number">1</span>;                 <span class="comment">//(2)</span></div><div class="line">	 System.out.println(b);     <span class="comment">//(3)</span></div><div class="line"><span class="comment">//编译会报错,因为(1)中b为byte型,占1个字节,(2)中1为int类型,占4个字节,它们相加之后,是4字节.然后赋值给1字节大小的b,会损失精度.</span></div><div class="line"><span class="comment">//将(2)改成b =(byte) (b + 1);或者b += 1;都对.这两句等价</span></div></pre></td></tr></table></figure>
+<h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><pre><code>* 也叫关系运算符
+* 有 ==  !=  &gt;  &lt;  &gt;=  &lt;=  
+* 注意:
+     如：
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">   <span class="keyword">int</span>  i = <span class="number">3</span>;</div><div class="line">   <span class="keyword">int</span>  j = <span class="number">4</span>;</div><div class="line">   System.out.println(i=j);</div><div class="line">   System.out.println(i==j);</div><div class="line"><span class="comment">//结果分别为4和true,因为程序自上而下执行,第一句输出语句执行完之后,i变为4.别忽视了输出语句中,赋值语句对变量在整个作用区间内也起作用.</span></div></pre></td></tr></table></figure>
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><pre><code>* 对两个布尔数据进行计算,结果也是布尔类型
+* 有 &amp;与  |或  !非  ^异或  &amp;&amp;短路与  ||短路或
+    *^异或: 两边相同为false,不同为true
+     如：
+                true^flase 为    true 
+                true^true  为   false
+    *&amp;&amp;短路与: 左边结果为false,右边不执行
+     如：
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">   <span class="keyword">int</span>  i = <span class="number">3</span>;</div><div class="line">   <span class="keyword">int</span>  j = <span class="number">4</span>;</div><div class="line">   System.out.println(i == j &amp;&amp; ++i &gt; <span class="number">3</span>);</div><div class="line">   System.out.println(i);</div><div class="line">   System.out.println(j);</div><div class="line"><span class="comment">//结果为3和4.   i == j 为flase, 所以++i &gt; 3并没有执行</span></div></pre></td></tr></table></figure>
+<pre><code>*||短路或: 左边结果为true,右边不执行
+* 短路与 和 短路或 可以提高程序运行效率
+</code></pre><h3 id="三元-目-运算符"><a href="#三元-目-运算符" class="headerlink" title="三元(目)运算符"></a>三元(目)运算符</h3><pre><code>* 公式:    布尔表达式 ? 结果1 : 结果2
+*注意:这里的结果1和2,不能是输出语句,必须是确定的结果
+</code></pre><h3 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h3><pre><code>优先级    描述          运算符
+1    括号           ()、[]
+2    正负号           +、-
+3    自增自减，非     ++、--、!
+4    乘除，取余      *、/、%
+5    加减            +、-
+6    移位运算       &lt;&lt;、&gt;&gt;、&gt;&gt;&gt;
+7    大小关系       &gt;、&gt;=、&lt;、&lt;=
+8    相等关系       ==、!=
+9    按位与            &amp;
+10    按位异或       ^
+11    按位或            |
+12    逻辑与            &amp;&amp;
+13    逻辑或            ||
+14    条件运算        ?:
+15    赋值运算        =、+=、-=、*=、/=、%=
+16    位赋值运算       &amp;=、|=、&lt;&lt;=、&gt;&gt;=、&gt;&gt;&gt;=
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;算数运算符&quot;&gt;&lt;a href=&quot;#算数运算符&quot; class=&quot;headerlink&quot; title=&quot;算数运算符&quot;&gt;&lt;/a&gt;算数运算符&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;* 注意事项
+    1.&amp;quot;+&amp;quot;在连接字符串时要注意，只有直接与字符串相加才会转成字符串.
+        字符串后面的&amp;quot;+&amp;quot;为&amp;quot;连接&amp;quot;,字符串前面的&amp;quot;+&amp;quot;还是加法
+        如:
+            System.out.println(5+5+&amp;quot;=&amp;quot;+5+5);这个输出的是10=55
+    2.&amp;quot;/&amp;quot;除法运算符,整数与整数除,结果为整数;整数与小数除,结果是小数类型
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="JAVA基础" scheme="https://geekhoon.github.io/categories/JAVA%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="JAVA基础语法" scheme="https://geekhoon.github.io/tags/JAVA%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"/>
     
   </entry>
   

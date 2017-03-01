@@ -46,12 +46,6 @@ where条件都为true, 永远都可以查询出结果,那么用户就直接登�
     </entry>
     
     <entry>
-      <title><![CDATA[设计模式之01-简单工厂模式]]></title>
-      <url>https://geekhoon.github.io/2017/03/01/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B01-%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[18.MySQL数据库]]></title>
       <url>https://geekhoon.github.io/2017/02/28/18-MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/</url>
       <content type="html"><![CDATA[<h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><pre><code>* 存储数据的仓库
