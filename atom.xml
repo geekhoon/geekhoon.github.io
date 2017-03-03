@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-03-03T08:11:40.683Z</updated>
+  <updated>2017-03-03T08:13:03.974Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://geekhoon.github.io/2017/03/01/19-JDBC-DBUtils/"/>
     <id>https://geekhoon.github.io/2017/03/01/19-JDBC-DBUtils/</id>
     <published>2017-03-01T01:09:43.000Z</published>
-    <updated>2017-03-03T08:11:40.683Z</updated>
+    <updated>2017-03-03T08:13:03.974Z</updated>
     
     <content type="html"><![CDATA[<h3 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h3><h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><pre><code>* Java Data Base Connectivity
 * 一种用于执行SQL语句的Java API,可以为多种关系数据库提供统一访问,它由一组用Java语言
@@ -107,7 +107,6 @@ where条件都为true, 永远都可以查询出结果,那么用户就直接登�
 2. BeanListHandler: 将结果集的每一行数据,封装成JavaBean对象
     多个JavaBean对象,封装到List集合
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">BeanHandler:</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">beanHandler</span><span class="params">()</span> <span class="keyword">throws</span> SQLException </span>&#123;</div><div class="line">	QueryRunner qr = <span class="keyword">new</span> QueryRunner();</div><div class="line">	String sql = <span class="string">"SELECT * FROM sort"</span>;</div><div class="line">	<span class="comment">//调用方法,传递结果实现类BeanHandler</span></div><div class="line">	<span class="comment">//BeanHandler(Class&lt;T&gt; type)</span></div><div class="line">	Sort s = qr.query(con, sql, <span class="keyword">new</span> BeanHandler&lt;Sort&gt;(Sort.class));</div><div class="line">	System.out.println(s);</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line">BeanListHandler:</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">beanListHandler</span><span class="params">()</span> <span class="keyword">throws</span> SQLException </span>&#123;</div><div class="line">	QueryRunner qr = <span class="keyword">new</span> QueryRunner();</div><div class="line">	String sql = <span class="string">"SELECT * FROM sort"</span>;</div><div class="line">	<span class="comment">//调用方法传递结果集的实现类BeanListHandler</span></div><div class="line">	List&lt;Sort&gt; list = qr.query(con, sql, <span class="keyword">new</span> BeanListHandler&lt;Sort&gt;(Sort.class));</div><div class="line">	<span class="keyword">for</span> (Sort s : list) &#123;</div><div class="line">		System.out.println(s);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>2</p>
 <h5 id="ColumnListHandler与ScalarHandler查询"><a href="#ColumnListHandler与ScalarHandler查询" class="headerlink" title="ColumnListHandler与ScalarHandler查询"></a>ColumnListHandler与ScalarHandler查询</h5><pre><code>1. ColumnListHandler: 将结果集指定列的数据存储到List集合
     List&lt;Object&gt;: 集合泛型是Object
 2. ScalarHandler: 适用于查询后只有一个结果(聚合函数的结果)
