@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-03-03T09:22:14.659Z</updated>
+  <updated>2017-03-03T10:34:21.755Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://geekhoon.github.io/2017/03/01/19-JDBC-DBUtils/"/>
     <id>https://geekhoon.github.io/2017/03/01/19-JDBC-DBUtils/</id>
     <published>2017-03-01T01:09:43.000Z</published>
-    <updated>2017-03-03T09:22:14.659Z</updated>
+    <updated>2017-03-03T10:34:21.755Z</updated>
     
     <content type="html"><![CDATA[<h3 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h3><h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><pre><code>* Java Data Base Connectivity
 * 一种用于执行SQL语句的Java API,可以为多种关系数据库提供统一访问,它由一组用Java语言
@@ -117,8 +117,10 @@ where条件都为true, 永远都可以查询出结果,那么用户就直接登�
 2. MapListHandler: 将结果集每一行存储到Map集合,键:列名,值:数据
     Map集合过多,存储到List集合
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">MapHandler:</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mapHandler</span><span class="params">()</span> <span class="keyword">throws</span> SQLException </span>&#123;</div><div class="line">	QueryRunner qr = <span class="keyword">new</span> QueryRunner();</div><div class="line">	String sql = <span class="string">"SELECT * FROM sort"</span>;</div><div class="line">	<span class="comment">//返回值是一个Map集合</span></div><div class="line">	Map&lt;String, Object&gt; map = qr.query(con, sql, <span class="keyword">new</span> MapHandler());</div><div class="line">	<span class="keyword">for</span> (String key : map.keySet()) &#123;</div><div class="line">		System.out.println(key+<span class="string">" "</span>+map.get(key));</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">MapListHandler:</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mapListHandler</span><span class="params">()</span><span class="keyword">throws</span> SQLException </span>&#123;</div><div class="line">	QueryRunner qr = <span class="keyword">new</span> QueryRunner();</div><div class="line">	String sql = <span class="string">"SELECT *  FROM sort"</span>;</div><div class="line">	<span class="comment">//返回值是List集合, 存储的是Map集合</span></div><div class="line">	List&lt;Map&lt;String, Object&gt;&gt; list = qr.query(con, sql, <span class="keyword">new</span> MapListHandler());</div><div class="line">	<span class="keyword">for</span> (Map&lt;String, Object&gt; map : list) &#123;</div><div class="line">		<span class="keyword">for</span> (String key : map.keySet()) &#123;</div><div class="line">			System.out.print(<span class="string">"\t"</span>+key+<span class="string">"\t"</span>+map.get(key)+<span class="string">"\t"</span>);</div><div class="line">		&#125;</div><div class="line">		System.out.println();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="连接池"><a href="#连接池" class="headerlink" title="连接池"></a>连接池</h3><h4 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h4><pre><code>* 重复使用Connection
-* 需要连接时,通过池来获取Connection对象,用完后,调用Connection的close()回收对象,并没有真正关闭.
+<h3 id="连接池"><a href="#连接池" class="headerlink" title="连接池"></a>连接池</h3><h4 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h4><pre><code>* 存放连接的容器
+* 频繁地获得连接和释放资源,非常消耗资源,通过连接池,共享连接,解决此类问题
+* 需要数据库连接时,通过池来获取Connection对象,用完后,调用Connection的close()回收对象,
+  对象回到连接池中,并没有真正关闭.
 </code></pre><h4 id="DataSource接口"><a href="#DataSource接口" class="headerlink" title="DataSource接口"></a>DataSource接口</h4><pre><code>* Java为数据库连接提供了公共的接口,数据库厂商需要让自己的连接池实现这个接口
 </code></pre><h4 id="DBCP连接池"><a href="#DBCP连接池" class="headerlink" title="DBCP连接池"></a>DBCP连接池</h4><pre><code>* 开源的连接池
 * Tomcat内置的连接池
