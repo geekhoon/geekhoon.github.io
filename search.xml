@@ -3205,7 +3205,7 @@ public class Test01 {
     * 浮点型    float    4    
               double   8    
     * 字符型    char    2    表示一个字符，如(&apos;a&apos;，&apos;A&apos;，&apos;0&apos;，&apos;家&apos;)
-    * 布尔型    boolean    1    只有两个值true与false,默认是false
+    * 布尔型    boolean    1/8个字节    只有两个值true与false,默认是false
 </code></pre><h4 id="4-常量和数据类型"><a href="#4-常量和数据类型" class="headerlink" title="4.常量和数据类型"></a>4.常量和数据类型</h4><pre><code>* 常量
     * 常量是程序在运行过程中,其值不会发生改变的量
     * 整型常量默认是int类型.
