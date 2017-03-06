@@ -4,6 +4,51 @@
   
     
     <entry>
+      <title><![CDATA[20.反射]]></title>
+      <url>https://geekhoon.github.io/2017/03/06/20-%E5%8F%8D%E5%B0%84/</url>
+      <content type="html"><![CDATA[<h3 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h3><pre><code>* 要使用某个类时,如果该类还未被加载到内存中,
+  则系统会通过加载,连接,初始化三步来实现对这个类进行初始化。
+1. 类的加载
+    * 将class文件读入内存,类的加载器创建一个编译后的class文件的对象(字节码对象)
+    * 任何类在使用时,系统都会建立一个class对象
+2. 连接
+    * 验证: 检查内部结构
+    * 准备: 为类的静态成员分配内存,并默认初始化值
+    * 解析: 将类的二进制数据中的符号引用替换为直接引用
+3. 初始化
+    * 创建对象,赋值
+</code></pre><h4 id="类的加载时机"><a href="#类的加载时机" class="headerlink" title="类的加载时机"></a>类的加载时机</h4><pre><code>* 创建类的实例
+* 类的静态变量，或者为静态变量赋值
+* 类的静态方法
+* 使用反射方式来强制创建某个类或接口对应的java.lang.Class对象
+* 初始化某个类的子类
+* 直接使用java.exe命令来运行某个主类
+</code></pre><h4 id="类的加载器"><a href="#类的加载器" class="headerlink" title="类的加载器"></a>类的加载器</h4><pre><code>* 负责将.class文件加载到内存中,并为之生成对应的Class对象
+* 组成:
+    1. 根类加载器Bootstrap ClassLoader
+        负责Java核心类的加载,比如System,String等
+        在JDK中JRE的lib目录下rt.jar文件中
+    2. 扩展类加载器Extension ClassLoader
+        负责JRE的扩展目录中jar包的加载。
+        在JDK中JRE的lib目录下ext目录
+    3. 系统类加载器System ClassLoader
+        在JVM启动时加载来自java命令的class文件以及classpath环境变量所指定的jar包和类路径
+</code></pre><h3 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h3><pre><code>* JAVA反射机制是在运行状态中，
+    对于任意一个类,都能够知道这个类的所有属性和方法；
+    对于任意一个对象,都能够调用它的任意一个方法和属性；
+* 条件：运行状态
+  已知：一个类或一个对象(根本是已知.class文件)
+  结果：得到这个类或对象的所有方法和属性
+</code></pre><h4 id="class文件的产生过程"><a href="#class文件的产生过程" class="headerlink" title="class文件的产生过程"></a>class文件的产生过程</h4><pre><code>* Class对象是在加载类时由Java虚拟机以及通过调用类加载器中的defineClass方法自动构造的
+</code></pre><h4 id="class文件对象的获得"><a href="#class文件对象的获得" class="headerlink" title="class文件对象的获得"></a>class文件对象的获得</h4><pre><code>1. 对象获取(通过Object类中的getClass()方法)
+2. 类名获取(任意数据类型都具备一个class静态属性)
+3. Class类的静态方法获取(通过Class类中的方法)
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>.对象获取</div><div class="line">Person p = <span class="keyword">new</span> Person();</div><div class="line"><span class="comment">//调用父类方法getClass()</span></div><div class="line">Class c1 =  p.getClass();</div><div class="line">System.out.println(c1);</div><div class="line"></div><div class="line"><span class="number">2</span>.类名获取</div><div class="line"><span class="comment">//每个类型,包括基本和引用,都会赋予这个类型一个静态的属性,属性名字就叫class</span></div><div class="line">Class c2 = Peron.class;</div><div class="line">Class d1 = <span class="keyword">double</span>.class;</div><div class="line">System.out.println(c2);</div><div class="line">System.out.println(d1);<span class="comment">//打印结果是double</span></div><div class="line"></div><div class="line"><span class="number">3</span>.静态方法获取Class.forName(String classname)</div><div class="line"><span class="comment">//字符串的类名:要加上包名</span></div><div class="line">Class c3 = Class.forName(<span class="string">"com.geekhoon.demo1.Person"</span>);</div><div class="line">System.out.println(c3);</div><div class="line"></div><div class="line">打印结果都是:<span class="class"><span class="keyword">class</span> <span class="title">com</span>.<span class="title">geekhoon</span>.<span class="title">demo01</span>.<span class="title">Person</span></span></div></pre></td></tr></table></figure>
+<h3 id="通过反射获取无参构造方法并使用"><a href="#通过反射获取无参构造方法并使用" class="headerlink" title="通过反射获取无参构造方法并使用"></a>通过反射获取无参构造方法并使用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">	Class c = Class.forName(<span class="string">"com.geekhoon.demo01.Person"</span>);</div><div class="line"><span class="comment">//1.获取class文件对象中所有公共的构造方法: Constructor[] getConstructors()</span></div><div class="line"><span class="comment">//返回值是Constructor类型数组</span></div><div class="line">	Constructor[] cons = c.getConstructors();</div><div class="line">	<span class="keyword">for</span> (Constructor con : cons) &#123;</div><div class="line">		System.out.println(con);<span class="comment">//打印的是所有公共构造方法名</span></div><div class="line">	&#125;</div><div class="line"><span class="comment">//2.获取指定的构造方法  ----&gt; 获取空参数构造方法: Constructor getConstructor()</span></div><div class="line">	Constructor con = c.getConstructor();</div><div class="line">	System.out.println(con);<span class="comment">//打印空参构造方法名</span></div><div class="line"><span class="comment">//运行空参构造方法,使用的是Constructor类方法newInstance()</span></div><div class="line"><span class="comment">//运行获取到的构造方法,返回值是Object类型对象</span></div><div class="line">	<span class="comment">//相当于Object obj = new Person();</span></div><div class="line">	Object obj = con.newInstance();</div><div class="line"><span class="comment">//要调用Person类的方法,需要进行强转</span></div><div class="line">	Person p = (Person) obj;</div><div class="line">	p.eat();</div><div class="line">	System.out.println(obj);</div><div class="line"><span class="comment">//因为重写了toString(),打印结果是Person [name=null, age=0]</span></div><div class="line"><span class="comment">//没有重写的话,打印的则是p的地址</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[19.JDBC&DBUtils]]></title>
       <url>https://geekhoon.github.io/2017/03/01/19-JDBC-DBUtils/</url>
       <content type="html"><![CDATA[<h3 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h3><h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><pre><code>* Java Data Base Connectivity

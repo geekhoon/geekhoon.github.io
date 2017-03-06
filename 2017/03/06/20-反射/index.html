@@ -86,28 +86,37 @@
 
 
 
-<meta name="description" content="创建引用类型变量公式* 引用数据类型的定义格式:
-    数据类型  变量名  =  new 数据类型();
-* 引用数据类型的使用:
-    * 每种引用数据类型都有其功能，我们可以调用该类型实例的功能。
-    * 变量名.方法名();">
+<meta name="description" content="类加载器* 要使用某个类时,如果该类还未被加载到内存中,
+  则系统会通过加载,连接,初始化三步来实现对这个类进行初始化。
+1. 类的加载
+    * 将class文件读入内存,类的加载器创建一个编译后的class文件的对象(字节码对象)
+    * 任何类在使用时,系统都会建立一个class对象
+2. 连接
+    * 验证: 检查内部结构
+    * 准备: 为类的静态成员分配内存,并默认初始">
 <meta property="og:type" content="article">
-<meta property="og:title" content="05.引用数据类型">
-<meta property="og:url" content="https://geekhoon.github.io/2017/01/10/05-引用数据类型/index.html">
+<meta property="og:title" content="20.反射">
+<meta property="og:url" content="https://geekhoon.github.io/2017/03/06/20-反射/index.html">
 <meta property="og:site_name" content="geekhoon">
-<meta property="og:description" content="创建引用类型变量公式* 引用数据类型的定义格式:
-    数据类型  变量名  =  new 数据类型();
-* 引用数据类型的使用:
-    * 每种引用数据类型都有其功能，我们可以调用该类型实例的功能。
-    * 变量名.方法名();">
-<meta property="og:updated_time" content="2017-02-12T15:03:13.042Z">
+<meta property="og:description" content="类加载器* 要使用某个类时,如果该类还未被加载到内存中,
+  则系统会通过加载,连接,初始化三步来实现对这个类进行初始化。
+1. 类的加载
+    * 将class文件读入内存,类的加载器创建一个编译后的class文件的对象(字节码对象)
+    * 任何类在使用时,系统都会建立一个class对象
+2. 连接
+    * 验证: 检查内部结构
+    * 准备: 为类的静态成员分配内存,并默认初始">
+<meta property="og:updated_time" content="2017-03-06T03:24:36.409Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="05.引用数据类型">
-<meta name="twitter:description" content="创建引用类型变量公式* 引用数据类型的定义格式:
-    数据类型  变量名  =  new 数据类型();
-* 引用数据类型的使用:
-    * 每种引用数据类型都有其功能，我们可以调用该类型实例的功能。
-    * 变量名.方法名();">
+<meta name="twitter:title" content="20.反射">
+<meta name="twitter:description" content="类加载器* 要使用某个类时,如果该类还未被加载到内存中,
+  则系统会通过加载,连接,初始化三步来实现对这个类进行初始化。
+1. 类的加载
+    * 将class文件读入内存,类的加载器创建一个编译后的class文件的对象(字节码对象)
+    * 任何类在使用时,系统都会建立一个class对象
+2. 连接
+    * 验证: 检查内部结构
+    * 准备: 为类的静态成员分配内存,并默认初始">
 
 
 
@@ -128,9 +137,9 @@
 
 
 
-  <link rel="canonical" href="https://geekhoon.github.io/2017/01/10/05-引用数据类型/"/>
+  <link rel="canonical" href="https://geekhoon.github.io/2017/03/06/20-反射/"/>
 
-  <title> 05.引用数据类型 | geekhoon </title>
+  <title> 20.反射 | geekhoon </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -313,7 +322,7 @@
             
             
               
-                05.引用数据类型
+                20.反射
               
             
           </h1>
@@ -325,8 +334,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-10T10:28:36+08:00" content="2017-01-10">
-              2017-01-10
+            <time itemprop="dateCreated" datetime="2017-03-06T08:52:19+08:00" content="2017-03-06">
+              2017-03-06
             </time>
           </span>
 
@@ -355,8 +364,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/01/10/05-引用数据类型/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/10/05-引用数据类型/" itemprop="commentsCount"></span>
+                <a href="/2017/03/06/20-反射/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/06/20-反射/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -366,7 +375,7 @@
 
           
           
-             <span id="/2017/01/10/05-引用数据类型/" class="leancloud_visitors" data-flag-title="05.引用数据类型">
+             <span id="/2017/03/06/20-反射/" class="leancloud_visitors" data-flag-title="20.反射">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -388,34 +397,46 @@
       
 
       
-        <h3 id="创建引用类型变量公式"><a href="#创建引用类型变量公式" class="headerlink" title="创建引用类型变量公式"></a>创建引用类型变量公式</h3><pre><code>* 引用数据类型的定义格式:
-    数据类型  变量名  =  new 数据类型();
-* 引用数据类型的使用:
-    * 每种引用数据类型都有其功能，我们可以调用该类型实例的功能。
-    * 变量名.方法名();
-</code></pre><a id="more"></a>
-<h3 id="Scanner类的使用"><a href="#Scanner类的使用" class="headerlink" title="Scanner类的使用"></a>Scanner类的使用</h3><pre><code>* 作用: 在命令行中,接收键盘的输入
-* 使用:
-    (1) 导包   import java.util.Scanner;
-    (2) 创建Scanner对象的变量 Scanner sc = new Scanner(System.in);
-    (3) 读取键盘录入的一个整数
-          int enterNumber = sc.nextInt();
-    (4) 读取键盘录入的字符串,注意字符串不能有空格或tab
-          String enterString = sc.next();
-* 案例代码
-</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.Scanner;<span class="comment">//特别注意:后面有分号,别丢掉</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo05Scanner</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span></div><div class="line">	&#123;</div><div class="line">		Scanner sc = <span class="keyword">new</span> Scanner(System.in);</div><div class="line"></div><div class="line">		<span class="keyword">int</span> enterNumber = sc.nextInt();</div><div class="line">		System.out.println(<span class="string">"用户输入的整数为"</span>+enterNumber);</div><div class="line"></div><div class="line">		String enterString = sc.next();</div><div class="line">		System.out.println(<span class="string">"用户输入的字符串为"</span>+enterString);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="Random随机数类的使用"><a href="#Random随机数类的使用" class="headerlink" title="Random随机数类的使用"></a>Random随机数类的使用</h3><pre><code>* 作用: 生成随机数
-* 使用:
-    (1) import导包：所属包java.util. Random
-    (2) 创建Random对象的变量：Random  random = new Random ();
-    (3) 调用方法:
-        * nextInt(int maxValue)    产生[0,maxValue)范围的随机数,包含0不包含maxValue
-        * nextDouble()  //产生0.0-1.0之间的数(包括0.0不包括1.0)
-        如：
-</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random  random = <span class="keyword">new</span> Random ();</div><div class="line"><span class="keyword">int</span>  myNumber = random.nextInt(<span class="number">100</span>);<span class="comment">//结果为0-99的一个数</span></div></pre></td></tr></table></figure>
-<pre><code>* 随机数,也叫伪随机数,它是JVM根据人写好的算法,生成的
-* 案例代码
-</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.Random;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RandomDemo</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">	   Random ran = <span class="keyword">new</span> Random();</div><div class="line">	   <span class="comment">// Random类中的,产生随机数的功能</span></div><div class="line">	   <span class="keyword">int</span> i = ran.nextInt(<span class="number">100</span>);</div><div class="line">	   System.out.println(i);  </div><div class="line">	   <span class="comment">//问题? 产生随机数,范围 1-100之间</span></div><div class="line">	   <span class="comment">// nextInt(100) 0-99 + 1</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h3 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h3><pre><code>* 要使用某个类时,如果该类还未被加载到内存中,
+  则系统会通过加载,连接,初始化三步来实现对这个类进行初始化。
+1. 类的加载
+    * 将class文件读入内存,类的加载器创建一个编译后的class文件的对象(字节码对象)
+    * 任何类在使用时,系统都会建立一个class对象
+2. 连接
+    * 验证: 检查内部结构
+    * 准备: 为类的静态成员分配内存,并默认初始化值
+    * 解析: 将类的二进制数据中的符号引用替换为直接引用
+3. 初始化
+    * 创建对象,赋值
+</code></pre><h4 id="类的加载时机"><a href="#类的加载时机" class="headerlink" title="类的加载时机"></a>类的加载时机</h4><pre><code>* 创建类的实例
+* 类的静态变量，或者为静态变量赋值
+* 类的静态方法
+* 使用反射方式来强制创建某个类或接口对应的java.lang.Class对象
+* 初始化某个类的子类
+* 直接使用java.exe命令来运行某个主类
+</code></pre><h4 id="类的加载器"><a href="#类的加载器" class="headerlink" title="类的加载器"></a>类的加载器</h4><pre><code>* 负责将.class文件加载到内存中,并为之生成对应的Class对象
+* 组成:
+    1. 根类加载器Bootstrap ClassLoader
+        负责Java核心类的加载,比如System,String等
+        在JDK中JRE的lib目录下rt.jar文件中
+    2. 扩展类加载器Extension ClassLoader
+        负责JRE的扩展目录中jar包的加载。
+        在JDK中JRE的lib目录下ext目录
+    3. 系统类加载器System ClassLoader
+        在JVM启动时加载来自java命令的class文件以及classpath环境变量所指定的jar包和类路径
+</code></pre><h3 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h3><pre><code>* JAVA反射机制是在运行状态中，
+    对于任意一个类,都能够知道这个类的所有属性和方法；
+    对于任意一个对象,都能够调用它的任意一个方法和属性；
+* 条件：运行状态
+  已知：一个类或一个对象(根本是已知.class文件)
+  结果：得到这个类或对象的所有方法和属性
+</code></pre><h4 id="class文件的产生过程"><a href="#class文件的产生过程" class="headerlink" title="class文件的产生过程"></a>class文件的产生过程</h4><pre><code>* Class对象是在加载类时由Java虚拟机以及通过调用类加载器中的defineClass方法自动构造的
+</code></pre><h4 id="class文件对象的获得"><a href="#class文件对象的获得" class="headerlink" title="class文件对象的获得"></a>class文件对象的获得</h4><pre><code>1. 对象获取(通过Object类中的getClass()方法)
+2. 类名获取(任意数据类型都具备一个class静态属性)
+3. Class类的静态方法获取(通过Class类中的方法)
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>.对象获取</div><div class="line">Person p = <span class="keyword">new</span> Person();</div><div class="line"><span class="comment">//调用父类方法getClass()</span></div><div class="line">Class c1 =  p.getClass();</div><div class="line">System.out.println(c1);</div><div class="line"></div><div class="line"><span class="number">2</span>.类名获取</div><div class="line"><span class="comment">//每个类型,包括基本和引用,都会赋予这个类型一个静态的属性,属性名字就叫class</span></div><div class="line">Class c2 = Peron.class;</div><div class="line">Class d1 = <span class="keyword">double</span>.class;</div><div class="line">System.out.println(c2);</div><div class="line">System.out.println(d1);<span class="comment">//打印结果是double</span></div><div class="line"></div><div class="line"><span class="number">3</span>.静态方法获取Class.forName(String classname)</div><div class="line"><span class="comment">//字符串的类名:要加上包名</span></div><div class="line">Class c3 = Class.forName(<span class="string">"com.geekhoon.demo1.Person"</span>);</div><div class="line">System.out.println(c3);</div><div class="line"></div><div class="line">打印结果都是:<span class="class"><span class="keyword">class</span> <span class="title">com</span>.<span class="title">geekhoon</span>.<span class="title">demo01</span>.<span class="title">Person</span></span></div></pre></td></tr></table></figure>
+<h3 id="通过反射获取无参构造方法并使用"><a href="#通过反射获取无参构造方法并使用" class="headerlink" title="通过反射获取无参构造方法并使用"></a>通过反射获取无参构造方法并使用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">	Class c = Class.forName(<span class="string">"com.geekhoon.demo01.Person"</span>);</div><div class="line"><span class="comment">//1.获取class文件对象中所有公共的构造方法: Constructor[] getConstructors()</span></div><div class="line"><span class="comment">//返回值是Constructor类型数组</span></div><div class="line">	Constructor[] cons = c.getConstructors();</div><div class="line">	<span class="keyword">for</span> (Constructor con : cons) &#123;</div><div class="line">		System.out.println(con);<span class="comment">//打印的是所有公共构造方法名</span></div><div class="line">	&#125;</div><div class="line"><span class="comment">//2.获取指定的构造方法  ----&gt; 获取空参数构造方法: Constructor getConstructor()</span></div><div class="line">	Constructor con = c.getConstructor();</div><div class="line">	System.out.println(con);<span class="comment">//打印空参构造方法名</span></div><div class="line"><span class="comment">//运行空参构造方法,使用的是Constructor类方法newInstance()</span></div><div class="line"><span class="comment">//运行获取到的构造方法,返回值是Object类型对象</span></div><div class="line">	<span class="comment">//相当于Object obj = new Person();</span></div><div class="line">	Object obj = con.newInstance();</div><div class="line"><span class="comment">//要调用Person类的方法,需要进行强转</span></div><div class="line">	Person p = (Person) obj;</div><div class="line">	p.eat();</div><div class="line">	System.out.println(obj);</div><div class="line"><span class="comment">//因为重写了toString(),打印结果是Person [name=null, age=0]</span></div><div class="line"><span class="comment">//没有重写的话,打印的则是p的地址</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3>
       
     </div>
 
@@ -446,17 +467,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/09/基础题目答案/" rel="next" title="基础题目答案">
-                <i class="fa fa-chevron-left"></i> 基础题目答案
+              <a href="/2017/03/01/19-JDBC-DBUtils/" rel="next" title="19.JDBC&DBUtils">
+                <i class="fa fa-chevron-left"></i> 19.JDBC&DBUtils
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/10/06-流程控制语句/" rel="prev" title="06.流程控制语句">
-                06.流程控制语句 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -505,8 +522,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/01/10/05-引用数据类型/"
-           data-title="05.引用数据类型" data-url="https://geekhoon.github.io/2017/01/10/05-引用数据类型/">
+      <div class="ds-thread" data-thread-key="2017/03/06/20-反射/"
+           data-title="20.反射" data-url="https://geekhoon.github.io/2017/03/06/20-反射/">
       </div>
     
   </div>
@@ -668,7 +685,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建引用类型变量公式"><span class="nav-number">1.</span> <span class="nav-text">创建引用类型变量公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scanner类的使用"><span class="nav-number">2.</span> <span class="nav-text">Scanner类的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Random随机数类的使用"><span class="nav-number">3.</span> <span class="nav-text">Random随机数类的使用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#类加载器"><span class="nav-number">1.</span> <span class="nav-text">类加载器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#类的加载时机"><span class="nav-number">1.1.</span> <span class="nav-text">类的加载时机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类的加载器"><span class="nav-number">1.2.</span> <span class="nav-text">类的加载器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反射"><span class="nav-number">2.</span> <span class="nav-text">反射</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#class文件的产生过程"><span class="nav-number">2.1.</span> <span class="nav-text">class文件的产生过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class文件对象的获得"><span class="nav-number">2.2.</span> <span class="nav-text">class文件对象的获得</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过反射获取无参构造方法并使用"><span class="nav-number">3.</span> <span class="nav-text">通过反射获取无参构造方法并使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#练习"><span class="nav-number">4.</span> <span class="nav-text">练习</span></a></li></ol></div>
             
           </div>
         </section>
