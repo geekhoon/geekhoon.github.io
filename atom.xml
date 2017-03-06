@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-03-06T03:24:36.409Z</updated>
+  <updated>2017-03-06T03:26:01.016Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -20,11 +20,12 @@
     <link href="https://geekhoon.github.io/2017/03/06/20-%E5%8F%8D%E5%B0%84/"/>
     <id>https://geekhoon.github.io/2017/03/06/20-反射/</id>
     <published>2017-03-06T00:52:19.000Z</published>
-    <updated>2017-03-06T03:24:36.409Z</updated>
+    <updated>2017-03-06T03:26:01.016Z</updated>
     
     <content type="html"><![CDATA[<h3 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h3><pre><code>* 要使用某个类时,如果该类还未被加载到内存中,
   则系统会通过加载,连接,初始化三步来实现对这个类进行初始化。
-1. 类的加载
+</code></pre><a id="more"></a>    
+<pre><code>1. 类的加载
     * 将class文件读入内存,类的加载器创建一个编译后的class文件的对象(字节码对象)
     * 任何类在使用时,系统都会建立一个class对象
 2. 连接
@@ -66,7 +67,8 @@
     <summary type="html">
     
       &lt;h3 id=&quot;类加载器&quot;&gt;&lt;a href=&quot;#类加载器&quot; class=&quot;headerlink&quot; title=&quot;类加载器&quot;&gt;&lt;/a&gt;类加载器&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;* 要使用某个类时,如果该类还未被加载到内存中,
-  则系统会通过加载,连接,初始化三步来实现对这个类进行初
+  则系统会通过加载,连接,初始化三步来实现对这个类进行初始化。
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     

@@ -8,7 +8,8 @@
       <url>https://geekhoon.github.io/2017/03/06/20-%E5%8F%8D%E5%B0%84/</url>
       <content type="html"><![CDATA[<h3 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h3><pre><code>* 要使用某个类时,如果该类还未被加载到内存中,
   则系统会通过加载,连接,初始化三步来实现对这个类进行初始化。
-1. 类的加载
+</code></pre><a id="more"></a>    
+<pre><code>1. 类的加载
     * 将class文件读入内存,类的加载器创建一个编译后的class文件的对象(字节码对象)
     * 任何类在使用时,系统都会建立一个class对象
 2. 连接
