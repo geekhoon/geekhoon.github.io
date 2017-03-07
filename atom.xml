@@ -128,13 +128,13 @@
     <link href="https://geekhoon.github.io/2017/03/01/19-JDBC-DBUtils/"/>
     <id>https://geekhoon.github.io/2017/03/01/19-JDBC-DBUtils/</id>
     <published>2017-03-01T01:09:43.000Z</published>
-    <updated>2017-03-07T15:55:41.375Z</updated>
+    <updated>2017-03-07T16:00:28.086Z</updated>
     
     <content type="html"><![CDATA[<h3 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h3><h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><pre><code>* Java Data Base Connectivity
 * 一种用于执行SQL语句的Java API
 * Java提供的访问数据库规范
 * 可以为多种关系数据库提供统一访问
-* 由一组用Java语言编写的类和接口组成.是Java访问数据库的规范.
+* 由一组用Java语言编写的类和接口组成.
 * 原理: 
     * Java提供访问数据库规范称为JDBC,JDBC需要连接驱动,驱动是生产厂商提供规范的实现类
     * JDBC是接口,驱动是接口的实现,没有驱动将无法完成数据库连接
@@ -260,7 +260,7 @@ where条件都为true, 永远都可以查询出结果,那么用户就直接登�
 * 一种用于执行SQL语句的Java API
 * Java提供的访问数据库规范
 * 可以为多种关系数据库提供统一访问
-* 由一组用Java语言编写的类和接口组成.是Java访问数据库的规范.
+* 由一组用Java语言编写的类和接口组成.
 * 原理: 
     * Java提供访问数据库规范称为JDBC,JDBC需要连接驱动,驱动是生产厂商提供规范的实现类
     * JDBC是接口,驱动是接口的实现,没有驱动将无法完成数据库连接
