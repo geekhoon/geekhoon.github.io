@@ -303,211 +303,6 @@
             
               
                 
-                <a class="post-title-link" href="/2017/03/09/test/" itemprop="url">
-                  test
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-03-09T00:33:14+08:00" content="2017-03-09">
-              2017-03-09
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/03/09/test/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/09/test/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/03/09/test/" class="leancloud_visitors" data-flag-title="test">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.HashMap和Hashtable的区别:</p>
-<pre><code>* 共同点: 
-    1. 底层都是哈希算法
-    2. 都是双列集合
-* 区别一: 
-    1. HashMap   JDk1.2出现, 线程不安全集合, 效率较高
-    2. Hashtable JDk1.0出现, 线程安全集合,   效率较低 
-* 区别二: 
-    1. HashMap 允许存储null键,null值
-    2. Hashtable 不允许存储null键,null值
-</code></pre><p>2.JDK1.5新特性:</p>
-<pre><code>* 增强for
-* 自动装箱,拆箱
-* 泛型
-* 方法可变参数
-* StringBuilder字符串缓冲区
-</code></pre><p>3.getKey和getValue是哪个接口的？<br>    Map.Entry<br>4.什么是面向对象?<br>    面向对象是一种编程思想,是基于面向过程的<br>    面向过程是强调过程,每一步都要亲自完成<br>    面向对象是强调对象,让对象去帮助完成<br>    好处:</p>
-<pre><code>    * 更符合人类思考习惯
-    * 将复杂的问题简单化
-    * 由执行者变成指挥者
-三大特性:
-1. 封装:
-    隐藏对象的属性和实现细节,对外提供公共的访问方式
-    好处: 
-        * 提高了代码复用性
-        * 提高了安全性
-        * 便于调用者使用
-2. 继承:
-    当多个类中有很多共性内容时,可以把这些共性内容抽取出来封装成一个类,让这些类与这个封装的类产生关系,就是继承
-    特点:
-        * 类与类之间的继承: 只能单继承,不能多继承,但是可以多层继承
-        * 接口与接口之间的继承: 可以单继承,也可以多继承
-    好处:
-        * 提高了代码的复用性
-        * 提高了代码的维护性
-        * 提高了代码扩展性
-        * 类与类之间产生了关系, 是多态的前提
-    坏处:
-        * 增强了类与类之间的耦合性
-3. 多态:
-    同种事物在不同时刻表现出来的不同形态
-    前提:
-        * 要有继承(实现)关系
-        * 要有方法重写
-        * 父类或父接口引用指向子类对象
-    好处:
-        * 提高了代码的维护性
-        * 提高了代码的扩展性
-    坏处:
-        * 父类引用不能直接调用子类特有的属性和方法
-    成员访问特点:
-        * 普通方法
-        * 成员变量
-        * 静态方法
-</code></pre><p>5.局部变量和成员变量的区别<br>    1.定义位置不同<br>        局部变量：方法中或方法声明上<br>        成员变量：类中方法外<br>    2.作用域不同<br>        局部变量：方法中，出了方法就不能用了<br>        成员变量：整个类<br>    3.默认值不同<br>        局部变量：没有默认值，局部变量必须先赋值才能使用<br>        成员变量：有默认值。和数组元素默认值一样<br>    4.内存位置不同<br>        局部变量：在栈内存的方法中<br>        成员变量：在堆内存的对象中<br>    5.生命周期不同<br>        局部变量：随着方法弹栈而消亡<br>        成员变量：随着对象的回收而消亡<br>6.接口与抽象类的区别</p>
-<pre><code>1. 成员: 接口中全是抽象方法,抽象类中可以有抽象方法,也可以有非抽象方法
-         接口中成员变量只能是常量,抽象类中可以有变量
-2. 继承关系: 接口可以多实现,多继承   抽象类只能单继承,多层继承
-3. 设计理念:  接口是这个事物中的额外内容   抽象类是这个事物中应该具备的内容 
-*接口: 
-    常量的默认修饰符是public static final ;
-    方法的默认修饰符是：public abstract;
-</code></pre><p>7.instanceof关键字: 比较引用数据类型<br>    格式:　引用变量  instanceof 类名<br>8.this:</p>
-<pre><code>* 代表本类对象的引用
-* 区分成员变量和局部变量的同名情况
-* 在本类中调用其他构造方法
-</code></pre><p>9.final:</p>
-<pre><code>1. 修饰类: 不可以被继承,但是可以继承别的类
-2. 修饰方法: 不可以被子类重写,但是可以被继承使用
-3. 修饰局部变量:
-    1. 修饰基本数据类型: 称为常量,只能被赋值一次
-    2. 修饰引用数据类型: 变量存储的地址不可改变,但指向的对象属性值可以改变
-4. 修饰成员变量:
-    1. 需要在创建对象前赋值,不能用set赋值
-    2. 固定的是成员变量的手动赋值,不是默认值
-</code></pre><p>10.static:</p>
-<pre><code>1. 修饰方法: 不能被重写,可以重载
-2. 修饰成员变量
-* 特点: 
-    * 静态成员随着类的加载而加载
-    * 优于对象存在
-    * 能够通过类名点的形式直接调用
-    * 修饰的成员属于类, 被该类的所有对象共享
-* 注意:
-    * 静态方法中不可以定义this、super关键字
-    * 静态不能直接访问非静态
-* 好处:
-    * 能够被类名点的形式调用，简化书写。被该类下所有的对象所共享
-* 坏处:
-    * 生命周期过长
-</code></pre><p>11.修饰类只能使用public、default、final、abstract关键字<br>   abstract不能和private,static,final一起用<br>12.代码块:</p>
-<pre><code>1. 局部代码块: 限定局部变量的生命周期&apos;
-2. 构造代码块: 在创建对象的时候执行，每创建一次，就执行一次。构造代码块优先于构造方法执行
-3. 静态代码块: 在类加载的时候执行，并且只会执行一次，优先于构造代码块执行
-4. 同步代码块
-</code></pre><p>13.抽象类和抽象方法的特点:<br>    抽象类不能实例化，需要子类继承；抽象方法没有方法体，需要子类去重写<br>14.异常处理有哪些方式?<br>（1）try-catch<br>（2）throws<br>15.运行异常和编译异常的区别？<br>    运行时异常不处理也能通过编译，RuntimeException及其子类都是运行时异常。<br>    而编译期异常必须处理，才能通过编译。非RuntimeException及其子类都是编译期异常。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2017/03/06/20-反射/" itemprop="url">
                   20.反射
                 </a>
@@ -3055,6 +2850,143 @@
 
 
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/01/09/常用快捷键/" itemprop="url">
+                  常用快捷键
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-09T17:50:28+08:00" content="2017-01-09">
+              2017-01-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">技巧</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/09/常用快捷键/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/09/常用快捷键/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/01/09/常用快捷键/" class="leancloud_visitors" data-flag-title="常用快捷键">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="1-Dos"><a href="#1-Dos" class="headerlink" title="1.Dos"></a>1.Dos</h3><pre><code>* Shift + 右键    : 当前文件夹下打开dos
+* Tab             : 注意dos下,&quot;Tab键&quot;的使用,可方便输入
+* 标记 + 右键/回车 : dos下复制
+* &quot;↑&quot;和&quot;↓&quot;        : dos未关闭前提下,使用之前的命令
+* 复制路径后,dos下右键,可以粘贴
+* Ctrl + c        :强行停止命令行
+</code></pre>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/01/09/常用快捷键/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -3100,7 +3032,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-count">26</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
