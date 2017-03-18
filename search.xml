@@ -7,18 +7,12 @@
       <title><![CDATA[JavaWeb_01.HTML]]></title>
       <url>https://geekhoon.github.io/2017/03/18/JavaWeb-01-HTML/</url>
       <content type="html"><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>1.超文本标记语言<br>    超文本- 不仅可以存文本, 还可以为文本添加样式,还可以存视频,音频,图片<br>    标记- HTML源码中使用标签实现超文本存储,标签称之为标记<br>    语言- 一门计算机语言<br><a id="more"></a><br>2.作用: 编写静态网页<br>3.特点:</p>
-<pre><code>1. 是一种解释型语言,源码不需要编译
-    编译型: 源码--&gt;机器码(0101...)--&gt;以后每次执行机器码
-    解释型: 源码--&gt;每次直接执行源码
-   拓展: 编译型效率更高
-2. 文件的扩展名是*.html或*.htm
-3. html结构都是由标签组成
-    标签名都是预先定义好的,具有固定好的功能;
-    标签名不区分大小写
-    标签由开始标签和结束标签组成
-    标签若没有&quot;内容体&quot;,可以自结束(&lt;img /&gt;也称&quot;空标签&quot;)
-</code></pre><p>4.注释: <!-- 注释内容,不能嵌套使用 --></p>
-<h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3>]]></content>
+<ol>
+<li>是一种解释型语言,源码不需要编译<br> 编译型: 源码–&gt;机器码(0101…)–&gt;以后每次执行机器码<br> 解释型: 源码–&gt;每次直接执行源码<br>拓展: 编译型效率更高</li>
+<li>文件的扩展名是<em>.html或</em>.htm</li>
+<li>html结构都是由标签组成<br> 标签名都是预先定义好的,具有固定好的功能;<br> 标签名不区分大小写<br> 标签由开始标签和结束标签组成<br> 标签若没有”内容体”,可以自结束(<img>也称”空标签”)<br>4.注释: <!-- 注释内容,不能嵌套使用 --><h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3>1</li>
+</ol>
+]]></content>
     </entry>
     
     <entry>
