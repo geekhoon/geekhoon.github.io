@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-03-18T11:52:23.983Z</updated>
+  <updated>2017-03-18T12:11:57.156Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://geekhoon.github.io/2017/03/18/JavaWeb-01-HTML/"/>
     <id>https://geekhoon.github.io/2017/03/18/JavaWeb-01-HTML/</id>
     <published>2017-03-18T11:31:26.000Z</published>
-    <updated>2017-03-18T11:52:23.983Z</updated>
+    <updated>2017-03-18T12:11:57.156Z</updated>
     
     <content type="html"><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><pre><code>1.超文本标记语言
     超文本- 不仅可以存文本, 还可以为文本添加样式,还可以存视频,音频,图片
@@ -40,8 +40,39 @@
         标签由开始标签和结束标签组成
         标签若没有&quot;内容体&quot;,可以自结束(&lt;img /&gt;也称&quot;空标签&quot;)
 4.注释: &lt;!-- 注释内容,不能嵌套使用 --&gt;
-</code></pre><h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><p>2</p>
-]]></content>
+</code></pre><h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><p>   </p><h1>标题1</h1>,<h2>标题2</h2>,…<h6>标题6</h6><br>    特点:<p></p>
+<pre><code>1. 依次减小
+2. 自动换行 
+</code></pre><h4 id="水平线"><a href="#水平线" class="headerlink" title="水平线"></a>水平线</h4><p>   <hr><br>    属性:</p>
+<pre><code>1. width:设置宽度,取值百分比(%),像素(px);
+2. size:设置高度(粗细),取值百分比(%),像素(px);
+</code></pre><h4 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h4><p>   <font>字体</font><br>    属性:<br>        color:设置颜色,取值:<br>            1.使用颜色的英语单词;<br>            2.使用16进制组成颜色码:</p>
+<pre><code>        #xx(红)xx(绿)xx(蓝) 例:红:#ff0000
+size:设置字体大小,取值1~7;
+</code></pre><h4 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h4><pre><code>粗体:
+    &lt;b&gt;粗体&lt;/b&gt;
+
+斜体:
+    &lt;i&gt;斜体&lt;/i&gt;
+</code></pre><h4 id="段落"><a href="#段落" class="headerlink" title="段落"></a>段落</h4><p>   </p><p>段落</p><br>    特点:<br>        1.自动换行,独占一行;<br>        2.前后留白;<br>    <br> 换行<p></p>
+<h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><p>   <img><br>    属性:<br>        src:图片路径;<br>            相对路径:<br>                ../    返回到当前文件夹的上一级文件夹目录;<br>                ./    当前文件夹目录;<br>        alt:当图片不能显示时,代替图片的说明文本;<br>        title:提示描述(鼠标悬停在图片上时,显示的说明文本);<br>        width:设置图片的宽度,取值百分比,像素;<br>        heigth:设置图片的高度,取值百分比(%),像素(px);</p>
+<h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><p>   有序列表:<br>    <ol><br>        <li></li><br>    </ol></p>
+<p>   无序列表:<br>    <ul><br>        <li></li><br>    </ul><br>   属性:<br>    type:设置标识:<br>        ol:取值:a,A,i,I,1等;<br>        ul:取值:circle(空心圆),square(方块),disc(实心圆);</p>
+<h4 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h4><p>   <a>超链接</a><br>    属性:<br>        href:资源的路径(访问路径);<br>        target:设置打开方式,取值:<br>            _blank:开启新窗口显示;<br>            _self:覆盖当前窗口显示;    </p>
+<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><p>   <table><br>    属性:<br>        border:设置边框,取值像素;<br>        cellpadding:设置单元格与单元格内容之间的间距;<br>        cellspacing:设置单元格与单元格之间的间距;<br>        width:设置宽度,取值百分比(%),像素(px);<br>        align:设置表格对齐方式;<br>        bgcolor:设置背景颜色;</table></p>
+<p>   <tr>        <!-- 定义一行 --><br>    属性:<br>        align:设置单元格内容的对齐方式;<br>        bgcolor:设置背景颜色;</tr></p>
+<p>   <th>        <!-- 定义表头单元格 --><br>   </th><td>        <!-- 定义普通单元格 --><br>    属性:<br>        align:设置单元格内容的对齐方式;<br>        bgcolor:设置背景颜色;<br>        colspan:合并单元格;<br>        rowspan:合并行;</td></p>
+<h4 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h4><p>   <frameset>:框架标签;<br>    特点:<br>        不能与body共存;</frameset></p>
+<pre><code>属性:
+    rows:行,取值百分比(%),像素(px);
+    cols:列,取值百分比(%),像素(px);
+
+&lt;frame&gt;:框架子标签;
+属性:
+    src:资源路径;
+    noresize:框架分隔线不能移动;
+    name:自定义名称(唯一);
+</code></pre>]]></content>
     
     <summary type="html">
     
