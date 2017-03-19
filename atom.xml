@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-03-19T13:37:47.964Z</updated>
+  <updated>2017-03-19T13:40:24.826Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://geekhoon.github.io/2017/03/18/JavaWeb-01-HTML/"/>
     <id>https://geekhoon.github.io/2017/03/18/JavaWeb-01-HTML/</id>
     <published>2017-03-18T11:31:26.000Z</published>
-    <updated>2017-03-19T13:37:47.964Z</updated>
+    <updated>2017-03-19T13:40:24.826Z</updated>
     
     <content type="html"><![CDATA[<h3 id="HTML概述"><a href="#HTML概述" class="headerlink" title="HTML概述"></a>HTML概述</h3><pre><code>1.超文本标记语言
     超文本- 不仅可以存文本, 还可以为文本添加样式,还可以存视频,音频,图片
