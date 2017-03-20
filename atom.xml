@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-03-20T01:36:28.849Z</updated>
+  <updated>2017-03-20T01:38:08.373Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -20,11 +20,12 @@
     <link href="https://geekhoon.github.io/2017/03/20/Javaweb-02-JavaScript/"/>
     <id>https://geekhoon.github.io/2017/03/20/Javaweb-02-JavaScript/</id>
     <published>2017-03-19T16:55:01.000Z</published>
-    <updated>2017-03-20T01:36:28.849Z</updated>
+    <updated>2017-03-20T01:38:08.373Z</updated>
     
     <content type="html"><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><pre><code>* 一种用于开发交互式web页面的编程语言
 * 解释型语言,不需要进行编译,由浏览器执行
-* 组成部分:
+</code></pre><a id="more"></a>    
+<pre><code>* 组成部分:
     1. 基本语法部分 ---&gt; ECMAScript ---&gt; 规范了JS使用基本语法
     2. 浏览器对象 -----&gt; BOM ----------&gt; Browser Object Model
         (浏览器内置对象)
@@ -39,7 +40,7 @@
     2. 面向对象
         (3)获取对象(和Java不同,Java对象大多数要自己创建,JS是获取内置好的对象)
         (4)操作对象
-</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">使用:</div><div class="line">	<span class="number">1.</span> 将JS代码引入到当前的HTML页面</div><div class="line">		方案一: 在HTML页面中使用&lt;script&gt;标签存储JS代码实现</div><div class="line">			&lt;script&gt;</div><div class="line">				<span class="built_in">window</span>.alert(<span class="string">"Hello,World"</span>);</div><div class="line">			&lt;/script&gt;</div><div class="line">		方案二: 将JS代码单独抽取为*.js文件,然后在HTML页面中引入</div><div class="line">			&lt;script src=<span class="string">"my.js"</span> typr=<span class="string">"text/javascript"</span>&gt;&lt;/script&gt;</div><div class="line">	<span class="number">2.</span> 注意:</div><div class="line">		(<span class="number">1</span>)外部JS文件一般存储在JS目录中</div><div class="line">		(<span class="number">2</span>)方案二引入的外部JS文件时,&lt;script&gt;标签中不能再编写其他JS代码</div></pre></td></tr></table></figure>
+</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">使用:</div><div class="line">	<span class="number">1.</span> 将JS代码引入到当前的HTML页面</div><div class="line">		方案一: 在HTML页面中使用&lt;script&gt;标签存储JS代码实现</div><div class="line">			&lt;script&gt;</div><div class="line">				<span class="built_in">window</span>.alert(<span class="string">"Hello,World"</span>);</div><div class="line">			<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">		方案二: 将JS代码单独抽取为*.js文件,然后在HTML页面中引入</div><div class="line">			&lt;script src=<span class="string">"my.js"</span> typr=<span class="string">"text/javascript"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">	<span class="number">2.</span> 注意:</div><div class="line">		(<span class="number">1</span>)外部JS文件一般存储在JS目录中</div><div class="line">		(<span class="number">2</span>)方案二引入的外部JS文件时,<span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined">标签中不能再编写其他JS代码</span></span></div></pre></td></tr></table></figure>
 <h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><pre><code>1.声明格式: var 变量名 = 值;
     var在JS中是一个关键字,代表变量    
 2.变量名规则与规范与Java一样
@@ -62,8 +63,7 @@
     
       &lt;h3 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;* 一种用于开发交互式web页面的编程语言
 * 解释型语言,不需要进行编译,由浏览器执行
-* 组成部分:
-    1. 基本
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     
