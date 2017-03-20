@@ -29,6 +29,9 @@
     var在JS中是一个关键字,代表变量    
 2.变量名规则与规范与Java一样
 3.变量值可以是任意类型,并且可以被重复赋其他类型的值
+拓展:
+    (1)NaN ---&gt; not a number :JS中非数字运算得出的结果
+    (2)typeof(变量) ---&gt; 返回当前变量的数据类型
 </code></pre><h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><pre><code>分类: 
     1. 数字类型 ---&gt; 整型,浮点
     2. 布尔类型 ---&gt; true,false
@@ -41,7 +44,80 @@
     ===: 既比较值也比较数据类型
 </code></pre><h4 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h4><pre><code>在判断语句中,JS会将相关数据类型转成对应的boolean值,和Java不同
 </code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;=<span class="number">3</span>;i++)&#123;</div><div class="line">	<span class="built_in">window</span>.alert(i);</div><div class="line">&#125;</div><div class="line"><span class="keyword">if</span>(<span class="number">1</span>)&#123;</div><div class="line">	<span class="built_in">window</span>.alert(<span class="string">"true"</span>);</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">	<span class="built_in">window</span>.alert(<span class="string">"false"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="正则匹配"><a href="#正则匹配" class="headerlink" title="正则匹配"></a>正则匹配</h3><h3 id="函数编写方式"><a href="#函数编写方式" class="headerlink" title="函数编写方式"></a>函数编写方式</h3><h3 id="轮播图"><a href="#轮播图" class="headerlink" title="轮播图"></a>轮播图</h3><h3 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h3>]]></content>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span>概念</div><div class="line">	Java --- method --- 方法</div><div class="line">  	Js ----- <span class="function"><span class="keyword">function</span> - 函数</span></div><div class="line">2.函数声明</div><div class="line">	<span class="title">function</span> 函数名(<span class="params">参数名即可</span>)&#123;</div><div class="line">		函数体;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">getSum</span>(<span class="params">num1,num2</span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> num1 + num2;</div><div class="line">	&#125;</div><div class="line"><span class="number">3.</span>调用</div><div class="line">	<span class="keyword">var</span> result = getSum(<span class="number">1</span>,<span class="number">2</span>);  --- 标准调用</div><div class="line">	特殊:JS调用函数,可以传入与函数声明不一致的参数列表,如:</div><div class="line">		<span class="keyword">var</span> result = getSum(<span class="number">1</span>); <span class="comment">//result值为NaN</span></div><div class="line"><span class="number">4.</span>注意</div><div class="line">	(<span class="number">1</span>)JS没有重载的概念</div><div class="line">	(<span class="number">2</span>)JS中只依赖于函数名调用,不考虑参数列表,如果函数名相同,后面的会覆盖前面的</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">get</span>(<span class="params">num1,num2</span>)</span>&#123;</div><div class="line">		<span class="built_in">window</span>.alert(<span class="string">"get1"</span>);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">get</span>(<span class="params">num1</span>)</span>&#123;</div><div class="line">		<span class="built_in">window</span>.alert(<span class="string">"get2"</span>);</div><div class="line">	&#125;</div><div class="line">	get(<span class="number">1</span>,<span class="number">2</span>); <span class="comment">//打印的是get2</span></div></pre></td></tr></table></figure>
+<h3 id="BOM对象"><a href="#BOM对象" class="headerlink" title="BOM对象"></a>BOM对象</h3><pre><code>概述:     
+    * JS是基于对象的,对象不是自己new的,而是获取第三方内置的对象,来使用
+    * 浏览器内置的对象就是BOM对象
+常用对象
+    1. window对象 --- 当前浏览器内置的对象
+        * window.alert(); //弹出警告框
+        * window.confirm(); //确认框
+            var flag = confirm(&quot;&quot;);
+        * window.prompt(); //输入框
+            var txt = prompt(&quot;&quot;);
+        凡是window对象的方法,都可以不加window前缀
+</code></pre><h3 id="DOM对象"><a href="#DOM对象" class="headerlink" title="DOM对象"></a>DOM对象</h3><pre><code>概述:    
+    * JS主要操作的是HTML中的内容
+        * 操作流程:
+            1. 获取要操作的标签对应的DOM对象 --- 获取
+            2. 操作这个DOM对象 --------------- 调用
+    * 获取div标签对象,然后获取内容体并打印:
+        1. 获取对象:
+            (1)先给标签添加id
+            (2)获取语法: var d1 = document.getElementById(&quot;id&quot;);
+            (3)注意加载顺序:
+                如果script在head中,直接调用获取语法,不能获取,因为div还没加载
+            解决方案:
+            1. 将script实现存储在div后面
+            2. 在body标签中添加属性onload = &quot;函数&quot;
+               script中有对应的函数实现,获取div对象
+            执行效果: 页面加载完(注意是加载完),调用这个函数
+    * 方案一:
+        &lt;div id = &quot;d1&quot;&gt; hello &lt;/div&gt;
+        &lt;script&gt;
+        var d1 = document.getElementById(&quot;d1&quot;);
+        alert(d1);            
+        &lt;/script&gt;
+    * 方案二:
+        &lt;head&gt;
+            &lt;script&gt;
+                function get(){
+                    var d1 = document.getElementById(&quot;d1&quot;);
+                    alert(d1);        
+                }
+            &lt;/script&gt;
+        &lt;/head&gt;
+        &lt;body onload = &quot;get()&quot;&gt;
+            div id = &quot;d1&quot;&gt; hello &lt;/div&gt;
+        &lt;/body&gt;
+    * 方案三(优化):
+        1. 编写函数
+        2. window.onload = 方法名; (方法没有括号)
+        &lt;head&gt;
+            &lt;script&gt;
+                function get(){
+                    var d1 = document.getElementById(&quot;d1&quot;);
+                    alert(d1);        
+                }
+                window.onload = get;
+            &lt;/script&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            div id = &quot;d1&quot;&gt; hello &lt;/div&gt;
+        &lt;/body&gt;    
+    * 方案四(优化): 匿名函数
+        &lt;head&gt;
+            &lt;script&gt;
+                window.onload = function() {
+                    var d1 = document.getElementById(&quot;d1&quot;);
+                    alert(d1);        
+                }
+            &lt;/script&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            div id = &quot;d1&quot;&gt; hello &lt;/div&gt;
+        &lt;/body&gt;    
+</code></pre><h3 id="轮播图"><a href="#轮播图" class="headerlink" title="轮播图"></a>轮播图</h3>]]></content>
     </entry>
     
     <entry>
