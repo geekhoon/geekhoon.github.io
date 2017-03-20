@@ -86,16 +86,34 @@
 
 
 
-<meta name="description" content="概述基本语法变量数据类型运算符正则匹配函数编写方式轮播图BOM">
+<meta name="description" content="概述* 一种用于开发交互式web页面的编程语言
+* 解释型语言,不需要进行编译,由浏览器执行
+* 组成部分:
+    1. 基本语法部分 ---&amp;gt; ECMAScript ---&amp;gt; 规范了JS使用基本语法
+    2. 浏览器对象 -----&amp;gt; BOM ----------&amp;gt; Browser Object Model
+        (浏览器内置对象)
+    3. 文档对象">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Javaweb_02.JavaScript">
 <meta property="og:url" content="https://geekhoon.github.io/2017/03/20/Javaweb-02-JavaScript/index.html">
 <meta property="og:site_name" content="geekhoon">
-<meta property="og:description" content="概述基本语法变量数据类型运算符正则匹配函数编写方式轮播图BOM">
-<meta property="og:updated_time" content="2017-03-19T16:58:31.474Z">
+<meta property="og:description" content="概述* 一种用于开发交互式web页面的编程语言
+* 解释型语言,不需要进行编译,由浏览器执行
+* 组成部分:
+    1. 基本语法部分 ---&amp;gt; ECMAScript ---&amp;gt; 规范了JS使用基本语法
+    2. 浏览器对象 -----&amp;gt; BOM ----------&amp;gt; Browser Object Model
+        (浏览器内置对象)
+    3. 文档对象">
+<meta property="og:updated_time" content="2017-03-20T01:36:28.849Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javaweb_02.JavaScript">
-<meta name="twitter:description" content="概述基本语法变量数据类型运算符正则匹配函数编写方式轮播图BOM">
+<meta name="twitter:description" content="概述* 一种用于开发交互式web页面的编程语言
+* 解释型语言,不需要进行编译,由浏览器执行
+* 组成部分:
+    1. 基本语法部分 ---&amp;gt; ECMAScript ---&amp;gt; 规范了JS使用基本语法
+    2. 浏览器对象 -----&amp;gt; BOM ----------&amp;gt; Browser Object Model
+        (浏览器内置对象)
+    3. 文档对象">
 
 
 
@@ -376,7 +394,41 @@
       
 
       
-        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><h4 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h4><h3 id="正则匹配"><a href="#正则匹配" class="headerlink" title="正则匹配"></a>正则匹配</h3><h3 id="函数编写方式"><a href="#函数编写方式" class="headerlink" title="函数编写方式"></a>函数编写方式</h3><h3 id="轮播图"><a href="#轮播图" class="headerlink" title="轮播图"></a>轮播图</h3><h3 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h3>
+        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><pre><code>* 一种用于开发交互式web页面的编程语言
+* 解释型语言,不需要进行编译,由浏览器执行
+* 组成部分:
+    1. 基本语法部分 ---&gt; ECMAScript ---&gt; 规范了JS使用基本语法
+    2. 浏览器对象 -----&gt; BOM ----------&gt; Browser Object Model
+        (浏览器内置对象)
+    3. 文档对象 -------&gt; DOM ----------&gt; Document Object Model
+        (HTML文档以及文档的每一个标签,都被JS当作对象)
+* 学习路线:
+    1. 基本语法
+        (1)变量
+            运算符
+            流程控制
+        (2)方法
+    2. 面向对象
+        (3)获取对象(和Java不同,Java对象大多数要自己创建,JS是获取内置好的对象)
+        (4)操作对象
+</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">使用:</div><div class="line">	<span class="number">1.</span> 将JS代码引入到当前的HTML页面</div><div class="line">		方案一: 在HTML页面中使用&lt;script&gt;标签存储JS代码实现</div><div class="line">			&lt;script&gt;</div><div class="line">				<span class="built_in">window</span>.alert(<span class="string">"Hello,World"</span>);</div><div class="line">			&lt;/script&gt;</div><div class="line">		方案二: 将JS代码单独抽取为*.js文件,然后在HTML页面中引入</div><div class="line">			&lt;script src=<span class="string">"my.js"</span> typr=<span class="string">"text/javascript"</span>&gt;&lt;/script&gt;</div><div class="line">	<span class="number">2.</span> 注意:</div><div class="line">		(<span class="number">1</span>)外部JS文件一般存储在JS目录中</div><div class="line">		(<span class="number">2</span>)方案二引入的外部JS文件时,&lt;script&gt;标签中不能再编写其他JS代码</div></pre></td></tr></table></figure>
+<h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><pre><code>1.声明格式: var 变量名 = 值;
+    var在JS中是一个关键字,代表变量    
+2.变量名规则与规范与Java一样
+3.变量值可以是任意类型,并且可以被重复赋其他类型的值
+</code></pre><h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><pre><code>分类: 
+    1. 数字类型 ---&gt; 整型,浮点
+    2. 布尔类型 ---&gt; true,false
+    3. 字符串类型 -&gt; &quot;&quot; 或 &apos;&apos; 包裹
+    4. null
+    5. undefined -&gt; null的衍生,变量只声明不赋值时,就是undefined
+        undefinerd == null :结果是true
+</code></pre><h4 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h4><pre><code>JS特殊运算符:
+    == : 比较值而不比较数据类型
+    ===: 既比较值也比较数据类型
+</code></pre><h4 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h4><pre><code>在判断语句中,JS会将相关数据类型转成对应的boolean值,和Java不同
+</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;=<span class="number">3</span>;i++)&#123;</div><div class="line">	<span class="built_in">window</span>.alert(i);</div><div class="line">&#125;</div><div class="line"><span class="keyword">if</span>(<span class="number">1</span>)&#123;</div><div class="line">	<span class="built_in">window</span>.alert(<span class="string">"true"</span>);</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">	<span class="built_in">window</span>.alert(<span class="string">"false"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="正则匹配"><a href="#正则匹配" class="headerlink" title="正则匹配"></a>正则匹配</h3><h3 id="函数编写方式"><a href="#函数编写方式" class="headerlink" title="函数编写方式"></a>函数编写方式</h3><h3 id="轮播图"><a href="#轮播图" class="headerlink" title="轮播图"></a>轮播图</h3><h3 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h3>
       
     </div>
 
@@ -625,7 +677,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本语法"><span class="nav-number">2.</span> <span class="nav-text">基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#变量"><span class="nav-number">2.1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据类型"><span class="nav-number">2.2.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运算符"><span class="nav-number">2.3.</span> <span class="nav-text">运算符</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正则匹配"><span class="nav-number">3.</span> <span class="nav-text">正则匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数编写方式"><span class="nav-number">4.</span> <span class="nav-text">函数编写方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#轮播图"><span class="nav-number">5.</span> <span class="nav-text">轮播图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BOM"><span class="nav-number">6.</span> <span class="nav-text">BOM</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本语法"><span class="nav-number">2.</span> <span class="nav-text">基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#变量"><span class="nav-number">2.1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据类型"><span class="nav-number">2.2.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运算符"><span class="nav-number">2.3.</span> <span class="nav-text">运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#流程控制"><span class="nav-number">2.4.</span> <span class="nav-text">流程控制</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正则匹配"><span class="nav-number">3.</span> <span class="nav-text">正则匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数编写方式"><span class="nav-number">4.</span> <span class="nav-text">函数编写方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#轮播图"><span class="nav-number">5.</span> <span class="nav-text">轮播图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BOM"><span class="nav-number">6.</span> <span class="nav-text">BOM</span></a></li></ol></div>
             
           </div>
         </section>
