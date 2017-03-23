@@ -87,8 +87,9 @@
 
 
 <meta name="description" content="概述核心理念: write less,do more 
+作用: 动态地修改内存中的html或css代码
 1. JQuery是一个JavaScript框架,是对JS的封装,将一些常见的JS操作进行了封装,
-  可以提高开发效率
+  提高开发效率
     JQuery与JS的区别:类似与commons-io与JDK内置IO的关系
 2. 兼容CSS3
 3. 相对于JS,能更好地兼容浏览器(并没有完全兼容)">
@@ -97,17 +98,19 @@
 <meta property="og:url" content="https://geekhoon.github.io/2017/03/23/JavaWeb-03-JQuery/index.html">
 <meta property="og:site_name" content="geekhoon">
 <meta property="og:description" content="概述核心理念: write less,do more 
+作用: 动态地修改内存中的html或css代码
 1. JQuery是一个JavaScript框架,是对JS的封装,将一些常见的JS操作进行了封装,
-  可以提高开发效率
+  提高开发效率
     JQuery与JS的区别:类似与commons-io与JDK内置IO的关系
 2. 兼容CSS3
 3. 相对于JS,能更好地兼容浏览器(并没有完全兼容)">
-<meta property="og:updated_time" content="2017-03-23T03:37:23.152Z">
+<meta property="og:updated_time" content="2017-03-23T07:28:54.769Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaWeb_03.JQuery">
 <meta name="twitter:description" content="概述核心理念: write less,do more 
+作用: 动态地修改内存中的html或css代码
 1. JQuery是一个JavaScript框架,是对JS的封装,将一些常见的JS操作进行了封装,
-  可以提高开发效率
+  提高开发效率
     JQuery与JS的区别:类似与commons-io与JDK内置IO的关系
 2. 兼容CSS3
 3. 相对于JS,能更好地兼容浏览器(并没有完全兼容)">
@@ -392,8 +395,9 @@
 
       
         <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><pre><code>核心理念: write less,do more 
+作用: 动态地修改内存中的html或css代码
 1. JQuery是一个JavaScript框架,是对JS的封装,将一些常见的JS操作进行了封装,
-  可以提高开发效率
+  提高开发效率
     JQuery与JS的区别:类似与commons-io与JDK内置IO的关系
 2. 兼容CSS3
 3. 相对于JS,能更好地兼容浏览器(并没有完全兼容)
@@ -404,6 +408,9 @@
 &lt;script src=&quot;JQuery路径&quot;&gt;&lt;/script&gt;
 </code></pre><h3 id="JQuery语法"><a href="#JQuery语法" class="headerlink" title="JQuery语法"></a>JQuery语法</h3><pre><code>记: JQuery是将JS对象的属性操作函数化了
 注: JQuery中频繁使用jQuery函数,简化成一个$,二者等价
+注释:
+    /*注解*/
+    //注解
 </code></pre><h4 id="获取JQuery对象"><a href="#获取JQuery对象" class="headerlink" title="获取JQuery对象"></a>获取JQuery对象</h4><pre><code>方式1: 选择器获取
     1. 标签名(返回的是数组)
         var vs = $(&quot;标签名&quot;); ====等价于==== document.getElementByTagName(&quot;标签名&quot;)
@@ -416,54 +423,66 @@
     2. 转换成JQuery对象
        语法: var v = $(JS对象);
     拓展:
-       JQuery对象转换成JS对象: 
-               语法: var v = JQuery对象[0];
-            注意: 不适用于数组
-</code></pre><h4 id="操作JQuery对象"><a href="#操作JQuery对象" class="headerlink" title="操作JQuery对象"></a>操作JQuery对象</h4><pre><code>1. 获取内容体 -----&gt; JQuery对象.html()
-2. 设置内容体 -----&gt; JQuery对象.html(&quot;新值&quot;);
-3. 获取属性 -------&gt; JQuery对象.prop(&quot;属性名&quot;);
-4. 设置属性 -------&gt; JQuery对象.prop(&quot;属性名&quot;,&quot;属性值&quot;);
-拓展:
-    prop之前是attr函数,后者由于兼容性问题已废弃
-</code></pre><h4 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h4><pre><code>JS页面加载与JQuery页面加载的比较:
-1. JS页面加载属于属性操作,加载多次,最后面的会覆盖前面的(属性操作的特点)
-2. JQuery页面加载属于函数操作,加载多次,执行多次,因为函数每被调用一次,执行一次
-</code></pre><h4 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h4><pre><code>JS中:
-   JS对象.onXXX = function(){}
-JQ中:
-   JQ对象.XXX(function(){});
-</code></pre><h4 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h4><pre><code>1. 属性操作
-    val()  --- 获取
-    val(&quot;新值&quot;) --- 设置
-2. 类名操作
-    removeClass() --- 移除Class属性
-    addClass(&quot;新类名&quot;) --- 添加Class属性
-3. CSS操作
-    css(&quot;属性名&quot;) --- 获取CSS属性
-    css(&quot;属性名&quot;,&quot;值&quot;) --- 设置CSS属性
-</code></pre><h3 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h3><h4 id="层级选择器"><a href="#层级选择器" class="headerlink" title="层级选择器"></a>层级选择器</h4><pre><code>格式:
- 1. 选择器1 选择器2 --------&gt; 获取1标签下的所有子级和孙子级2标签
- 2. 选择器1 &gt; 选择器2 ------&gt; 获取1标签下的所有子级(不包含孙子级)2标签
- 3. 选择器1 + 选择器2 ------&gt; 获取1标签的同级向下第一个兄弟级2标签
- 4. 选择器1 ~ 选择器2 ------&gt; 获取1标签的所有兄弟级2标签
+       JQuery对象转换成JS对象: (不适用于数组)
+               语法(两种): 
+                var v = $(&quot;选择器&quot;)[index];  //如JQuery对象[0];
+                var v = $(&quot;选择器&quot;).get(index);
+</code></pre><h4 id="操作JQuery对象"><a href="#操作JQuery对象" class="headerlink" title="操作JQuery对象"></a>操作JQuery对象</h4><ul>
+<li>HTML代码/文本/值:<br>   $(“选择器”).html();                –&gt;获取内容体;<br>   $(“选择器”).html(“文本/标签”);    –&gt;设置内容体;<br>   $(“选择器”).text();                –&gt;获取文本;<br>   $(“选择器”).text(“文本”);            –&gt;设置文本;<br>   $(“选择器”).val();                –&gt;获取value值;<br>   $(“选择器”).val(“新值”);            –&gt;设置value值;</li>
+<li>属性:<br>   $(“选择器”).prop(“属性名”);         –&gt;获取属性值;<br>   $(“选择器”).prop(“属性名”,”属性值”); –&gt;设置属性;</li>
+<li>CSS类:<br>   $(“选择器”).css(“属性名”)          –&gt;获取指定css样式;<br>   $(“选择器”).css(“属性名”,”属性值”)  –&gt;设置css样式;<br>   $(“选择器”).addClass(“class名”);   –&gt;添加新的”样式类”;<br>   $(“选择器”).removeClass(“class名”); -&gt;移除指定”样式类”;</li>
+<li><p>文档操作:<br>   内部(子元素):</p>
+<pre><code>$A.append($B)       --&gt;将$B追加到$A内部后;
+$A.appendTo($B)     --&gt;将$A追加到$B内部后;
+$A.prepend($B)      --&gt;将$B添加到$A内部前;
+$A.prependTo($B)    --&gt;将$A添加到$B内部前;
+</code></pre><p>   外部(兄弟元素):</p>
+<pre><code>$A.after($B)        --&gt;将$B添加到$A之后;
+$A.before($B)       --&gt;将$B添加到$A之前;
+$A.insertAfter($B)  --&gt;将$A添加到$B之后;
+$A.insertBefore($B) --&gt;将$A添加到$B之前;
+</code></pre><p>拓展:<br>   prop之前是attr函数,后者由于兼容性问题已废弃</p>
+<h4 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h4><p>JQuery页面加载:<br>   $(function() {</p>
+<pre><code>//内容体;
+</code></pre><p>   })</p>
+<p>JS页面加载与JQuery页面加载的比较:</p>
+<ol>
+<li>JS页面加载属于属性操作,加载多次,最后面的会覆盖前面的(属性操作的特点)</li>
+<li>JQuery页面加载属于函数操作,加载多次,执行多次,因为函数每被调用一次,执行一次<h4 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h4>JS中:<br>JS对象.onXXX = function(){}<br>JQ中:<br>JQ对象.XXX(function(){});</li>
+</ol>
+<ul>
+<li>常用事件:<br> click();        –&gt;点击事件;<br> submit();       –&gt;表单提交事件;<br> focus();        –&gt;聚焦事件;<br> blur();         –&gt;失焦事件;<br> mouseover();    –&gt;鼠标移入事件;<br> mouseout();     –&gt;鼠标移出事件;<br> change();       –&gt;元素值改变事件;<h3 id="自实现循环"><a href="#自实现循环" class="headerlink" title="自实现循环"></a>自实现循环</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">方式1:</div><div class="line">	$.each(jQuery数组, function(index,obj)&#123;</div><div class="line">	    //内容体;</div><div class="line">	&#125;)</div><div class="line">方式2:</div><div class="line">	jQuery数组.each(function(index,obj)&#123;</div><div class="line">	    //内容体;</div><div class="line">	&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h3><h4 id="基本选择器"><a href="#基本选择器" class="headerlink" title="基本选择器"></a>基本选择器</h4><pre><code>格式:
+ 1. $(&quot;标签名&quot;) --------&gt; 元素选择器;
+ 2. $(&quot;#ID值&quot;) ---------&gt; id选择器;
+ 3. $(&quot;.class值&quot;) ------&gt; class类选择器;
+ 4. $(&quot;*&quot;) -------------&gt; 匹配所有; 
+</code></pre><h4 id="层级选择器"><a href="#层级选择器" class="headerlink" title="层级选择器"></a>层级选择器</h4><pre><code>格式:
+ 1. $(&quot;选择器1 选择器2&quot;) --------&gt; 获取1标签下的所有子级和孙子级2标签
+ 2. $(&quot;选择器1 &gt; 选择器2&quot;) ------&gt; 获取1标签下的所有子级(不包含孙子级)2标签
+ 3. $(&quot;选择器1 + 选择器2&quot;) ------&gt; 获取1标签的同级向下第一个兄弟级2标签
+ 4. $(&quot;选择器1 ~ 选择器2&quot;) ------&gt; 获取1标签的所有兄弟级2标签
 </code></pre><h4 id="基本过滤选择器"><a href="#基本过滤选择器" class="headerlink" title="基本过滤选择器"></a>基本过滤选择器</h4><pre><code>格式: 
- 1. 过滤器1 :first --------&gt; 获取过滤器1下的第一个子级元素的内容体
- 2. 过滤器1 :last  --------&gt; 获取过滤器1下的最后一个子级元素的内容体
- 3. 过滤器1 标签2:even(偶数)/odd(奇数) ----&gt; 获取过滤器1下所以标签2,取出标签2的奇数或偶数标签2
+ 1. $(&quot;过滤器1 :first&quot;) --------&gt; 获取过滤器1下的第一个子级元素的内容体
+ 2. $(&quot;过滤器1 :last&quot;)  --------&gt; 获取过滤器1下的最后一个子级元素的内容体
+ 3. $(&quot;过滤器1 标签2:even(偶数)/odd(奇数)&quot;) -&gt; 获取过滤器1下所以标签2,取出标签2的奇数或偶数标签2
      索引从0开始
 </code></pre><h4 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h4><pre><code>格式: 
- 1. 选择器[属性名] --------&gt; 获取所有属性名属性的标签    
- 2. 选择器[属性名 = &apos;值&apos;] --------&gt; 获取所有属性名等于某值的标签
- 3. 选择器[属性名 != &apos;值&apos;] -------&gt; 获取所有属性名不等于某值的标签
+ 1. $(&quot;选择器[属性名]&quot;) --------&gt; 获取所有属性名属性的标签    
+ 2. $(&quot;选择器[属性名 = &apos;值&apos;]&quot;) --------&gt; 获取所有属性名等于某值的标签
+ 3. $(&quot;选择器[属性名 != &apos;值&apos;]&quot;) -------&gt; 获取所有属性名不等于某值的标签
 </code></pre><h4 id="表单属性选择器-重点"><a href="#表单属性选择器-重点" class="headerlink" title="表单属性选择器(重点)"></a>表单属性选择器(重点)</h4><pre><code>格式: 
- 1. input:enabled --------&gt; 获取所有可用的input标签的表单输入项
- 2. input:disabled -------&gt; 获取所有不可用的input标签的表单输入项
- 3. input:checked --------&gt; 获取所有被选定的复选框
- 4. #selected的id值 option:selected ---&gt; 获取所有下拉列表中被选定的项
+ 1. $(&quot;input:enabled&quot;) --------&gt; 获取所有可用的input标签的表单输入项
+ 2. $(&quot;input:disabled&quot;) -------&gt; 获取所有不可用的input标签的表单输入项
+ 3. $(&quot;input:checked&quot;) --------&gt; 获取所有被选定的复选框
+ 4. $(&quot;#selected的id值 option:selected&quot;) ---&gt; 获取所有下拉列表中被选定的项
 拓展:
   实现相同的效果,不一定使用一样的选择器
-</code></pre><h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><h4 id="定时广告"><a href="#定时广告" class="headerlink" title="定时广告"></a>定时广告</h4><p>JQuery内置的显示与隐藏:</p>
-<pre><code>* 基本实现:
+</code></pre><h3 id="JQuery内置的显示与隐藏"><a href="#JQuery内置的显示与隐藏" class="headerlink" title="JQuery内置的显示与隐藏"></a>JQuery内置的显示与隐藏</h3><pre><code>* 基本实现:
     1. 显示
         1. show(): 直接显示
         2. show(毫秒值): 在指定时间内慢慢显示
@@ -492,7 +511,7 @@ JQ中:
     3. 切换
         1. fadeToggle()
         2. fadeToggle(毫秒值)
-</code></pre>
+</code></pre><h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><h4 id="定时广告"><a href="#定时广告" class="headerlink" title="定时广告"></a>定时广告</h4><h4 id="隔行换色"><a href="#隔行换色" class="headerlink" title="隔行换色"></a>隔行换色</h4><h4 id="复选框全选-反选"><a href="#复选框全选-反选" class="headerlink" title="复选框全选/反选"></a>复选框全选/反选</h4>
       
     </div>
 
@@ -741,7 +760,7 @@ JQ中:
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jquery的使用"><span class="nav-number">2.</span> <span class="nav-text">Jquery的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JQuery语法"><span class="nav-number">3.</span> <span class="nav-text">JQuery语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#获取JQuery对象"><span class="nav-number">3.1.</span> <span class="nav-text">获取JQuery对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#操作JQuery对象"><span class="nav-number">3.2.</span> <span class="nav-text">操作JQuery对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加载"><span class="nav-number">3.3.</span> <span class="nav-text">加载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件"><span class="nav-number">3.4.</span> <span class="nav-text">事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拓展"><span class="nav-number">3.5.</span> <span class="nav-text">拓展</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择器"><span class="nav-number">4.</span> <span class="nav-text">选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#层级选择器"><span class="nav-number">4.1.</span> <span class="nav-text">层级选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本过滤选择器"><span class="nav-number">4.2.</span> <span class="nav-text">基本过滤选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#属性选择器"><span class="nav-number">4.3.</span> <span class="nav-text">属性选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表单属性选择器-重点"><span class="nav-number">4.4.</span> <span class="nav-text">表单属性选择器(重点)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#案例"><span class="nav-number">5.</span> <span class="nav-text">案例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定时广告"><span class="nav-number">5.1.</span> <span class="nav-text">定时广告</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jquery的使用"><span class="nav-number">2.</span> <span class="nav-text">Jquery的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JQuery语法"><span class="nav-number">3.</span> <span class="nav-text">JQuery语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#获取JQuery对象"><span class="nav-number">3.1.</span> <span class="nav-text">获取JQuery对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#操作JQuery对象"><span class="nav-number">3.2.</span> <span class="nav-text">操作JQuery对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加载"><span class="nav-number">3.3.</span> <span class="nav-text">加载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件"><span class="nav-number">3.4.</span> <span class="nav-text">事件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自实现循环"><span class="nav-number">4.</span> <span class="nav-text">自实现循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择器"><span class="nav-number">5.</span> <span class="nav-text">选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本选择器"><span class="nav-number">5.1.</span> <span class="nav-text">基本选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#层级选择器"><span class="nav-number">5.2.</span> <span class="nav-text">层级选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本过滤选择器"><span class="nav-number">5.3.</span> <span class="nav-text">基本过滤选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#属性选择器"><span class="nav-number">5.4.</span> <span class="nav-text">属性选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表单属性选择器-重点"><span class="nav-number">5.5.</span> <span class="nav-text">表单属性选择器(重点)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JQuery内置的显示与隐藏"><span class="nav-number">6.</span> <span class="nav-text">JQuery内置的显示与隐藏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#案例"><span class="nav-number">7.</span> <span class="nav-text">案例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定时广告"><span class="nav-number">7.1.</span> <span class="nav-text">定时广告</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#隔行换色"><span class="nav-number">7.2.</span> <span class="nav-text">隔行换色</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复选框全选-反选"><span class="nav-number">7.3.</span> <span class="nav-text">复选框全选/反选</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
