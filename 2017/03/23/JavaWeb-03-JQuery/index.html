@@ -102,7 +102,7 @@
     JQuery与JS的区别:类似与commons-io与JDK内置IO的关系
 2. 兼容CSS3
 3. 相对于JS,能更好地兼容浏览器(并没有完全兼容)">
-<meta property="og:updated_time" content="2017-03-23T03:34:31.044Z">
+<meta property="og:updated_time" content="2017-03-23T03:37:23.152Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaWeb_03.JQuery">
 <meta name="twitter:description" content="概述核心理念: write less,do more 
@@ -425,11 +425,14 @@
 4. 设置属性 -------&gt; JQuery对象.prop(&quot;属性名&quot;,&quot;属性值&quot;);
 拓展:
     prop之前是attr函数,后者由于兼容性问题已废弃
-</code></pre><h4 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h4><p>   JS页面加载与JQuery页面加载的比较:</p>
-<pre><code>1. JS页面加载属于属性操作,加载多次,最后面的会覆盖前面的(属性操作的特点)
+</code></pre><h4 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h4><pre><code>JS页面加载与JQuery页面加载的比较:
+1. JS页面加载属于属性操作,加载多次,最后面的会覆盖前面的(属性操作的特点)
 2. JQuery页面加载属于函数操作,加载多次,执行多次,因为函数每被调用一次,执行一次
-</code></pre><h4 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h4><p>   JS中:<br>      JS对象.onXXX = function(){}<br>   JQ中:<br>      JQ对象.XXX(function(){});</p>
-<h4 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h4><pre><code>1. 属性操作
+</code></pre><h4 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h4><pre><code>JS中:
+   JS对象.onXXX = function(){}
+JQ中:
+   JQ对象.XXX(function(){});
+</code></pre><h4 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h4><pre><code>1. 属性操作
     val()  --- 获取
     val(&quot;新值&quot;) --- 设置
 2. 类名操作
@@ -438,27 +441,28 @@
 3. CSS操作
     css(&quot;属性名&quot;) --- 获取CSS属性
     css(&quot;属性名&quot;,&quot;值&quot;) --- 设置CSS属性
-</code></pre><h3 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h3><h4 id="层级选择器"><a href="#层级选择器" class="headerlink" title="层级选择器"></a>层级选择器</h4><p>   格式:</p>
-<pre><code>1. 选择器1 选择器2 --------&gt; 获取1标签下的所有子级和孙子级2标签
-2. 选择器1 &gt; 选择器2 ------&gt; 获取1标签下的所有子级(不包含孙子级)2标签
-3. 选择器1 + 选择器2 ------&gt; 获取1标签的同级向下第一个兄弟级2标签
-4. 选择器1 ~ 选择器2 ------&gt; 获取1标签的所有兄弟级2标签
-</code></pre><h4 id="基本过滤选择器"><a href="#基本过滤选择器" class="headerlink" title="基本过滤选择器"></a>基本过滤选择器</h4><p>   格式: </p>
-<pre><code>1. 过滤器1 :first --------&gt; 获取过滤器1下的第一个子级元素的内容体
-2. 过滤器1 :last  --------&gt; 获取过滤器1下的最后一个子级元素的内容体
-3. 过滤器1 标签2:even(偶数)/odd(奇数) ----&gt; 获取过滤器1下所以标签2,取出标签2的奇数或偶数标签2
-    索引从0开始
-</code></pre><h4 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h4><p>   格式: </p>
-<pre><code>1. 选择器[属性名] --------&gt; 获取所有属性名属性的标签    
-2. 选择器[属性名 = &apos;值&apos;] --------&gt; 获取所有属性名等于某值的标签
-3. 选择器[属性名 != &apos;值&apos;] -------&gt; 获取所有属性名不等于某值的标签
-</code></pre><h4 id="表单属性选择器-重点"><a href="#表单属性选择器-重点" class="headerlink" title="表单属性选择器(重点)"></a>表单属性选择器(重点)</h4><p>   格式: </p>
-<pre><code>1. input:enabled --------&gt; 获取所有可用的input标签的表单输入项
-2. input:disabled -------&gt; 获取所有不可用的input标签的表单输入项
-3. input:checked --------&gt; 获取所有被选定的复选框
-4. #selected的id值 option:selected ---&gt; 获取所有下拉列表中被选定的项
-</code></pre><p>   拓展:<br>     实现相同的效果,不一定使用一样的选择器</p>
-<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><h4 id="定时广告"><a href="#定时广告" class="headerlink" title="定时广告"></a>定时广告</h4><p>JQuery内置的显示与隐藏:</p>
+</code></pre><h3 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h3><h4 id="层级选择器"><a href="#层级选择器" class="headerlink" title="层级选择器"></a>层级选择器</h4><pre><code>格式:
+ 1. 选择器1 选择器2 --------&gt; 获取1标签下的所有子级和孙子级2标签
+ 2. 选择器1 &gt; 选择器2 ------&gt; 获取1标签下的所有子级(不包含孙子级)2标签
+ 3. 选择器1 + 选择器2 ------&gt; 获取1标签的同级向下第一个兄弟级2标签
+ 4. 选择器1 ~ 选择器2 ------&gt; 获取1标签的所有兄弟级2标签
+</code></pre><h4 id="基本过滤选择器"><a href="#基本过滤选择器" class="headerlink" title="基本过滤选择器"></a>基本过滤选择器</h4><pre><code>格式: 
+ 1. 过滤器1 :first --------&gt; 获取过滤器1下的第一个子级元素的内容体
+ 2. 过滤器1 :last  --------&gt; 获取过滤器1下的最后一个子级元素的内容体
+ 3. 过滤器1 标签2:even(偶数)/odd(奇数) ----&gt; 获取过滤器1下所以标签2,取出标签2的奇数或偶数标签2
+     索引从0开始
+</code></pre><h4 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h4><pre><code>格式: 
+ 1. 选择器[属性名] --------&gt; 获取所有属性名属性的标签    
+ 2. 选择器[属性名 = &apos;值&apos;] --------&gt; 获取所有属性名等于某值的标签
+ 3. 选择器[属性名 != &apos;值&apos;] -------&gt; 获取所有属性名不等于某值的标签
+</code></pre><h4 id="表单属性选择器-重点"><a href="#表单属性选择器-重点" class="headerlink" title="表单属性选择器(重点)"></a>表单属性选择器(重点)</h4><pre><code>格式: 
+ 1. input:enabled --------&gt; 获取所有可用的input标签的表单输入项
+ 2. input:disabled -------&gt; 获取所有不可用的input标签的表单输入项
+ 3. input:checked --------&gt; 获取所有被选定的复选框
+ 4. #selected的id值 option:selected ---&gt; 获取所有下拉列表中被选定的项
+拓展:
+  实现相同的效果,不一定使用一样的选择器
+</code></pre><h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><h4 id="定时广告"><a href="#定时广告" class="headerlink" title="定时广告"></a>定时广告</h4><p>JQuery内置的显示与隐藏:</p>
 <pre><code>* 基本实现:
     1. 显示
         1. show(): 直接显示
