@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-03-25T17:52:21.996Z</updated>
+  <updated>2017-03-25T17:54:07.522Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -20,12 +20,20 @@
     <link href="https://geekhoon.github.io/2017/03/26/JavaWeb-04-Bootstrap/"/>
     <id>https://geekhoon.github.io/2017/03/26/JavaWeb-04-Bootstrap/</id>
     <published>2017-03-25T17:52:21.000Z</published>
-    <updated>2017-03-25T17:52:21.996Z</updated>
+    <updated>2017-03-25T17:54:07.522Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a>]]></content>
     
     <summary type="html">
     
+      &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+    
     </summary>
     
+      <category term="JavaWeb" scheme="https://geekhoon.github.io/categories/JavaWeb/"/>
+    
+    
+      <category term="前端开发" scheme="https://geekhoon.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
