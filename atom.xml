@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-03-25T17:54:07.522Z</updated>
+  <updated>2017-03-26T08:56:37.941Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -20,13 +20,78 @@
     <link href="https://geekhoon.github.io/2017/03/26/JavaWeb-04-Bootstrap/"/>
     <id>https://geekhoon.github.io/2017/03/26/JavaWeb-04-Bootstrap/</id>
     <published>2017-03-25T17:52:21.000Z</published>
-    <updated>2017-03-25T17:54:07.522Z</updated>
+    <updated>2017-03-26T08:56:37.941Z</updated>
     
-    <content type="html"><![CDATA[<a id="more"></a>]]></content>
+    <content type="html"><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><pre><code>1. 是基于HTML,CSS,JS的前端框架(半成品).
+   只需要提供固定的HTML结构,添加固定的css样式,就可以完成指定效果的实现
+   框架------&gt; 也是一种封装,封装的高级形式
+   封装------&gt; 方法---&gt;类(Java中封装特指类)---&gt;jar包---&gt;框架
+</code></pre><a id="more"></a>
+<pre><code>       1. jar包-----&gt; 封装的是某个功能模块(侧重于功能实现)
+       2. 框架------&gt; 封装的是流程(结构性封装)    
+2. 在JQuery的基础上实现的,是JQuery的插件
+</code></pre><h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><pre><code>1. 内置了一些常见的复杂的页面实现(封装了一些常见功能)
+2. 可以实现响应式布局(根据响应终端自适应显示)
+    根据访问终端屏幕的大小,动态的改变显示样式(只提供一套代码即可)
+</code></pre><h4 id="Bootstrap开发环境"><a href="#Bootstrap开发环境" class="headerlink" title="Bootstrap开发环境"></a>Bootstrap开发环境</h4><pre><code>1. 引入JQuery实现,注意版本必须兼容
+2. 将dist目录下的css font js文件夹复制到当前项目
+注意: 这些文件夹必须平级
+</code></pre><h3 id="Bootstrap容器"><a href="#Bootstrap容器" class="headerlink" title="Bootstrap容器"></a>Bootstrap容器</h3><pre><code>编写页面(界面),必然涉及的概念:
+1. 容器: 存储页面元素的一个组件
+2. 布局: 怎么在容器排放组件
+容器:
+1. 容器1:
+    * 语法: &lt;div class=&quot;container&quot;&gt;&lt;/div&gt;
+    * 效果: 大页面下两端有留白
+2. 容器2:
+    * 语法: &lt;div class=&quot;container-fluid&quot;&gt;&lt;/div&gt;
+    * 效果: 两端无留白
+拓展:
+    我们只声明了class,但效果显现了,这个class怎么运行的?
+    在引入的css文件中,编写相关的class样式了
+So: class写错,可能识别不了,因为class值都是Bootstrap内置好的,不能随便使用
+</code></pre><h3 id="Bootstrap布局"><a href="#Bootstrap布局" class="headerlink" title="Bootstrap布局"></a>Bootstrap布局</h3><pre><code>栅格(表格)系统:
+1. 栅格本质是表格 ---- 行与列是两要素
+2. 行与列实现
+    1. 行 --- &lt;div class=&quot;row&quot;&gt;&lt;/div&gt; --- 可以写多个,代表多行
+    2. 列 --- &lt;div class=&quot;col-屏幕代号-比例&quot;&gt;&lt;/div&gt;
+       * Bootstrap中一行默认12单元列,编写的列必须声明一个所占的单元列数
+注意:
+    1. 12列是一个折中方案
+    2. 行中分配列:
+        * 所有列(比例)相加和为12
+        * 小于12,空余部分不做处理
+        * 大于12,大于12的部分会自动换行
+</code></pre><h4 id="响应式布局机制"><a href="#响应式布局机制" class="headerlink" title="响应式布局机制"></a>响应式布局机制</h4><pre><code>1. Bootstrap将屏幕划分为四大类:
+    1. 超小屏幕 &lt;= 768px ---- xs
+    2. 小屏幕: 768 - 992 ---- sm
+    3. 中等屏幕: 992 - 1200 - md
+    4. 大屏幕: &gt;= 1200px ---- lg
+2. 响应式布局的代码实现
+    要设置某个屏幕下的占比 --- col-屏幕代号-占比
+    现象: 
+        1. 如果只设置lg,其余屏幕不按照占比分配
+        2. 如果只设置xs,其余屏幕按照占比分配
+    原则: 
+        小屏幕优先,如果屏幕比我大,但是没设置占比,就按照我的占比来
+        如果屏幕比我小,但是没设置占比,默认是换行,不受我的占比影响
+    补充: 一个class属性可以设置多个值,不同值之间使用空格隔开
+3. 拓展需求: 
+    某些页面元素可能在某些屏幕下显示,某些屏幕下不显示:
+    语法:
+        方式1:(设置显示) 添加class visible-屏幕代号
+        方式2:(设置隐藏) 添加class hidden-屏幕代号
+    效果:
+        在指定屏幕下显示(或隐藏),没有指定的不显示(或隐藏),没有小屏优先,必须严格对应
+</code></pre><h3 id="基本模板"><a href="#基本模板" class="headerlink" title="基本模板"></a>基本模板</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh-CN"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"../css/bootstrap.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../js/jquery-1.11.3.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../js/bootstrap.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
-      &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+      &lt;h3 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;1. 是基于HTML,CSS,JS的前端框架(半成品).
+   只需要提供固定的HTML结构,添加固定的css样式,就可以完成指定效果的实现
+   框架------&amp;gt; 也是一种封装,封装的高级形式
+   封装------&amp;gt; 方法---&amp;gt;类(Java中封装特指类)---&amp;gt;jar包---&amp;gt;框架
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     
