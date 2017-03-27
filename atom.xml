@@ -642,10 +642,11 @@ clear:清除浮动效果,取值:
     <link href="https://geekhoon.github.io/2017/03/01/19-JDBC-DBUtils/"/>
     <id>https://geekhoon.github.io/2017/03/01/19-JDBC-DBUtils/</id>
     <published>2017-03-01T01:09:43.000Z</published>
-    <updated>2017-03-27T13:22:39.207Z</updated>
+    <updated>2017-03-27T16:25:54.529Z</updated>
     
     <content type="html"><![CDATA[<h3 id="JUnit"><a href="#JUnit" class="headerlink" title="JUnit"></a>JUnit</h3><pre><code>* JUnit是一个Java语言的单元测试框架,属于第三方工具,需要导入jar包
 * Ecilpse中已经集成了JUnit作为单元测试工具,不需要导入jar包
+* 进行单元测试,可以不写main方法
 * 编写测试类:
     测试方法要求:
         1. 类名不能是Test
@@ -812,6 +813,7 @@ where条件都为true, 永远都可以查询出结果,那么用户就直接登�
     
       &lt;h3 id=&quot;JUnit&quot;&gt;&lt;a href=&quot;#JUnit&quot; class=&quot;headerlink&quot; title=&quot;JUnit&quot;&gt;&lt;/a&gt;JUnit&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;* JUnit是一个Java语言的单元测试框架,属于第三方工具,需要导入jar包
 * Ecilpse中已经集成了JUnit作为单元测试工具,不需要导入jar包
+* 进行单元测试,可以不写main方法
 * 编写测试类:
     测试方法要求:
         1. 类名不能是Test
