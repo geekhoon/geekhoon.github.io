@@ -152,7 +152,7 @@
    page-home 
  ">
     <div class="headband"></div>
-    <a href="https://github.com/geekhoon"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+   
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
@@ -1200,15 +1200,15 @@
 
       
         
-          <h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><pre><code>* 存储数据的仓库
-* 数据库管理系统DBMS(DataBase Management System): 操作和管理数据库的大型软件
-* 常用数据库: 
-    1. MySQL: 开源免费.被Oracle收购.MySQL6.x后开始收费
-    2. Oracle: 收费的大型数据库
-    3. DB2: IBM公司的收费数据库,常用于银行系统
-    4. SQLServer: 微软,收费的中型数据库
-    5. SyBase: 淡出历史舞台了
-    6. SQLite: 嵌入式的小型数据库,应用于手机端
+          <h3 id="存储数据"><a href="#存储数据" class="headerlink" title="存储数据"></a>存储数据</h3><pre><code>三种形式:
+1. 变量
+    1. 特点: 数据在内存中
+    2. 问题: 不能持久化存储
+2. IO流结合文件
+    1. 特点: 数据存储在文件中,实现了持久化存储
+    2. 问题: 数据存储在文件中,但是读取时,不同的实现可能效率差异比较大
+3. 数据库
+    数据库 = 文件存储数据 + 算法封装
 </code></pre>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/02/28/18-MySQL数据库/#more" rel="contents">

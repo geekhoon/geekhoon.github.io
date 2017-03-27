@@ -798,9 +798,20 @@ where条件都为true, 永远都可以查询出结果,那么用户就直接登�
     <link href="https://geekhoon.github.io/2017/02/28/18-MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     <id>https://geekhoon.github.io/2017/02/28/18-MySQL数据库/</id>
     <published>2017-02-27T18:46:36.000Z</published>
-    <updated>2017-03-26T10:11:38.987Z</updated>
+    <updated>2017-03-27T09:10:44.453Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><pre><code>* 存储数据的仓库
+    <content type="html"><![CDATA[<h3 id="存储数据"><a href="#存储数据" class="headerlink" title="存储数据"></a>存储数据</h3><pre><code>三种形式:
+1. 变量
+    1. 特点: 数据在内存中
+    2. 问题: 不能持久化存储
+2. IO流结合文件
+    1. 特点: 数据存储在文件中,实现了持久化存储
+    2. 问题: 数据存储在文件中,但是读取时,不同的实现可能效率差异比较大
+3. 数据库
+    数据库 = 文件存储数据 + 算法封装
+</code></pre><a id="more"></a>    
+<h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><pre><code>* 存储数据的仓库
+* 数据库的本质就是文件存储
 * 数据库管理系统DBMS(DataBase Management System): 操作和管理数据库的大型软件
 * 常用数据库: 
     1. MySQL: 开源免费.被Oracle收购.MySQL6.x后开始收费
@@ -809,13 +820,13 @@ where条件都为true, 永远都可以查询出结果,那么用户就直接登�
     4. SQLServer: 微软,收费的中型数据库
     5. SyBase: 淡出历史舞台了
     6. SQLite: 嵌入式的小型数据库,应用于手机端
-</code></pre><a id="more"></a>    
-<pre><code>* dos窗口开关MySQL服务:
+
+* dos窗口开关MySQL服务:
     开: net start mysql
     关: net stop mysql
 * dos窗口登录MySQL:
     mysql -u用户名 -p密码
-</code></pre><h3 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h3><pre><code>* 结构化查询语言
+</code></pre><h3 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h3><pre><code>* 结构化查询语言,专门操作数据库的计算机语言
 * 分类:
     1. DDL:数据定义语言,用来定义数据库对象: create,alter,drop
     2. DML:数据操作语言,用来对数据库中表的数据进行更新: insert,delete,update
@@ -834,34 +845,37 @@ where条件都为true, 永远都可以查询出结果,那么用户就直接登�
     * date: 日期,只有年月日,没有时分秒: yyyy-MM-dd
     * datetime: 日期时间都有
 </code></pre><h3 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h3><pre><code>1. 创建数据库: create database geekhoon;
-   创建数据库,并指定数据库中数据的编码: create database geekhoon character set utf8;
+   创建数据库,并指定数据库中数据的编码: create database 数据库名 character set utf8;
+   修改数据库编码集(不建议修改):alter database 数据库名 character set utf8;//注意不是utf-8
 2. 查看MySQL服务器中所有数据库: show databases;
-   查看某个数据库的定义的信息: show create database geekhoon;
-3. 删除数据库: drop database geekhoon;
-4. 切换数据库: use geekhoon;
+   查看某个数据库的定义的信息: show create database 数据;
+3. 删除数据库: drop database 数据库名;
+4. 使用数据库: use 数据库名;
 5. 查看正在使用的数据库: select database();
 </code></pre><h3 id="数据表操作"><a href="#数据表操作" class="headerlink" title="数据表操作"></a>数据表操作</h3><pre><code>1. 创建数据表: create table 表名(
-                列名1 数据类型 约束,
-                列名2 数据类型 约束,
+                字段名1 数据类型 约束,
+                字段名2 数据类型 约束,
                 ...
-                列名n 数据类型 约束
+                字段名n 数据类型 约束
               );
-* 约束: 限制每一列能写什么数据,不能写什么数据
+* 约束: 限制列可以使用的数据
     分类:    
         1. 主键约束 primary key: 非空 唯一. 通常没有实际意义.
             加上AUTO_INCREMENT可实现自增长
         2. 非空约束 not null
-        3. 唯一约束 
+        3. 唯一约束 unique
         4. 外键约束 
+        5. 检查 check(MySQL没有该约束)
 2. 删除数据表: drop table 表名;
-3. 查看数据库中的所有表: show tables 
-4. 查看表结构: desc 表名;
-5. 修改表结构:
+3. 查看数据库中的所有表: show tables;
+4. 查看建表语句: show create table 表名;
+5. 查看表结构: desc 表名;
+6. 修改表结构:
     * 添加列: alter table 表名 add 列名 数据类型 约束;
     * 修改列: alter table 表名 modify 列名 数据类型 约束;
     * 修改列名: alter table 表名 change 旧列名 新列名 数据类型 约束;
     * 删除列: alter table 表名 drop 列名;
-    * 修改表名: rename table 表名 to 新表名;
+    * 修改表名: rename table 旧表名 to 新表名;
     * 修改表的字符集:alter table 表名 character set 字符集;
 </code></pre><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">users</span>(</div><div class="line">	uid <span class="built_in">INT</span> PRIMARY <span class="keyword">KEY</span> AUTO_INCREMENT,</div><div class="line">	uname <span class="built_in">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">	uaddress <span class="built_in">VARCHAR</span>(<span class="number">100</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span></div><div class="line">);</div><div class="line"><span class="comment">-- 展示所有表</span></div><div class="line"><span class="keyword">SHOW</span> <span class="keyword">TABLES</span>;</div><div class="line"><span class="comment">-- 显示表结构</span></div><div class="line">DESC users;</div></pre></td></tr></table></figure>
 <h3 id="数据操作"><a href="#数据操作" class="headerlink" title="数据操作"></a>数据操作</h3><pre><code>1. 增加数据:(列名1为主键)
@@ -881,9 +895,10 @@ where条件都为true, 永远都可以查询出结果,那么用户就直接登�
         7. id in (1,3,4,5,6) : 表示包含的id
         8. id not in (1,3,4,5,6)
 3. 删除数据: delete from 表名 where 条件
+    truncate table 表名; 或 truncate 表名; 都可以
     * 删除表中所有记录使用delete from 表名, 还是用truncate table 表名 ?
       delete是一条一条的删, 不清空AUTO_INCREMENT记录数
-      truncate直接将表删除,重新建表,AUTO_INCREMENT将置为0,重新开始
+      truncate直接将表删除,重新建表,AUTO_INCREMENT将置为0,重新开始;效率比delete高
 4. 查询数据
     * 查询指定列的数据: select 列名1,列名2 from 表名
     * 查询全部列的数据: select * from 表名
@@ -896,16 +911,8 @@ where条件都为true, 永远都可以查询出结果,那么用户就直接登�
     * dos下:  set character_set_results=gbk;  或  set names gbk;
 </code></pre><h3 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h3><pre><code>* 格式: select 字段  from 表名  where 条件;    
 * 比较运算符: 
-    * &gt;  &lt;  &lt;=   &gt;=   =  &lt;&gt;
-    * BETWEEN  ...AND... :显示在某一区间的值(含头含尾)
-    * IN(set) :显示在in列表中的值，例：in(100,200)
-    * LIKE :模糊查询
-        * Like语句中有两个通配符：
-        % 用来匹配多个字符；例 &apos;%a%&apos;;
-        _ 用来匹配一个字符。例 &apos;a_&apos;;
-    * is null :判断是空
-    * is not null &quot;:判断不为空
-</code></pre><h3 id="排序查询"><a href="#排序查询" class="headerlink" title="排序查询"></a>排序查询</h3><pre><code>* order by 列名 [desc][asc]:排序要放在最后
+</code></pre><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">* &gt;  &lt;  &lt;=   &gt;=   =  &lt;&gt;</div><div class="line">* BETWEEN  ...AND... :显示在某一区间的值(含头含尾),效率比用大于小于号判断低</div><div class="line">* IN(set) :显示在in列表中的值，例：in(100,200),效率比用or高</div><div class="line">* LIKE :模糊查询</div><div class="line">	* Like语句中有两个通配符：</div><div class="line">	% 用来匹配多个字符；例 '%a%';</div><div class="line">	_ 用来匹配一个字符。例 'a_';</div><div class="line">* is null :判断是空</div><div class="line">* is not null ":判断不为空</div><div class="line">	* SELECT * FROM phones WHERE xinghao IS NOT NULL;</div><div class="line">	* SELECT * FROM phones WHERE NOT xinghao IS NULL;</div><div class="line">	  注意：效果上二者等价 效率上:前者高</div></pre></td></tr></table></figure>
+<h3 id="排序查询"><a href="#排序查询" class="headerlink" title="排序查询"></a>排序查询</h3><pre><code>* order by 列名 [desc][asc]:排序要放在最后
 * desc 降序
 * asc 升序,默认升序
 * 升序: select * from 表名 order by 列名
@@ -924,21 +931,38 @@ where条件都为true, 永远都可以查询出结果,那么用户就直接登�
         where是在分组前对数据进行过滤
     2. having后面可以使用聚合函数进行判断
         where后面不可以使用聚合函数进行判断,聚合函数的新名也不可以
-* 分组查询必须跟随聚合函数
 * 被分组的列也要在select中
-</code></pre><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- 分组查询</span></div><div class="line"><span class="comment">-- 对zname内容进行分组, zname也要写在select后面</span></div><div class="line"><span class="keyword">SELECT</span> zname,<span class="keyword">SUM</span>(zmoney) <span class="keyword">FROM</span> zhangwu <span class="keyword">GROUP</span> <span class="keyword">BY</span> zname</div><div class="line"><span class="comment">-- 对zname内容进行分组查询求和,但是只要名称中包含"支付"的</span></div><div class="line"><span class="keyword">SELECT</span> zname,<span class="keyword">SUM</span>(zmoney) <span class="keyword">AS</span> <span class="string">'getsum'</span> <span class="keyword">FROM</span> zhangwu <span class="keyword">WHERE</span> zname <span class="keyword">LIKE</span> <span class="string">'%支出%'</span></div><div class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> zname</div><div class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> getsum <span class="keyword">DESC</span></div><div class="line"><span class="comment">-- 对zname内容进行分组查询求和,但是只要名称中包含"支付"的,且和超过100的</span></div><div class="line"><span class="comment">-- 结果集是分组查询后,再次进行筛选,不能用where,要用having</span></div><div class="line"><span class="keyword">SELECT</span> zname,<span class="keyword">SUM</span>(zmoney) <span class="keyword">AS</span> <span class="string">'getsum'</span> <span class="keyword">FROM</span> zhangwu <span class="keyword">WHERE</span> zname <span class="keyword">LIKE</span> <span class="string">'%支出%'</span></div><div class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> zname</div><div class="line"><span class="keyword">HAVING</span> getsum &gt; <span class="number">100</span></div><div class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> zmoney <span class="keyword">DESC</span></div></pre></td></tr></table></figure>]]></content>
+* 分组查询一般都跟随聚合函数
+</code></pre><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">-- 分组查询,不跟聚合函数:</div><div class="line">SELECT * FROM phones GROUP BY pinpai;</div><div class="line">#效果：按照品牌分组之后,只取出每一组的第一条记录(不常使用)</div><div class="line">-- 分组查询</div><div class="line">-- 对zname内容进行分组, zname也要写在select后面</div><div class="line">SELECT zname,SUM(zmoney) FROM zhangwu GROUP BY zname</div><div class="line">-- 对zname内容进行分组查询求和,但是只要名称中包含"支付"的</div><div class="line">SELECT zname,SUM(zmoney) AS 'getsum' FROM zhangwu WHERE zname LIKE '%支出%'</div><div class="line">GROUP BY zname</div><div class="line">ORDER BY getsum DESC</div><div class="line">-- 对zname内容进行分组查询求和,但是只要名称中包含"支付"的,且和超过100的</div><div class="line">-- 结果集是分组查询后,再次进行筛选,不能用where,要用having</div><div class="line">SELECT zname,SUM(zmoney) AS 'getsum' FROM zhangwu WHERE zname LIKE '%支出%'</div><div class="line">GROUP BY zname</div><div class="line">HAVING getsum &gt; 100</div><div class="line">ORDER BY zmoney DESC</div></pre></td></tr></table></figure>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><pre><code>CHAR 和 VARCHAR比较:
+1. 相同点: 语法与作用是一样的
+2. 不同点:
+    1. 长度不同: 
+        CHAR为0-255之间的整数
+        VARCHAR为0-65535之间的整数
+    2. 数据存储结构不同
+        CHAR(10) ------ 比如存储数据&quot;AB&quot; ----底层为:&quot;AB        &quot;,有8个空位 
+        VARCHAR(10) --- 比如存储数据&quot;AB&quot; ----底层为:&quot;2AB&quot;,存储3个长度
+        存储结构角度: VARCHAR比CHAR类型设计更为合理,空间利用率高
+CHAR类型存储空间固定,意味着可能存在资源浪费,灵活性差的问题,但是效率高
+CHAR类型应用场景:    
+    所有数据长度都一样时,可以使用CHAR
+</code></pre><h4 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h4><pre><code>效果上: 主键 = 非空 + 唯一
+    但是主键不能换成not null和unique,因为主键还有索引的概念
+索引可以对数据进行一步定位,效率更高
+</code></pre>]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;数据库&quot;&gt;&lt;a href=&quot;#数据库&quot; class=&quot;headerlink&quot; title=&quot;数据库&quot;&gt;&lt;/a&gt;数据库&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;* 存储数据的仓库
-* 数据库管理系统DBMS(DataBase Management System): 操作和管理数据库的大型软件
-* 常用数据库: 
-    1. MySQL: 开源免费.被Oracle收购.MySQL6.x后开始收费
-    2. Oracle: 收费的大型数据库
-    3. DB2: IBM公司的收费数据库,常用于银行系统
-    4. SQLServer: 微软,收费的中型数据库
-    5. SyBase: 淡出历史舞台了
-    6. SQLite: 嵌入式的小型数据库,应用于手机端
+      &lt;h3 id=&quot;存储数据&quot;&gt;&lt;a href=&quot;#存储数据&quot; class=&quot;headerlink&quot; title=&quot;存储数据&quot;&gt;&lt;/a&gt;存储数据&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;三种形式:
+1. 变量
+    1. 特点: 数据在内存中
+    2. 问题: 不能持久化存储
+2. IO流结合文件
+    1. 特点: 数据存储在文件中,实现了持久化存储
+    2. 问题: 数据存储在文件中,但是读取时,不同的实现可能效率差异比较大
+3. 数据库
+    数据库 = 文件存储数据 + 算法封装
 &lt;/code&gt;&lt;/pre&gt;
     
     </summary>
