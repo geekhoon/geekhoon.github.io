@@ -642,7 +642,7 @@ clear:清除浮动效果,取值:
     <link href="https://geekhoon.github.io/2017/03/01/19-JDBC-DBUtils/"/>
     <id>https://geekhoon.github.io/2017/03/01/19-JDBC-DBUtils/</id>
     <published>2017-03-01T01:09:43.000Z</published>
-    <updated>2017-03-27T09:57:56.016Z</updated>
+    <updated>2017-03-27T13:22:39.207Z</updated>
     
     <content type="html"><![CDATA[<h3 id="JUnit"><a href="#JUnit" class="headerlink" title="JUnit"></a>JUnit</h3><pre><code>* JUnit是一个Java语言的单元测试框架,属于第三方工具,需要导入jar包
 * Ecilpse中已经集成了JUnit作为单元测试工具,不需要导入jar包
@@ -685,7 +685,32 @@ clear:清除浮动效果,取值:
 6.释放资源
     close()
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.sql.Connection;</div><div class="line"><span class="keyword">import</span> java.sql.DriverManager;</div><div class="line"><span class="keyword">import</span> java.sql.PreparedStatement;</div><div class="line"><span class="keyword">import</span> java.sql.ResultSet;</div><div class="line"><span class="keyword">import</span> java.sql.SQLException;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ClassNotFoundException, SQLException </span>&#123;</div><div class="line"><span class="comment">/*</span></div><div class="line"> * 1.注册驱动</div><div class="line"> *   Driver是一个接口: 每个驱动程序类必须实现的接口</div><div class="line"> *   方式一: 使用java.sql.DriverManager类的静态方法registerDriver(Driver driver)</div><div class="line"> *   	         参数是MySQL驱动程序的Driver实现类,这种方式会new两个Driver对象,不推荐使用</div><div class="line"> *   方式二: 使用反射技术, 将驱动类加入到内容,如下: </div><div class="line"> */</div><div class="line">		Class.forName(<span class="string">"com.mysql.jdbc.Driver"</span>);</div><div class="line"><span class="comment">/*</span></div><div class="line"> * 2.获取数据库的连接对象</div><div class="line"> * 	 使用DriverManager类中静态方法static Collection getConnection()</div><div class="line"> */</div><div class="line">		String url = <span class="string">"jdbc:mysql://localhost:3306/mybase"</span>;</div><div class="line">		String user = <span class="string">"root"</span>;</div><div class="line">		String password = <span class="string">"root"</span>;</div><div class="line">		Connection con = DriverManager.getConnection(url, user, password);</div><div class="line"><span class="comment">/*</span></div><div class="line"> * 3.获得执行者对象</div><div class="line"> */</div><div class="line"><span class="comment">//Statement stat = con.createStatement();这种接口对象有安全隐患(SQL注入攻击)</span></div><div class="line">		String sql = <span class="string">"INSERT INTO sort(sname,sprice,sdesc) VALUES(?,?,?)"</span>;</div><div class="line"><span class="comment">//使用Statement的子类接口prepareStatement可有效避免安全隐患,但注意sql语句的编写</span></div><div class="line"><span class="comment">//要赋值的列如上或者判断条件中要用值,不要直接写出值,而要用?占位,如select * from sort where sid = 1</span></div><div class="line"><span class="comment">//这里就不能写1, 要写成select * from sort where sid =?</span></div><div class="line"><span class="comment">//如果是select * from sort,不需要值,那不用写setObject()</span></div><div class="line"><span class="comment">//通过PreparedStatement对象的setObject()进行赋值</span></div><div class="line"><span class="comment">//第一个参数是占位符的位置,从1开始,第二个是值</span></div><div class="line"><span class="comment">//使用的是Connection数据库连接对象的方法,获取的是PreparedStatement接口的实现类,</span></div><div class="line"><span class="comment">//也叫sql语句的预编译对象</span></div><div class="line"><span class="comment">//PreparedStatement prepareStatement(String sql)</span></div><div class="line">		<span class="comment">//PrepareStatement接口预编译SQL语句</span></div><div class="line">		PreparedStatement pds = con.prepareStatement(sql);</div><div class="line">		pds.setObject(<span class="number">1</span>, <span class="string">"汽车用品"</span>);</div><div class="line">		pds.setObject(<span class="number">2</span>, <span class="number">3220</span>);</div><div class="line">		pds.setObject(<span class="number">3</span>, <span class="string">"涨价"</span>);</div><div class="line"><span class="comment">/*</span></div><div class="line"> * 4.执行sql语句</div><div class="line"> *   有两点:</div><div class="line"> *   	1.是增删改语句:调用执行者对象的executeUpdate(),返回值是受影响行数:</div><div class="line"> *   	  int row = pds.executeUpdate();</div><div class="line"> *   	     也可以不用接收返回值,直接写成pds.executeUpdate()</div><div class="line"> *   	2.是查询语句:调用执行者对象的executeQuery(),返回值是结果集</div><div class="line"> */</div><div class="line">		ResultSet rs = pds.executeQuery();</div><div class="line"><span class="comment">/*</span></div><div class="line"> * 5.处理结果集</div><div class="line"> *   ResultSet接口方法 boolean next() 返回true,有结果集,返回false没有结果集</div><div class="line"> */</div><div class="line"><span class="comment">//特别注意:　rs.next()判断的是结果集,不是数据表,是根据select条件查询出的内容,可能一条或多条</span></div><div class="line">		<span class="keyword">while</span>(rs.next())&#123;</div><div class="line">			<span class="comment">//获取每列数据,使用是ResultSet接口的方法 getXX方法参数中,建议写String列名</span></div><div class="line">			System.out.println(rs.getInt(<span class="string">"sid"</span>) + <span class="string">"  "</span> + rs.getString(<span class="string">"sname"</span>) </div><div class="line">				+ <span class="string">"  "</span> + rs.getDouble(<span class="string">"sprice"</span>) + <span class="string">"  "</span> + rs.getString(<span class="string">"sdesc"</span>));</div><div class="line">		&#125;</div><div class="line"><span class="comment">/*</span></div><div class="line"> * 6.释放资源</div><div class="line"> */</div><div class="line">		rs.close();</div><div class="line">		pds.close();</div><div class="line">		con.close();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="SQL注入攻击"><a href="#SQL注入攻击" class="headerlink" title="SQL注入攻击"></a>SQL注入攻击</h3><pre><code>* 由用户输入用户名,密码来查询数据库中是否存在该用户的sql语句如下:
+<h3 id="JDBC使用细节"><a href="#JDBC使用细节" class="headerlink" title="JDBC使用细节"></a>JDBC使用细节</h3><pre><code>1. 所有相关类导包 ---- java.sql.*;
+2. 导入 com.mysql.*;也没问题
+       问什么？
+       a)、因为所需要的对象都是 jar 包中的类对应的对象
+       b)、jar 包中的类实现了 java.sql.xxx 这些接口
+                    常规使用：父类声明指向子类实现 ---- 使用了多态
+                    非常规使用：子类声明指向子类实现
+
+3. 既然导入jar包实现也可以，为什么一再强调导 java.sql?
+      前提：
+          开发时是由 MySQL 数据库,部署时使用 Oracle 数据库
+  场景1：
+       开发使用MySQL:
+          1)、导入 MySQL jar 包
+          2)、也导入MySQL jar 包对应的类
+           部署时是由Oracle:
+           1)、导入Oracle jar 包
+           2)、将导的包换成 Oracle 的 （相当麻烦）
+
+  场景2 ---- 多态的好处： 实现了程序的可插拔设计   
+    开发时使用MySQL:
+     1)、导入 MySQL jar 包
+     2)、导包导 JDK 内置的
+    部署时是由Oracle:
+       1)、导入Oracle jar 包
+</code></pre><h3 id="SQL注入攻击"><a href="#SQL注入攻击" class="headerlink" title="SQL注入攻击"></a>SQL注入攻击</h3><pre><code>* 由用户输入用户名,密码来查询数据库中是否存在该用户的sql语句如下:
 SELECT * FROM 用户表 WHERE NAME = 用户输入的用户名 AND PASSWORD = 用户输的密码; 
 * 不管输入的用户名是XXXX,密码是XXX,只要密码格式为 XXX&apos; OR &apos;1&apos;=&apos;1 或 XXX&apos; OR &apos;1 = 1 
 * 真正执行的代码变为:
@@ -809,7 +834,7 @@ where条件都为true, 永远都可以查询出结果,那么用户就直接登�
     <link href="https://geekhoon.github.io/2017/02/28/18-MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     <id>https://geekhoon.github.io/2017/02/28/18-MySQL数据库/</id>
     <published>2017-02-27T18:46:36.000Z</published>
-    <updated>2017-03-27T09:10:44.453Z</updated>
+    <updated>2017-03-27T13:15:48.049Z</updated>
     
     <content type="html"><![CDATA[<h3 id="存储数据"><a href="#存储数据" class="headerlink" title="存储数据"></a>存储数据</h3><pre><code>三种形式:
 1. 变量
@@ -916,6 +941,8 @@ where条件都为true, 永远都可以查询出结果,那么用户就直接登�
     * 查询去掉重复数据: select distinct 列名 from 表名
     * 查询重新命名列: select 列名 AS 新名 from 表名
     * 查询时直接运算: select 列名1,列名2+1000 as 新名 from 表名 : 列名2进行了运算,并用新名查询结果
+    * 查询表中第五到第十条数据: select * from 表名 limit(4,6);
+        limit(m,n): 第一个数指开始的索引,从0开始,第二个参数是取得条数
 * 命令行乱码问题: 
     * mysql的客户端编码的问题我们的是utf8,而系统的cmd窗口编码是gbk,在cmd下输出中文会乱码
     * 解决方案: 修改mysql客户端编码。
@@ -961,6 +988,9 @@ CHAR类型应用场景:
 </code></pre><h4 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h4><pre><code>效果上: 主键 = 非空 + 唯一
     但是主键不能换成not null和unique,因为主键还有索引的概念
 索引可以对数据进行一步定位,效率更高
+* 关于主键:
+    主键会被固定算法求成对应的索引,当我们通过主键查询时,比如id=&apos;a001&apos;,其实底层是根据
+    &apos;a001&apos;对应的索引一步定位查询的
 </code></pre>]]></content>
     
     <summary type="html">

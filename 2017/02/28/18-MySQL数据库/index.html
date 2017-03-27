@@ -108,7 +108,7 @@
     2. 问题: 数据存储在文件中,但是读取时,不同的实现可能效率差异比较大
 3. 数据库
     数据库 = 文件存储数据 + 算法封装">
-<meta property="og:updated_time" content="2017-03-27T09:10:44.453Z">
+<meta property="og:updated_time" content="2017-03-27T13:15:48.049Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="18.MySQL数据库">
 <meta name="twitter:description" content="存储数据三种形式:
@@ -505,6 +505,8 @@
     * 查询去掉重复数据: select distinct 列名 from 表名
     * 查询重新命名列: select 列名 AS 新名 from 表名
     * 查询时直接运算: select 列名1,列名2+1000 as 新名 from 表名 : 列名2进行了运算,并用新名查询结果
+    * 查询表中第五到第十条数据: select * from 表名 limit(4,6);
+        limit(m,n): 第一个数指开始的索引,从0开始,第二个参数是取得条数
 * 命令行乱码问题: 
     * mysql的客户端编码的问题我们的是utf8,而系统的cmd窗口编码是gbk,在cmd下输出中文会乱码
     * 解决方案: 修改mysql客户端编码。
@@ -550,6 +552,9 @@ CHAR类型应用场景:
 </code></pre><h4 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h4><pre><code>效果上: 主键 = 非空 + 唯一
     但是主键不能换成not null和unique,因为主键还有索引的概念
 索引可以对数据进行一步定位,效率更高
+* 关于主键:
+    主键会被固定算法求成对应的索引,当我们通过主键查询时,比如id=&apos;a001&apos;,其实底层是根据
+    &apos;a001&apos;对应的索引一步定位查询的
 </code></pre>
       
     </div>
