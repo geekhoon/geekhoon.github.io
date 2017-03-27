@@ -642,9 +642,25 @@ clear:清除浮动效果,取值:
     <link href="https://geekhoon.github.io/2017/03/01/19-JDBC-DBUtils/"/>
     <id>https://geekhoon.github.io/2017/03/01/19-JDBC-DBUtils/</id>
     <published>2017-03-01T01:09:43.000Z</published>
-    <updated>2017-03-26T10:25:48.395Z</updated>
+    <updated>2017-03-27T09:57:56.016Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h3><h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><pre><code>* Java Data Base Connectivity
+    <content type="html"><![CDATA[<h3 id="JUnit"><a href="#JUnit" class="headerlink" title="JUnit"></a>JUnit</h3><pre><code>* JUnit是一个Java语言的单元测试框架,属于第三方工具,需要导入jar包
+* Ecilpse中已经集成了JUnit作为单元测试工具,不需要导入jar包
+* 编写测试类:
+    测试方法要求:
+        1. 类名不能是Test
+        2. 方法名不能是静态
+        3. 方法不能有返回值
+        4. 方法不能有参数列表
+</code></pre><a id="more"></a>    
+<pre><code>* @Test : 注解
+* 运行:
+    方式1：选定测试方法名 ---- 右击 ---- run as ---- Junit test
+    方式2：选定类名 --------- 右击 ---- run as ---- Junit test\
+* @Before ----- 测试函数执行前调用
+* @After ------ 测试函数执行完调用
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JUnitDemo</span> </span>&#123;</div><div class="line">	<span class="meta">@Before</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span></span>&#123;</div><div class="line">		System.out.println(<span class="string">"测试开始...."</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@Test</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAdd</span><span class="params">()</span></span>&#123;<span class="comment">//测试方法</span></div><div class="line">		MyMath.add(<span class="number">1</span>, <span class="number">2</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="meta">@Test</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testChu</span><span class="params">()</span></span>&#123;<span class="comment">//测试方法</span></div><div class="line">		MyMath.chu(<span class="number">10</span>, <span class="number">0</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="meta">@After</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">end</span><span class="params">()</span></span>&#123;</div><div class="line">		System.out.println(<span class="string">"测试结束...."</span>);</div><div class="line">	&#125;</div><div class="line">&#125;	</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyMath</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span></span>&#123;</div><div class="line">		<span class="keyword">int</span> result = num1 + num2;</div><div class="line">		System.out.println(<span class="string">"和:"</span> + result);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">chu</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span></span>&#123;</div><div class="line">		<span class="keyword">int</span> result = num1 / num2;</div><div class="line">		System.out.println(<span class="string">"商:"</span> + result);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h3><h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><pre><code>* Java Data Base Connectivity
 * 一种用于执行SQL语句的Java API
 * Java提供的访问数据库规范
 * 可以为多种关系数据库提供统一访问
@@ -656,8 +672,7 @@ clear:清除浮动效果,取值:
 * 导入驱动jar包
     * 建lib目录，用于存放当前项目需要的所有jar包
     * 选择jar包，右键执行build path / Add to Build Path
-</code></pre><a id="more"></a>    
-<h4 id="开发步骤"><a href="#开发步骤" class="headerlink" title="开发步骤"></a>开发步骤</h4><pre><code>1.注册驱动
+</code></pre><h4 id="开发步骤"><a href="#开发步骤" class="headerlink" title="开发步骤"></a>开发步骤</h4><pre><code>1.注册驱动
     告知JVM使用的是哪一个数据库的驱动
 2.获取数据库的连接对象
     使用JDBC中的类,完成对MySQL数据库的连接
@@ -770,18 +785,14 @@ where条件都为true, 永远都可以查询出结果,那么用户就直接登�
     
     <summary type="html">
     
-      &lt;h3 id=&quot;JDBC&quot;&gt;&lt;a href=&quot;#JDBC&quot; class=&quot;headerlink&quot; title=&quot;JDBC&quot;&gt;&lt;/a&gt;JDBC&lt;/h3&gt;&lt;h4 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;* Java Data Base Connectivity
-* 一种用于执行SQL语句的Java API
-* Java提供的访问数据库规范
-* 可以为多种关系数据库提供统一访问
-* 由一组用Java语言编写的类和接口组成.
-* 原理: 
-    * Java提供访问数据库规范称为JDBC,JDBC需要连接驱动,驱动是生产厂商提供规范的实现类
-    * JDBC是接口,驱动是接口的实现,没有驱动将无法完成数据库连接
-    * 每个数据库厂商都需要提供自己的驱动，用来连接自己公司的数据库
-* 导入驱动jar包
-    * 建lib目录，用于存放当前项目需要的所有jar包
-    * 选择jar包，右键执行build path / Add to Build Path
+      &lt;h3 id=&quot;JUnit&quot;&gt;&lt;a href=&quot;#JUnit&quot; class=&quot;headerlink&quot; title=&quot;JUnit&quot;&gt;&lt;/a&gt;JUnit&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;* JUnit是一个Java语言的单元测试框架,属于第三方工具,需要导入jar包
+* Ecilpse中已经集成了JUnit作为单元测试工具,不需要导入jar包
+* 编写测试类:
+    测试方法要求:
+        1. 类名不能是Test
+        2. 方法名不能是静态
+        3. 方法不能有返回值
+        4. 方法不能有参数列表
 &lt;/code&gt;&lt;/pre&gt;
     
     </summary>
