@@ -534,7 +534,7 @@ clear:清除浮动效果,取值:
     <link href="https://geekhoon.github.io/2017/03/06/20-%E5%8F%8D%E5%B0%84/"/>
     <id>https://geekhoon.github.io/2017/03/06/20-反射/</id>
     <published>2017-03-06T00:52:19.000Z</published>
-    <updated>2017-03-28T13:17:20.247Z</updated>
+    <updated>2017-03-28T13:26:37.856Z</updated>
     
     <content type="html"><![CDATA[<h3 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h3><pre><code>* 要使用某个类时,如果该类还未被加载到内存中,
   则系统会通过加载,连接,初始化三步来实现对这个类进行初始化。
@@ -633,7 +633,7 @@ clear:清除浮动效果,取值:
       <category term="JAVA基础" scheme="https://geekhoon.github.io/categories/JAVA%E5%9F%BA%E7%A1%80/"/>
     
     
-      <category term="JAVA基础语法" scheme="https://geekhoon.github.io/tags/JAVA%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"/>
+      <category term="JAVA基础语法 反射" scheme="https://geekhoon.github.io/tags/JAVA%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95-%E5%8F%8D%E5%B0%84/"/>
     
   </entry>
   
