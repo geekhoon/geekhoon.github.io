@@ -108,7 +108,7 @@
     2. 问题: 数据存储在文件中,但是读取时,不同的实现可能效率差异比较大
 3. 数据库
     数据库 = 文件存储数据 + 算法封装">
-<meta property="og:updated_time" content="2017-03-27T13:15:48.049Z">
+<meta property="og:updated_time" content="2017-03-28T07:43:15.078Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="18.MySQL数据库">
 <meta name="twitter:description" content="存储数据三种形式:
@@ -555,7 +555,62 @@ CHAR类型应用场景:
 * 关于主键:
     主键会被固定算法求成对应的索引,当我们通过主键查询时,比如id=&apos;a001&apos;,其实底层是根据
     &apos;a001&apos;对应的索引一步定位查询的
-</code></pre>
+</code></pre><h3 id="MySQL多表"><a href="#MySQL多表" class="headerlink" title="MySQL多表"></a>MySQL多表</h3><pre><code>表与表之间的关系有一对多,多对多,一对一
+1. 单表设计存在的缺陷:
+    1). 数据重复存储,会浪费磁盘空间(数据没有实现复用)
+    2). 导致数据修改时效率低
+2. 多表优点:
+    1. 存储空间更为节约
+    2. 修改信息时效率更高
+    3. 本质: 另一种形式的封装
+</code></pre><h4 id="外键"><a href="#外键" class="headerlink" title="外键"></a>外键</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">* 作用: 限制从表某些字段的数据使用</div><div class="line">* 使用: </div><div class="line">	1. 将主从表记录通通清空(不一定)</div><div class="line">	2. 按照外键语法添加外键</div><div class="line">* 语法: </div><div class="line">	* 添加外键: </div><div class="line">	alter table 从表名 </div><div class="line">		add constraint 外键名 </div><div class="line">			foreign key (从表中外键字段名) </div><div class="line">				references 主表名(主表的主键字段名)</div><div class="line">	效果: 从表的使用外键的字段的数值只能是主表中被引用的字段已经存在的数字</div><div class="line">* 注意: 从表中的外键必须和主表的主键的数据类型一样</div><div class="line">* 外键名看不到,很少用到.需要用到的使用场景: 删除外键</div><div class="line">	* 查看外键方式: show create table 从表名;</div><div class="line">	* 删除外键:</div><div class="line">	alter table 从表名 drop foreign key 外键名;</div></pre></td></tr></table></figure>
+<h4 id="一对多"><a href="#一对多" class="headerlink" title="一对多"></a>一对多</h4><pre><code>例:
+1. 学生信息表与考试信息表:
+    &quot;一条学生信息&quot;可以对应&quot;多条考试成绩信息&quot;
+    &quot;一条考试成绩信息&quot;只属于&quot;一条学生信息&quot;
+2. 用户表与订单表:
+    &quot;一条用户信息&quot;可以对应&quot;多条订单信息&quot;
+    &quot;一条订单信息&quot;只属于&quot;一条用户信息&quot;
+3. 客户表与银行卡表:
+    &quot;一条客户信息&quot;可以对应&quot;多条银行卡信息&quot;
+    &quot;一条银行卡信息&quot;只属于&quot;一条客户信息&quot;
+如上的表设计就是&quot;一对多&quot;
+* 主表(一表): 将&quot;一方&quot;称之为主表或一表
+* 从表(多表): 将&quot;多方&quot;称为为从表或多表
+* &quot;一对多&quot;的实现:
+    在&quot;从表&quot;中创建一个字段来引用&quot;主表&quot;的主键作为外键
+</code></pre><h4 id="多对多"><a href="#多对多" class="headerlink" title="多对多"></a>多对多</h4><pre><code>例:
+1. 学生表与课程表:
+    &quot;一条学生信息&quot;可以对应&quot;多条课程信息&quot;
+    &quot;多条学生信息&quot;可以对应&quot;一条课程信息&quot;
+2.  班级表与教师表:
+    &quot;一条班级信息&quot;可以对应&quot;多条教师信息&quot;
+    &quot;多条班级信息&quot;可以对应&quot;一条教师信息&quot;
+3.  订单表与商品表:
+    &quot;一条订单信息&quot;可以对应&quot;多条商品信息&quot;
+    &quot;多条订单信息&quot;可以对应&quot;一条商品信息&quot;
+如上的表设计就是&quot;多对多&quot;
+* &quot;多对多&quot;的实现:
+    1. 创建一个中间表
+    2. 在中间表(从表)中创建两个字段来分别引用两张&quot;主表&quot;的主键作为外键;
+        两个字段的组合可以表示多对多的关联
+* 使用
+    1. 查主表1
+    2. 查中间表(从表)
+    3. 查主表2
+* 优化1: 
+    * 加外键(两个字段都要加)
+        1. 将中间表记录清空(如果表记录没有违反现实逻辑,可以不清空)
+        2. 添加外键
+* 优化2:
+    * 加联合主键(多个字段联合作为主键),组合方式不能重复
+    * 开发中不常用,效率低
+    * 语法: primary key (字段1,字段2)
+</code></pre><h4 id="一对一"><a href="#一对一" class="headerlink" title="一对一"></a>一对一</h4><pre><code>例: 公民表与身份证表
+</code></pre><h3 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h3><h4 id="交叉查询-笛卡尔积"><a href="#交叉查询-笛卡尔积" class="headerlink" title="交叉查询(笛卡尔积)"></a>交叉查询(笛卡尔积)</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">笛卡尔积 <span class="comment">--- 有大量无用数据</span></div><div class="line">	<span class="keyword">SELECT</span> * <span class="keyword">FROM</span> 表<span class="number">1</span>,表<span class="number">2</span>;</div></pre></td></tr></table></figure>
+<h4 id="内连接查询"><a href="#内连接查询" class="headerlink" title="内连接查询"></a>内连接查询</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">* 查询有用数据</div><div class="line">1. 隐式:</div><div class="line">	SELECT * FROM 表1,表2 WHERE 条件;</div><div class="line">2. 显式:</div><div class="line">	SELECT * FROM 表1 INNER JOIN 表2 ON 条件;</div></pre></td></tr></table></figure>
+<h4 id="外连接查询"><a href="#外连接查询" class="headerlink" title="外连接查询"></a>外连接查询</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">1. 左外连接查询:</div><div class="line">	SELECT * FROM 表1 LEFT OUTER JOIN 表2 ON 条件;</div><div class="line">注意: </div><div class="line">查询左表(表1)所有的数据,右表(表2)是否显示,取决于条件是否成立,如果成立显示,如果不成立显示null;</div><div class="line">2. 右外连接查询:</div><div class="line">	SELECT * FROM 表1 RIGHT OUTER JOIN 表2 ON 条件;</div><div class="line">注意: </div><div class="line">查询右表(表2)所有的数据,左表(表1)是否显示,取决于条件是否成立,如果成立显示,如果不成立显示null;</div><div class="line">3. 拓展:</div><div class="line">	* A left outer join B 等价于 B right outer join A</div></pre></td></tr></table></figure>
+<h4 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">   * 使用一个select查询的结果作为另一个select的一部分(查询结果,查询条件,查询表等);</div><div class="line">* 查询结果唯一用"=",多个结果用"in"</div><div class="line">* 如:</div><div class="line">SELECT * FROM 表1 WHERE id = (SELECT id FROM 表2 WHERE 条件);</div><div class="line">SELECT * FROM 表1 WHERE id in (SELECT id FROM 表2 WHERE 条件);</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -808,7 +863,7 @@ CHAR类型应用场景:
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#存储数据"><span class="nav-number">1.</span> <span class="nav-text">存储数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库"><span class="nav-number">2.</span> <span class="nav-text">数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL语句"><span class="nav-number">3.</span> <span class="nav-text">SQL语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库操作"><span class="nav-number">4.</span> <span class="nav-text">数据库操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据表操作"><span class="nav-number">5.</span> <span class="nav-text">数据表操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据操作"><span class="nav-number">6.</span> <span class="nav-text">数据操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#条件查询"><span class="nav-number">7.</span> <span class="nav-text">条件查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序查询"><span class="nav-number">8.</span> <span class="nav-text">排序查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#聚合函数"><span class="nav-number">9.</span> <span class="nav-text">聚合函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分组查询"><span class="nav-number">10.</span> <span class="nav-text">分组查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意事项"><span class="nav-number">11.</span> <span class="nav-text">注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据类型"><span class="nav-number">11.1.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#约束"><span class="nav-number">11.2.</span> <span class="nav-text">约束</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#存储数据"><span class="nav-number">1.</span> <span class="nav-text">存储数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库"><span class="nav-number">2.</span> <span class="nav-text">数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL语句"><span class="nav-number">3.</span> <span class="nav-text">SQL语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库操作"><span class="nav-number">4.</span> <span class="nav-text">数据库操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据表操作"><span class="nav-number">5.</span> <span class="nav-text">数据表操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据操作"><span class="nav-number">6.</span> <span class="nav-text">数据操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#条件查询"><span class="nav-number">7.</span> <span class="nav-text">条件查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序查询"><span class="nav-number">8.</span> <span class="nav-text">排序查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#聚合函数"><span class="nav-number">9.</span> <span class="nav-text">聚合函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分组查询"><span class="nav-number">10.</span> <span class="nav-text">分组查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意事项"><span class="nav-number">11.</span> <span class="nav-text">注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据类型"><span class="nav-number">11.1.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#约束"><span class="nav-number">11.2.</span> <span class="nav-text">约束</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL多表"><span class="nav-number">12.</span> <span class="nav-text">MySQL多表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#外键"><span class="nav-number">12.1.</span> <span class="nav-text">外键</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一对多"><span class="nav-number">12.2.</span> <span class="nav-text">一对多</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多对多"><span class="nav-number">12.3.</span> <span class="nav-text">多对多</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一对一"><span class="nav-number">12.4.</span> <span class="nav-text">一对一</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多表查询"><span class="nav-number">13.</span> <span class="nav-text">多表查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#交叉查询-笛卡尔积"><span class="nav-number">13.1.</span> <span class="nav-text">交叉查询(笛卡尔积)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内连接查询"><span class="nav-number">13.2.</span> <span class="nav-text">内连接查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#外连接查询"><span class="nav-number">13.3.</span> <span class="nav-text">外连接查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#子查询"><span class="nav-number">13.4.</span> <span class="nav-text">子查询</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
