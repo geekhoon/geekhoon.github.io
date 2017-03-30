@@ -52,11 +52,11 @@
   </entry>
   
   <entry>
-    <title>连接池</title>
+    <title>JDBC连接池</title>
     <link href="https://geekhoon.github.io/2017/03/30/21-%E8%BF%9E%E6%8E%A5%E6%B1%A0/"/>
     <id>https://geekhoon.github.io/2017/03/30/21-连接池/</id>
     <published>2017-03-30T12:34:03.000Z</published>
-    <updated>2017-03-30T13:01:17.692Z</updated>
+    <updated>2017-03-30T13:58:33.888Z</updated>
     
     <content type="html"><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>连接池是存放连接的容器,如果频繁地获得连接和释放资源,非常消耗资源,通过连接池,共享连接,可以解决此类问题.当需要数据库连接时,通过池来获取Connection对象,用完后,调用Connection的close()回收对象,对象回到连接池中,并没有真正关闭.<br><a id="more"></a><br><strong>优点:</strong><br>1.实现了资源复用<br>2.效率更高</p>
 <h3 id="连接池实现方式"><a href="#连接池实现方式" class="headerlink" title="连接池实现方式"></a>连接池实现方式</h3><p>1.DBCP(第三方实现)<br>2.C3P0(第三方实现)<br>3.自定义连接池</p>
