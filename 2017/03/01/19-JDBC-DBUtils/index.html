@@ -108,7 +108,7 @@
         2. 方法名不能是静态
         3. 方法不能有返回值
         4. 方法">
-<meta property="og:updated_time" content="2017-03-28T13:17:15.140Z">
+<meta property="og:updated_time" content="2017-03-30T01:59:54.731Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDBC&DBUtils">
 <meta name="twitter:description" content="JUnit* JUnit是一个Java语言的单元测试框架,属于第三方工具,需要导入jar包
@@ -542,6 +542,9 @@ where条件都为true, 永远都可以查询出结果,那么用户就直接登�
 * 频繁地获得连接和释放资源,非常消耗资源,通过连接池,共享连接,解决此类问题
 * 需要数据库连接时,通过池来获取Connection对象,用完后,调用Connection的close()回收对象,
   对象回到连接池中,并没有真正关闭.
+* 优点:
+    1. 实现了资源复用
+    2. 效率更高
 </code></pre><h4 id="DataSource接口"><a href="#DataSource接口" class="headerlink" title="DataSource接口"></a>DataSource接口</h4><pre><code>* Java为数据库连接提供了公共的接口,数据库厂商需要让自己的连接池实现这个接口
 </code></pre><h4 id="DBCP连接池"><a href="#DBCP连接池" class="headerlink" title="DBCP连接池"></a>DBCP连接池</h4><pre><code>* 开源的连接池
 * Tomcat内置的连接池
@@ -699,7 +702,7 @@ where条件都为true, 永远都可以查询出结果,那么用户就直接登�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-count">30</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
