@@ -96,7 +96,7 @@ DataSource接口Java为数据">
 <meta property="og:description" content="连接池概述连接池是存放连接的容器,如果频繁地获得连接和释放资源,非常消耗资源,通过连接池,共享连接,可以解决此类问题.当需要数据库连接时,通过池来获取Connection对象,用完后,调用Connection的close()回收对象,对象回到连接池中,并没有真正关闭.优点:1.实现了资源复用2.效率更高
 连接池实现方式1.DBCP2.C3P03.自定义连接池
 DataSource接口Java为数据">
-<meta property="og:updated_time" content="2017-03-30T07:52:15.583Z">
+<meta property="og:updated_time" content="2017-03-30T07:55:13.191Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pool">
 <meta name="twitter:description" content="连接池概述连接池是存放连接的容器,如果频繁地获得连接和释放资源,非常消耗资源,通过连接池,共享连接,可以解决此类问题.当需要数据库连接时,通过池来获取Connection对象,用完后,调用Connection的close()回收对象,对象回到连接池中,并没有真正关闭.优点:1.实现了资源复用2.效率更高
@@ -367,9 +367,10 @@ DataSource接口Java为数据">
 <h3 id="连接池实现方式"><a href="#连接池实现方式" class="headerlink" title="连接池实现方式"></a>连接池实现方式</h3><p>1.DBCP<br>2.C3P0<br>3.自定义连接池</p>
 <h3 id="DataSource接口"><a href="#DataSource接口" class="headerlink" title="DataSource接口"></a>DataSource接口</h3><p>Java为数据库连接提供了公共的接口,数据库厂商需要让自己的连接池实现这个接口</p>
 <h3 id="BasicDataSource类"><a href="#BasicDataSource类" class="headerlink" title="BasicDataSource类"></a>BasicDataSource类</h3><p>数据源的规范接口javax.sql.DataSource的实现类<br>在org.apache.commons.dbcp中<br>方法: </p>
+<pre><code>- setXXX(参数): setDriverClassName,setUrl,setUsername,setPassword
+- getConnection(): 获取数据库连接
+</code></pre><p><strong>常见配置项</strong></p>
 <ul>
-<li>setXXX(参数): setDriverClassName,setUrl,setUsername,setPassword</li>
-<li>getConnection(): 获取数据库连接<br><strong>常见配置项</strong></li>
 <li>必须项</li>
 <li>基本项:<ul>
 <li>maxActive: 最大连接数量</li>
