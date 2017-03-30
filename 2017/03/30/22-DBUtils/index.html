@@ -86,31 +86,25 @@
 
 
 
-<meta name="description" content="DBUtils* 是JDBC的简化开发工具包
-* 需要导入jar包: commons-dbutils-1.6.jar
-* 3个核心功能:
-    1. QueryRunner
-    2. ResultSetHandler&amp;lt;T&amp;gt;接口
-    3. DbUtils类">
+<meta name="description" content="概述1.是JDBC的简化开发工具包,简化数据库相关操作2.需要导入jar包: commons-dbutils-1.6.jar3.三个核心功能:
+1. QueryRunner
+2. ResultSetHandler&amp;lt;T&amp;gt;接口
+3. DbUtils类">
 <meta property="og:type" content="article">
-<meta property="og:title" content="22.DBUtils">
+<meta property="og:title" content="DBUtils">
 <meta property="og:url" content="https://geekhoon.github.io/2017/03/30/22-DBUtils/index.html">
 <meta property="og:site_name" content="geekhoon">
-<meta property="og:description" content="DBUtils* 是JDBC的简化开发工具包
-* 需要导入jar包: commons-dbutils-1.6.jar
-* 3个核心功能:
-    1. QueryRunner
-    2. ResultSetHandler&amp;lt;T&amp;gt;接口
-    3. DbUtils类">
-<meta property="og:updated_time" content="2017-03-30T12:39:56.513Z">
+<meta property="og:description" content="概述1.是JDBC的简化开发工具包,简化数据库相关操作2.需要导入jar包: commons-dbutils-1.6.jar3.三个核心功能:
+1. QueryRunner
+2. ResultSetHandler&amp;lt;T&amp;gt;接口
+3. DbUtils类">
+<meta property="og:updated_time" content="2017-03-30T13:01:23.920Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="22.DBUtils">
-<meta name="twitter:description" content="DBUtils* 是JDBC的简化开发工具包
-* 需要导入jar包: commons-dbutils-1.6.jar
-* 3个核心功能:
-    1. QueryRunner
-    2. ResultSetHandler&amp;lt;T&amp;gt;接口
-    3. DbUtils类">
+<meta name="twitter:title" content="DBUtils">
+<meta name="twitter:description" content="概述1.是JDBC的简化开发工具包,简化数据库相关操作2.需要导入jar包: commons-dbutils-1.6.jar3.三个核心功能:
+1. QueryRunner
+2. ResultSetHandler&amp;lt;T&amp;gt;接口
+3. DbUtils类">
 
 
 
@@ -133,7 +127,7 @@
 
   <link rel="canonical" href="https://geekhoon.github.io/2017/03/30/22-DBUtils/"/>
 
-  <title> 22.DBUtils | geekhoon </title>
+  <title> DBUtils | geekhoon </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -316,7 +310,7 @@
             
             
               
-                22.DBUtils
+                DBUtils
               
             
           </h1>
@@ -369,7 +363,7 @@
 
           
           
-             <span id="/2017/03/30/22-DBUtils/" class="leancloud_visitors" data-flag-title="22.DBUtils">
+             <span id="/2017/03/30/22-DBUtils/" class="leancloud_visitors" data-flag-title="DBUtils">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -391,43 +385,38 @@
       
 
       
-        <h3 id="DBUtils"><a href="#DBUtils" class="headerlink" title="DBUtils"></a>DBUtils</h3><pre><code>* 是JDBC的简化开发工具包
-* 需要导入jar包: commons-dbutils-1.6.jar
-* 3个核心功能:
-    1. QueryRunner
-    2. ResultSetHandler&lt;T&gt;接口
-    3. DbUtils类
+        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>1.是JDBC的简化开发工具包,简化数据库相关操作<br>2.需要导入jar包: commons-dbutils-1.6.jar<br>3.三个核心功能:</p>
+<pre><code>1. QueryRunner
+2. ResultSetHandler&lt;T&gt;接口
+3. DbUtils类
 </code></pre><a id="more"></a>    
-<pre><code>* 事务
-    * 一套操作
-    * 在数据库中应用事务处理案例:转账案例
-    * 成功: 提交事务 commit
-    * 失败: 回滚事务 rollback
-</code></pre><h4 id="QueryRunner核心类"><a href="#QueryRunner核心类" class="headerlink" title="QueryRunner核心类"></a>QueryRunner核心类</h4><pre><code>* 方法:
-    update(Connection conn,String sql,Object...params): 执行增删改
-    Object...params: 可变参数,Object类型,当SQL语句中出现?占位符时使用
-</code></pre><h5 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line">	<span class="comment">//获取数据库连接</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Connection con = JDBCUtilsConfig.getConnection();</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> SQLException </span>&#123;</div><div class="line">		insert();</div><div class="line">		<span class="comment">//update();</span></div><div class="line">		<span class="comment">//delete();</span></div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">()</span> <span class="keyword">throws</span> SQLException </span>&#123;</div><div class="line">		<span class="comment">//创建QueryRunner类对象</span></div><div class="line">		QueryRunner qr = <span class="keyword">new</span> QueryRunner();</div><div class="line">		String sql = <span class="string">"INSERT INTO sort (sname,sprice,sdesc) VALUES (?,?,?)"</span>;</div><div class="line">		<span class="comment">//将三个占位符的实际参数, 写在数组中</span></div><div class="line">		Object[] params = &#123;<span class="string">"体育用品"</span>,<span class="number">289.32</span>,<span class="string">"购买体育用品"</span>&#125;;</div><div class="line">		<span class="comment">//调用QueryRunner类的方法update执行sql语句</span></div><div class="line">		<span class="keyword">int</span> row = qr.update(con, sql, params);</div><div class="line">		System.out.println(row);</div><div class="line">		<span class="comment">//调用DBUtils释放资源</span></div><div class="line">		DbUtils.closeQuietly(con);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>4.事务</p>
+<ul>
+<li>一套操作</li>
+<li>在数据库中应用事务处理案例:转账案例</li>
+<li>成功: 提交事务 commit</li>
+<li>失败: 回滚事务 rollback<h4 id="QueryRunner实现增删改"><a href="#QueryRunner实现增删改" class="headerlink" title="QueryRunner实现增删改"></a>QueryRunner实现增删改</h4><ul>
+<li>方法:<br>  update(Connection conn,String sql,Object…params): 执行增删改<br>  Object…params: 可变参数,Object类型,当SQL语句中出现?占位符时使用<br>DBUTils中补齐SQL语句的参数使用了可变参数,可以传递一个具体的数组,也可以直接传递数组元素,如果是后者,编译后直接将这些元素再组织成一个数组<h5 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line">	<span class="comment">//获取数据库连接</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Connection con = JDBCUtilsConfig.getConnection();</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> SQLException </span>&#123;</div><div class="line">		insert();</div><div class="line">		<span class="comment">//update();</span></div><div class="line">		<span class="comment">//delete();</span></div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">()</span> <span class="keyword">throws</span> SQLException </span>&#123;</div><div class="line">		<span class="comment">//创建QueryRunner类对象</span></div><div class="line">		QueryRunner qr = <span class="keyword">new</span> QueryRunner();</div><div class="line">		String sql = <span class="string">"INSERT INTO sort (sname,sprice,sdesc) VALUES (?,?,?)"</span>;</div><div class="line">		<span class="comment">//将三个占位符的实际参数, 写在数组中</span></div><div class="line">		Object[] params = &#123;<span class="string">"体育用品"</span>,<span class="number">289.32</span>,<span class="string">"购买体育用品"</span>&#125;;</div><div class="line">		<span class="comment">//调用QueryRunner类的方法update执行sql语句</span></div><div class="line">		<span class="keyword">int</span> row = qr.update(con, sql, params);</div><div class="line">		System.out.println(row);</div><div class="line">		<span class="comment">//调用DBUtils释放资源</span></div><div class="line">		DbUtils.closeQuietly(con);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
 <h5 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">()</span> <span class="keyword">throws</span> SQLException </span>&#123;</div><div class="line">	<span class="comment">//创建QueryRunner类对象</span></div><div class="line">	QueryRunner qr = <span class="keyword">new</span> QueryRunner();</div><div class="line">	String sql = <span class="string">"UPDATE sort SET sname = ?,sprice = ?,sdesc = ? WHERE sid = ?"</span>;</div><div class="line">	<span class="comment">//定于Object数组,存取实际参数</span></div><div class="line">	Object[] params = &#123;<span class="string">"花卉"</span>,<span class="number">100.88</span>,<span class="string">"情人节玫瑰"</span>,<span class="number">4</span>&#125;;</div><div class="line">	<span class="keyword">int</span> row = qr.update(con, sql, params);</div><div class="line">	System.out.println(row);</div><div class="line">	<span class="comment">//调用DBUtils释放资源</span></div><div class="line">	DbUtils.closeQuietly(con);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h5 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">()</span> <span class="keyword">throws</span> SQLException</span>&#123;</div><div class="line">	<span class="comment">//创建QueryRunner对象</span></div><div class="line">	QueryRunner qr = <span class="keyword">new</span> QueryRunner();</div><div class="line">	String sql = <span class="string">"DELETE FROM sort WHERE sid = ?"</span>;</div><div class="line">	<span class="keyword">int</span> row = qr.update(con, sql, <span class="number">9</span>);</div><div class="line">	System.out.println(row);</div><div class="line">	DbUtils.closeQuietly(con);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="QueryRunner实现查询"><a href="#QueryRunner实现查询" class="headerlink" title="QueryRunner实现查询"></a>QueryRunner实现查询</h4><pre><code>* query(Connection conn, String sql, ResultSetHandler&lt;T&gt; rsh, Object... params): 
   用来完成表数据的查询操作
 * ResultSetHandler&lt;T&gt; rsh: 结果集的处理方式,传递的是ResultSetHandler接口的实现类
 * 注意: query()的返回值是泛型类型T
-</code></pre><h5 id="JavaBean"><a href="#JavaBean" class="headerlink" title="JavaBean"></a>JavaBean</h5><pre><code>* 是一个类,在开发中常用封装数据
-* 特性:
-    1. 需要实现接口
-    2. 提供私有字段
-    3. 提供getter/setter方法
-    4. 提供无参构造 
-</code></pre><h5 id="ResultSetHandler结果集处理类"><a href="#ResultSetHandler结果集处理类" class="headerlink" title="ResultSetHandler结果集处理类"></a>ResultSetHandler结果集处理类</h5><pre><code>* 8种结果集的处理方式:
-    1. ArrayHandler
-    2. ArrayListHandler
-    3. BeanHandler
-    4. BeanListHandler
+</code></pre><h5 id="JavaBean"><a href="#JavaBean" class="headerlink" title="JavaBean"></a>JavaBean</h5><p><strong>1.概念</strong><br>一个普通Java类,在开发中常用封装数据,一般数据库的一张表对应一个Java类,类名对应表名,类中的字段对应表中的字段<br><strong>2.创建JavaBean时,必须得遵循一定的规范</strong><br> A、必须有包<br> B、声明类时必须实现序列化接口(但是好多JavaBean实现没有遵守此规范)<br> C、属性私有，提供公共的set/get方法,让属性的数据赋值更为安全<br> D、必须提供无参构造<br>  场景1：如果当前类没有自定义构造方法，这是系统默认提供<br>  场景2：如果自定义了一个有参构造，这时，我们必须自己提供一个无参构造</p>
+<h5 id="ResultSetHandler结果集处理类"><a href="#ResultSetHandler结果集处理类" class="headerlink" title="ResultSetHandler结果集处理类"></a>ResultSetHandler结果集处理类</h5><pre><code>* 8种结果集的处理方式:
+    1. ArrayHandler------- 将第一条结果的每一个字段都当成数组的一个元素,组织成一个数组
+    2. ArrayListHandler--- 将每一条结果组织成一个数组，再将数组存储进集合
+    3. BeanHandler-------- 将查询结果的第一条记录组织成一个 JavaBean 对象
+    4. BeanListHandler---- 将每一条记录组织成一个 JavaBean 对象，然后将对象存入集合
     5. ColumnListHandler
-    6. ScalarHandler
-    7. MapHandler
-    8. MapListHandler
+    6. ScalarHandler------ 获取单个结果，一般结合聚合函数使用
+    7. MapHandler--------- 将第一条记录组织成一个 map 集合，键是字段名，值是字段对应的值
+    8. MapListHandler----- 将每一条记录组织成一个 map 集合，这些map 集合再存入 List
 </code></pre><h5 id="ArrayHandler与ArrayListHandler查询"><a href="#ArrayHandler与ArrayListHandler查询" class="headerlink" title="ArrayHandler与ArrayListHandler查询"></a>ArrayHandler与ArrayListHandler查询</h5><pre><code>1. ArrayHandler: 将结果集的第一行存储到对象数组中Object[]
     * 不管查询到几行,只存储第一行
     * 数组长度不等于0,代表查询到内容了 
@@ -449,6 +438,7 @@
 2. MapListHandler: 将结果集每一行存储到Map集合,键:列名,值:数据
     Map集合过多,存储到List集合
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">MapHandler:</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mapHandler</span><span class="params">()</span> <span class="keyword">throws</span> SQLException </span>&#123;</div><div class="line">	QueryRunner qr = <span class="keyword">new</span> QueryRunner();</div><div class="line">	String sql = <span class="string">"SELECT * FROM sort"</span>;</div><div class="line">	<span class="comment">//返回值是一个Map集合</span></div><div class="line">	Map&lt;String, Object&gt; map = qr.query(con, sql, <span class="keyword">new</span> MapHandler());</div><div class="line">	<span class="keyword">for</span> (String key : map.keySet()) &#123;</div><div class="line">		System.out.println(key+<span class="string">" "</span>+map.get(key));</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">MapListHandler:</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mapListHandler</span><span class="params">()</span><span class="keyword">throws</span> SQLException </span>&#123;</div><div class="line">	QueryRunner qr = <span class="keyword">new</span> QueryRunner();</div><div class="line">	String sql = <span class="string">"SELECT *  FROM sort"</span>;</div><div class="line">	<span class="comment">//返回值是List集合, 存储的是Map集合</span></div><div class="line">	List&lt;Map&lt;String, Object&gt;&gt; list = qr.query(con, sql, <span class="keyword">new</span> MapListHandler());</div><div class="line">	<span class="keyword">for</span> (Map&lt;String, Object&gt; map : list) &#123;</div><div class="line">		<span class="keyword">for</span> (String key : map.keySet()) &#123;</div><div class="line">			System.out.print(<span class="string">"\t"</span>+key+<span class="string">"\t"</span>+map.get(key)+<span class="string">"\t"</span>);</div><div class="line">		&#125;</div><div class="line">		System.out.println();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">测试工具类:</div><div class="line"><span class="number">1</span>.工具类返回的是一个DataSource接口的数据源</div><div class="line"><span class="number">2</span>.QueryRunner类的构造方法中可以直接接收DataSource接口的实现类</div><div class="line"><span class="keyword">import</span> java.sql.SQLException;</div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.apache.commons.dbutils.QueryRunner;</div><div class="line"><span class="keyword">import</span> org.apache.commons.dbutils.handlers.ArrayListHandler;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test2</span> </span>&#123;</div><div class="line">	<span class="comment">//QueryRunner类对象,写在类成员位置</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> QueryRunner qr = <span class="keyword">new</span> QueryRunner(JDBCUtils.getDataSource());</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="comment">//insert();</span></div><div class="line">		select();</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//定义方法,实现数据的查询</span></div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">select</span><span class="params">()</span> </span>&#123;</div><div class="line">		String sql = <span class="string">"SELECT * FROM sort"</span>;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			List&lt;Object[]&gt; list = qr.query(sql, <span class="keyword">new</span> ArrayListHandler());</div><div class="line">			<span class="keyword">for</span> (Object[] objs : list) &#123;</div><div class="line">				<span class="keyword">for</span> (Object obj : objs) &#123;</div><div class="line">					System.out.print(obj+<span class="string">"\t"</span>);</div><div class="line">				&#125;</div><div class="line">				System.out.println();</div><div class="line">			&#125;</div><div class="line">		&#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"查询数据失败"</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//定义方法,实现数据的添加</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">()</span></span>&#123;</div><div class="line">		String sql = <span class="string">"INSERT INTO sort (sname,sprice,sdesc) VALUES (?,?,?)"</span>;</div><div class="line">		Object[] params = &#123;<span class="string">"水果"</span>,<span class="number">100.00</span>,<span class="string">"香蕉	"</span>&#125;;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			<span class="keyword">int</span> row = qr.update(sql, params);</div><div class="line">			System.out.println(row);</div><div class="line">		&#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"添加数据失败"</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -536,7 +526,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2017/03/30/22-DBUtils/"
-           data-title="22.DBUtils" data-url="https://geekhoon.github.io/2017/03/30/22-DBUtils/">
+           data-title="DBUtils" data-url="https://geekhoon.github.io/2017/03/30/22-DBUtils/">
       </div>
     
   </div>
@@ -698,7 +688,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#DBUtils"><span class="nav-number">1.</span> <span class="nav-text">DBUtils</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#QueryRunner核心类"><span class="nav-number">1.1.</span> <span class="nav-text">QueryRunner核心类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#添加"><span class="nav-number">1.1.1.</span> <span class="nav-text">添加</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#修改"><span class="nav-number">1.1.2.</span> <span class="nav-text">修改</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除"><span class="nav-number">1.1.3.</span> <span class="nav-text">删除</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#QueryRunner实现查询"><span class="nav-number">1.2.</span> <span class="nav-text">QueryRunner实现查询</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#JavaBean"><span class="nav-number">1.2.1.</span> <span class="nav-text">JavaBean</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ResultSetHandler结果集处理类"><span class="nav-number">1.2.2.</span> <span class="nav-text">ResultSetHandler结果集处理类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ArrayHandler与ArrayListHandler查询"><span class="nav-number">1.2.3.</span> <span class="nav-text">ArrayHandler与ArrayListHandler查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#BeanHandler与BeanListHandler查询"><span class="nav-number">1.2.4.</span> <span class="nav-text">BeanHandler与BeanListHandler查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ColumnListHandler与ScalarHandler查询"><span class="nav-number">1.2.5.</span> <span class="nav-text">ColumnListHandler与ScalarHandler查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#MapHandler与MapListHandler查询"><span class="nav-number">1.2.6.</span> <span class="nav-text">MapHandler与MapListHandler查询</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#QueryRunner实现增删改"><span class="nav-number">1.1.</span> <span class="nav-text">QueryRunner实现增删改</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#添加"><span class="nav-number">1.1.1.</span> <span class="nav-text">添加</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#修改"><span class="nav-number">1.1.2.</span> <span class="nav-text">修改</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除"><span class="nav-number">1.1.3.</span> <span class="nav-text">删除</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#QueryRunner实现查询"><span class="nav-number">1.2.</span> <span class="nav-text">QueryRunner实现查询</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#JavaBean"><span class="nav-number">1.2.1.</span> <span class="nav-text">JavaBean</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ResultSetHandler结果集处理类"><span class="nav-number">1.2.2.</span> <span class="nav-text">ResultSetHandler结果集处理类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ArrayHandler与ArrayListHandler查询"><span class="nav-number">1.2.3.</span> <span class="nav-text">ArrayHandler与ArrayListHandler查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#BeanHandler与BeanListHandler查询"><span class="nav-number">1.2.4.</span> <span class="nav-text">BeanHandler与BeanListHandler查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ColumnListHandler与ScalarHandler查询"><span class="nav-number">1.2.5.</span> <span class="nav-text">ColumnListHandler与ScalarHandler查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#MapHandler与MapListHandler查询"><span class="nav-number">1.2.6.</span> <span class="nav-text">MapHandler与MapListHandler查询</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
