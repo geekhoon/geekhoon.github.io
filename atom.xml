@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-03-30T16:25:09.543Z</updated>
+  <updated>2017-03-30T16:27:58.465Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>设计模式之01.装饰设计模式</title>
+    <title>装饰设计模式</title>
     <link href="https://geekhoon.github.io/2017/03/31/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B01-%E8%A3%85%E9%A5%B0%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     <id>https://geekhoon.github.io/2017/03/31/设计模式之01-装饰设计模式/</id>
     <published>2017-03-30T16:22:55.000Z</published>
-    <updated>2017-03-30T16:25:09.543Z</updated>
+    <updated>2017-03-30T16:27:58.465Z</updated>
     
     <summary type="html">
     
