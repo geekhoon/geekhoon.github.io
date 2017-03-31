@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-03-31T16:38:34.345Z</updated>
+  <updated>2017-03-31T16:41:09.066Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -20,10 +20,11 @@
     <link href="https://geekhoon.github.io/2017/03/31/JavaWeb-05-XML/"/>
     <id>https://geekhoon.github.io/2017/03/31/JavaWeb-05-XML/</id>
     <published>2017-03-31T00:31:37.000Z</published>
-    <updated>2017-03-31T16:38:34.345Z</updated>
+    <updated>2017-03-31T16:41:09.066Z</updated>
     
     <content type="html"><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><strong>1.概念</strong><br>XML(Extensible Markup Language),是可扩展的标记语言.<br>标记—–由标签组成<br>可扩展—标签可以自定义<br><a id="more"></a><br><strong>2.与HTMl的区分</strong><br>HTML – 存储页面内容(写页面)<br>XML — 作为配置文件,作为数据传输的载体</p>
-<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p><strong>1.后缀名</strong>是.xml,使用浏览器可以查看<br><strong>2.头部</strong>是xml的声明,声明必须位于第一行第一列<br>  声明的属性:version(版本:1.0),encoding(编码集)<br><strong>3.元素(标签)</strong><br>严格区分大小写<br>不能使用空格和冒号,冒号某些情况下可用<br>不建议使用XML,xml,Xml..等等做标签名<br>其余语法规则和HTML一样<br><strong>4.属性</strong><br>除了自定义的,其余和HTML规则一样<br><strong>5.注释</strong><br><!-- 注释 --><br><strong>6.转义字符</strong><br>一些特殊符号不能直接使用必须使用转义字符<br>空格需要使用全角输入法录入空格</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p><strong>1.后缀名</strong>是.xml,使用浏览器可以查看<br><strong>2.头部</strong>是xml的声明,声明必须位于第一行第一列<br>  声明的属性:version(版本:1.0),encoding(编码集)<br><strong>3.元素(标签)</strong><br>严格区分大小写<br>不能使用空格和冒号,冒号某些情况下可用<br>不建议使用XML,xml,Xml..等等做标签名<br>其余语法规则和HTML一样<br><strong>4.属性</strong><br>除了自定义的,其余和HTML规则一样<br><strong>5.注释</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 注释 --&gt;</span></div></pre></td></tr></table></figure></p>
+<p><strong>6.转义字符</strong><br>一些特殊符号不能直接使用必须使用转义字符<br>空格需要使用全角输入法录入空格</p>
 <pre><code>- 小于号: &amp;lt;
 - 大于号: &amp;gt;
 - 双引号: &amp;quot;
