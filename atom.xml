@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-03-30T17:49:03.598Z</updated>
+  <updated>2017-03-31T16:36:54.506Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -16,16 +16,73 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>JavaWeb_05.XML</title>
+    <link href="https://geekhoon.github.io/2017/03/31/JavaWeb-05-XML/"/>
+    <id>https://geekhoon.github.io/2017/03/31/JavaWeb-05-XML/</id>
+    <published>2017-03-31T00:31:37.000Z</published>
+    <updated>2017-03-31T16:36:54.506Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><strong>1.概念</strong><br>XML(Extensible Markup Language),是可扩展的标记语言.<br>标记—–由标签组成<br>可扩展—标签可以自定义<br><a id="more"></a><br><strong>2.与HTMl的区分</strong><br>HTML – 存储页面内容(写页面)<br>XML — 作为配置文件,作为数据传输的载体</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p><strong>1.后缀名</strong>是.xml,使用浏览器可以查看<br><strong>2.头部</strong>是xml的声明,声明必须位于第一行第一列<br>  声明的属性:version(版本:1.0),encoding(编码集)<br><strong>3.元素(标签)</strong><br>严格区分大小写<br>不能使用空格和冒号,冒号某些情况下可用<br>不建议使用XML,xml,Xml..等等做标签名<br>其余语法规则和HTML一样<br><strong>4.属性</strong><br>除了自定义的,其余和HTML规则一样<br><strong>5.注释</strong><br><!-- 注释 --><br><strong>6.转义字符</strong><br>一些特殊符号不能直接使用必须使用转义字符<br>空格需要使用全角输入法录入空格</p>
+<pre><code>- 小于号: &amp;lt;
+- 大于号: &amp;gt;
+- 双引号: &amp;quot;
+- 单引号: &amp;apos;
+- 与符号: &amp;amp;
+</code></pre><p>转义字符少用,因为大量使用会影响XML的解析效率,且易读性差<br><strong>7.转义字符使用的替换方案</strong><br>语法:&lt;![CDATA[存储任意内容]]&gt;,可以保证内容原样输出<br>解析时,只获取[]中的内容</p>
+<h2 id="XML的解析"><a href="#XML的解析" class="headerlink" title="XML的解析"></a>XML的解析</h2><p>解析就是获得XML中标签的属性或内容<br>解析方案:(使用第三方实现)</p>
+<h3 id="解析算法"><a href="#解析算法" class="headerlink" title="解析算法"></a>解析算法</h3><p>1.DOM解析方式: 将标签全部加载进内存,形成Dom树<br>2.SAX解析方式: 一行一行读取,当前行前面的数据已经销毁了<br>比较:<br>(1)内存角度,SAX解析方式占的内存更小<br>(2)功能角度,DOM方式可以根据当前标签进行上下推导,功能更强大<br>使用: XML比较小时使用DOM,比较大时使用SAX解析<br>基于上述两种解析实现,有不同的第三方封装:<br>(1)JAXP — JDK内置的解析实现,不常用<br>(2)JDOM — 只用到类,没使用接口,灵活性差<br>(3)DOM4J – 相对应JDOM使用了接口,扩展性更好<br>(4)JSOUP – 专门解析HTML,HTML可以理解为特殊的XML</p>
+<h3 id="解析优化"><a href="#解析优化" class="headerlink" title="解析优化"></a>解析优化</h3><p>如果标签纵深比较多,那么要获取该标签对象,得逐级获取,代码实现比较麻烦,dom4j解析层级结构复杂的标签时,进行了优化：<br>优化方案是使用选择器(与 CSS 中，JQuery 中的选择器类似)</p>
+<h2 id="DOM4J使用"><a href="#DOM4J使用" class="headerlink" title="DOM4J使用"></a>DOM4J使用</h2><p>1.导jar包</p>
+<pre><code>- dom4j-1.6.1.jar
+- jaxen-1.1-beta-6.jar
+</code></pre><p>2.步骤:<br>(1)创建一个文件输入流<br>(2)创建DOM4J的解析器,读流<br>SAXReader r = new SAXReader();<br>(3)解析器读流,生成DOM树<br>Document doc = r.read(in);<br>(4)解析DOM树 — 获取配置信息</p>
+<pre><code>- 获取根元素对应的对象: Element root = doc.getRootElement()
+- 操作元素相关API
+    - attributeValue(&quot;属性名&quot;); ---- 返回属性值
+    - elements(&quot;标签名&quot;) ----------- 获取所有指定名称的子级标签,可以不指定名称
+    - element(&quot;标签名&quot;) ------------ 获取第一个有指定名称的标签,可以不指定名称
+    - getText() ------------------- 获取标签的文本内容体
+- 优化:如果标签有2级,获取子级标签的文本内容
+    - 方案1: 先获取子级标签对象,调用 getText() --- 获取文本
+    - 方案2: 父级标签.elementText(&quot;子级标签名&quot;) --- 简化代码 
+</code></pre><h3 id="DOM4J常规使用案例"><a href="#DOM4J常规使用案例" class="headerlink" title="DOM4J常规使用案例"></a>DOM4J常规使用案例</h3><h4 id="配置文件animals-xml写法"><a href="#配置文件animals-xml写法" class="headerlink" title="配置文件animals.xml写法"></a>配置文件animals.xml写法</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">animals</span> <span class="attr">version</span>=<span class="string">"1.0"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">animal</span> <span class="attr">id</span>=<span class="string">"1.1"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>猫<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">age</span>&gt;</span>2<span class="tag">&lt;/<span class="name">age</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">animal</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">animal</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>狗<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">age</span>&gt;</span>3<span class="tag">&lt;/<span class="name">age</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">animal</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">animals</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="测试类"><a href="#测试类" class="headerlink" title="测试类"></a>测试类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DOM4JDemo</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">		<span class="comment">//1.关联文件,创建一个文件输入流</span></div><div class="line">		InputStream in = DOM4JDemo.class.getClassLoader().getResourceAsStream(<span class="string">"animals.xml"</span>);</div><div class="line">		<span class="comment">//2.创建dom4j的解析器</span></div><div class="line">		SAXReader r = <span class="keyword">new</span> SAXReader();</div><div class="line">		<span class="comment">//读流,创建一个dom树</span></div><div class="line">		Document doc = r.read(in);</div><div class="line">		<span class="comment">//关流</span></div><div class="line">		in.close();</div><div class="line">		<span class="comment">//3.解析Dom树,获取配置信息</span></div><div class="line">		<span class="comment">//3.1获取根元素对应的对象</span></div><div class="line">		Element root = doc.getRootElement();</div><div class="line">		<span class="comment">//获取属性</span></div><div class="line">		String value = root.attributeValue(<span class="string">"version"</span>);</div><div class="line">		System.out.println(value);<span class="comment">//1.0</span></div><div class="line">		<span class="comment">//3.2内容体</span></div><div class="line">		<span class="comment">//获取所有名字为animal的子级标签</span></div><div class="line">		List es = root.elements(<span class="string">"animal"</span>);</div><div class="line">		System.out.println(es.size());<span class="comment">//2</span></div><div class="line">		<span class="comment">//获取第一个animal子级标签</span></div><div class="line">		Element first = root.element(<span class="string">"animal"</span>);</div><div class="line"></div><div class="line">		<span class="comment">//获取first的id属性</span></div><div class="line">		String value2 = first.attributeValue(<span class="string">"id"</span>);</div><div class="line">		System.out.println(<span class="string">"id:  "</span>+value2);</div><div class="line"></div><div class="line">		<span class="comment">//获取name这个子级标签</span></div><div class="line">		Element name = first.element(<span class="string">"name"</span>);</div><div class="line"></div><div class="line">		<span class="comment">//获取name文本内容</span></div><div class="line">		String text = name.getText();</div><div class="line">		System.out.println(<span class="string">"文本:"</span>+text);</div><div class="line">		</div><div class="line">		<span class="comment">//优化:(代码简单)</span></div><div class="line">		System.out.println(first.elementText(<span class="string">"name"</span>));</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="模拟servlet"><a href="#模拟servlet" class="headerlink" title="模拟servlet"></a>模拟servlet</h2><p>Servlet是在服务器上运行的小程序.创建JavaEEServlet和AndroidServlet,假设它们是服务器上的两个小程序,导入官方web.xml配置文件,进行对应更改.<br>需求：<br>1.控制台录入访问路径<br>2.编写相关的实现程序（Servlet）<br>3.录入路径后，会执行相应的程序</p>
+<h3 id="Servlet小程序"><a href="#Servlet小程序" class="headerlink" title="Servlet小程序"></a>Servlet小程序</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaEEServlet</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</div><div class="line">		System.out.println(<span class="string">"JavaEE Servlet 创建了...."</span>);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">()</span></span>&#123;</div><div class="line">		System.out.println(<span class="string">"JavaEE servlet 生成EE课程的 HTML 代码，发送回客户端"</span>);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destory</span><span class="params">()</span></span>&#123;</div><div class="line">		System.out.println(<span class="string">"JavaEE Servlet 销毁....."</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AndroidServlet</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</div><div class="line">		System.out.println(<span class="string">"Android Servlet 创建了...."</span>);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">()</span></span>&#123;</div><div class="line">		System.out.println(<span class="string">"Android servlet 生成安卓课程的 HTML 代码，发送回客户端"</span>);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destory</span><span class="params">()</span></span>&#123;</div><div class="line">		System.out.println(<span class="string">"Android Servlet 销毁....."</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="web-xml配置文件"><a href="#web-xml配置文件" class="headerlink" title="web.xml配置文件"></a>web.xml配置文件</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">web-app</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">servlet</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>ee<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.geekhoon.demo.JavaEEServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>ee<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/JavaEE<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">servlet</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>an<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.geekhoon.demo.AndroidServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>an<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/Android<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="测试类-1"><a href="#测试类-1" class="headerlink" title="测试类"></a>测试类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Use</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">		System.out.println(<span class="string">"请输入一个路径:"</span>);</div><div class="line">		Scanner sc = <span class="keyword">new</span> Scanner(System.in);</div><div class="line">		String url = sc.next();</div><div class="line">		</div><div class="line">		</div><div class="line">		<span class="comment">//1.创建文件输入流</span></div><div class="line">		InputStream in = Use.class.getClassLoader().getResourceAsStream(<span class="string">"web.xml"</span>);</div><div class="line">		<span class="comment">//2.创建解析器</span></div><div class="line">		SAXReader r = <span class="keyword">new</span> SAXReader();</div><div class="line">		<span class="comment">//3.读流,生成dom树</span></div><div class="line">		Document doc = r.read(in);</div><div class="line">		in.close();</div><div class="line">		<span class="comment">//4.解析dom树</span></div><div class="line">		Element root = doc.getRootElement();</div><div class="line">		<span class="comment">//创建map集合存name和class</span></div><div class="line">		Map&lt;String,String&gt; nameClass = <span class="keyword">new</span> HashMap&lt;String,String&gt;();</div><div class="line">		List&lt;Element&gt; es = root.elements(<span class="string">"servlet"</span>);</div><div class="line">-----------------------------------------------------</div><div class="line">使用XPath优化:使用选择器</div><div class="line">		List&lt;Element&gt; es = root.selectNodes(<span class="string">"//servlet"</span>);</div><div class="line">		<span class="keyword">for</span> (Element e : es) &#123;</div><div class="line">			String name = e.elementText(<span class="string">"servlet-name"</span>);</div><div class="line">			String clazz = e.elementText(<span class="string">"servlet-class"</span>);</div><div class="line">			nameClass.put(name, clazz);</div><div class="line">		&#125;</div><div class="line">		<span class="comment">//创建map集合存name和url</span></div><div class="line">		Map&lt;String,String&gt; nameUrl = <span class="keyword">new</span> HashMap&lt;String,String&gt;();</div><div class="line">		List&lt;Element&gt; es2 = root.elements(<span class="string">"servlet-mapping"</span>);</div><div class="line">-----------------------------------------------------</div><div class="line">使用XPath优化:使用选择器</div><div class="line">		List&lt;Element&gt; es2 = root.selectNodes(<span class="string">"//servlet-mapping"</span>);</div><div class="line">		<span class="keyword">for</span> (Element e2 : es2) &#123;</div><div class="line">			String name = e2.elementText(<span class="string">"servlet-name"</span>);</div><div class="line">			String urlpattern = e2.elementText(<span class="string">"url-pattern"</span>);</div><div class="line">			nameUrl.put(name, urlpattern);</div><div class="line">		&#125;</div><div class="line">		<span class="comment">//整合上面两个数组,获得全类名及url</span></div><div class="line">		Map&lt;String,String&gt; urlClass = <span class="keyword">new</span> HashMap&lt;String,String&gt;();</div><div class="line">		Set&lt;String&gt; keys = nameUrl.keySet();</div><div class="line">		<span class="keyword">for</span> (String key : keys) &#123;</div><div class="line">			String clazz = nameClass.get(key);</div><div class="line">			String urlpattern = nameUrl.get(key);</div><div class="line">			urlClass.put(urlpattern, clazz);</div><div class="line">		&#125;</div><div class="line">		<span class="comment">//根据用户输入的url,查询对应的value</span></div><div class="line">		String className = urlClass.get(url);</div><div class="line">		<span class="comment">//System.out.println(className);</span></div><div class="line">		<span class="keyword">if</span>(className != <span class="keyword">null</span>)&#123;</div><div class="line">			<span class="comment">//反射,获得字节码对象</span></div><div class="line">			Class clazz = Class.forName(className);</div><div class="line">			<span class="comment">//获取构造方法</span></div><div class="line">			Constructor con = clazz.getConstructor();</div><div class="line">			<span class="comment">//创建对象</span></div><div class="line">			Object obj = con.newInstance();</div><div class="line">			<span class="comment">//获取方法</span></div><div class="line">			Method init = clazz.getMethod(<span class="string">"init"</span>);</div><div class="line">			Method service = clazz.getMethod(<span class="string">"service"</span>);</div><div class="line">			Method destory = clazz.getMethod(<span class="string">"destory"</span>);</div><div class="line">			<span class="comment">//执行方法</span></div><div class="line">			init.invoke(obj);</div><div class="line">			service.invoke(obj);</div><div class="line">			destory.invoke(obj);</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			System.out.println(<span class="string">"路径不存在"</span>);</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h2><p>限制XML可以使用的标签的名称,属性及内容体,规范XML的书写</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;1.概念&lt;/strong&gt;&lt;br&gt;XML(Extensible Markup Language),是可扩展的标记语言.&lt;br&gt;标记—–由标签组成&lt;br&gt;可扩展—标签可以自定义&lt;br&gt;
+    
+    </summary>
+    
+      <category term="JavaWeb" scheme="https://geekhoon.github.io/categories/JavaWeb/"/>
+    
+    
+      <category term="前端开发" scheme="https://geekhoon.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
     <title>装饰者设计模式---设计模式(1)</title>
     <link href="https://geekhoon.github.io/2017/03/31/%E8%A3%85%E9%A5%B0%E8%80%85%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-1/"/>
     <id>https://geekhoon.github.io/2017/03/31/装饰者设计模式-设计模式-1/</id>
     <published>2017-03-30T17:49:03.000Z</published>
-    <updated>2017-03-30T17:49:03.598Z</updated>
+    <updated>2017-03-30T17:53:10.848Z</updated>
     
     <summary type="html">
     
     </summary>
     
+      <category term="JAVA进阶" scheme="https://geekhoon.github.io/categories/JAVA%E8%BF%9B%E9%98%B6/"/>
+    
+    
+      <category term="设计模式" scheme="https://geekhoon.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
@@ -3107,73 +3164,6 @@ ArrayList类   LinkedList类                                              HashSe
 * 类是用于描述事物的.
 * 事物的特征叫属性
 * 事物的功能叫方法
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="JAVA基础" scheme="https://geekhoon.github.io/categories/JAVA%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="JAVA基础语法" scheme="https://geekhoon.github.io/tags/JAVA%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>方法</title>
-    <link href="https://geekhoon.github.io/2017/01/13/08-%E6%96%B9%E6%B3%95/"/>
-    <id>https://geekhoon.github.io/2017/01/13/08-方法/</id>
-    <published>2017-01-13T12:02:47.000Z</published>
-    <updated>2017-03-28T13:16:29.005Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="方法的概述"><a href="#方法的概述" class="headerlink" title="方法的概述"></a>方法的概述</h3><pre><code>* 提高代码的复用性  
-* 完成特定功能的代码块。
-</code></pre><a id="more"></a> 
-<h3 id="方法的定义格式"><a href="#方法的定义格式" class="headerlink" title="方法的定义格式"></a>方法的定义格式</h3><pre><code>* 修饰符 返回值类型 方法名(参数类型 参数名1,参数类型 参数名2...) {
-        方法体语句;
-        return 返回值; 
-  } 
-* 方法的格式说明
-    * 参数：
-        * 实际参数：就是实际参与运算的,调用方法时传递
-        * 形式参数；就是方法定义上的，用于接收实际参数
-    * return：
-        * 将返回值返回给调用者
-        * 结束方法
-* 两个明确：
-    返回值类型：结果的数据类型
-    参数列表：参数的个数及对应的数据类型    
-</code></pre><h3 id="调用方法执行流程"><a href="#调用方法执行流程" class="headerlink" title="调用方法执行流程"></a>调用方法执行流程</h3><pre><code>* 方法的定义是没有顺序的，写在main函数的上边或者下边都可以。
-* 方法的执行，是把实参传递给形参，从而来执行的。
-* 方法只有被调用才会执行。
-</code></pre><p>方法调用的内存图:</p>
-<p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170113/200111183.bmp" alt=""></p>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><pre><code>* 方法不调用不执行
-* 方法之间是平级关系，不能嵌套定义
-* 方法返回值是void,方法中可以省略return 不写
-       return 下面不能有代码
-* 如果方法有明确的返回值类型，就必须有return语句返回。
-* 方法在调用的时候，不用再传递数据类型
-* 调用方法的时候,返回值是void, 不能写在输出语句中
-* 不能重复定义(指的是方法名,参数列表都相同的不能在同一类中定义)
-</code></pre><h3 id="方法的重载"><a href="#方法的重载" class="headerlink" title="方法的重载"></a>方法的重载</h3><pre><code>* 在同一个类中，方法名相同，参数列表不同。    
-* 参数列表不同：
-    * 个数不同
-    * 类型不同
-    * 顺序不同(算重载)
-</code></pre><h3 id="方法重载注意事项"><a href="#方法重载注意事项" class="headerlink" title="方法重载注意事项"></a>方法重载注意事项</h3><pre><code>* 参数列表必须不同
-* 重载和参数变量名无关
-* 重载和返回值类型无关
-* 重载和修饰符无关
-
-* 技巧: 重载看方法名和参数列表
-</code></pre><h3 id="方法参数"><a href="#方法参数" class="headerlink" title="方法参数"></a>方法参数</h3><pre><code>* 方法参数是基本数据类型时，传递的是值。
-* 方法参数是引用数据类型时，传递的是内存地址值。
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;方法的概述&quot;&gt;&lt;a href=&quot;#方法的概述&quot; class=&quot;headerlink&quot; title=&quot;方法的概述&quot;&gt;&lt;/a&gt;方法的概述&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;* 提高代码的复用性  
-* 完成特定功能的代码块。
 &lt;/code&gt;&lt;/pre&gt;
     
     </summary>

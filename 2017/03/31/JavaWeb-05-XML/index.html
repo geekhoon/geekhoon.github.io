@@ -1,0 +1,1047 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端开发," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="geekhoon" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="概述1.概念XML(Extensible Markup Language),是可扩展的标记语言.标记—–由标签组成可扩展—标签可以自定义">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaWeb_05.XML">
+<meta property="og:url" content="https://geekhoon.github.io/2017/03/31/JavaWeb-05-XML/index.html">
+<meta property="og:site_name" content="geekhoon">
+<meta property="og:description" content="概述1.概念XML(Extensible Markup Language),是可扩展的标记语言.标记—–由标签组成可扩展—标签可以自定义">
+<meta property="og:updated_time" content="2017-03-31T16:36:54.506Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaWeb_05.XML">
+<meta name="twitter:description" content="概述1.概念XML(Extensible Markup Language),是可扩展的标记语言.标记—–由标签组成可扩展—标签可以自定义">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6313944065398277000,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://geekhoon.github.io/2017/03/31/JavaWeb-05-XML/"/>
+
+  <title> JavaWeb_05.XML | geekhoon </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?0e415640295b545ca0e400dbf0b42e7e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+   
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">geekhoon</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">怕, 你就输一辈子</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaWeb_05.XML
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-31T08:31:37+08:00" content="2017-03-31">
+              2017-03-31
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaWeb/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaWeb</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/03/31/JavaWeb-05-XML/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/31/JavaWeb-05-XML/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/03/31/JavaWeb-05-XML/" class="leancloud_visitors" data-flag-title="JavaWeb_05.XML">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><strong>1.概念</strong><br>XML(Extensible Markup Language),是可扩展的标记语言.<br>标记—–由标签组成<br>可扩展—标签可以自定义<br><a id="more"></a><br><strong>2.与HTMl的区分</strong><br>HTML – 存储页面内容(写页面)<br>XML — 作为配置文件,作为数据传输的载体</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p><strong>1.后缀名</strong>是.xml,使用浏览器可以查看<br><strong>2.头部</strong>是xml的声明,声明必须位于第一行第一列<br>  声明的属性:version(版本:1.0),encoding(编码集)<br><strong>3.元素(标签)</strong><br>严格区分大小写<br>不能使用空格和冒号,冒号某些情况下可用<br>不建议使用XML,xml,Xml..等等做标签名<br>其余语法规则和HTML一样<br><strong>4.属性</strong><br>除了自定义的,其余和HTML规则一样<br><strong>5.注释</strong><br><!-- 注释 --><br><strong>6.转义字符</strong><br>一些特殊符号不能直接使用必须使用转义字符<br>空格需要使用全角输入法录入空格</p>
+<pre><code>- 小于号: &amp;lt;
+- 大于号: &amp;gt;
+- 双引号: &amp;quot;
+- 单引号: &amp;apos;
+- 与符号: &amp;amp;
+</code></pre><p>转义字符少用,因为大量使用会影响XML的解析效率,且易读性差<br><strong>7.转义字符使用的替换方案</strong><br>语法:&lt;![CDATA[存储任意内容]]&gt;,可以保证内容原样输出<br>解析时,只获取[]中的内容</p>
+<h2 id="XML的解析"><a href="#XML的解析" class="headerlink" title="XML的解析"></a>XML的解析</h2><p>解析就是获得XML中标签的属性或内容<br>解析方案:(使用第三方实现)</p>
+<h3 id="解析算法"><a href="#解析算法" class="headerlink" title="解析算法"></a>解析算法</h3><p>1.DOM解析方式: 将标签全部加载进内存,形成Dom树<br>2.SAX解析方式: 一行一行读取,当前行前面的数据已经销毁了<br>比较:<br>(1)内存角度,SAX解析方式占的内存更小<br>(2)功能角度,DOM方式可以根据当前标签进行上下推导,功能更强大<br>使用: XML比较小时使用DOM,比较大时使用SAX解析<br>基于上述两种解析实现,有不同的第三方封装:<br>(1)JAXP — JDK内置的解析实现,不常用<br>(2)JDOM — 只用到类,没使用接口,灵活性差<br>(3)DOM4J – 相对应JDOM使用了接口,扩展性更好<br>(4)JSOUP – 专门解析HTML,HTML可以理解为特殊的XML</p>
+<h3 id="解析优化"><a href="#解析优化" class="headerlink" title="解析优化"></a>解析优化</h3><p>如果标签纵深比较多,那么要获取该标签对象,得逐级获取,代码实现比较麻烦,dom4j解析层级结构复杂的标签时,进行了优化：<br>优化方案是使用选择器(与 CSS 中，JQuery 中的选择器类似)</p>
+<h2 id="DOM4J使用"><a href="#DOM4J使用" class="headerlink" title="DOM4J使用"></a>DOM4J使用</h2><p>1.导jar包</p>
+<pre><code>- dom4j-1.6.1.jar
+- jaxen-1.1-beta-6.jar
+</code></pre><p>2.步骤:<br>(1)创建一个文件输入流<br>(2)创建DOM4J的解析器,读流<br>SAXReader r = new SAXReader();<br>(3)解析器读流,生成DOM树<br>Document doc = r.read(in);<br>(4)解析DOM树 — 获取配置信息</p>
+<pre><code>- 获取根元素对应的对象: Element root = doc.getRootElement()
+- 操作元素相关API
+    - attributeValue(&quot;属性名&quot;); ---- 返回属性值
+    - elements(&quot;标签名&quot;) ----------- 获取所有指定名称的子级标签,可以不指定名称
+    - element(&quot;标签名&quot;) ------------ 获取第一个有指定名称的标签,可以不指定名称
+    - getText() ------------------- 获取标签的文本内容体
+- 优化:如果标签有2级,获取子级标签的文本内容
+    - 方案1: 先获取子级标签对象,调用 getText() --- 获取文本
+    - 方案2: 父级标签.elementText(&quot;子级标签名&quot;) --- 简化代码 
+</code></pre><h3 id="DOM4J常规使用案例"><a href="#DOM4J常规使用案例" class="headerlink" title="DOM4J常规使用案例"></a>DOM4J常规使用案例</h3><h4 id="配置文件animals-xml写法"><a href="#配置文件animals-xml写法" class="headerlink" title="配置文件animals.xml写法"></a>配置文件animals.xml写法</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">animals</span> <span class="attr">version</span>=<span class="string">"1.0"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">animal</span> <span class="attr">id</span>=<span class="string">"1.1"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>猫<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">age</span>&gt;</span>2<span class="tag">&lt;/<span class="name">age</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">animal</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">animal</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>狗<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">age</span>&gt;</span>3<span class="tag">&lt;/<span class="name">age</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">animal</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">animals</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="测试类"><a href="#测试类" class="headerlink" title="测试类"></a>测试类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DOM4JDemo</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">		<span class="comment">//1.关联文件,创建一个文件输入流</span></div><div class="line">		InputStream in = DOM4JDemo.class.getClassLoader().getResourceAsStream(<span class="string">"animals.xml"</span>);</div><div class="line">		<span class="comment">//2.创建dom4j的解析器</span></div><div class="line">		SAXReader r = <span class="keyword">new</span> SAXReader();</div><div class="line">		<span class="comment">//读流,创建一个dom树</span></div><div class="line">		Document doc = r.read(in);</div><div class="line">		<span class="comment">//关流</span></div><div class="line">		in.close();</div><div class="line">		<span class="comment">//3.解析Dom树,获取配置信息</span></div><div class="line">		<span class="comment">//3.1获取根元素对应的对象</span></div><div class="line">		Element root = doc.getRootElement();</div><div class="line">		<span class="comment">//获取属性</span></div><div class="line">		String value = root.attributeValue(<span class="string">"version"</span>);</div><div class="line">		System.out.println(value);<span class="comment">//1.0</span></div><div class="line">		<span class="comment">//3.2内容体</span></div><div class="line">		<span class="comment">//获取所有名字为animal的子级标签</span></div><div class="line">		List es = root.elements(<span class="string">"animal"</span>);</div><div class="line">		System.out.println(es.size());<span class="comment">//2</span></div><div class="line">		<span class="comment">//获取第一个animal子级标签</span></div><div class="line">		Element first = root.element(<span class="string">"animal"</span>);</div><div class="line"></div><div class="line">		<span class="comment">//获取first的id属性</span></div><div class="line">		String value2 = first.attributeValue(<span class="string">"id"</span>);</div><div class="line">		System.out.println(<span class="string">"id:  "</span>+value2);</div><div class="line"></div><div class="line">		<span class="comment">//获取name这个子级标签</span></div><div class="line">		Element name = first.element(<span class="string">"name"</span>);</div><div class="line"></div><div class="line">		<span class="comment">//获取name文本内容</span></div><div class="line">		String text = name.getText();</div><div class="line">		System.out.println(<span class="string">"文本:"</span>+text);</div><div class="line">		</div><div class="line">		<span class="comment">//优化:(代码简单)</span></div><div class="line">		System.out.println(first.elementText(<span class="string">"name"</span>));</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="模拟servlet"><a href="#模拟servlet" class="headerlink" title="模拟servlet"></a>模拟servlet</h2><p>Servlet是在服务器上运行的小程序.创建JavaEEServlet和AndroidServlet,假设它们是服务器上的两个小程序,导入官方web.xml配置文件,进行对应更改.<br>需求：<br>1.控制台录入访问路径<br>2.编写相关的实现程序（Servlet）<br>3.录入路径后，会执行相应的程序</p>
+<h3 id="Servlet小程序"><a href="#Servlet小程序" class="headerlink" title="Servlet小程序"></a>Servlet小程序</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaEEServlet</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</div><div class="line">		System.out.println(<span class="string">"JavaEE Servlet 创建了...."</span>);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">()</span></span>&#123;</div><div class="line">		System.out.println(<span class="string">"JavaEE servlet 生成EE课程的 HTML 代码，发送回客户端"</span>);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destory</span><span class="params">()</span></span>&#123;</div><div class="line">		System.out.println(<span class="string">"JavaEE Servlet 销毁....."</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AndroidServlet</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</div><div class="line">		System.out.println(<span class="string">"Android Servlet 创建了...."</span>);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">()</span></span>&#123;</div><div class="line">		System.out.println(<span class="string">"Android servlet 生成安卓课程的 HTML 代码，发送回客户端"</span>);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destory</span><span class="params">()</span></span>&#123;</div><div class="line">		System.out.println(<span class="string">"Android Servlet 销毁....."</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="web-xml配置文件"><a href="#web-xml配置文件" class="headerlink" title="web.xml配置文件"></a>web.xml配置文件</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">web-app</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">servlet</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>ee<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.geekhoon.demo.JavaEEServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>ee<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/JavaEE<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">servlet</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>an<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.geekhoon.demo.AndroidServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>an<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/Android<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="测试类-1"><a href="#测试类-1" class="headerlink" title="测试类"></a>测试类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Use</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">		System.out.println(<span class="string">"请输入一个路径:"</span>);</div><div class="line">		Scanner sc = <span class="keyword">new</span> Scanner(System.in);</div><div class="line">		String url = sc.next();</div><div class="line">		</div><div class="line">		</div><div class="line">		<span class="comment">//1.创建文件输入流</span></div><div class="line">		InputStream in = Use.class.getClassLoader().getResourceAsStream(<span class="string">"web.xml"</span>);</div><div class="line">		<span class="comment">//2.创建解析器</span></div><div class="line">		SAXReader r = <span class="keyword">new</span> SAXReader();</div><div class="line">		<span class="comment">//3.读流,生成dom树</span></div><div class="line">		Document doc = r.read(in);</div><div class="line">		in.close();</div><div class="line">		<span class="comment">//4.解析dom树</span></div><div class="line">		Element root = doc.getRootElement();</div><div class="line">		<span class="comment">//创建map集合存name和class</span></div><div class="line">		Map&lt;String,String&gt; nameClass = <span class="keyword">new</span> HashMap&lt;String,String&gt;();</div><div class="line">		List&lt;Element&gt; es = root.elements(<span class="string">"servlet"</span>);</div><div class="line">-----------------------------------------------------</div><div class="line">使用XPath优化:使用选择器</div><div class="line">		List&lt;Element&gt; es = root.selectNodes(<span class="string">"//servlet"</span>);</div><div class="line">		<span class="keyword">for</span> (Element e : es) &#123;</div><div class="line">			String name = e.elementText(<span class="string">"servlet-name"</span>);</div><div class="line">			String clazz = e.elementText(<span class="string">"servlet-class"</span>);</div><div class="line">			nameClass.put(name, clazz);</div><div class="line">		&#125;</div><div class="line">		<span class="comment">//创建map集合存name和url</span></div><div class="line">		Map&lt;String,String&gt; nameUrl = <span class="keyword">new</span> HashMap&lt;String,String&gt;();</div><div class="line">		List&lt;Element&gt; es2 = root.elements(<span class="string">"servlet-mapping"</span>);</div><div class="line">-----------------------------------------------------</div><div class="line">使用XPath优化:使用选择器</div><div class="line">		List&lt;Element&gt; es2 = root.selectNodes(<span class="string">"//servlet-mapping"</span>);</div><div class="line">		<span class="keyword">for</span> (Element e2 : es2) &#123;</div><div class="line">			String name = e2.elementText(<span class="string">"servlet-name"</span>);</div><div class="line">			String urlpattern = e2.elementText(<span class="string">"url-pattern"</span>);</div><div class="line">			nameUrl.put(name, urlpattern);</div><div class="line">		&#125;</div><div class="line">		<span class="comment">//整合上面两个数组,获得全类名及url</span></div><div class="line">		Map&lt;String,String&gt; urlClass = <span class="keyword">new</span> HashMap&lt;String,String&gt;();</div><div class="line">		Set&lt;String&gt; keys = nameUrl.keySet();</div><div class="line">		<span class="keyword">for</span> (String key : keys) &#123;</div><div class="line">			String clazz = nameClass.get(key);</div><div class="line">			String urlpattern = nameUrl.get(key);</div><div class="line">			urlClass.put(urlpattern, clazz);</div><div class="line">		&#125;</div><div class="line">		<span class="comment">//根据用户输入的url,查询对应的value</span></div><div class="line">		String className = urlClass.get(url);</div><div class="line">		<span class="comment">//System.out.println(className);</span></div><div class="line">		<span class="keyword">if</span>(className != <span class="keyword">null</span>)&#123;</div><div class="line">			<span class="comment">//反射,获得字节码对象</span></div><div class="line">			Class clazz = Class.forName(className);</div><div class="line">			<span class="comment">//获取构造方法</span></div><div class="line">			Constructor con = clazz.getConstructor();</div><div class="line">			<span class="comment">//创建对象</span></div><div class="line">			Object obj = con.newInstance();</div><div class="line">			<span class="comment">//获取方法</span></div><div class="line">			Method init = clazz.getMethod(<span class="string">"init"</span>);</div><div class="line">			Method service = clazz.getMethod(<span class="string">"service"</span>);</div><div class="line">			Method destory = clazz.getMethod(<span class="string">"destory"</span>);</div><div class="line">			<span class="comment">//执行方法</span></div><div class="line">			init.invoke(obj);</div><div class="line">			service.invoke(obj);</div><div class="line">			destory.invoke(obj);</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			System.out.println(<span class="string">"路径不存在"</span>);</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h2><p>限制XML可以使用的标签的名称,属性及内容体,规范XML的书写</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端开发/" rel="tag">#前端开发</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/31/装饰者设计模式-设计模式-1/" rel="next" title="装饰者设计模式---设计模式(1)">
+                <i class="fa fa-chevron-left"></i> 装饰者设计模式---设计模式(1)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/31/JavaWeb-05-XML/"
+           data-title="JavaWeb_05.XML" data-url="https://geekhoon.github.io/2017/03/31/JavaWeb-05-XML/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="geekhoon" />
+          <p class="site-author-name" itemprop="name">geekhoon</p>
+          <p class="site-description motion-element" itemprop="description">技术博客</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/geekhoon" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/hlc1018" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              技术大牛
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.devtang.com" title="唐巧" target="_blank">唐巧</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.onevcat.com" title="喵神" target="_blank">喵神</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/b82d2721ba07/latest_articles" title="叶孤城" target="_blank">叶孤城</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://tutuge.me" title="土土哥" target="_blank">土土哥</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.sunnyxx.com" title="sunny" target="_blank">sunny</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.ibireme.com" title="lbireme" target="_blank">lbireme</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://kittenyang.com" title="kittenyang" target="_blank">kittenyang</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语法"><span class="nav-number">1.1.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XML的解析"><span class="nav-number">2.</span> <span class="nav-text">XML的解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解析算法"><span class="nav-number">2.1.</span> <span class="nav-text">解析算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解析优化"><span class="nav-number">2.2.</span> <span class="nav-text">解析优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM4J使用"><span class="nav-number">3.</span> <span class="nav-text">DOM4J使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM4J常规使用案例"><span class="nav-number">3.1.</span> <span class="nav-text">DOM4J常规使用案例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置文件animals-xml写法"><span class="nav-number">3.1.1.</span> <span class="nav-text">配置文件animals.xml写法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试类"><span class="nav-number">3.1.2.</span> <span class="nav-text">测试类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模拟servlet"><span class="nav-number">4.</span> <span class="nav-text">模拟servlet</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet小程序"><span class="nav-number">4.1.</span> <span class="nav-text">Servlet小程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web-xml配置文件"><span class="nav-number">4.2.</span> <span class="nav-text">web.xml配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试类-1"><span class="nav-number">4.3.</span> <span class="nav-text">测试类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#约束"><span class="nav-number">5.</span> <span class="nav-text">约束</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">geekhoon</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"hou912115764"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementById('footer')
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("zFAH2d3IYRTUyQcRt5OsVBXQ-gzGzoHsz", "ziVrxCvGd6X65NWAtcpbi5Ng");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>
