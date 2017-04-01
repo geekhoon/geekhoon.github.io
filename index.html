@@ -303,6 +303,136 @@
             
               
                 
+                <a class="post-title-link" href="/2017/04/01/JavaWeb-06-Http-Tomcat/" itemprop="url">
+                  Http&Tomcat
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-01T07:18:14+08:00" content="2017-04-01">
+              2017-04-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaWeb/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaWeb</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/04/01/JavaWeb-06-Http-Tomcat/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/01/JavaWeb-06-Http-Tomcat/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/04/01/JavaWeb-06-Http-Tomcat/" class="leancloud_visitors" data-flag-title="Http&Tomcat">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><h3 id="作用及特点"><a href="#作用及特点" class="headerlink" title="作用及特点"></a>作用及特点</h3><h3 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h3><h3 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h3><h3 id="HTTP请求详解"><a href="#HTTP请求详解" class="headerlink" title="HTTP请求详解"></a>HTTP请求详解</h3><h2 id="Web开发概述"><a href="#Web开发概述" class="headerlink" title="Web开发概述"></a>Web开发概述</h2><h3 id="Web通信"><a href="#Web通信" class="headerlink" title="Web通信"></a>Web通信</h3><h3 id="软件架构"><a href="#软件架构" class="headerlink" title="软件架构"></a>软件架构</h3><p><strong>C/S架构</strong><br>1.模型: Client/Server,使用时需要在本地安装程序<br>2.案例: QQ,酷狗音乐,迅雷…<br>3.优点:<br> (1)动画效果更好(如游戏);<br> (2)服务器端计算压力小,客户端分担了一部分;<br> (3)数据交互更安全<br> (4)客户端可以找服务器,服务器也可以找客户端<br>4.缺点:<br> (1)富客户端(需要下载,占磁盘空间,且耗时)<br> (2)升级麻烦(客户端要和服务器同步升级)<br> (3)安装依赖其他环境<br><strong>B/S架构</strong><br>1.模型: Browser/Server,需要通过浏览器访问服务器<br>2.案例: 淘宝,京东电商网站,12306…<br>3.优点:<br> (1)节约磁盘空间<br> (2)升级简单(无缝升级)<br> (3)只需要安装浏览器<br>4.缺点:<br> (1)动画效果差<br> (2)服务器端计算压力大,并发访问量大时,可能崩溃<br> (3)数据交互规则是暴露的,不安全<br> (4)通常访问方式:客户端找服务器,服务器给出回应,但是服务器不能直接找客户端</p>
+<h3 id="Web资源介绍"><a href="#Web资源介绍" class="headerlink" title="Web资源介绍"></a>Web资源介绍</h3><h3 id="Web服务器"><a href="#Web服务器" class="headerlink" title="Web服务器"></a>Web服务器</h3><h3 id="URL请求路径"><a href="#URL请求路径" class="headerlink" title="URL请求路径"></a>URL请求路径</h3><h2 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><h3 id="安装Tomcat"><a href="#安装Tomcat" class="headerlink" title="安装Tomcat"></a>安装Tomcat</h3><h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><h3 id="启动与访问"><a href="#启动与访问" class="headerlink" title="启动与访问"></a>启动与访问</h3><h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><p><strong>1.JAVA_HOME配置</strong><br><strong>2.端口号冲突</strong></p>
+<h2 id="Web项目目录结构"><a href="#Web项目目录结构" class="headerlink" title="Web项目目录结构"></a>Web项目目录结构</h2><h2 id="Eclipse发布web项目"><a href="#Eclipse发布web项目" class="headerlink" title="Eclipse发布web项目"></a>Eclipse发布web项目</h2><h3 id="配置Tomcat"><a href="#配置Tomcat" class="headerlink" title="配置Tomcat"></a>配置Tomcat</h3><h3 id="发布Web项目"><a href="#发布Web项目" class="headerlink" title="发布Web项目"></a>发布Web项目</h3><h2 id="Servlet入门案例"><a href="#Servlet入门案例" class="headerlink" title="Servlet入门案例"></a>Servlet入门案例</h2>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/03/31/JavaWeb-05-XML/" itemprop="url">
                   XML
                 </a>
@@ -2840,141 +2970,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/15/09-自定义类/" itemprop="url">
-                  自定义类
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-15T20:04:20+08:00" content="2017-01-15">
-              2017-01-15
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/JAVA基础/" itemprop="url" rel="index">
-                    <span itemprop="name">JAVA基础</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/01/15/09-自定义类/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/15/09-自定义类/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/01/15/09-自定义类/" class="leancloud_visitors" data-flag-title="自定义类">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><pre><code>* 分两种,一种是JAVA提供的,一种是自定义类
-* 类是用于描述事物的.
-* 事物的特征叫属性
-* 事物的功能叫方法
-</code></pre>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/01/15/09-自定义类/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -3020,7 +3015,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
