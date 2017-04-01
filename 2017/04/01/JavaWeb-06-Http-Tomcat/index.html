@@ -86,16 +86,33 @@
 
 
 
-<meta name="description" content="HTTP协议概念作用及特点版本组成HTTP请求详解Web开发概述Web通信软件架构C/S架构1.模型: Client/Server,使用时需要在本地安装程序2.案例: QQ,酷狗音乐,迅雷…3.优点: (1)动画效果更好(如游戏); (2)服务器端计算压力小,客户端分担了一部分; (3)数据交互更安全 (4)客户端可以找服务器,服务器也可以找客户端4.缺点: (1)富客户端(需要下载,占磁盘空间,">
+<meta name="description" content="HTTP协议概念HTTP协议 —&amp;gt; 超文本传输协议.分两部分:1.请求协议2.响应协议
+作用及特点作用: 规范请求与响应的数据交互特点: (1)基于请求响应的 (2)HTTP协议默认的端口:80
+版本1.0版本: 访问一次资源,就需要创建一个连接1.1版本: 访问多个资源,也只需创建一个连接(效率高)
+组成HTTP协议
+    |-- HTTP请求协议
+        |-- 请求行">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Http&Tomcat">
 <meta property="og:url" content="https://geekhoon.github.io/2017/04/01/JavaWeb-06-Http-Tomcat/index.html">
 <meta property="og:site_name" content="geekhoon">
-<meta property="og:description" content="HTTP协议概念作用及特点版本组成HTTP请求详解Web开发概述Web通信软件架构C/S架构1.模型: Client/Server,使用时需要在本地安装程序2.案例: QQ,酷狗音乐,迅雷…3.优点: (1)动画效果更好(如游戏); (2)服务器端计算压力小,客户端分担了一部分; (3)数据交互更安全 (4)客户端可以找服务器,服务器也可以找客户端4.缺点: (1)富客户端(需要下载,占磁盘空间,">
-<meta property="og:updated_time" content="2017-04-01T01:05:51.813Z">
+<meta property="og:description" content="HTTP协议概念HTTP协议 —&amp;gt; 超文本传输协议.分两部分:1.请求协议2.响应协议
+作用及特点作用: 规范请求与响应的数据交互特点: (1)基于请求响应的 (2)HTTP协议默认的端口:80
+版本1.0版本: 访问一次资源,就需要创建一个连接1.1版本: 访问多个资源,也只需创建一个连接(效率高)
+组成HTTP协议
+    |-- HTTP请求协议
+        |-- 请求行">
+<meta property="og:image" content="http://oj3s07yy0.bkt.clouddn.com/blog/20170401/162650290.png">
+<meta property="og:updated_time" content="2017-04-01T08:42:39.270Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Http&Tomcat">
-<meta name="twitter:description" content="HTTP协议概念作用及特点版本组成HTTP请求详解Web开发概述Web通信软件架构C/S架构1.模型: Client/Server,使用时需要在本地安装程序2.案例: QQ,酷狗音乐,迅雷…3.优点: (1)动画效果更好(如游戏); (2)服务器端计算压力小,客户端分担了一部分; (3)数据交互更安全 (4)客户端可以找服务器,服务器也可以找客户端4.缺点: (1)富客户端(需要下载,占磁盘空间,">
+<meta name="twitter:description" content="HTTP协议概念HTTP协议 —&amp;gt; 超文本传输协议.分两部分:1.请求协议2.响应协议
+作用及特点作用: 规范请求与响应的数据交互特点: (1)基于请求响应的 (2)HTTP协议默认的端口:80
+版本1.0版本: 访问一次资源,就需要创建一个连接1.1版本: 访问多个资源,也只需创建一个连接(效率高)
+组成HTTP协议
+    |-- HTTP请求协议
+        |-- 请求行">
+<meta name="twitter:image" content="http://oj3s07yy0.bkt.clouddn.com/blog/20170401/162650290.png">
 
 
 
@@ -376,9 +393,29 @@
       
 
       
-        <h2 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><h3 id="作用及特点"><a href="#作用及特点" class="headerlink" title="作用及特点"></a>作用及特点</h3><h3 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h3><h3 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h3><h3 id="HTTP请求详解"><a href="#HTTP请求详解" class="headerlink" title="HTTP请求详解"></a>HTTP请求详解</h3><h2 id="Web开发概述"><a href="#Web开发概述" class="headerlink" title="Web开发概述"></a>Web开发概述</h2><h3 id="Web通信"><a href="#Web通信" class="headerlink" title="Web通信"></a>Web通信</h3><h3 id="软件架构"><a href="#软件架构" class="headerlink" title="软件架构"></a>软件架构</h3><p><strong>C/S架构</strong><br>1.模型: Client/Server,使用时需要在本地安装程序<br>2.案例: QQ,酷狗音乐,迅雷…<br>3.优点:<br> (1)动画效果更好(如游戏);<br> (2)服务器端计算压力小,客户端分担了一部分;<br> (3)数据交互更安全<br> (4)客户端可以找服务器,服务器也可以找客户端<br>4.缺点:<br> (1)富客户端(需要下载,占磁盘空间,且耗时)<br> (2)升级麻烦(客户端要和服务器同步升级)<br> (3)安装依赖其他环境<br><strong>B/S架构</strong><br>1.模型: Browser/Server,需要通过浏览器访问服务器<br>2.案例: 淘宝,京东电商网站,12306…<br>3.优点:<br> (1)节约磁盘空间<br> (2)升级简单(无缝升级)<br> (3)只需要安装浏览器<br>4.缺点:<br> (1)动画效果差<br> (2)服务器端计算压力大,并发访问量大时,可能崩溃<br> (3)数据交互规则是暴露的,不安全<br> (4)通常访问方式:客户端找服务器,服务器给出回应,但是服务器不能直接找客户端</p>
-<h3 id="Web资源介绍"><a href="#Web资源介绍" class="headerlink" title="Web资源介绍"></a>Web资源介绍</h3><h3 id="Web服务器"><a href="#Web服务器" class="headerlink" title="Web服务器"></a>Web服务器</h3><h3 id="URL请求路径"><a href="#URL请求路径" class="headerlink" title="URL请求路径"></a>URL请求路径</h3><h2 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><h3 id="安装Tomcat"><a href="#安装Tomcat" class="headerlink" title="安装Tomcat"></a>安装Tomcat</h3><h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><h3 id="启动与访问"><a href="#启动与访问" class="headerlink" title="启动与访问"></a>启动与访问</h3><h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><p><strong>1.JAVA_HOME配置</strong><br><strong>2.端口号冲突</strong></p>
-<h2 id="Web项目目录结构"><a href="#Web项目目录结构" class="headerlink" title="Web项目目录结构"></a>Web项目目录结构</h2><h2 id="Eclipse发布web项目"><a href="#Eclipse发布web项目" class="headerlink" title="Eclipse发布web项目"></a>Eclipse发布web项目</h2><h3 id="配置Tomcat"><a href="#配置Tomcat" class="headerlink" title="配置Tomcat"></a>配置Tomcat</h3><h3 id="发布Web项目"><a href="#发布Web项目" class="headerlink" title="发布Web项目"></a>发布Web项目</h3><h2 id="Servlet入门案例"><a href="#Servlet入门案例" class="headerlink" title="Servlet入门案例"></a>Servlet入门案例</h2>
+        <h2 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>HTTP协议 —&gt; 超文本传输协议.<br>分两部分:<br>1.请求协议<br>2.响应协议</p>
+<h3 id="作用及特点"><a href="#作用及特点" class="headerlink" title="作用及特点"></a>作用及特点</h3><p>作用: 规范请求与响应的数据交互<br>特点:<br> (1)基于请求响应的<br> (2)HTTP协议默认的端口:80</p>
+<h3 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h3><p>1.0版本: 访问一次资源,就需要创建一个连接<br>1.1版本: 访问多个资源,也只需创建一个连接(效率高)</p>
+<h3 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h3><pre><code>HTTP协议
+    |-- HTTP请求协议
+        |-- 请求行
+
+        |-- 请求头
+
+        |-- 请求体
+
+    |-- HTTP响应协议        
+        |-- 响应行
+
+        |-- 响应头
+
+        |-- 响应体
+</code></pre><h3 id="HTTP请求详解"><a href="#HTTP请求详解" class="headerlink" title="HTTP请求详解"></a>HTTP请求详解</h3><h2 id="Web开发概述"><a href="#Web开发概述" class="headerlink" title="Web开发概述"></a>Web开发概述</h2><h3 id="Web通信"><a href="#Web通信" class="headerlink" title="Web通信"></a>Web通信</h3><p>采用B/S通信模式,通过HTTP协议进行通信,浏览器编写url向服务器发送request请求,服务器端处理后,向浏览器返回response响应,将服务器端资源发送给浏览器,完成通信.<br><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170401/162650290.png" alt="mark"></p>
+<h3 id="软件架构"><a href="#软件架构" class="headerlink" title="软件架构"></a>软件架构</h3><p><strong>C/S架构</strong><br>1.模型: Client/Server,使用时需要在本地安装程序<br>2.案例: QQ,酷狗音乐,迅雷…<br>3.优点:<br> (1)动画效果更好(如游戏);<br> (2)服务器端计算压力小,客户端分担了一部分;<br> (3)数据交互更安全<br> (4)客户端可以找服务器,服务器也可以找客户端<br>4.缺点:<br> (1)富客户端(需要下载,占磁盘空间,且耗时)<br> (2)升级麻烦(客户端要和服务器同步升级)<br> (3)安装依赖其他环境<br><strong>B/S架构</strong><br>1.模型: Browser/Server,需要通过浏览器访问服务器<br>2.案例: 淘宝,京东电商网站,12306…<br>3.优点:<br> (1)节约磁盘空间<br> (2)升级简单(无缝升级)<br> (3)只需要安装浏览器<br>4.缺点:<br> (1)动画效果差<br> (2)服务器端计算压力大,并发访问量大时,可能崩溃<br> (3)数据交互规则是暴露的,不安全<br> (4)通常访问方式:客户端找服务器,服务器给出回应,但是服务器不能直接找客户端</p>
+<h3 id="Web资源介绍"><a href="#Web资源介绍" class="headerlink" title="Web资源介绍"></a>Web资源介绍</h3><p>静态资源: web页面中浏览的数据是不变的,如html,css,js,图片,多媒体等<br>动态资源: web页面中浏览的数据是程序产生的,比如JSP/Servlet,ASP,PHP</p>
+<h3 id="Web服务器"><a href="#Web服务器" class="headerlink" title="Web服务器"></a>Web服务器</h3><p>1.Tomcat: 免费的小型服务器软件,包含集群技术(多台计算机都安装Tomcat,串联成一个整体)<br>2.Weblogic: 大型的服务器软件,被oracle收购了<br>3.WebSphere: IBM公司的大型服务器软件<br>4.JBoss</p>
+<h3 id="URL请求路径"><a href="#URL请求路径" class="headerlink" title="URL请求路径"></a>URL请求路径</h3><p>格式如下:<br>    协议://域名:端口号/资源位置?参数=值</p>
+
       
     </div>
 
@@ -627,7 +664,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP协议"><span class="nav-number">1.</span> <span class="nav-text">HTTP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用及特点"><span class="nav-number">1.2.</span> <span class="nav-text">作用及特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本"><span class="nav-number">1.3.</span> <span class="nav-text">版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组成"><span class="nav-number">1.4.</span> <span class="nav-text">组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP请求详解"><span class="nav-number">1.5.</span> <span class="nav-text">HTTP请求详解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web开发概述"><span class="nav-number">2.</span> <span class="nav-text">Web开发概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Web通信"><span class="nav-number">2.1.</span> <span class="nav-text">Web通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件架构"><span class="nav-number">2.2.</span> <span class="nav-text">软件架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web资源介绍"><span class="nav-number">2.3.</span> <span class="nav-text">Web资源介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web服务器"><span class="nav-number">2.4.</span> <span class="nav-text">Web服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#URL请求路径"><span class="nav-number">2.5.</span> <span class="nav-text">URL请求路径</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tomcat"><span class="nav-number">3.</span> <span class="nav-text">Tomcat</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">3.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Tomcat"><span class="nav-number">3.2.</span> <span class="nav-text">安装Tomcat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目录结构"><span class="nav-number">3.3.</span> <span class="nav-text">目录结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动与访问"><span class="nav-number">3.4.</span> <span class="nav-text">启动与访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见问题"><span class="nav-number">3.5.</span> <span class="nav-text">常见问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web项目目录结构"><span class="nav-number">4.</span> <span class="nav-text">Web项目目录结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Eclipse发布web项目"><span class="nav-number">5.</span> <span class="nav-text">Eclipse发布web项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置Tomcat"><span class="nav-number">5.1.</span> <span class="nav-text">配置Tomcat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发布Web项目"><span class="nav-number">5.2.</span> <span class="nav-text">发布Web项目</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet入门案例"><span class="nav-number">6.</span> <span class="nav-text">Servlet入门案例</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP协议"><span class="nav-number">1.</span> <span class="nav-text">HTTP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用及特点"><span class="nav-number">1.2.</span> <span class="nav-text">作用及特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本"><span class="nav-number">1.3.</span> <span class="nav-text">版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组成"><span class="nav-number">1.4.</span> <span class="nav-text">组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP请求详解"><span class="nav-number">1.5.</span> <span class="nav-text">HTTP请求详解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web开发概述"><span class="nav-number">2.</span> <span class="nav-text">Web开发概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Web通信"><span class="nav-number">2.1.</span> <span class="nav-text">Web通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件架构"><span class="nav-number">2.2.</span> <span class="nav-text">软件架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web资源介绍"><span class="nav-number">2.3.</span> <span class="nav-text">Web资源介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web服务器"><span class="nav-number">2.4.</span> <span class="nav-text">Web服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#URL请求路径"><span class="nav-number">2.5.</span> <span class="nav-text">URL请求路径</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
