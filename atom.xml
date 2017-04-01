@@ -469,11 +469,11 @@ validation使用:
   </entry>
   
   <entry>
-    <title>JavaScript</title>
+    <title>JavaWeb_02.JavaScript</title>
     <link href="https://geekhoon.github.io/2017/03/20/JavaWeb-02-JavaScript/"/>
     <id>https://geekhoon.github.io/2017/03/20/JavaWeb-02-JavaScript/</id>
-    <published>2017-03-19T16:55:01.000Z</published>
-    <updated>2017-03-28T13:17:37.813Z</updated>
+    <published>2017-03-20T10:12:43.000Z</published>
+    <updated>2017-04-01T10:13:10.119Z</updated>
     
     <content type="html"><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><pre><code>* 概念: 
     * 是基于对象和事件驱动的脚本语言, 用于开发交互式web页面
