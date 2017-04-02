@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-04-02T08:13:12.121Z</updated>
+  <updated>2017-04-02T08:20:37.049Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://geekhoon.github.io/2017/04/01/JavaWeb-06-Http-Tomcat/"/>
     <id>https://geekhoon.github.io/2017/04/01/JavaWeb-06-Http-Tomcat/</id>
     <published>2017-03-31T23:18:14.000Z</published>
-    <updated>2017-04-02T08:13:12.121Z</updated>
+    <updated>2017-04-02T08:20:37.049Z</updated>
     
     <content type="html"><![CDATA[<h2 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>HTTP协议 —&gt; 超文本传输协议.<br>分两部分:<br>1.Request请求协议<br>2.Response响应协议<br><a id="more"></a>    </p>
 <h3 id="作用及特点"><a href="#作用及特点" class="headerlink" title="作用及特点"></a>作用及特点</h3><p>作用: 规范请求与响应过程中数据交互的规范<br>特点:<br> (1)基于请求/响应模型的协议<br> (2)HTTP协议默认的端口:80</p>
@@ -43,7 +43,7 @@
 <h4 id="表单请求"><a href="#表单请求" class="headerlink" title="表单请求"></a>表单请求</h4><p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170402/160517355.png" alt="mark"></p>
 <h3 id="HTTP响应协议图解"><a href="#HTTP响应协议图解" class="headerlink" title="HTTP响应协议图解"></a>HTTP响应协议图解</h3><p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170402/160857530.png" alt="mark"></p>
 <h4 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h4><p>200        –&gt;请求成功;<br>302        –&gt;请求重定向;<br>304        –&gt;请求资源没有改变,访问本地缓存;<br>404        –&gt;请求资源不存在.通常是用户路径编写错误,也可能是服务器资源已删除;<br>500        –&gt;服务器内部错误.通常程序抛出异常;</p>
-<h2 id="Web开发概述"><a href="#Web开发概述" class="headerlink" title="Web开发概述"></a>Web开发概述</h2><h3 id="Web通信"><a href="#Web通信" class="headerlink" title="Web通信"></a>Web通信</h3><p>采用B/S通信模式,通过HTTP协议进行通信,浏览器编写url向服务器发送request请求,服务器端处理后,向浏览器返回response响应,将服务器端资源发送给浏览器,完成通信.<br><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170401/162650290.png" alt="mark"></p>
+<h2 id="Web开发概述"><a href="#Web开发概述" class="headerlink" title="Web开发概述"></a>Web开发概述</h2><h3 id="Web通信"><a href="#Web通信" class="headerlink" title="Web通信"></a>Web通信</h3><p>采用B/S通信模式,通过HTTP协议进行通信,浏览器编写url向服务器发送request请求,服务器端处理后,向浏览器返回response响应,将服务器端资源发送给浏览器,完成通信.<br><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170402/162022962.png" alt="mark"></p>
 <h3 id="软件架构"><a href="#软件架构" class="headerlink" title="软件架构"></a>软件架构</h3><p><strong>C/S架构</strong><br>1.模型: Client/Server,使用时需要在本地安装程序<br>2.案例: QQ,酷狗音乐,迅雷…<br>3.优点:<br> (1)动画效果更好(如游戏);<br> (2)服务器端计算压力小,客户端分担了一部分;<br> (3)数据交互更安全<br> (4)客户端可以找服务器,服务器也可以找客户端<br>4.缺点:<br> (1)富客户端(需要下载,占磁盘空间,且耗时)<br> (2)升级麻烦(客户端要和服务器同步升级)<br> (3)安装依赖其他环境<br><strong>B/S架构</strong><br>1.模型: Browser/Server,需要通过浏览器访问服务器<br>2.案例: 淘宝,京东电商网站,12306…<br>3.优点:<br> (1)节约磁盘空间<br> (2)升级简单(无缝升级)<br> (3)只需要安装浏览器<br>4.缺点:<br> (1)动画效果差<br> (2)服务器端计算压力大,并发访问量大时,可能崩溃<br> (3)数据交互规则是暴露的,不安全<br> (4)通常访问方式:客户端找服务器,服务器给出回应,但是服务器不能直接找客户端</p>
 <h3 id="Web资源介绍"><a href="#Web资源介绍" class="headerlink" title="Web资源介绍"></a>Web资源介绍</h3><p>静态资源: web页面中浏览的数据是不变的,如html,css,js,图片,多媒体等<br>动态资源: web页面中浏览的数据是程序产生的,比如JSP/Servlet,ASP,PHP</p>
 <h3 id="Web服务器"><a href="#Web服务器" class="headerlink" title="Web服务器"></a>Web服务器</h3><p>1.Tomcat: 免费的小型服务器软件,包含集群技术(多台计算机都安装Tomcat,串联成一个整体)<br>2.Weblogic: 大型的服务器软件,被oracle收购了<br>3.WebSphere: IBM公司的大型服务器软件<br>4.JBoss</p>
