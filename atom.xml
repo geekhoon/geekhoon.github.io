@@ -119,24 +119,6 @@
   </entry>
   
   <entry>
-    <title>装饰者设计模式---设计模式(1)</title>
-    <link href="https://geekhoon.github.io/2017/03/31/%E8%A3%85%E9%A5%B0%E8%80%85%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-1/"/>
-    <id>https://geekhoon.github.io/2017/03/31/装饰者设计模式-设计模式-1/</id>
-    <published>2017-03-30T17:49:03.000Z</published>
-    <updated>2017-03-30T17:53:10.848Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="JAVA进阶" scheme="https://geekhoon.github.io/categories/JAVA%E8%BF%9B%E9%98%B6/"/>
-    
-    
-      <category term="设计模式" scheme="https://geekhoon.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
     <title>DBUtils</title>
     <link href="https://geekhoon.github.io/2017/03/30/22-DBUtils/"/>
     <id>https://geekhoon.github.io/2017/03/30/22-DBUtils/</id>
@@ -3203,6 +3185,43 @@ ArrayList类   LinkedList类                                              HashSe
 * 变量名.方法 
     注意: 集合只存储引用数据类型,不存储基本类型
     8个基本类型要对应8个引用类型
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="JAVA基础" scheme="https://geekhoon.github.io/categories/JAVA%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="JAVA基础语法" scheme="https://geekhoon.github.io/tags/JAVA%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>自定义类</title>
+    <link href="https://geekhoon.github.io/2017/01/15/09-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB/"/>
+    <id>https://geekhoon.github.io/2017/01/15/09-自定义类/</id>
+    <published>2017-01-15T12:04:20.000Z</published>
+    <updated>2017-03-28T13:16:33.444Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><pre><code>* 分两种,一种是JAVA提供的,一种是自定义类
+* 类是用于描述事物的.
+* 事物的特征叫属性
+* 事物的功能叫方法
+</code></pre><a id="more"></a> 
+<h3 id="自定义类的格式"><a href="#自定义类的格式" class="headerlink" title="自定义类的格式"></a>自定义类的格式</h3><pre><code>* 使用类的形式,对现实中的事物进行描述。 
+
+* 格式
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> 类名</span>&#123;</div><div class="line">	属性定义(成员变量)</div><div class="line">	  修饰符 数据类型 变量名 = 值</div><div class="line">	</div><div class="line">	方法定义(成员方法)</div><div class="line">	  修饰符 返回值类型  方法名(参数列表)&#123;</div><div class="line">		  </div><div class="line">	  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="自定义类的内存图"><a href="#自定义类的内存图" class="headerlink" title="自定义类的内存图"></a>自定义类的内存图</h3><p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170115/200111098.png" alt=""></p>
+<p>注意一点: new一个对象后,类中的成员变量,一并进入堆内存,并被赋予默认值<br>new出来对象的属性,存在堆里面<br>根据内存图,可知,即使没被赋值,打印 类名.属性 ,也会有默认值</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;类&quot;&gt;&lt;a href=&quot;#类&quot; class=&quot;headerlink&quot; title=&quot;类&quot;&gt;&lt;/a&gt;类&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;* 分两种,一种是JAVA提供的,一种是自定义类
+* 类是用于描述事物的.
+* 事物的特征叫属性
+* 事物的功能叫方法
 &lt;/code&gt;&lt;/pre&gt;
     
     </summary>
