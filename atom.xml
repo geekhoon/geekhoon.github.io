@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-04-02T08:21:33.251Z</updated>
+  <updated>2017-04-02T09:35:32.618Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -16,11 +16,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Servlet</title>
+    <link href="https://geekhoon.github.io/2017/04/02/JavaWeb-07-Servlet/"/>
+    <id>https://geekhoon.github.io/2017/04/02/JavaWeb-07-Servlet/</id>
+    <published>2017-04-02T09:09:36.000Z</published>
+    <updated>2017-04-02T09:35:32.618Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><strong>1.概念</strong><br>Servlet是运行在服务器端的Java小程序,是Sun公司提供的一套规范,用来处理客户端请求的动态资源.<br><a id="more"></a><br>Servlet是JavaWeb三大组件之一(Servlet,Filter,Listener),最为重要.<br><strong>2.作用</strong><br>处理从客户端发送的请求,并对该请求做出响应<br>任务:<br>  (1)获取请求数据<br>  (2)处理请求<br>  (3)完成响应</p>
+<h2 id="Servlet编写"><a href="#Servlet编写" class="headerlink" title="Servlet编写"></a>Servlet编写</h2><h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>1.实现类: 通常继承javax.servlet.http.HttpServlet类,重写doGet()和doPost(),处理get和post请求<br>2.配置文件: web.xml</p>
+<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><h3 id="实现类"><a href="#实现类" class="headerlink" title="实现类"></a>实现类</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;1.概念&lt;/strong&gt;&lt;br&gt;Servlet是运行在服务器端的Java小程序,是Sun公司提供的一套规范,用来处理客户端请求的动态资源.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="JavaWeb" scheme="https://geekhoon.github.io/categories/JavaWeb/"/>
+    
+    
+      <category term="前端开发" scheme="https://geekhoon.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Http</title>
     <link href="https://geekhoon.github.io/2017/04/01/JavaWeb-06-Http-Tomcat/"/>
     <id>https://geekhoon.github.io/2017/04/01/JavaWeb-06-Http-Tomcat/</id>
     <published>2017-03-31T23:18:14.000Z</published>
-    <updated>2017-04-02T08:21:33.251Z</updated>
+    <updated>2017-04-02T09:25:58.450Z</updated>
     
     <content type="html"><![CDATA[<h2 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>HTTP协议 —&gt; 超文本传输协议.<br>分两部分:<br>1.Request请求协议<br>2.Response响应协议<br><a id="more"></a>    </p>
 <h3 id="作用及特点"><a href="#作用及特点" class="headerlink" title="作用及特点"></a>作用及特点</h3><p>作用: 规范请求与响应过程中数据交互的规范<br>特点:<br> (1)基于请求/响应模型的协议<br> (2)HTTP协议默认的端口:80</p>
@@ -40,9 +64,35 @@
 
         |-- 响应体
 </code></pre><h3 id="HTTP请求协议图解"><a href="#HTTP请求协议图解" class="headerlink" title="HTTP请求协议图解"></a>HTTP请求协议图解</h3><h4 id="普通请求"><a href="#普通请求" class="headerlink" title="普通请求"></a>普通请求</h4><p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170402/122753927.png" alt="mark"></p>
-<h4 id="表单请求"><a href="#表单请求" class="headerlink" title="表单请求"></a>表单请求</h4><p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170402/160517355.png" alt="mark"></p>
-<h3 id="HTTP响应协议图解"><a href="#HTTP响应协议图解" class="headerlink" title="HTTP响应协议图解"></a>HTTP响应协议图解</h3><p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170402/160857530.png" alt="mark"></p>
-<h4 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h4><p>200        –&gt;请求成功;<br>302        –&gt;请求重定向;<br>304        –&gt;请求资源没有改变,访问本地缓存;<br>404        –&gt;请求资源不存在.通常是用户路径编写错误,也可能是服务器资源已删除;<br>500        –&gt;服务器内部错误.通常程序抛出异常;</p>
+<h4 id="表单请求"><a href="#表单请求" class="headerlink" title="表单请求"></a>表单请求</h4><p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170402/160517355.png" alt="mark"><br>    请求头：<br>    accecpt —- 当前浏览器可以解析的数据类型<br>        text/html —- html文本文件<br>        application/xhtml+xml —- xml文件<br>        <em>/</em> ———- 任意文件</p>
+<pre><code>User-agent ---- 本地浏览器以及操作系统的相关信息(给服务器使用)
+Accept-Encoding --- 可以解析的压缩格式
+Connection ----- keep-alive(连接未被终止)
+
+If-Modified-Since    Wed, 04 Jan 2017 02:26:18 GMT
+If-None-Match    W/&quot;179-1483496778700&quot;
+
+referer ----- 当前页面是从哪个页面跳转来的
+    防盗链 ---- 图片 新闻 防盗
+    网站统计 --- 统计广告投放效果
+</code></pre><h3 id="Post请求注意"><a href="#Post请求注意" class="headerlink" title="Post请求注意"></a>Post请求注意</h3><pre><code>POST请求时，有时需要上传图片或文件等字节内容，但是当前默认实现是上传文件名，怎么操作？
+
+enctype=&quot;application/x-www-form-urlencoded&quot;
+Post 表单的默认实现，特点：上传文件名，并且上传的数据要编码
+                  key=value&amp;key=value
+
+enctype=text/plain(不常用)
+   特点：没有编码，上传的是文件名
+                key=value
+                key=value
+
+enctype=&quot;multipart/form-data&quot; ------ 多部件表单数据上传，如果表单有文件上传，那么必须使用该值
+ name ---- 键
+ file-name ---- 上传的文件名
+ content-type --- 上传的文件类型
+     一些二进制数据 ----- 文件内容
+</code></pre><h3 id="HTTP响应协议图解"><a href="#HTTP响应协议图解" class="headerlink" title="HTTP响应协议图解"></a>HTTP响应协议图解</h3><p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170402/160857530.png" alt="mark"><br>     ETag<br>     Last-Modified :二者都是标记，适用于缓存的<br>     Content-type: text/html<br>     Content-length:内容的字节数<br>     Date:响应时间<br>     refresh:设置刷新 跟一个秒值，隔这个秒数之后，会重新请求网站，自动刷新</p>
+<h4 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h4><p>1XX     –&gt;请求收到了，但是不给响应，原则上严禁出现;<br>200        –&gt;请求成功;<br>302        –&gt;请求重定向,重新去访问一个新URL;<br>304        –&gt;请求资源没有改变,访问本地缓存;<br>404        –&gt;请求资源不存在.通常是用户路径编写错误,也可能是服务器资源已删除;<br>500        –&gt;服务器内部错误.通常程序抛出异常;</p>
 <h2 id="Web开发概述"><a href="#Web开发概述" class="headerlink" title="Web开发概述"></a>Web开发概述</h2><h3 id="Web通信"><a href="#Web通信" class="headerlink" title="Web通信"></a>Web通信</h3><p>采用B/S通信模式,通过HTTP协议进行通信,浏览器编写url向服务器发送request请求,服务器端处理后,向浏览器返回response响应,将服务器端资源发送给浏览器,完成通信.<br><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170402/162022962.png" alt="mark"></p>
 <h3 id="软件架构"><a href="#软件架构" class="headerlink" title="软件架构"></a>软件架构</h3><p><strong>C/S架构</strong><br>1.模型: Client/Server,使用时需要在本地安装程序<br>2.案例: QQ,酷狗音乐,迅雷…<br>3.优点:<br> (1)动画效果更好(如游戏);<br> (2)服务器端计算压力小,客户端分担了一部分;<br> (3)数据交互更安全<br> (4)客户端可以找服务器,服务器也可以找客户端<br>4.缺点:<br> (1)富客户端(需要下载,占磁盘空间,且耗时)<br> (2)升级麻烦(客户端要和服务器同步升级)<br> (3)安装依赖其他环境<br><strong>B/S架构</strong><br>1.模型: Browser/Server,需要通过浏览器访问服务器<br>2.案例: 淘宝,京东电商网站,12306…<br>3.优点:<br> (1)节约磁盘空间<br> (2)升级简单(无缝升级)<br> (3)只需要安装浏览器<br>4.缺点:<br> (1)动画效果差<br> (2)服务器端计算压力大,并发访问量大时,可能崩溃<br> (3)数据交互规则是暴露的,不安全<br> (4)通常访问方式:客户端找服务器,服务器给出回应,但是服务器不能直接找客户端</p>
 <h3 id="Web资源介绍"><a href="#Web资源介绍" class="headerlink" title="Web资源介绍"></a>Web资源介绍</h3><p>静态资源: web页面中浏览的数据是不变的,如html,css,js,图片,多媒体等<br>动态资源: web页面中浏览的数据是程序产生的,比如JSP/Servlet,ASP,PHP</p>
@@ -3185,43 +3235,6 @@ ArrayList类   LinkedList类                                              HashSe
 * 变量名.方法 
     注意: 集合只存储引用数据类型,不存储基本类型
     8个基本类型要对应8个引用类型
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="JAVA基础" scheme="https://geekhoon.github.io/categories/JAVA%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="JAVA基础语法" scheme="https://geekhoon.github.io/tags/JAVA%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>自定义类</title>
-    <link href="https://geekhoon.github.io/2017/01/15/09-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB/"/>
-    <id>https://geekhoon.github.io/2017/01/15/09-自定义类/</id>
-    <published>2017-01-15T12:04:20.000Z</published>
-    <updated>2017-03-28T13:16:33.444Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><pre><code>* 分两种,一种是JAVA提供的,一种是自定义类
-* 类是用于描述事物的.
-* 事物的特征叫属性
-* 事物的功能叫方法
-</code></pre><a id="more"></a> 
-<h3 id="自定义类的格式"><a href="#自定义类的格式" class="headerlink" title="自定义类的格式"></a>自定义类的格式</h3><pre><code>* 使用类的形式,对现实中的事物进行描述。 
-
-* 格式
-</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> 类名</span>&#123;</div><div class="line">	属性定义(成员变量)</div><div class="line">	  修饰符 数据类型 变量名 = 值</div><div class="line">	</div><div class="line">	方法定义(成员方法)</div><div class="line">	  修饰符 返回值类型  方法名(参数列表)&#123;</div><div class="line">		  </div><div class="line">	  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="自定义类的内存图"><a href="#自定义类的内存图" class="headerlink" title="自定义类的内存图"></a>自定义类的内存图</h3><p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170115/200111098.png" alt=""></p>
-<p>注意一点: new一个对象后,类中的成员变量,一并进入堆内存,并被赋予默认值<br>new出来对象的属性,存在堆里面<br>根据内存图,可知,即使没被赋值,打印 类名.属性 ,也会有默认值</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;类&quot;&gt;&lt;a href=&quot;#类&quot; class=&quot;headerlink&quot; title=&quot;类&quot;&gt;&lt;/a&gt;类&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;* 分两种,一种是JAVA提供的,一种是自定义类
-* 类是用于描述事物的.
-* 事物的特征叫属性
-* 事物的功能叫方法
 &lt;/code&gt;&lt;/pre&gt;
     
     </summary>
