@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-04-07T08:55:21.093Z</updated>
+  <updated>2017-04-07T08:57:52.285Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://geekhoon.github.io/2017/04/07/JavaWeb-10-Cookie-Session/"/>
     <id>https://geekhoon.github.io/2017/04/07/JavaWeb-10-Cookie-Session/</id>
     <published>2017-04-07T08:13:10.000Z</published>
-    <updated>2017-04-07T08:55:21.093Z</updated>
+    <updated>2017-04-07T08:57:52.285Z</updated>
     
     <content type="html"><![CDATA[<h2 id="会话"><a href="#会话" class="headerlink" title="会话"></a>会话</h2><p>用户打开浏览器访问某网站,做出一系列的请求及响应,直至用户退出浏览器的整个过程,视为一次”会话”<br><a id="more"></a></p>
 <h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>是客服端的会话技术,存取数据的对象</p>
@@ -49,7 +49,7 @@
     
       <category term="HTTP" scheme="https://geekhoon.github.io/tags/HTTP/"/>
     
-      <category term="Session&amp;Cookie" scheme="https://geekhoon.github.io/tags/Session-Cookie/"/>
+      <category term="Cookie&amp;Session" scheme="https://geekhoon.github.io/tags/Cookie-Session/"/>
     
   </entry>
   
