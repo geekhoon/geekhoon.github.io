@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="前端开发,Tomcat,HTTP," />
+  <meta name="keywords" content="前端开发,Tomcat,HTTP,Session&Cookie," />
 
 
 
@@ -86,21 +86,16 @@
 
 
 
-<meta name="description" content="HTTP协议概念HTTP协议 —&amp;gt; 超文本传输协议.分两部分:1.Request请求协议2.Response响应协议">
+<meta name="description" content="会话用户打开浏览器访问某网站,做出一系列的请求及响应,直至用户退出浏览器的整个过程,视为一次”会话”">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Http">
-<meta property="og:url" content="https://geekhoon.github.io/2017/04/01/JavaWeb-06-Http-Tomcat/index.html">
+<meta property="og:title" content="Cookie&Session">
+<meta property="og:url" content="https://geekhoon.github.io/2017/04/07/JavaWeb-10-Cookie-Session/index.html">
 <meta property="og:site_name" content="geekhoon">
-<meta property="og:description" content="HTTP协议概念HTTP协议 —&amp;gt; 超文本传输协议.分两部分:1.Request请求协议2.Response响应协议">
-<meta property="og:image" content="http://oj3s07yy0.bkt.clouddn.com/blog/20170402/122753927.png">
-<meta property="og:image" content="http://oj3s07yy0.bkt.clouddn.com/blog/20170402/160517355.png">
-<meta property="og:image" content="http://oj3s07yy0.bkt.clouddn.com/blog/20170402/160857530.png">
-<meta property="og:image" content="http://oj3s07yy0.bkt.clouddn.com/blog/20170402/162022962.png">
-<meta property="og:updated_time" content="2017-04-06T09:22:51.286Z">
+<meta property="og:description" content="会话用户打开浏览器访问某网站,做出一系列的请求及响应,直至用户退出浏览器的整个过程,视为一次”会话”">
+<meta property="og:updated_time" content="2017-04-07T08:55:21.093Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Http">
-<meta name="twitter:description" content="HTTP协议概念HTTP协议 —&amp;gt; 超文本传输协议.分两部分:1.Request请求协议2.Response响应协议">
-<meta name="twitter:image" content="http://oj3s07yy0.bkt.clouddn.com/blog/20170402/122753927.png">
+<meta name="twitter:title" content="Cookie&Session">
+<meta name="twitter:description" content="会话用户打开浏览器访问某网站,做出一系列的请求及响应,直至用户退出浏览器的整个过程,视为一次”会话”">
 
 
 
@@ -121,9 +116,9 @@
 
 
 
-  <link rel="canonical" href="https://geekhoon.github.io/2017/04/01/JavaWeb-06-Http-Tomcat/"/>
+  <link rel="canonical" href="https://geekhoon.github.io/2017/04/07/JavaWeb-10-Cookie-Session/"/>
 
-  <title> Http | geekhoon </title>
+  <title> Cookie&Session | geekhoon </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -306,7 +301,7 @@
             
             
               
-                Http
+                Cookie&Session
               
             
           </h1>
@@ -318,8 +313,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-01T07:18:14+08:00" content="2017-04-01">
-              2017-04-01
+            <time itemprop="dateCreated" datetime="2017-04-07T16:13:10+08:00" content="2017-04-07">
+              2017-04-07
             </time>
           </span>
 
@@ -348,8 +343,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/04/01/JavaWeb-06-Http-Tomcat/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/01/JavaWeb-06-Http-Tomcat/" itemprop="commentsCount"></span>
+                <a href="/2017/04/07/JavaWeb-10-Cookie-Session/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/07/JavaWeb-10-Cookie-Session/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -359,7 +354,7 @@
 
           
           
-             <span id="/2017/04/01/JavaWeb-06-Http-Tomcat/" class="leancloud_visitors" data-flag-title="Http">
+             <span id="/2017/04/07/JavaWeb-10-Cookie-Session/" class="leancloud_visitors" data-flag-title="Cookie&Session">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -381,59 +376,17 @@
       
 
       
-        <h2 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>HTTP协议 —&gt; 超文本传输协议.<br>分两部分:<br>1.Request请求协议<br>2.Response响应协议<br><a id="more"></a>    </p>
-<h3 id="作用及特点"><a href="#作用及特点" class="headerlink" title="作用及特点"></a>作用及特点</h3><p>作用: 规范请求与响应过程中数据交互的规范<br>特点:<br> (1)基于请求/响应模型的协议<br> (2)HTTP协议默认的端口:80</p>
-<h3 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h3><p>1.0版本: 访问一次资源,就需要创建一个连接<br>1.1版本: 访问多个资源,也只需创建一个连接(效率高).keep-alive</p>
-<h3 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h3><pre><code>HTTP协议
-    |-- HTTP请求协议
-        |-- 请求行
-
-        |-- 请求头
-
-        |-- 请求体
-
-    |-- HTTP响应协议        
-        |-- 响应行
-
-        |-- 响应头
-
-        |-- 响应体
-</code></pre><h3 id="HTTP请求协议图解"><a href="#HTTP请求协议图解" class="headerlink" title="HTTP请求协议图解"></a>HTTP请求协议图解</h3><h4 id="普通请求"><a href="#普通请求" class="headerlink" title="普通请求"></a>普通请求</h4><p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170402/122753927.png" alt="mark"></p>
-<h4 id="表单请求"><a href="#表单请求" class="headerlink" title="表单请求"></a>表单请求</h4><p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170402/160517355.png" alt="mark"><br>    请求头：<br>    accecpt —- 当前浏览器可以解析的数据类型<br>        text/html —- html文本文件<br>        application/xhtml+xml —- xml文件<br>        <em>/</em> ———- 任意文件</p>
-<pre><code>User-agent ---- 本地浏览器以及操作系统的相关信息(给服务器使用)
-Accept-Encoding --- 可以解析的压缩格式
-Connection ----- keep-alive(连接未被终止)
-
-If-Modified-Since    Wed, 04 Jan 2017 02:26:18 GMT
-If-None-Match    W/&quot;179-1483496778700&quot;
-
-referer ----- 当前页面是从哪个页面跳转来的
-    防盗链 ---- 图片 新闻 防盗
-    网站统计 --- 统计广告投放效果
-</code></pre><h3 id="Post请求注意"><a href="#Post请求注意" class="headerlink" title="Post请求注意"></a>Post请求注意</h3><pre><code>POST请求时，有时需要上传图片或文件等字节内容，但是当前默认实现是上传文件名，怎么操作？
-
-enctype=&quot;application/x-www-form-urlencoded&quot;
-Post 表单的默认实现，特点：上传文件名，并且上传的数据要编码
-                  key=value&amp;key=value
-
-enctype=text/plain(不常用)
-   特点：没有编码，上传的是文件名
-                key=value
-                key=value
-
-enctype=&quot;multipart/form-data&quot; ------ 多部件表单数据上传，如果表单有文件上传，那么必须使用该值
- name ---- 键
- file-name ---- 上传的文件名
- content-type --- 上传的文件类型
-     一些二进制数据 ----- 文件内容
-</code></pre><h3 id="HTTP响应协议图解"><a href="#HTTP响应协议图解" class="headerlink" title="HTTP响应协议图解"></a>HTTP响应协议图解</h3><p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170402/160857530.png" alt="mark"><br>     ETag<br>     Last-Modified :二者都是标记，适用于缓存的<br>     Content-type: text/html<br>     Content-length:内容的字节数<br>     Date:响应时间<br>     refresh:设置刷新 跟一个秒值，隔这个秒数之后，会重新请求网站，自动刷新</p>
-<h4 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h4><p>1XX     –&gt;请求收到了，但是不给响应，原则上严禁出现;<br>200        –&gt;请求成功;<br>302        –&gt;请求重定向,重新去访问一个新URL;<br>304        –&gt;请求资源没有改变,访问本地缓存;<br>404        –&gt;请求资源不存在.通常是用户路径编写错误,也可能是服务器资源已删除;<br>500        –&gt;服务器内部错误.通常程序抛出异常;</p>
-<h2 id="Web开发概述"><a href="#Web开发概述" class="headerlink" title="Web开发概述"></a>Web开发概述</h2><h3 id="Web通信"><a href="#Web通信" class="headerlink" title="Web通信"></a>Web通信</h3><p>采用B/S通信模式,通过HTTP协议进行通信,浏览器编写url向服务器发送request请求,服务器端处理后,向浏览器返回response响应,将服务器端资源发送给浏览器,完成通信.<br><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170402/162022962.png" alt="mark"></p>
-<h3 id="软件架构"><a href="#软件架构" class="headerlink" title="软件架构"></a>软件架构</h3><p><strong>C/S架构</strong><br>1.模型: Client/Server,使用时需要在本地安装程序<br>2.案例: QQ,酷狗音乐,迅雷…<br>3.优点:<br> (1)动画效果更好(如游戏);<br> (2)服务器端计算压力小,客户端分担了一部分;<br> (3)数据交互更安全<br> (4)客户端可以找服务器,服务器也可以找客户端<br>4.缺点:<br> (1)富客户端(需要下载,占磁盘空间,且耗时)<br> (2)升级麻烦(客户端要和服务器同步升级)<br> (3)安装依赖其他环境<br><strong>B/S架构</strong><br>1.模型: Browser/Server,需要通过浏览器访问服务器<br>2.案例: 淘宝,京东电商网站,12306…<br>3.优点:<br> (1)节约磁盘空间<br> (2)升级简单(无缝升级)<br> (3)只需要安装浏览器<br>4.缺点:<br> (1)动画效果差<br> (2)服务器端计算压力大,并发访问量大时,可能崩溃<br> (3)数据交互规则是暴露的,不安全<br> (4)通常访问方式:客户端找服务器,服务器给出回应,但是服务器不能直接找客户端</p>
-<h3 id="Web资源介绍"><a href="#Web资源介绍" class="headerlink" title="Web资源介绍"></a>Web资源介绍</h3><p>静态资源: web页面中浏览的数据是不变的,如html,css,js,图片,多媒体等<br>动态资源: web页面中浏览的数据是程序产生的,比如JSP/Servlet,ASP,PHP</p>
-<h3 id="Web服务器"><a href="#Web服务器" class="headerlink" title="Web服务器"></a>Web服务器</h3><p>1.Tomcat: 免费的小型服务器软件,包含集群技术(多台计算机都安装Tomcat,串联成一个整体)<br>2.Weblogic: 大型的服务器软件,被oracle收购了<br>3.WebSphere: IBM公司的大型服务器软件<br>4.JBoss</p>
-<h3 id="URL请求路径"><a href="#URL请求路径" class="headerlink" title="URL请求路径"></a>URL请求路径</h3><p>格式如下:<br>    协议://域名:端口号/资源位置?参数=值</p>
-
+        <h2 id="会话"><a href="#会话" class="headerlink" title="会话"></a>会话</h2><p>用户打开浏览器访问某网站,做出一系列的请求及响应,直至用户退出浏览器的整个过程,视为一次”会话”<br><a id="more"></a></p>
+<h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>是客服端的会话技术,存取数据的对象</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><p>1.会话级别:<br>   Cookie默认是会话级别的,即会话结束,Cookie失效,通常会话结束即浏览器关闭<br>2.持久级别:<br>   可以通过setMaxAge(int code)(单位秒)方法设置Cookie的生命;<br>   当code &gt; 0时,代表Cookie生命周期是code秒<br>   当code = 0时,代表删除Cookie,Cookie失效;<br>   当code &lt; 0时,代表默认状态,即会话级别<br>注意:<br>(1)不设置setMaxAge,Cookie默认是存储在浏览器内存,会话结束即关闭浏览器时,Cookie就会消亡<br>(2)设置setMaxAge,在设定时间内关闭浏览器,浏览器会将Cookie序列化存储到磁盘,在过期时间前再次打开浏览器,浏览器存储的还是当前Cookie</p>
+<h4 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h4><p>new Cookie(String name,String value);           –&gt; 创建Cookie;<br>setMaxAge(int code)                             –&gt; 设置Cookie的生命;<br>HttpServletResponse.addCookie(Cookie cookie);   –&gt; 向客户端设置Cookie;<br>HttpServletReqeust.getCookies();                –&gt; 获取客户端请求中的Cookie;<br>Cookie.getName();                               –&gt; 获取Cookie名称;<br>Cookie.setPath(String uri);                     –&gt; 设置Cookie的允许访问路径;<br>Cookie.setValue(String newValue);               –&gt; 重置Cookie值;<br>Cookie.getValue();                              –&gt; 获取Cookie值;</p>
+<h4 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">(<span class="number">1</span>)服务器创建一个Cookie </div><div class="line">	Cookie c = <span class="keyword">new</span> Cookie(键,值);</div><div class="line">(<span class="number">2</span>)服务器发送Cookie到浏览器</div><div class="line">	response.addCookie(c);</div><div class="line">	在响应头中设置Cookie: set-Cookie: <span class="string">"键=值"</span></div><div class="line">(<span class="number">3</span>)浏览器解析响应头,取出Cookie信息,并存储</div><div class="line">(<span class="number">4</span>)接下来,再请求服务器时,请求头携带Cookie信息到服务器,格式Cookie:<span class="string">"键=值"</span></div><div class="line">(<span class="number">5</span>)服务器获取并处理Cookie</div><div class="line">	Cookies[] cs = request.getCookies();<span class="comment">//第一次访问,每次Cookie,cs为null</span></div><div class="line">	<span class="keyword">if</span>(cs != <span class="keyword">null</span>)&#123;</div><div class="line">		<span class="keyword">for</span>(Cookie c : cs)</div><div class="line">		&#123;</div><div class="line">			<span class="comment">//获取Cookie信息</span></div><div class="line">			c.getName() ---获取键</div><div class="line">			c.getValue() ---获取值</div><div class="line">		&#125;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h4 id="Cookie重名问题"><a href="#Cookie重名问题" class="headerlink" title="Cookie重名问题"></a>Cookie重名问题</h4><p>需求: 浏览器可以存储同名Cookie<br>实现:<br>   1.为同名Cookie设置不同Path标记<br>   2.所属站点不同(站点就是访问的域名)<br>   以上条件满足一个即可<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">默认:<span class="comment">//Cookie中只存储了A=2</span></div><div class="line">Cookie c1 = <span class="keyword">new</span> Cookie(<span class="string">"A"</span>,<span class="string">"1"</span>);</div><div class="line">Cookie c2 = <span class="keyword">new</span> Cookie(<span class="string">"A"</span>,<span class="string">"2"</span>);</div><div class="line">response.addCookie(c1);</div><div class="line">response.addCookie(c2);</div><div class="line"></div><div class="line">设置路径:</div><div class="line">Cookie c1 = <span class="keyword">new</span> Cookie(<span class="string">"A"</span>,<span class="string">"1"</span>);</div><div class="line">Cookie c2 = <span class="keyword">new</span> Cookie(<span class="string">"A"</span>,<span class="string">"2"</span>);</div><div class="line">c1.setPath(<span class="string">"项目名/test1"</span>);</div><div class="line">c2.setPath(<span class="string">"项目名/test2"</span>);</div><div class="line">response.addCookie(c1);</div><div class="line">response.addCookie(c2);</div></pre></td></tr></table></figure></p>
+<p>Path值设置规则:<br>(1)设置Cookie允许访问的路径,设置的路径以及子路径都可以允许访问<br>   setPath(“/a/b/c”) 只有完全匹配该路径的Servlet或当前路径的子级Servlet才可以获取Cookie<br>   /a/b/c/hehe   true<br>   /a/b/c/d/hha  true<br>   /a/c/heh      false<br>(2)setPath(“/“):当前Tomcat下的所有项目都可以访问该Cookie</p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>1.Cookie存储在浏览器中<br>2.每个浏览器都有自己存储Cookie的策略,不同浏览器中Cookie互不影响<br>3.当前Cookie设置时,如果键名相同,后发送的Cookie,会覆盖之前发送的Cookie<br>4.浏览器关闭后重启,认为是第一次访问,因为关闭浏览器时,会话结束,浏览器保存的Cookie消亡了<br>  解决:浏览器关闭时.序列化Cookie,重启服务器时,读取Cookie<br>  实现:为Cookie设置一个有效时间(setMaxAge),在时间内关闭浏览器,浏览器会将Cookie序列化存储到磁盘</p>
+<h3 id="延伸"><a href="#延伸" class="headerlink" title="延伸"></a>延伸</h3><p>1.Cookie除了name value maxage path 还有一些可选属性,可能有bug,不建议使用<br>2.理论上,浏览器端保存时,为一台服务器最多提供的空间是支持20个Cookie;<br>  理论上,浏览器最多可以存储300个Cookie<br>3.Cookie存储的信息量最好控制在4Kb之内,实际上只存少量数据<br>4.Cookie可以唯一的标志客户端,常用于管理Session(重要)</p>
+<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><h4 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h4><p>访问一个页面,如果是第一次访问,输出文本:这是第一次访问<br>如果不是第一次访问,输出上次的访问时间</p>
+<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.geekhoon.demo;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> java.io.PrintWriter;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.servlet.ServletException;</div><div class="line"><span class="keyword">import</span> javax.servlet.http.Cookie;</div><div class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</div><div class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</div><div class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Servlet implementation class Welcome</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Welcome</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</div><div class="line"></div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</div><div class="line">		</div><div class="line">		response.setContentType(<span class="string">"text/html;charset=utf-8"</span>);</div><div class="line">		PrintWriter out = response.getWriter();</div><div class="line">		</div><div class="line">		<span class="comment">//创建Cookie对象</span></div><div class="line">		Cookie c = <span class="keyword">new</span> Cookie(<span class="string">"time"</span>,System.currentTimeMillis()+<span class="string">""</span>);</div><div class="line">		</div><div class="line">		<span class="comment">//c.setMaxAge(60);</span></div><div class="line">		</div><div class="line">		<span class="comment">//服务器获取浏览器传来的Cookie</span></div><div class="line">		Cookie[] cs = request.getCookies();</div><div class="line">		</div><div class="line">		<span class="comment">//不为null,说明不是第一次访问</span></div><div class="line">		<span class="keyword">if</span> (cs != <span class="keyword">null</span>) &#123;</div><div class="line">			<span class="keyword">for</span> (Cookie cookie : cs) &#123;</div><div class="line">				<span class="comment">//取出所有Cookie后,看有没有一个Cookie是记录上次访问时间的,即键是time的</span></div><div class="line">				<span class="keyword">if</span> (<span class="string">"time"</span>.equals(cookie.getName())) &#123;</div><div class="line">					out.write(<span class="string">"上次访问时间: "</span>+cookie.getValue());</div><div class="line">					<span class="comment">//将Cookie发送到浏览器,覆盖上一次time里的值</span></div><div class="line">					response.addCookie(c);</div><div class="line">					<span class="keyword">return</span>;</div><div class="line">				&#125;</div><div class="line">			&#125;	</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			<span class="comment">//为null,说明是第一次访问</span></div><div class="line">			out.write(<span class="string">"这是第一次访问"</span>);</div><div class="line">			<span class="comment">//将Cookie发送到浏览器</span></div><div class="line">			response.addCookie(c);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</div><div class="line">		<span class="comment">// TODO Auto-generated method stub</span></div><div class="line">		doGet(request, response);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -461,6 +414,8 @@ enctype=&quot;multipart/form-data&quot; ------ 多部件表单数据上传，如
           
             <a href="/tags/HTTP/" rel="tag">#HTTP</a>
           
+            <a href="/tags/Session-Cookie/" rel="tag">#Session&Cookie</a>
+          
         </div>
       
 
@@ -468,17 +423,13 @@ enctype=&quot;multipart/form-data&quot; ------ 多部件表单数据上传，如
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/31/JavaWeb-05-XML/" rel="next" title="XML">
-                <i class="fa fa-chevron-left"></i> XML
+              <a href="/2017/04/06/JavaWeb-09-HttpServletRequest/" rel="next" title="HttpServletRequest">
+                <i class="fa fa-chevron-left"></i> HttpServletRequest
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/02/JavaWeb-07-Servlet/" rel="prev" title="Servlet">
-                Servlet <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -527,8 +478,8 @@ enctype=&quot;multipart/form-data&quot; ------ 多部件表单数据上传，如
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/04/01/JavaWeb-06-Http-Tomcat/"
-           data-title="Http" data-url="https://geekhoon.github.io/2017/04/01/JavaWeb-06-Http-Tomcat/">
+      <div class="ds-thread" data-thread-key="2017/04/07/JavaWeb-10-Cookie-Session/"
+           data-title="Cookie&Session" data-url="https://geekhoon.github.io/2017/04/07/JavaWeb-10-Cookie-Session/">
       </div>
     
   </div>
@@ -690,7 +641,7 @@ enctype=&quot;multipart/form-data&quot; ------ 多部件表单数据上传，如
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP协议"><span class="nav-number">1.</span> <span class="nav-text">HTTP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用及特点"><span class="nav-number">1.2.</span> <span class="nav-text">作用及特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本"><span class="nav-number">1.3.</span> <span class="nav-text">版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组成"><span class="nav-number">1.4.</span> <span class="nav-text">组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP请求协议图解"><span class="nav-number">1.5.</span> <span class="nav-text">HTTP请求协议图解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#普通请求"><span class="nav-number">1.5.1.</span> <span class="nav-text">普通请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表单请求"><span class="nav-number">1.5.2.</span> <span class="nav-text">表单请求</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Post请求注意"><span class="nav-number">1.6.</span> <span class="nav-text">Post请求注意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP响应协议图解"><span class="nav-number">1.7.</span> <span class="nav-text">HTTP响应协议图解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#状态码"><span class="nav-number">1.7.1.</span> <span class="nav-text">状态码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web开发概述"><span class="nav-number">2.</span> <span class="nav-text">Web开发概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Web通信"><span class="nav-number">2.1.</span> <span class="nav-text">Web通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件架构"><span class="nav-number">2.2.</span> <span class="nav-text">软件架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web资源介绍"><span class="nav-number">2.3.</span> <span class="nav-text">Web资源介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web服务器"><span class="nav-number">2.4.</span> <span class="nav-text">Web服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#URL请求路径"><span class="nav-number">2.5.</span> <span class="nav-text">URL请求路径</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#会话"><span class="nav-number">1.</span> <span class="nav-text">会话</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie"><span class="nav-number">2.</span> <span class="nav-text">Cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念"><span class="nav-number">2.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">2.2.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分类"><span class="nav-number">2.2.1.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用方法"><span class="nav-number">2.2.2.</span> <span class="nav-text">常用方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#流程"><span class="nav-number">2.2.3.</span> <span class="nav-text">流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie重名问题"><span class="nav-number">2.2.4.</span> <span class="nav-text">Cookie重名问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意"><span class="nav-number">2.3.</span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#延伸"><span class="nav-number">2.4.</span> <span class="nav-text">延伸</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#案例"><span class="nav-number">2.5.</span> <span class="nav-text">案例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#需求"><span class="nav-number">2.5.1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现"><span class="nav-number">2.5.2.</span> <span class="nav-text">实现</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
