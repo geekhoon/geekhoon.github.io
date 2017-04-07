@@ -92,7 +92,7 @@
 <meta property="og:url" content="https://geekhoon.github.io/2017/04/02/JavaWeb-07-Servlet/index.html">
 <meta property="og:site_name" content="geekhoon">
 <meta property="og:description" content="概述1.概念Servlet是运行在服务器端的Java小程序,是Sun公司提供的一套规范,用来处理客户端请求的动态资源.Servlet是JavaWeb三大组件之一(Servlet,Filter,Listener),最为重要.Web资源分为静态资源与动态资源静态资源: HTML,文件,CSS,图片…动态资源: 由程序生成的,每次访问内容可能不一样,如Servlet,JSP">
-<meta property="og:updated_time" content="2017-04-06T09:22:44.112Z">
+<meta property="og:updated_time" content="2017-04-07T13:22:47.092Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Servlet">
 <meta name="twitter:description" content="概述1.概念Servlet是运行在服务器端的Java小程序,是Sun公司提供的一套规范,用来处理客户端请求的动态资源.Servlet是JavaWeb三大组件之一(Servlet,Filter,Listener),最为重要.Web资源分为静态资源与动态资源静态资源: HTML,文件,CSS,图片…动态资源: 由程序生成的,每次访问内容可能不一样,如Servlet,JSP">
@@ -393,7 +393,8 @@
 <p><strong>3.后缀名匹配</strong><br>  <em>.do </em>.test<br>  地址栏中的路径，后缀名必须匹配，后缀名前面随意<br><strong>4.缺省匹配</strong><br>   /<br>   地址栏随便输入路径<br><strong>优先级</strong><br>  1 &gt; 2 &gt; 3 &gt;4<br>原则：越具体优先级越高</p>
 <h3 id="访问路径编写"><a href="#访问路径编写" class="headerlink" title="访问路径编写"></a>访问路径编写</h3><pre><code>./      --&gt; 当前路径;
 ../     --&gt; 上一级目录;
-</code></pre><p>1.绝对路径:<br>    <a href="http://localhost:8080/JavaWeb_day13-Servlet/login.html" target="_blank" rel="external">http://localhost:8080/JavaWeb_day13-Servlet/login.html</a><br>    <a href="http://localhost:8080/JavaWeb_day13-Servlet/UserServlet" target="_blank" rel="external">http://localhost:8080/JavaWeb_day13-Servlet/UserServlet</a><br>2.相对路径:<br>    浏览器 –&gt; 服务器:<br>        /项目名/资源路径….(需要加项目名);<br>    服务器 –&gt; 服务器:<br>        servlet –&gt; servlet<br>        /…(不需要加工程名);</p>
+</code></pre><p>1.绝对路径:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">http://localhost:8080/JavaWeb_day13-Servlet/login.html</div><div class="line">http://localhost:8080/JavaWeb_day13-Servlet/UserServlet</div></pre></td></tr></table></figure></p>
+<p>2.相对路径:<br>    浏览器 –&gt; 服务器:<br>        /项目名/资源路径….(需要加项目名);<br>    服务器 –&gt; 服务器:<br>        servlet –&gt; servlet<br>        /…(不需要加工程名);</p>
 
       
     </div>

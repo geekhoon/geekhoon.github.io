@@ -143,7 +143,7 @@
     <link href="https://geekhoon.github.io/2017/04/02/JavaWeb-07-Servlet/"/>
     <id>https://geekhoon.github.io/2017/04/02/JavaWeb-07-Servlet/</id>
     <published>2017-04-02T09:09:36.000Z</published>
-    <updated>2017-04-06T09:22:44.112Z</updated>
+    <updated>2017-04-07T13:22:47.092Z</updated>
     
     <content type="html"><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><strong>1.概念</strong><br>Servlet是运行在服务器端的Java小程序,是Sun公司提供的一套规范,用来处理客户端请求的动态资源.<br>Servlet是JavaWeb三大组件之一(Servlet,Filter,Listener),最为重要.<br>Web资源分为静态资源与动态资源<br>静态资源: HTML,文件,CSS,图片…<br>动态资源: 由程序生成的,每次访问内容可能不一样,如Servlet,JSP<br><a id="more"></a><br><strong>2.作用</strong><br>处理从客户端发送的请求,并对该请求做出响应<br>任务:<br>  (1)获取请求参数<br>  (2)处理请求<br>  (3)响应</p>
 <h2 id="Servlet实现方式"><a href="#Servlet实现方式" class="headerlink" title="Servlet实现方式"></a>Servlet实现方式</h2><h3 id="版本1"><a href="#版本1" class="headerlink" title="版本1"></a>版本1</h3><p><strong>1.实现类</strong>: 实现Servlet接口,重写抽象方法(主要是service方法)<br><strong>2.配置文件(</strong>WEB_INF/web.xml): URL与类产生映射关系<br><strong>3.访问</strong>: 浏览器输入与自己配置对应的URL,执行效果:调用自定义类的service方法,Tomcat自己创建了Servlet对象,并调用service方法,此过程隐藏了</p>
@@ -162,7 +162,8 @@
 <p><strong>3.后缀名匹配</strong><br>  <em>.do </em>.test<br>  地址栏中的路径，后缀名必须匹配，后缀名前面随意<br><strong>4.缺省匹配</strong><br>   /<br>   地址栏随便输入路径<br><strong>优先级</strong><br>  1 &gt; 2 &gt; 3 &gt;4<br>原则：越具体优先级越高</p>
 <h3 id="访问路径编写"><a href="#访问路径编写" class="headerlink" title="访问路径编写"></a>访问路径编写</h3><pre><code>./      --&gt; 当前路径;
 ../     --&gt; 上一级目录;
-</code></pre><p>1.绝对路径:<br>    <a href="http://localhost:8080/JavaWeb_day13-Servlet/login.html" target="_blank" rel="external">http://localhost:8080/JavaWeb_day13-Servlet/login.html</a><br>    <a href="http://localhost:8080/JavaWeb_day13-Servlet/UserServlet" target="_blank" rel="external">http://localhost:8080/JavaWeb_day13-Servlet/UserServlet</a><br>2.相对路径:<br>    浏览器 –&gt; 服务器:<br>        /项目名/资源路径….(需要加项目名);<br>    服务器 –&gt; 服务器:<br>        servlet –&gt; servlet<br>        /…(不需要加工程名);</p>
+</code></pre><p>1.绝对路径:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">http://localhost:8080/JavaWeb_day13-Servlet/login.html</div><div class="line">http://localhost:8080/JavaWeb_day13-Servlet/UserServlet</div></pre></td></tr></table></figure></p>
+<p>2.相对路径:<br>    浏览器 –&gt; 服务器:<br>        /项目名/资源路径….(需要加项目名);<br>    服务器 –&gt; 服务器:<br>        servlet –&gt; servlet<br>        /…(不需要加工程名);</p>
 ]]></content>
     
     <summary type="html">
