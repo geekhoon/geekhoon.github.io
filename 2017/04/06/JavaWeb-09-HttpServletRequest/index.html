@@ -86,19 +86,19 @@
 
 
 
-<meta name="description" content="概述HttpServletRequest对象是封装请求消息的对象,用于操作请求消息
-使用操作请求行:    getMethod();        –&amp;gt; 获取请求方式;    getContextPath();    –&amp;gt; 获取项目名;    getRemoteAddr();    –&amp;gt; 获取客户端的ip地址;    getServletPath();    –&amp;gt; 获取ur">
+<meta name="description" content="概述HttpServletRequest对象是封装请求消息的对象,用于操作请求消息,是Tomcat创建和管理的
+使用操作请求行:    getMethod();        –&amp;gt; 获取请求方式;    getContextPath();    –&amp;gt; 获取项目名;    getRemoteAddr();    –&amp;gt; 获取客户端的ip地址;    getServletPath();">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HttpServletRequest">
 <meta property="og:url" content="https://geekhoon.github.io/2017/04/06/JavaWeb-09-HttpServletRequest/index.html">
 <meta property="og:site_name" content="geekhoon">
-<meta property="og:description" content="概述HttpServletRequest对象是封装请求消息的对象,用于操作请求消息
-使用操作请求行:    getMethod();        –&amp;gt; 获取请求方式;    getContextPath();    –&amp;gt; 获取项目名;    getRemoteAddr();    –&amp;gt; 获取客户端的ip地址;    getServletPath();    –&amp;gt; 获取ur">
-<meta property="og:updated_time" content="2017-04-06T10:29:29.658Z">
+<meta property="og:description" content="概述HttpServletRequest对象是封装请求消息的对象,用于操作请求消息,是Tomcat创建和管理的
+使用操作请求行:    getMethod();        –&amp;gt; 获取请求方式;    getContextPath();    –&amp;gt; 获取项目名;    getRemoteAddr();    –&amp;gt; 获取客户端的ip地址;    getServletPath();">
+<meta property="og:updated_time" content="2017-04-08T09:29:05.475Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HttpServletRequest">
-<meta name="twitter:description" content="概述HttpServletRequest对象是封装请求消息的对象,用于操作请求消息
-使用操作请求行:    getMethod();        –&amp;gt; 获取请求方式;    getContextPath();    –&amp;gt; 获取项目名;    getRemoteAddr();    –&amp;gt; 获取客户端的ip地址;    getServletPath();    –&amp;gt; 获取ur">
+<meta name="twitter:description" content="概述HttpServletRequest对象是封装请求消息的对象,用于操作请求消息,是Tomcat创建和管理的
+使用操作请求行:    getMethod();        –&amp;gt; 获取请求方式;    getContextPath();    –&amp;gt; 获取项目名;    getRemoteAddr();    –&amp;gt; 获取客户端的ip地址;    getServletPath();">
 
 
 
@@ -379,7 +379,7 @@
       
 
       
-        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>HttpServletRequest对象是封装请求消息的对象,用于操作请求消息</p>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>HttpServletRequest对象是封装请求消息的对象,用于操作请求消息,是Tomcat创建和管理的</p>
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>操作请求行:<br>    getMethod();        –&gt; 获取请求方式;<br>    getContextPath();    –&gt; 获取项目名;<br>    getRemoteAddr();    –&gt; 获取客户端的ip地址;<br>    getServletPath();    –&gt; 获取url-pattern;</p>
 <p>操作请求参数:<br>    getParameter(String name);    –&gt; 通过参数名获取第一个参数值;<br>    getParameterValues(String name);    –&gt; 通过参数名获取一组参数值;<br>    getParameterMap();                    –&gt; 获取所有参数(key:参数名;value:参数值);</p>
 <p>解决请求中文乱码问题:<br>    Post方式:<br>            setCharacterEncoding(“字符集”);<br>    Get方式:<br>            new String(str.getBytes(“ISO8859-1”),”UTF-8”);</p>
@@ -562,7 +562,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
