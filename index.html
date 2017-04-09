@@ -303,6 +303,137 @@
             
               
                 
+                <a class="post-title-link" href="/2017/04/09/JavaWeb-11-JSP/" itemprop="url">
+                  JavaWeb_11.JSP
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-09T15:08:53+08:00" content="2017-04-09">
+              2017-04-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaWeb/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaWeb</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/04/09/JavaWeb-11-JSP/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/09/JavaWeb-11-JSP/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/04/09/JavaWeb-11-JSP/" class="leancloud_visitors" data-flag-title="JavaWeb_11.JSP">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>JSP(Java Server Pages)是建立在Servlet规范之上的动态网页开发技术(实质是一个Servlet)<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/04/09/JavaWeb-11-JSP/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/04/07/JavaWeb-10-Cookie-Session/" itemprop="url">
                   Cookie&Session
                 </a>
@@ -521,7 +652,7 @@
 <h2 id="请求处理"><a href="#请求处理" class="headerlink" title="请求处理"></a>请求处理</h2><h3 id="请求重发"><a href="#请求重发" class="headerlink" title="请求重发"></a>请求重发</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">HttpRequest(请求转发):</div><div class="line">    getRequestDispatcher(String <span class="string">"Servlet的路径"</span>).forward(HttpServletRequest request,HttpServletResponse response);</div></pre></td></tr></table></figure>
 <h3 id="请求重定向"><a href="#请求重定向" class="headerlink" title="请求重定向"></a>请求重定向</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">HttpResponse(请求重定向):</div><div class="line">    sendRedirect(String <span class="string">"资源路径"</span>);</div></pre></td></tr></table></figure>
 <h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><hr>
-<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><p>1.<br>请求转发: 发生在服务器,只能转发服务器内部资源<br>重定向: 发生在客户端,可以重定向到任意资源<br>2.<br>请求转发: 最后执行的Servlet的路径不在浏览器地址栏显示,地址栏地址不变<br>重定向: 最后访问的Servlet的路径在地址栏显示,地址栏地址会发生变化<br>3.<br>请求转发: 只有一次请求,一次响应<br>重定向: 重定向次数+1次请求   重定向次数+1次响应<br>4.<br>请求转发: 路径不需要加项目名<br>重定向: 路径需要加项目名<br>5.<br>请求转发: 当前要转发的Servlet不能写出数据,写出也不会传递到客户端,转发之前,开启了流,流之前如果没有设置编码集还会产生乱码<br>重定向: 可以写出数据,但是意义不大,由于浏览器执行速度快,当前数据基本无法显示(这是合法操作)</p>
+<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><p>1.<br>请求转发: 发生在服务器,只能转发服务器内部资源<br>重定向: 发生在客户端,可以重定向到任意资源<br>2.<br>请求转发: 最后执行的Servlet的路径不在浏览器地址栏显示,地址栏地址不变<br>重定向: 最后访问的Servlet的路径在地址栏显示,地址栏地址会发生变化<br>3.<br>请求转发: 只有一次请求,一次响应<br>重定向: 重定向次数+1次请求   重定向次数+1次响应<br>4.<br>请求转发: 路径不需要加项目名: /Servlet名<br>重定向: 路径需要加项目名: /项目名/Servlet名<br>5.<br>请求转发: 当前要转发的Servlet不能写出数据,写出也不会传递到客户端,转发之前,开启了流,流之前如果没有设置编码集还会产生乱码<br>重定向: 可以写出数据,但是意义不大,由于浏览器执行速度快,当前数据基本无法显示(这是合法操作)</p>
 <h2 id="路径问题-———————————-看视频"><a href="#路径问题-———————————-看视频" class="headerlink" title="路径问题 ## ———————————-看视频"></a>路径问题 ## ———————————-看视频</h2><p> A、表单中使用 action  ——-  有项目名<br> B、超链接中使用了 ———— 有项目名<br> C、ServletContext.getResourceAsStream(“资源路径”); —— 没有项目名<br> D、请求转发  —————– 没有项目名<br> E、重定向 ——————- 有项目名</p>
 <p> 记住：<br>  给浏览器用的都有项目名<br>  给服务器用的都没有项目名</p>
 <h2 id="BeanUtils-———————————反射"><a href="#BeanUtils-———————————反射" class="headerlink" title="BeanUtils ## ———————————反射"></a>BeanUtils ## ———————————反射</h2><p>BeanUtils是将数据封装成JavaBean对象</p>
@@ -2848,141 +2979,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/10/13-API/" itemprop="url">
-                  API
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-10T10:50:27+08:00" content="2017-02-10">
-              2017-02-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/JAVA基础/" itemprop="url" rel="index">
-                    <span itemprop="name">JAVA基础</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/02/10/13-API/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/10/13-API/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/02/10/13-API/" class="leancloud_visitors" data-flag-title="API">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="API概念"><a href="#API概念" class="headerlink" title="API概念"></a>API概念</h3><pre><code>* API(Application Programming Interface) 
-  应用程序编程接口
-* Java API
-  Java jdk给我们提供好的类
-</code></pre>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/02/10/13-API/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -3028,7 +3024,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">37</span>
+              <span class="site-state-item-count">38</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -3045,7 +3041,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -92,7 +92,7 @@
 <meta property="og:url" content="https://geekhoon.github.io/2017/04/02/JavaWeb-07-Servlet/index.html">
 <meta property="og:site_name" content="geekhoon">
 <meta property="og:description" content="概述1.概念Servlet是运行在服务器端的Java小程序,是Sun公司提供的一套规范,用来处理客户端请求的动态资源.Servlet是JavaWeb三大组件之一(Servlet,Filter,Listener),最为重要.Web资源分为静态资源与动态资源静态资源: HTML,文件,CSS,图片…动态资源: 由程序生成的,每次访问内容可能不一样,如Servlet,JSP">
-<meta property="og:updated_time" content="2017-04-07T13:22:47.092Z">
+<meta property="og:updated_time" content="2017-04-09T00:35:21.395Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Servlet">
 <meta name="twitter:description" content="概述1.概念Servlet是运行在服务器端的Java小程序,是Sun公司提供的一套规范,用来处理客户端请求的动态资源.Servlet是JavaWeb三大组件之一(Servlet,Filter,Listener),最为重要.Web资源分为静态资源与动态资源静态资源: HTML,文件,CSS,图片…动态资源: 由程序生成的,每次访问内容可能不一样,如Servlet,JSP">
@@ -376,7 +376,7 @@
       
 
       
-        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><strong>1.概念</strong><br>Servlet是运行在服务器端的Java小程序,是Sun公司提供的一套规范,用来处理客户端请求的动态资源.<br>Servlet是JavaWeb三大组件之一(Servlet,Filter,Listener),最为重要.<br>Web资源分为静态资源与动态资源<br>静态资源: HTML,文件,CSS,图片…<br>动态资源: 由程序生成的,每次访问内容可能不一样,如Servlet,JSP<br><a id="more"></a><br><strong>2.作用</strong><br>处理从客户端发送的请求,并对该请求做出响应<br>任务:<br>  (1)获取请求参数<br>  (2)处理请求<br>  (3)响应</p>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><strong>1.概念</strong><br>Servlet是运行在服务器端的Java小程序,是Sun公司提供的一套规范,用来处理客户端请求的动态资源.<br>Servlet是JavaWeb三大组件之一(Servlet,Filter,Listener),最为重要.<br>Web资源分为静态资源与动态资源<br>静态资源: HTML,文件,CSS,图片…<br>动态资源: 由程序生成的,每次访问内容可能不一样,如Servlet,JSP<br><a id="more"></a><br><strong>2.作用</strong><br>处理从客户端发送的请求,并对该请求做出响应<br>任务:<br>  (1)获取请求参数<br>  (2)处理请求<br>  (3)响应(重定向,请求转发)</p>
 <h2 id="Servlet实现方式"><a href="#Servlet实现方式" class="headerlink" title="Servlet实现方式"></a>Servlet实现方式</h2><h3 id="版本1"><a href="#版本1" class="headerlink" title="版本1"></a>版本1</h3><p><strong>1.实现类</strong>: 实现Servlet接口,重写抽象方法(主要是service方法)<br><strong>2.配置文件(</strong>WEB_INF/web.xml): URL与类产生映射关系<br><strong>3.访问</strong>: 浏览器输入与自己配置对应的URL,执行效果:调用自定义类的service方法,Tomcat自己创建了Servlet对象,并调用service方法,此过程隐藏了</p>
 <h3 id="版本2"><a href="#版本2" class="headerlink" title="版本2"></a>版本2</h3><p><strong>1.编写类</strong>: 继承GenericServlet类,重写service方法<br>注意:<br>  (1)本质上与直接重写Servlet接口一样<br>  (2)采用当前方式只关心service方法<br>  (3)唯一优点: 代码简单<br>步骤2和3与版本1一样.</p>
 <h3 id="版本3"><a href="#版本3" class="headerlink" title="版本3"></a>版本3</h3><p><strong>1.编写类</strong>: 继承javax.servlet.http.HttpServlet类,重写doGet()和doPost(),如果是GET请求调用doGet(),POST请求调用doPost()<br><strong>2.配置文件</strong>: web.xml</p>
@@ -535,7 +535,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">37</span>
+              <span class="site-state-item-count">38</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -552,7 +552,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
