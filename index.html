@@ -381,19 +381,12 @@
 
       
         
-          
-            <h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>概念: 逻辑上的一组操作,要么全部成功,要么全部失败.<br>作用: 保证在一个事务中多次操作要么全部成功,要么全部失败<br>缩写为tx</p>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>在数据操作前开启事务,如果在多次数据操作间出现了错误,比如A给B转账,A转出了100,但此时B没有收到,此时程序出错,则A可以rollback回滚,恢复到开始事务时的状态.如果多次数据操作间没出现错误,则可以commit提交.<br><strong>注意:</strong>事务是否结束,取决与 是否调用了rollback 或 commit</p>
-<h4 id="cmd事务操作"><a href="#cmd事务操作" class="headerlink" title="cmd事务操作"></a>cmd事务操作</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">-- 方式一:</div><div class="line">    a) 开启事务:</div><div class="line">        start transaction;</div><div class="line">    b) 结束事务:</div><div class="line">        commit;(提交事务)</div><div class="line">        rollback;(回滚事务)</div><div class="line"></div><div class="line">-- 方式二:</div><div class="line">    a) 设置自动提交为<span class="keyword">false</span>:</div><div class="line">        set autocommit = <span class="number">0</span>;(<span class="number">0</span> == <span class="keyword">false</span>, <span class="number">1</span> == <span class="keyword">true</span>)</div><div class="line">    b) 结束事务:</div><div class="line">        commit;(提交事务)</div><div class="line">        rollback;(回滚事务)</div></pre></td></tr></table></figure>
-<h4 id="JDBC事务操作"><a href="#JDBC事务操作" class="headerlink" title="JDBC事务操作"></a>JDBC事务操作</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">a) 获取连接(conn);</div><div class="line">b) 开启事务:</div><div class="line">    conn.setAutoCommit(<span class="keyword">false</span>);</div><div class="line">c) 结束事务:</div><div class="line">    conn.commit();(提交事务)</div><div class="line">    conn.rollback();(回滚事务)</div></pre></td></tr></table></figure>
-<h4 id="DBUtils事务操作"><a href="#DBUtils事务操作" class="headerlink" title="DBUtils事务操作"></a>DBUtils事务操作</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">a) 获取连接(conn);</div><div class="line">b) 开启事务:</div><div class="line">    conn.setAutoCommit(<span class="keyword">false</span>);</div><div class="line">c) 结束事务:</div><div class="line">    DbUtils.commitAndClose(conn);</div><div class="line">    DbUtils.rollbackAndClose(conn);</div></pre></td></tr></table></figure>
-<h2 id="ThreadLocal"><a href="#ThreadLocal" class="headerlink" title="ThreadLocal"></a>ThreadLocal</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>本地线程变量<br>作用: 在当前线程任意位置,共享数据;</p>
-<h3 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">set(Object obj);  设置数据;</div><div class="line">get();  获取数据;</div><div class="line">remove();  移除数据;</div><div class="line"></div><div class="line">ThreadLocal local = <span class="keyword">new</span> ThreadLocal();</div><div class="line">Thread ct = Thread.currentThread();</div><div class="line"></div><div class="line">local相当于map集合,键的位置存放当前线程,值的位置存放Connection对象</div><div class="line">对应关系:</div><div class="line">local.set(con) --- map.put(ct,con)</div><div class="line">local.get -------- map.get(ct)</div><div class="line">local.remove ----- map.remove(ct)</div></pre></td></tr></table></figure>
-<h2 id="事务特性"><a href="#事务特性" class="headerlink" title="事务特性"></a>事务特性</h2><p>ACID<br>1.原子性: 事务结束后,这组操作,要么同时成功,要么同时失败;<br>2.一致性: 事务前后数据必须保持一致,操作完成后,所有数据必须符合业务逻辑,否则事务必须中止;<br>3.隔离性(多事务的并发): 多事务并发,事务以相互隔离的方式执行;<br>4.持久性: 事务提交后,数据必须以一种持久性方式存取起来,事务不可逆;</p>
-<h2 id="事务中的问题与隔离级别"><a href="#事务中的问题与隔离级别" class="headerlink" title="事务中的问题与隔离级别"></a>事务中的问题与隔离级别</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">脏读:</div><div class="line">    一个事务读取到另一个事务未提交的数据;</div><div class="line"></div><div class="line">不可重复读:</div><div class="line">    一个事务中两次查询的数据不一致   --&gt; 一个事务读到了另一个事务 已经提交数据(update)</div><div class="line"></div><div class="line">虚读(幻读):</div><div class="line">    一个事务中两次查询的数据不一致   --&gt; 一个事务读到了另一个事务 已经提交数据(insert)</div></pre></td></tr></table></figure>
-<h3 id="隔离"><a href="#隔离" class="headerlink" title="隔离"></a>隔离</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">隔离级别(安全从高到低,性能从低到高):</div><div class="line">    (串行化)serializable;       --&gt; 解决脏读,不可重复读,虚读(幻读)问题;</div><div class="line">    (可重复读)repeatalbe read;  --&gt; 解决脏读,不可重复读问题;(mysql默认隔离级别)</div><div class="line">    (读已提交)read committed;   --&gt; 解决脏读问题;</div><div class="line">    (读未提交)read uncommitted; --&gt; 未解决任何问题;</div><div class="line"></div><div class="line">查看隔离级别:</div><div class="line">    select @@tx_isolation;</div><div class="line"></div><div class="line">修改隔离级别:</div><div class="line">    set session transaction isolation level 隔离级别;</div></pre></td></tr></table></figure>
-
-          
+          <h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>概念: 逻辑上的一组操作,要么全部成功,要么全部失败.<br>作用: 保证在一个事务中多次操作要么全部成功,要么全部失败<br>缩写为tx<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/04/12/JDBC事务/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -442,7 +435,7 @@
               
                 
                 <a class="post-title-link" href="/2017/04/09/JavaWeb-11-JSP/" itemprop="url">
-                  JavaWeb_11.JSP
+                  JSP
                 </a>
               
             
@@ -496,7 +489,7 @@
 
           
           
-             <span id="/2017/04/09/JavaWeb-11-JSP/" class="leancloud_visitors" data-flag-title="JavaWeb_11.JSP">
+             <span id="/2017/04/09/JavaWeb-11-JSP/" class="leancloud_visitors" data-flag-title="JSP">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
