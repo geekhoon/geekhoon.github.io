@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="前端开发," />
+  <meta name="keywords" content="数据库," />
 
 
 
@@ -86,25 +86,19 @@
 
 
 
-<meta name="description" content="概述1. 是基于HTML,CSS,JS的前端框架(半成品).
-   只需要提供固定的HTML结构,添加固定的css样式,就可以完成指定效果的实现
-   框架------&amp;gt; 也是一种封装,封装的高级形式
-   封装------&amp;gt; 方法---&amp;gt;类(Java中封装特指类)---&amp;gt;jar包---&amp;gt;框架">
+<meta name="description" content="事务概述概念: 逻辑上的一组操作,要么全部成功,要么全部失败.作用: 保证在一个事务中多次操作要么全部成功,要么全部失败缩写为tx
+使用在数据操作前开启事务,如果在多次数据操作间出现了错误,比如A给B转账,A转出了100,但此时B没有收到,此时程序出错,则A可以rollback回滚,恢复到开始事务时的状态.如果多次数据操作间没出现错误,则可以commit提交.注意:事务是否结束,取决与 是否调用了">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Bootstrap">
-<meta property="og:url" content="https://geekhoon.github.io/2017/03/26/JavaWeb-04-Bootstrap/index.html">
+<meta property="og:title" content="JDBC事务">
+<meta property="og:url" content="https://geekhoon.github.io/2017/04/12/JDBC事务/index.html">
 <meta property="og:site_name" content="geekhoon">
-<meta property="og:description" content="概述1. 是基于HTML,CSS,JS的前端框架(半成品).
-   只需要提供固定的HTML结构,添加固定的css样式,就可以完成指定效果的实现
-   框架------&amp;gt; 也是一种封装,封装的高级形式
-   封装------&amp;gt; 方法---&amp;gt;类(Java中封装特指类)---&amp;gt;jar包---&amp;gt;框架">
-<meta property="og:updated_time" content="2017-03-28T13:17:46.789Z">
+<meta property="og:description" content="事务概述概念: 逻辑上的一组操作,要么全部成功,要么全部失败.作用: 保证在一个事务中多次操作要么全部成功,要么全部失败缩写为tx
+使用在数据操作前开启事务,如果在多次数据操作间出现了错误,比如A给B转账,A转出了100,但此时B没有收到,此时程序出错,则A可以rollback回滚,恢复到开始事务时的状态.如果多次数据操作间没出现错误,则可以commit提交.注意:事务是否结束,取决与 是否调用了">
+<meta property="og:updated_time" content="2017-04-12T15:21:53.087Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bootstrap">
-<meta name="twitter:description" content="概述1. 是基于HTML,CSS,JS的前端框架(半成品).
-   只需要提供固定的HTML结构,添加固定的css样式,就可以完成指定效果的实现
-   框架------&amp;gt; 也是一种封装,封装的高级形式
-   封装------&amp;gt; 方法---&amp;gt;类(Java中封装特指类)---&amp;gt;jar包---&amp;gt;框架">
+<meta name="twitter:title" content="JDBC事务">
+<meta name="twitter:description" content="事务概述概念: 逻辑上的一组操作,要么全部成功,要么全部失败.作用: 保证在一个事务中多次操作要么全部成功,要么全部失败缩写为tx
+使用在数据操作前开启事务,如果在多次数据操作间出现了错误,比如A给B转账,A转出了100,但此时B没有收到,此时程序出错,则A可以rollback回滚,恢复到开始事务时的状态.如果多次数据操作间没出现错误,则可以commit提交.注意:事务是否结束,取决与 是否调用了">
 
 
 
@@ -125,9 +119,9 @@
 
 
 
-  <link rel="canonical" href="https://geekhoon.github.io/2017/03/26/JavaWeb-04-Bootstrap/"/>
+  <link rel="canonical" href="https://geekhoon.github.io/2017/04/12/JDBC事务/"/>
 
-  <title> Bootstrap | geekhoon </title>
+  <title> JDBC事务 | geekhoon </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -310,7 +304,7 @@
             
             
               
-                Bootstrap
+                JDBC事务
               
             
           </h1>
@@ -322,8 +316,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-03-26T01:52:21+08:00" content="2017-03-26">
-              2017-03-26
+            <time itemprop="dateCreated" datetime="2017-04-12T23:20:57+08:00" content="2017-04-12">
+              2017-04-12
             </time>
           </span>
 
@@ -336,8 +330,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/JavaWeb/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaWeb</span>
+                  <a href="/categories/JAVA进阶/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVA进阶</span>
                   </a>
                 </span>
 
@@ -352,8 +346,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/03/26/JavaWeb-04-Bootstrap/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/26/JavaWeb-04-Bootstrap/" itemprop="commentsCount"></span>
+                <a href="/2017/04/12/JDBC事务/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/12/JDBC事务/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -363,7 +357,7 @@
 
           
           
-             <span id="/2017/03/26/JavaWeb-04-Bootstrap/" class="leancloud_visitors" data-flag-title="Bootstrap">
+             <span id="/2017/04/12/JDBC事务/" class="leancloud_visitors" data-flag-title="JDBC事务">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -385,68 +379,17 @@
       
 
       
-        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><pre><code>1. 是基于HTML,CSS,JS的前端框架(半成品).
-   只需要提供固定的HTML结构,添加固定的css样式,就可以完成指定效果的实现
-   框架------&gt; 也是一种封装,封装的高级形式
-   封装------&gt; 方法---&gt;类(Java中封装特指类)---&gt;jar包---&gt;框架
-</code></pre><a id="more"></a>
-<pre><code>       1. jar包-----&gt; 封装的是某个功能模块(侧重于功能实现)
-       2. 框架------&gt; 封装的是流程(结构性封装)    
-2. 在JQuery的基础上实现的,是JQuery的插件
-</code></pre><h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><pre><code>1. 内置了一些常见的复杂的页面实现(封装了一些常见功能)
-2. 可以实现响应式布局(根据响应终端自适应显示)
-    根据访问终端屏幕的大小,动态的改变显示样式(只提供一套代码即可)
-</code></pre><h4 id="Bootstrap开发环境"><a href="#Bootstrap开发环境" class="headerlink" title="Bootstrap开发环境"></a>Bootstrap开发环境</h4><pre><code>1. 引入JQuery实现,注意版本必须兼容
-2. 将dist目录下的css font js文件夹复制到当前项目
-注意: 这些文件夹必须平级
-</code></pre><h3 id="Bootstrap容器"><a href="#Bootstrap容器" class="headerlink" title="Bootstrap容器"></a>Bootstrap容器</h3><pre><code>编写页面(界面),必然涉及的概念:
-1. 容器: 存储页面元素的一个组件
-2. 布局: 怎么在容器排放组件
-容器:
-1. 容器1:
-    * 语法: &lt;div class=&quot;container&quot;&gt;&lt;/div&gt;
-    * 效果: 大页面下两端有留白
-2. 容器2:
-    * 语法: &lt;div class=&quot;container-fluid&quot;&gt;&lt;/div&gt;
-    * 效果: 两端无留白
-拓展:
-    我们只声明了class,但效果显现了,这个class怎么运行的?
-    在引入的css文件中,编写相关的class样式了
-So: class写错,可能识别不了,因为class值都是Bootstrap内置好的,不能随便使用
-</code></pre><h3 id="Bootstrap布局"><a href="#Bootstrap布局" class="headerlink" title="Bootstrap布局"></a>Bootstrap布局</h3><pre><code>栅格(表格)系统:
-1. 栅格本质是表格 ---- 行与列是两要素
-2. 行与列实现
-    1. 行 --- &lt;div class=&quot;row&quot;&gt;&lt;/div&gt; --- 可以写多个,代表多行
-    2. 列 --- &lt;div class=&quot;col-屏幕代号-比例&quot;&gt;&lt;/div&gt;
-       * Bootstrap中一行默认12单元列,编写的列必须声明一个所占的单元列数
-注意:
-    1. 12列是一个折中方案
-    2. 行中分配列:
-        * 所有列(比例)相加和为12
-        * 小于12,空余部分不做处理
-        * 大于12,大于12的部分会自动换行
-</code></pre><h4 id="响应式布局机制"><a href="#响应式布局机制" class="headerlink" title="响应式布局机制"></a>响应式布局机制</h4><pre><code>1. Bootstrap将屏幕划分为四大类:
-    1. 超小屏幕 &lt;= 768px ---- xs
-    2. 小屏幕: 768 - 992 ---- sm
-    3. 中等屏幕: 992 - 1200 - md
-    4. 大屏幕: &gt;= 1200px ---- lg
-2. 响应式布局的代码实现
-    要设置某个屏幕下的占比 --- col-屏幕代号-占比
-    现象: 
-        1. 如果只设置lg,其余屏幕不按照占比分配
-        2. 如果只设置xs,其余屏幕按照占比分配
-    原则: 
-        小屏幕优先,如果屏幕比我大,但是没设置占比,就按照我的占比来
-        如果屏幕比我小,但是没设置占比,默认是换行,不受我的占比影响
-    补充: 一个class属性可以设置多个值,不同值之间使用空格隔开
-3. 拓展需求: 
-    某些页面元素可能在某些屏幕下显示,某些屏幕下不显示:
-    语法:
-        方式1:(设置显示) 添加class visible-屏幕代号
-        方式2:(设置隐藏) 添加class hidden-屏幕代号
-    效果:
-        在指定屏幕下显示(或隐藏),没有指定的不显示(或隐藏),没有小屏优先,必须严格对应
-</code></pre><h3 id="基本模板"><a href="#基本模板" class="headerlink" title="基本模板"></a>基本模板</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh-CN"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"../css/bootstrap.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../js/jquery-1.11.3.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../js/bootstrap.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+        <h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>概念: 逻辑上的一组操作,要么全部成功,要么全部失败.<br>作用: 保证在一个事务中多次操作要么全部成功,要么全部失败<br>缩写为tx</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>在数据操作前开启事务,如果在多次数据操作间出现了错误,比如A给B转账,A转出了100,但此时B没有收到,此时程序出错,则A可以rollback回滚,恢复到开始事务时的状态.如果多次数据操作间没出现错误,则可以commit提交.<br><strong>注意:</strong>事务是否结束,取决与 是否调用了rollback 或 commit</p>
+<h4 id="cmd事务操作"><a href="#cmd事务操作" class="headerlink" title="cmd事务操作"></a>cmd事务操作</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">-- 方式一:</div><div class="line">    a) 开启事务:</div><div class="line">        start transaction;</div><div class="line">    b) 结束事务:</div><div class="line">        commit;(提交事务)</div><div class="line">        rollback;(回滚事务)</div><div class="line"></div><div class="line">-- 方式二:</div><div class="line">    a) 设置自动提交为<span class="keyword">false</span>:</div><div class="line">        set autocommit = <span class="number">0</span>;(<span class="number">0</span> == <span class="keyword">false</span>, <span class="number">1</span> == <span class="keyword">true</span>)</div><div class="line">    b) 结束事务:</div><div class="line">        commit;(提交事务)</div><div class="line">        rollback;(回滚事务)</div></pre></td></tr></table></figure>
+<h4 id="JDBC事务操作"><a href="#JDBC事务操作" class="headerlink" title="JDBC事务操作"></a>JDBC事务操作</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">a) 获取连接(conn);</div><div class="line">b) 开启事务:</div><div class="line">    conn.setAutoCommit(<span class="keyword">false</span>);</div><div class="line">c) 结束事务:</div><div class="line">    conn.commit();(提交事务)</div><div class="line">    conn.rollback();(回滚事务)</div></pre></td></tr></table></figure>
+<h4 id="DBUtils事务操作"><a href="#DBUtils事务操作" class="headerlink" title="DBUtils事务操作"></a>DBUtils事务操作</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">a) 获取连接(conn);</div><div class="line">b) 开启事务:</div><div class="line">    conn.setAutoCommit(<span class="keyword">false</span>);</div><div class="line">c) 结束事务:</div><div class="line">    DbUtils.commitAndClose(conn);</div><div class="line">    DbUtils.rollbackAndClose(conn);</div></pre></td></tr></table></figure>
+<h2 id="ThreadLocal"><a href="#ThreadLocal" class="headerlink" title="ThreadLocal"></a>ThreadLocal</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>本地线程变量<br>作用: 在当前线程任意位置,共享数据;</p>
+<h3 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">set(Object obj);  设置数据;</div><div class="line">get();  获取数据;</div><div class="line">remove();  移除数据;</div><div class="line"></div><div class="line">ThreadLocal local = <span class="keyword">new</span> ThreadLocal();</div><div class="line">Thread ct = Thread.currentThread();</div><div class="line"></div><div class="line">local相当于map集合,键的位置存放当前线程,值的位置存放Connection对象</div><div class="line">对应关系:</div><div class="line">local.set(con) --- map.put(ct,con)</div><div class="line">local.get -------- map.get(ct)</div><div class="line">local.remove ----- map.remove(ct)</div></pre></td></tr></table></figure>
+<h2 id="事务特性"><a href="#事务特性" class="headerlink" title="事务特性"></a>事务特性</h2><p>ACID<br>1.原子性: 事务结束后,这组操作,要么同时成功,要么同时失败;<br>2.一致性: 事务前后数据必须保持一致,操作完成后,所有数据必须符合业务逻辑,否则事务必须中止;<br>3.隔离性(多事务的并发): 多事务并发,事务以相互隔离的方式执行;<br>4.持久性: 事务提交后,数据必须以一种持久性方式存取起来,事务不可逆;</p>
+<h2 id="事务中的问题与隔离级别"><a href="#事务中的问题与隔离级别" class="headerlink" title="事务中的问题与隔离级别"></a>事务中的问题与隔离级别</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">脏读:</div><div class="line">    一个事务读取到另一个事务未提交的数据;</div><div class="line"></div><div class="line">不可重复读:</div><div class="line">    一个事务中两次查询的数据不一致   --&gt; 一个事务读到了另一个事务 已经提交数据(update)</div><div class="line"></div><div class="line">虚读(幻读):</div><div class="line">    一个事务中两次查询的数据不一致   --&gt; 一个事务读到了另一个事务 已经提交数据(insert)</div></pre></td></tr></table></figure>
+<h3 id="隔离"><a href="#隔离" class="headerlink" title="隔离"></a>隔离</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">隔离级别(安全从高到低,性能从低到高):</div><div class="line">    (串行化)serializable;       --&gt; 解决脏读,不可重复读,虚读(幻读)问题;</div><div class="line">    (可重复读)repeatalbe read;  --&gt; 解决脏读,不可重复读问题;(mysql默认隔离级别)</div><div class="line">    (读已提交)read committed;   --&gt; 解决脏读问题;</div><div class="line">    (读未提交)read uncommitted; --&gt; 未解决任何问题;</div><div class="line"></div><div class="line">查看隔离级别:</div><div class="line">    select @@tx_isolation;</div><div class="line"></div><div class="line">修改隔离级别:</div><div class="line">    set session transaction isolation level 隔离级别;</div></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -468,7 +411,7 @@ So: class写错,可能识别不了,因为class值都是Bootstrap内置好的,不
       
         <div class="post-tags">
           
-            <a href="/tags/前端开发/" rel="tag">#前端开发</a>
+            <a href="/tags/数据库/" rel="tag">#数据库</a>
           
         </div>
       
@@ -477,17 +420,13 @@ So: class写错,可能识别不了,因为class值都是Bootstrap内置好的,不
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/23/JavaWeb-03-JQuery/" rel="next" title="JQuery">
-                <i class="fa fa-chevron-left"></i> JQuery
+              <a href="/2017/04/09/JavaWeb-11-JSP/" rel="next" title="JavaWeb_11.JSP">
+                <i class="fa fa-chevron-left"></i> JavaWeb_11.JSP
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/30/21-连接池/" rel="prev" title="JDBC连接池">
-                JDBC连接池 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -536,8 +475,8 @@ So: class写错,可能识别不了,因为class值都是Bootstrap内置好的,不
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/03/26/JavaWeb-04-Bootstrap/"
-           data-title="Bootstrap" data-url="https://geekhoon.github.io/2017/03/26/JavaWeb-04-Bootstrap/">
+      <div class="ds-thread" data-thread-key="2017/04/12/JDBC事务/"
+           data-title="JDBC事务" data-url="https://geekhoon.github.io/2017/04/12/JDBC事务/">
       </div>
     
   </div>
@@ -699,7 +638,7 @@ So: class写错,可能识别不了,因为class值都是Bootstrap内置好的,不
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#作用"><span class="nav-number">1.1.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bootstrap开发环境"><span class="nav-number">1.2.</span> <span class="nav-text">Bootstrap开发环境</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bootstrap容器"><span class="nav-number">2.</span> <span class="nav-text">Bootstrap容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bootstrap布局"><span class="nav-number">3.</span> <span class="nav-text">Bootstrap布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#响应式布局机制"><span class="nav-number">3.1.</span> <span class="nav-text">响应式布局机制</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本模板"><span class="nav-number">4.</span> <span class="nav-text">基本模板</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#事务"><span class="nav-number">1.</span> <span class="nav-text">事务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">1.2.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cmd事务操作"><span class="nav-number">1.2.1.</span> <span class="nav-text">cmd事务操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JDBC事务操作"><span class="nav-number">1.2.2.</span> <span class="nav-text">JDBC事务操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DBUtils事务操作"><span class="nav-number">1.2.3.</span> <span class="nav-text">DBUtils事务操作</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ThreadLocal"><span class="nav-number">2.</span> <span class="nav-text">ThreadLocal</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念"><span class="nav-number">2.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-1"><span class="nav-number">2.2.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务特性"><span class="nav-number">3.</span> <span class="nav-text">事务特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务中的问题与隔离级别"><span class="nav-number">4.</span> <span class="nav-text">事务中的问题与隔离级别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">4.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隔离"><span class="nav-number">4.2.</span> <span class="nav-text">隔离</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
