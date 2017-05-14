@@ -1,0 +1,1048 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="SSH,hibernate,struts2," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="geekhoon" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="概述Struts2是一个基于MVC设计模式的Web应用框架,本质相当于Servlet,接收与处理请求.Struts2将web层的很多常见操作进行了封装,可以提高开发效率.作用:作为控制器来建立模型与视图之间的数据交互">
+<meta property="og:type" content="article">
+<meta property="og:title" content="struts2">
+<meta property="og:url" content="https://geekhoon.github.io/2017/05/14/struts2/index.html">
+<meta property="og:site_name" content="geekhoon">
+<meta property="og:description" content="概述Struts2是一个基于MVC设计模式的Web应用框架,本质相当于Servlet,接收与处理请求.Struts2将web层的很多常见操作进行了封装,可以提高开发效率.作用:作为控制器来建立模型与视图之间的数据交互">
+<meta property="og:image" content="http://oj3s07yy0.bkt.clouddn.com/blog/20170514/203001647.PNG">
+<meta property="og:updated_time" content="2017-05-14T12:31:29.784Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="struts2">
+<meta name="twitter:description" content="概述Struts2是一个基于MVC设计模式的Web应用框架,本质相当于Servlet,接收与处理请求.Struts2将web层的很多常见操作进行了封装,可以提高开发效率.作用:作为控制器来建立模型与视图之间的数据交互">
+<meta name="twitter:image" content="http://oj3s07yy0.bkt.clouddn.com/blog/20170514/203001647.PNG">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6313944065398277000,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://geekhoon.github.io/2017/05/14/struts2/"/>
+
+  <title> struts2 | geekhoon </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?0e415640295b545ca0e400dbf0b42e7e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+   
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">geekhoon</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">怕, 你就输一辈子</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                struts2
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-14T15:19:06+08:00" content="2017-05-14">
+              2017-05-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/SSH/" itemprop="url" rel="index">
+                    <span itemprop="name">SSH</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/05/14/struts2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/14/struts2/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/05/14/struts2/" class="leancloud_visitors" data-flag-title="struts2">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Struts2是一个基于MVC设计模式的Web应用框架,本质相当于Servlet,接收与处理请求.Struts2将web层的很多常见操作进行了封装,可以提高开发效率.<br>作用:作为控制器来建立模型与视图之间的数据交互<br><a id="more"></a></p>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><h3 id="创建动态web项目"><a href="#创建动态web项目" class="headerlink" title="创建动态web项目"></a>创建动态web项目</h3><h3 id="导jar包"><a href="#导jar包" class="headerlink" title="导jar包"></a>导jar包</h3><p>最基础的13个jar包,位于apps/struts2-blank/WEB-INF/lib</p>
+<h3 id="创建Action类"><a href="#创建Action类" class="headerlink" title="创建Action类"></a>创建Action类</h3><p>用于接收处理请求<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">()</span></span>&#123;</div><div class="line">		</div><div class="line">	System.out.println(<span class="string">"Hello World !"</span>);</div><div class="line">	</div><div class="line">	<span class="keyword">return</span> <span class="string">"success"</span>;</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>在src下引入struts.xml,配置Action<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE struts PUBLIC</span></div><div class="line">	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"</div><div class="line">	"http://struts.apache.org/dtds/struts-2.3.dtd"&gt;</div><div class="line"><span class="tag">&lt;<span class="name">struts</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"hello"</span> <span class="attr">namespace</span>=<span class="string">"/a"</span> <span class="attr">extends</span>=<span class="string">"struts-default"</span>&gt;</span></div><div class="line">		</div><div class="line">		<span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"HelloAction"</span> <span class="attr">class</span>=<span class="string">"com.geekhoon.action01.HelloAction"</span> <span class="attr">method</span>=<span class="string">"hello"</span> &gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"success"</span> <span class="attr">type</span>=<span class="string">"dispatcher"</span>&gt;</span>/index.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">package</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">struts</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="配置Struts2的入口过滤器"><a href="#配置Struts2的入口过滤器" class="headerlink" title="配置Struts2的入口过滤器"></a>配置Struts2的入口过滤器</h3><p>修改web.xml,配置Struts2的入口过滤器,<filter-name>内容体上下一致即可.<filter-class>内容是固定的<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>struts2<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>struts2<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></div></pre></td></tr></table></figure></filter-class></filter-name></p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>访问路径为:<a href="http://localhost:8080/struts2/a/HelloAction,会跳转到index.jsp,显示&quot;你好&quot;,并在控制台打印&quot;Hello" target="_blank" rel="external">http://localhost:8080/struts2/a/HelloAction,会跳转到index.jsp,显示&quot;你好&quot;,并在控制台打印&quot;Hello</a> World !”</p>
+<h2 id="Struts2架构及执行流程"><a href="#Struts2架构及执行流程" class="headerlink" title="Struts2架构及执行流程"></a>Struts2架构及执行流程</h2><p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170514/203001647.PNG" alt="mark"><br>1.tomcat启动,加载应用的web.xml;<br>2.实例化并初始化过滤器(核心控制器);<br>3.加载struts.xml配置文件;<br>4.客户端发送请求(/a/helloAction);<br>5.过滤器FilterDispatcher拦截请求,通过ActionMapper判断请求是否交给action处理:<br>   如果是,那么判断请求的action是否存在,如果不存在,报404错误.<br>   如果否,那么将请求转发给对应的web组件;<br>6.过滤器创建ActionProxy对象,ActionProxy通过ConfigurationManager对象读取当前访问action的相关配置;<br>7.ActionProxy根据获得的action的配置信息,创建ActionInvocation对象;<br>8.执行Action前的拦截器;<br>9.执行action,返回结果.ActionInvocation根据action执行后的结果,查找逻辑视图,进行转发/重定向;<br>10.执行Action后的拦截器;<br>11.响应给浏览器;</p>
+<h2 id="Struts2配置"><a href="#Struts2配置" class="headerlink" title="Struts2配置"></a>Struts2配置</h2><h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- package元素:包配置,用于封装Action配置 </span></div><div class="line">		name属性:包名(必须),注意要唯一</div><div class="line">		namespace属性:命名空间,与action的name属性值共同决定Action的访问路径</div><div class="line">			 /hello  =&gt;  /项目名/hello/Action名称</div><div class="line">			 /a/b	 =&gt;  /项目名/a/b/Action名称</div><div class="line">			 /		 =&gt;	 /项目名/Action名称</div><div class="line">			 默认值	 =&gt;  相当于写"/".但相比"/"优先更高</div><div class="line">		extends属性:指定继承某个包.可以将包中的配置继承过来</div><div class="line">			struts-default:由struts2为我们准备的基础继承包.</div><div class="line">		abstract属性:声明该包为抽象包.专门用于被继承(struts-default就是抽象包,abstract="true")</div><div class="line">		struts-default.xml打开方式:</div><div class="line">		/Java Resources/Libraries/Web App Libraries/struts2-core-2.3.23.jar/struts-default.xml</div><div class="line">	--&gt;</div><div class="line"><span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"hello"</span> <span class="attr">namespace</span>=<span class="string">"/a"</span> <span class="attr">extends</span>=<span class="string">"struts-default"</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!-- action元素:动作请求配置</span></div><div class="line">			name属性:与package的namespace属性值共同决定Action的访问路径;</div><div class="line">			class属性:Action的完整类名</div><div class="line">			method属性:调用的方法名</div><div class="line">			</div><div class="line">			访问HelloAction会调用com.geekhoon.action01.HelloAction类的hello方法.</div><div class="line">	 --&gt;</div><div class="line">		<span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"HelloAction"</span> <span class="attr">class</span>=<span class="string">"com.geekhoon.action01.HelloAction"</span> <span class="attr">method</span>=<span class="string">"hello"</span> &gt;</span></div><div class="line">			<span class="comment">&lt;!-- result元素:结果视图</span></div><div class="line">					name属性: 与action方法的返回值一样</div><div class="line">					type属性:指定由哪个结果处理器类来处理</div><div class="line">						常见类型:dispatcher(转发)|redirect(重定向)</div><div class="line">					标签体:填写需要跳转到的页面路径.相对于项目的路径</div><div class="line">			 --&gt;</div><div class="line">			<span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"success"</span> <span class="attr">type</span>=<span class="string">"dispatcher"</span>&gt;</span>/index.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">package</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="常量配置-键值对"><a href="#常量配置-键值对" class="headerlink" title="常量配置(键值对)"></a>常量配置(键值对)</h3><h4 id="默认常量配置位置"><a href="#默认常量配置位置" class="headerlink" title="默认常量配置位置"></a>默认常量配置位置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">-Web App Libraries</div><div class="line">       -struts2-core-2.3.24.jar</div><div class="line">             -org.apache.struts2</div><div class="line">                    -default.properties</div></pre></td></tr></table></figure>
+<h4 id="配置常量的方式"><a href="#配置常量的方式" class="headerlink" title="配置常量的方式"></a>配置常量的方式</h4><p><em>src/struts.xml(常用)</em>: <struts>标签下配置<constant name="常量名" value="常量值"></constant></struts></p>
+<p><em>src/struts.properties</em>: 常量名=常量值<br><em>WEB-INF/web.xml</em>: <filter>标签下配置<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>struts2<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></div><div class="line">	  <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>常量名<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">	  <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>常量值<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line">   <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>struts2<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></div></pre></td></tr></table></figure></filter></p>
+<p>注意: 列出的顺序即为加载顺序.后加载的覆盖先加载的.</p>
+<h4 id="常用常量配置"><a href="#常用常量配置" class="headerlink" title="常用常量配置"></a>常用常量配置</h4><p><em>struts.i18n.encoding=UTF-8</em>  设置国际化编码为UTF-8,解决POST提交中文参数乱码;<br><em>struts.action.extension=action,,</em> 设置Struts2中Action访问后缀名;<br><em>struts.devMode=false</em> 设置是否打开Struts2的开发模式(1.国际化配置的热加载2.src/struts.xml的热加载 3.提供更多的错误信息),建议在开发时开启.项目上线前关闭.</p>
+<h3 id="分模块开发"><a href="#分模块开发" class="headerlink" title="分模块开发"></a>分模块开发</h3><p>可以创建多个.xml文件配置Action信息,在struts.xml中使用<include file=".xml的路径">加载其它xml配置<br>举例:在demo.xml中配置了action,如<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE struts PUBLIC</span></div><div class="line">	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"</div><div class="line">	"http://struts.apache.org/dtds/struts-2.3.dtd"&gt;</div><div class="line"><span class="tag">&lt;<span class="name">struts</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"demo"</span> <span class="attr">namespace</span>=<span class="string">"/"</span> <span class="attr">extends</span>=<span class="string">"struts-default"</span> &gt;</span></div><div class="line">	</div><div class="line">		<span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"DemoAction"</span> <span class="attr">class</span>=<span class="string">"com.geekhoon.web.action.DemoAction"</span> <span class="attr">method</span>=<span class="string">"hello"</span> &gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"hello"</span> <span class="attr">type</span>=<span class="string">"dispatcher"</span> &gt;</span>/hello.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">package</span>&gt;</span></div><div class="line">	</div><div class="line"><span class="tag">&lt;/<span class="name">struts</span>&gt;</span></div></pre></td></tr></table></figure></include></p>
+<p>需要在struts.xml的<struts>下加载demo.xml的位置,如:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 引入demo.xml(分模块开发) --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">include</span> <span class="attr">file</span>=<span class="string">"/com/geekhoon/web/action/demo.xml"</span>&gt;</span><span class="tag">&lt;/<span class="name">include</span>&gt;</span></div></pre></td></tr></table></figure></struts></p>
+<h3 id="动态方法调用"><a href="#动态方法调用" class="headerlink" title="动态方法调用"></a>动态方法调用</h3><h4 id="叹号动态方法调用-不推荐"><a href="#叹号动态方法调用-不推荐" class="headerlink" title="叹号动态方法调用(不推荐)"></a>叹号动态方法调用(不推荐)</h4><p><em>1.开启叹号动态方法常量</em>:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.enable.DynamicMethodInvocation"</span> <span class="attr">value</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">constant</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><em>2.在action元素中删除method属性</em>:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"HelloAction"</span> <span class="attr">class</span>=<span class="string">"com.geekhoon.action01.HelloAction"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"success"</span> <span class="attr">type</span>=<span class="string">"dispatcher"</span>&gt;</span>/index.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">action</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><em>3.访问</em>:<br>访问路径:在action名称后面使用”!方法名”的方式指定调用哪个方法<br>如:<a href="http://localhost:8080/struts2/a/HelloAction!hello" target="_blank" rel="external">http://localhost:8080/struts2/a/HelloAction!hello</a></p>
+<h4 id="通配符动态方法调用-推荐"><a href="#通配符动态方法调用-推荐" class="headerlink" title="通配符动态方法调用(推荐)"></a>通配符动态方法调用(推荐)</h4><p><em>1.在action中进行配置</em>:更改<action>的name属性(名称_*),不是一定用下划线,可以用其他符号,method的属性使用{1},代表第一个星号对应的方法名,访问时就可以在此位置写方法名<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">struts</span>&gt;</span></div><div class="line">	<span class="comment">&lt;!-- 演示通配符动态方法调用 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"hellp"</span> <span class="attr">namespace</span>=<span class="string">"/"</span> <span class="attr">extends</span>=<span class="string">"struts-default"</span> &gt;</span></div><div class="line">	</div><div class="line">		<span class="comment">&lt;!-- </span></div><div class="line">				HelloAction_*  =&gt; HelloAction__ABC </div><div class="line">				&#123;1&#125;	(第一个星号) =&gt; ABC</div><div class="line">				</div><div class="line">				HelloAction_*_* =&gt; HelloAction_ABC_BCD</div><div class="line">				&#123;1&#125; =&gt;ABC</div><div class="line">				&#123;2&#125; =&gt;BCD</div><div class="line">		 --&gt;</div><div class="line">		<span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"HelloAction_*"</span> <span class="attr">class</span>=<span class="string">"com.geekhoon.action01.HelloAction"</span> <span class="attr">method</span>=<span class="string">"&#123;1&#125;"</span> &gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"success"</span> <span class="attr">type</span>=<span class="string">"dispatcher"</span> &gt;</span>/index.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">package</span>&gt;</span></div><div class="line">	</div><div class="line"><span class="tag">&lt;/<span class="name">struts</span>&gt;</span></div></pre></td></tr></table></figure></action></p>
+<p><em>2.访问</em>:<br><a href="http://localhost:8080/struts2/HelloAction_hello" target="_blank" rel="external">http://localhost:8080/struts2/HelloAction_hello</a></p>
+<h3 id="常见配置默认值"><a href="#常见配置默认值" class="headerlink" title="常见配置默认值"></a>常见配置默认值</h3><p>package标签namespace:默认为””,相当于/;<br>action标签method:默认值为execute;<br>action标签class:默认值为com.opensymphony.xwork2.ActionSupport<br>result标签name:默认值为success;<br>result标签type:默认值为dispatcher;</p>
+<h2 id="Struts2API"><a href="#Struts2API" class="headerlink" title="Struts2API"></a>Struts2API</h2><h3 id="Action对象创建方式"><a href="#Action对象创建方式" class="headerlink" title="Action对象创建方式"></a>Action对象创建方式</h3><p>pojo-普通类:不需要实现任何接口与继承任何类<br>以下三种创建方式,推荐使用继承ActionSupport</p>
+<h4 id="pojo"><a href="#pojo" class="headerlink" title="pojo"></a>pojo</h4><p>创建一个普通类(pojo),如:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">()</span></span>&#123;</div><div class="line">		</div><div class="line">	<span class="keyword">return</span> <span class="string">"success"</span>;</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="实现接口"><a href="#实现接口" class="headerlink" title="实现接口"></a>实现接口</h4><p>创建一个普通类(pojo),实现Action接口,Action接口提供了一个标准的Action方法,做案例;还提供了很多字符串,用于常见返回结果,如:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">()</span> implements Action</span>&#123;&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="继承ActionSupport"><a href="#继承ActionSupport" class="headerlink" title="继承ActionSupport"></a>继承ActionSupport</h4><p> 创建一个普通类(pojo),继承ActionSupport类(推荐),ActionSupport类实现了Action接口,并且空实现了execute方法;还实现了其它接口,如:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">()</span> extends ActionSupport </span>&#123;&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="Action方法声明规则"><a href="#Action方法声明规则" class="headerlink" title="Action方法声明规则"></a>Action方法声明规则</h3><p>1.public修饰<br>2.返回值类型是String<br>3.方法名任意<br>4.方法不能有参数<br>5.可以抛出异常<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">public String 动作方法名() throws Exception &#123;</div><div class="line">     // 代码;</div><div class="line">     return &quot;结果视图名&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SSH/" rel="tag">#SSH</a>
+          
+            <a href="/tags/hibernate/" rel="tag">#hibernate</a>
+          
+            <a href="/tags/struts2/" rel="tag">#struts2</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/09/hibernate/" rel="next" title="hibernate">
+                <i class="fa fa-chevron-left"></i> hibernate
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/05/14/struts2/"
+           data-title="struts2" data-url="https://geekhoon.github.io/2017/05/14/struts2/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="geekhoon" />
+          <p class="site-author-name" itemprop="name">geekhoon</p>
+          <p class="site-description motion-element" itemprop="description">技术博客</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">41</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/geekhoon" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/hlc1018" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              技术大牛
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.devtang.com" title="唐巧" target="_blank">唐巧</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.onevcat.com" title="喵神" target="_blank">喵神</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/b82d2721ba07/latest_articles" title="叶孤城" target="_blank">叶孤城</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://tutuge.me" title="土土哥" target="_blank">土土哥</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.sunnyxx.com" title="sunny" target="_blank">sunny</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.ibireme.com" title="lbireme" target="_blank">lbireme</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://kittenyang.com" title="kittenyang" target="_blank">kittenyang</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境搭建"><span class="nav-number">2.</span> <span class="nav-text">环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建动态web项目"><span class="nav-number">2.1.</span> <span class="nav-text">创建动态web项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导jar包"><span class="nav-number">2.2.</span> <span class="nav-text">导jar包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建Action类"><span class="nav-number">2.3.</span> <span class="nav-text">创建Action类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置文件"><span class="nav-number">2.4.</span> <span class="nav-text">配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置Struts2的入口过滤器"><span class="nav-number">2.5.</span> <span class="nav-text">配置Struts2的入口过滤器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试"><span class="nav-number">2.6.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Struts2架构及执行流程"><span class="nav-number">3.</span> <span class="nav-text">Struts2架构及执行流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Struts2配置"><span class="nav-number">4.</span> <span class="nav-text">Struts2配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本配置"><span class="nav-number">4.1.</span> <span class="nav-text">基本配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常量配置-键值对"><span class="nav-number">4.2.</span> <span class="nav-text">常量配置(键值对)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#默认常量配置位置"><span class="nav-number">4.2.1.</span> <span class="nav-text">默认常量配置位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置常量的方式"><span class="nav-number">4.2.2.</span> <span class="nav-text">配置常量的方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用常量配置"><span class="nav-number">4.2.3.</span> <span class="nav-text">常用常量配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分模块开发"><span class="nav-number">4.3.</span> <span class="nav-text">分模块开发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态方法调用"><span class="nav-number">4.4.</span> <span class="nav-text">动态方法调用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#叹号动态方法调用-不推荐"><span class="nav-number">4.4.1.</span> <span class="nav-text">叹号动态方法调用(不推荐)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通配符动态方法调用-推荐"><span class="nav-number">4.4.2.</span> <span class="nav-text">通配符动态方法调用(推荐)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见配置默认值"><span class="nav-number">4.5.</span> <span class="nav-text">常见配置默认值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Struts2API"><span class="nav-number">5.</span> <span class="nav-text">Struts2API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Action对象创建方式"><span class="nav-number">5.1.</span> <span class="nav-text">Action对象创建方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#pojo"><span class="nav-number">5.1.1.</span> <span class="nav-text">pojo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现接口"><span class="nav-number">5.1.2.</span> <span class="nav-text">实现接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#继承ActionSupport"><span class="nav-number">5.1.3.</span> <span class="nav-text">继承ActionSupport</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Action方法声明规则"><span class="nav-number">5.2.</span> <span class="nav-text">Action方法声明规则</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">geekhoon</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"hou912115764"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementById('footer')
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("zFAH2d3IYRTUyQcRt5OsVBXQ-gzGzoHsz", "ziVrxCvGd6X65NWAtcpbi5Ng");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>
