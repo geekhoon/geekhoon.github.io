@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-05-25T08:47:04.257Z</updated>
+  <updated>2017-05-26T01:59:56.838Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="https://geekhoon.github.io/2017/05/25/SSH%E6%95%B4%E5%90%88/"/>
     <id>https://geekhoon.github.io/2017/05/25/SSH整合/</id>
     <published>2017-05-25T07:24:05.000Z</published>
-    <updated>2017-05-25T08:47:04.257Z</updated>
+    <updated>2017-05-26T01:59:56.838Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="整合原理图"><a href="#整合原理图" class="headerlink" title="整合原理图"></a>整合原理图</h2><h2 id="导包"><a href="#导包" class="headerlink" title="导包"></a>导包</h2><a id="more"></a>
+    <content type="html"><![CDATA[<h2 id="整合原理图"><a href="#整合原理图" class="headerlink" title="整合原理图"></a>整合原理图</h2><p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170526/095903112.png" alt="mark"><br><a id="more"></a></p>
 <h2 id="整合步骤"><a href="#整合步骤" class="headerlink" title="整合步骤"></a>整合步骤</h2><h3 id="Spring整合web项目"><a href="#Spring整合web项目" class="headerlink" title="Spring整合web项目"></a>Spring整合web项目</h3><p>为了让Spring容器随项目的启动而创建,需要在web.xml中配置监听器,监听器是由Spring提供的.</p>
 <h4 id="配置监听器"><a href="#配置监听器" class="headerlink" title="配置监听器"></a>配置监听器</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 让spring随web服务器启动而创建 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">listener</span>&gt;</span></div><div class="line">  	<span class="tag">&lt;<span class="name">listener-class</span>&gt;</span>org.springframework.web.context.ContextLoaderListener<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">listener</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- 指定spring配置文件路径 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">context-param</span>&gt;</span></div><div class="line">  	<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">  	<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:applicationContext.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></div></pre></td></tr></table></figure>
 <h4 id="准备spring配置文件"><a href="#准备spring配置文件" class="headerlink" title="准备spring配置文件"></a>准备spring配置文件</h4><p>在src下,创建applicationContext.xml<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> </span></div><div class="line">	   <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span> </div><div class="line">	   <span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span> </div><div class="line">	   <span class="attr">xmlns:aop</span>=<span class="string">"http://www.springframework.org/schema/aop"</span> </div><div class="line">	   <span class="attr">xmlns:tx</span>=<span class="string">"http://www.springframework.org/schema/tx"</span> </div><div class="line">	   <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans </span></div><div class="line">						http://www.springframework.org/schema/beans/spring-beans-4.2.xsd </div><div class="line">						http://www.springframework.org/schema/context </div><div class="line">						http://www.springframework.org/schema/context/spring-context-4.2.xsd </div><div class="line">						http://www.springframework.org/schema/aop </div><div class="line">						http://www.springframework.org/schema/aop/spring-aop-4.2.xsd </div><div class="line">						http://www.springframework.org/schema/tx </div><div class="line">						http://www.springframework.org/schema/tx/spring-tx-4.2.xsd "&gt;</div><div class="line">						</div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure></p>
@@ -71,7 +71,7 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;整合原理图&quot;&gt;&lt;a href=&quot;#整合原理图&quot; class=&quot;headerlink&quot; title=&quot;整合原理图&quot;&gt;&lt;/a&gt;整合原理图&lt;/h2&gt;&lt;h2 id=&quot;导包&quot;&gt;&lt;a href=&quot;#导包&quot; class=&quot;headerlink&quot; title=&quot;导包&quot;&gt;&lt;/a&gt;导包&lt;/h2&gt;
+      &lt;h2 id=&quot;整合原理图&quot;&gt;&lt;a href=&quot;#整合原理图&quot; class=&quot;headerlink&quot; title=&quot;整合原理图&quot;&gt;&lt;/a&gt;整合原理图&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;http://oj3s07yy0.bkt.clouddn.com/blog/20170526/095903112.png&quot; alt=&quot;mark&quot;&gt;&lt;br&gt;
     
     </summary>
     
