@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://geekhoon.github.io/"/>
-  <updated>2017-08-31T01:14:44.522Z</updated>
+  <updated>2017-08-31T01:17:17.596Z</updated>
   <id>https://geekhoon.github.io/</id>
   
   <author>
@@ -20,14 +20,15 @@
     <link href="https://geekhoon.github.io/2017/08/31/BeanUtils/"/>
     <id>https://geekhoon.github.io/2017/08/31/BeanUtils/</id>
     <published>2017-08-31T00:52:23.000Z</published>
-    <updated>2017-08-31T01:14:44.522Z</updated>
+    <updated>2017-08-31T01:17:17.596Z</updated>
     
     <content type="html"><![CDATA[<h2 id="BeanUtils"><a href="#BeanUtils" class="headerlink" title="BeanUtils"></a>BeanUtils</h2><h3 id="BeanUtils-概述"><a href="#BeanUtils-概述" class="headerlink" title="BeanUtils_概述"></a>BeanUtils_概述</h3><blockquote>
 <blockquote>
 <p>是Apache commons组件成员之一,主要用于简化JavaBean封装数据操作;</p>
-<h3 id="BeanUtils-使用"><a href="#BeanUtils-使用" class="headerlink" title="BeanUtils_使用"></a>BeanUtils_使用</h3></blockquote>
 </blockquote>
-<p>1.导入BeanUtils相关jar包到项目src/lib目录中;</p>
+</blockquote>
+<p>1</p>
+<h3 id="BeanUtils-使用"><a href="#BeanUtils-使用" class="headerlink" title="BeanUtils_使用"></a>BeanUtils_使用</h3><p>1.导入BeanUtils相关jar包到项目src/lib目录中;</p>
 <p>2.将jar包添加到项目构建路径;</p>
 <p>3.使用BeanUtils相关工具方法;</p>
 <a id="more"></a> 
@@ -48,9 +49,10 @@
       &lt;h2 id=&quot;BeanUtils&quot;&gt;&lt;a href=&quot;#BeanUtils&quot; class=&quot;headerlink&quot; title=&quot;BeanUtils&quot;&gt;&lt;/a&gt;BeanUtils&lt;/h2&gt;&lt;h3 id=&quot;BeanUtils-概述&quot;&gt;&lt;a href=&quot;#BeanUtils-概述&quot; class=&quot;headerlink&quot; title=&quot;BeanUtils_概述&quot;&gt;&lt;/a&gt;BeanUtils_概述&lt;/h3&gt;&lt;blockquote&gt;
 &lt;blockquote&gt;
 &lt;p&gt;是Apache commons组件成员之一,主要用于简化JavaBean封装数据操作;&lt;/p&gt;
-&lt;h3 id=&quot;BeanUtils-使用&quot;&gt;&lt;a href=&quot;#BeanUtils-使用&quot; class=&quot;headerlink&quot; title=&quot;BeanUtils_使用&quot;&gt;&lt;/a&gt;BeanUtils_使用&lt;/h3&gt;&lt;/blockquote&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;1.导入BeanUtils相关jar包到项目src/lib目录中;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;1&lt;/p&gt;
+&lt;h3 id=&quot;BeanUtils-使用&quot;&gt;&lt;a href=&quot;#BeanUtils-使用&quot; class=&quot;headerlink&quot; title=&quot;BeanUtils_使用&quot;&gt;&lt;/a&gt;BeanUtils_使用&lt;/h3&gt;&lt;p&gt;1.导入BeanUtils相关jar包到项目src/lib目录中;&lt;/p&gt;
 &lt;p&gt;2.将jar包添加到项目构建路径;&lt;/p&gt;
 &lt;p&gt;3.使用BeanUtils相关工具方法;&lt;/p&gt;
     
