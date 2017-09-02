@@ -303,6 +303,370 @@
             
               
                 
+                <a class="post-title-link" href="/2017/09/02/test/" itemprop="url">
+                  test
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-09-02T14:48:44+08:00" content="2017-09-02">
+              2017-09-02
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/09/02/test/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/09/02/test/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/09/02/test/" class="leancloud_visitors" data-flag-title="test">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="day20"><a href="#day20" class="headerlink" title="day20"></a>day20</h1><h2 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h2><blockquote>
+<h3 id="MySQL-排序"><a href="#MySQL-排序" class="headerlink" title="MySQL_排序"></a>MySQL_排序</h3><blockquote>
+<p>select * from 表名 [where 条件] [order by 字段名 asc(升序)/desc(降序)]<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 升序</div><div class="line">SELECT * FROM  person ORDER BY age ASC;</div><div class="line"># 降序</div><div class="line">SELECT * FROM  person ORDER BY age DESC;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="MySQL-聚合函数"><a href="#MySQL-聚合函数" class="headerlink" title="MySQL_聚合函数"></a>MySQL_聚合函数</h3><blockquote>
+<p>count(字段名/*); 统计指定列不为null的行数(任意类型);</p>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*) <span class="keyword">FROM</span>  person;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>sum(字段名); 计算指定列的数值和(数值);</p>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> <span class="keyword">SUM</span>(age) <span class="keyword">FROM</span> person;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>MAX(字段名); 求指定列的最大值(数值,日期);</p>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> <span class="keyword">MAX</span>(age) <span class="keyword">FROM</span> person;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>MIN(字段名); 求指定列的最小值(数值,日期);</p>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> <span class="keyword">MIN</span>(age) <span class="keyword">FROM</span> person;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>AVG(字段名); 求指定列的平均值(数值);</p>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> <span class="keyword">AVG</span>(age) <span class="keyword">FROM</span> person;</div></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意:"></a>注意:</h4><blockquote>
+<p>对于使用了”聚合函数”查询,其结果列应该只有聚合函数的一个结果列,不应该再包含其它列.不保证其它列跟”聚合结果列”是同一条记录;</p>
+</blockquote>
+</blockquote>
+<h3 id="MySQL-分组"><a href="#MySQL-分组" class="headerlink" title="MySQL_分组"></a>MySQL_分组</h3><blockquote>
+<p>select * from 表名 [where 条件] [group by 字段名] [having 条件]; 将列”值”相同的作为一组,然后在分组的基础上可以进行聚合查询;</p>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> gender , <span class="keyword">COUNT</span>(*) <span class="keyword">FROM</span> person <span class="keyword">GROUP</span> <span class="keyword">BY</span> gender;</div></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="注意-1"><a href="#注意-1" class="headerlink" title="注意:"></a>注意:</h4><blockquote>
+<ol>
+<li>分组查询的结果中只能包含分组列和聚合列,不能包含其它列;</li>
+<li>分组查询之后只能使用having 条件 对结果进行筛选;</li>
+</ol>
+</blockquote>
+</blockquote>
+<h3 id="MySQL-分页"><a href="#MySQL-分页" class="headerlink" title="MySQL_分页"></a>MySQL_分页</h3><blockquote>
+<p>select <em> from 表名 [where 条件] limit m, n; m: 开始索引,n: 每页大小(m = (当前页 - 1) </em> n);</p>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> person <span class="keyword">LIMIT</span> <span class="number">0</span>, <span class="number">2</span>;</div></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="注意-2"><a href="#注意-2" class="headerlink" title="注意"></a>注意</h4><blockquote>
+<p>m与n不能为负数;</p>
+</blockquote>
+</blockquote>
+<h3 id="MySQL-执行顺序"><a href="#MySQL-执行顺序" class="headerlink" title="MySQL_执行顺序"></a>MySQL_执行顺序</h3><blockquote>
+<ol>
+<li>from</li>
+<li>where</li>
+<li>group by</li>
+<li>having</li>
+<li>select</li>
+<li>order by</li>
+<li>limit</li>
+</ol>
+</blockquote>
+<h3 id="MySQL备份恢复"><a href="#MySQL备份恢复" class="headerlink" title="MySQL备份恢复"></a>MySQL<em>备份</em>恢复</h3><blockquote>
+<h4 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h4><blockquote>
+<p>在需要备份的数据库上右键 –&gt; 备份/导出 –&gt; 以SQL转储文件备份数据库;</p>
+</blockquote>
+<h4 id="恢复"><a href="#恢复" class="headerlink" title="恢复"></a>恢复</h4><blockquote>
+<p>在SQLYog左边右键 –&gt; 导入 –&gt; 以SQL转储文件导入数据库;</p>
+</blockquote>
+</blockquote>
+<h3 id="约束"><a href="#约束" class="headerlink" title="约束:"></a>约束:</h3><blockquote>
+<h4 id="主键约束"><a href="#主键约束" class="headerlink" title="主键约束:"></a>主键约束:</h4><blockquote>
+<h5 id="主键的作用"><a href="#主键的作用" class="headerlink" title="主键的作用"></a>主键的作用</h5><blockquote>
+<p>唯一识别一条记录;</p>
+</blockquote>
+<h5 id="声明主键方式一"><a href="#声明主键方式一" class="headerlink" title="声明主键方式一:"></a>声明主键方式一:</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`表名`</span> (</div><div class="line">  <span class="string">`字段名`</span> 数据类型 PRIMARY <span class="keyword">KEY</span>,</div><div class="line">  ...</div><div class="line">);</div></pre></td></tr></table></figure>
+<h5 id="声明主键方式二"><a href="#声明主键方式二" class="headerlink" title="声明主键方式二:"></a>声明主键方式二:</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`表名`</span> (</div><div class="line">  <span class="string">`字段名`</span> 数据类型,</div><div class="line">  ...,</div><div class="line">  PRIMARY <span class="keyword">KEY</span> (主键字段名)</div><div class="line">);</div><div class="line">或</div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`表名`</span> (</div><div class="line">  <span class="string">`字段名`</span> 数据类型,</div><div class="line">  ...,</div><div class="line">  <span class="keyword">CONSTRAINT</span> <span class="keyword">CONSTRAINT</span>-名称 PRIMARY <span class="keyword">KEY</span> (主键字段名)</div><div class="line">);</div></pre></td></tr></table></figure>
+<h5 id="声明主键方式三"><a href="#声明主键方式三" class="headerlink" title="声明主键方式三:"></a>声明主键方式三:</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`表名`</span> (</div><div class="line">  <span class="string">`字段名`</span> 数据类型,</div><div class="line">  ...</div><div class="line">);</div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 表名 <span class="keyword">ADD</span> [<span class="keyword">CONSTRAINT</span>-名称] PRIMARY <span class="keyword">KEY</span> (字段名);</div></pre></td></tr></table></figure>
+<h5 id="自动增长"><a href="#自动增长" class="headerlink" title="自动增长"></a>自动增长</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`表名`</span> (</div><div class="line">  <span class="string">`字段名`</span> 数据类型 PRIMARY <span class="keyword">KEY</span> <span class="keyword">KEY</span> AUTO_INCREMENT,</div><div class="line">  ...</div><div class="line">);</div></pre></td></tr></table></figure>
+<h5 id="删除主键"><a href="#删除主键" class="headerlink" title="删除主键"></a>删除主键</h5><blockquote>
+<p>ALTER TABLE 表名 DROP PRIMARY KEY;</p>
+</blockquote>
+<h5 id="注意-3"><a href="#注意-3" class="headerlink" title="注意:"></a>注意:</h5><blockquote>
+<ol>
+<li>一个表只能有一个主键(一个主键可以有多个字段组成,叫: 复合主键,联合主键.很少用);</li>
+</ol>
+</blockquote>
+</blockquote>
+<h4 id="非空约束"><a href="#非空约束" class="headerlink" title="非空约束"></a>非空约束</h4><blockquote>
+<h5 id="非空约束的作用"><a href="#非空约束的作用" class="headerlink" title="非空约束的作用:"></a>非空约束的作用:</h5><blockquote>
+<p>强制字段不能为NULL;</p>
+</blockquote>
+<h5 id="声明非空约束"><a href="#声明非空约束" class="headerlink" title="声明非空约束"></a>声明非空约束</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`表名`</span> (</div><div class="line">  <span class="string">`字段名`</span> 数据类型 <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">  ...</div><div class="line">);</div><div class="line">或</div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 表名 <span class="keyword">MODIFY</span> <span class="keyword">COLUMN</span> 字段名 数据类型 <span class="keyword">NOT</span> <span class="literal">NULL</span>;</div></pre></td></tr></table></figure>
+<h5 id="删除非空约束"><a href="#删除非空约束" class="headerlink" title="删除非空约束"></a>删除非空约束</h5><blockquote>
+<p>ALTER TABLE 表名 MODIFY COLUMN 字段名 数据类型;</p>
+</blockquote>
+</blockquote>
+<h4 id="唯一约束"><a href="#唯一约束" class="headerlink" title="唯一约束"></a>唯一约束</h4><blockquote>
+<h5 id="唯一约束的作用"><a href="#唯一约束的作用" class="headerlink" title="唯一约束的作用:"></a>唯一约束的作用:</h5><blockquote>
+<p>强制字段唯一;</p>
+</blockquote>
+<h5 id="声明唯一约束"><a href="#声明唯一约束" class="headerlink" title="声明唯一约束"></a>声明唯一约束</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`表名`</span> (</div><div class="line">  <span class="string">`字段名`</span> 数据类型 <span class="keyword">UNIQUE</span>,</div><div class="line">  ...</div><div class="line">);</div><div class="line">或</div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 表名 <span class="keyword">MODIFY</span> <span class="keyword">COLUMN</span> 字段名 数据类型 <span class="keyword">UNIQUE</span>;</div></pre></td></tr></table></figure>
+<h5 id="删除唯一约束"><a href="#删除唯一约束" class="headerlink" title="删除唯一约束"></a>删除唯一约束</h5><blockquote>
+<p>ALTER TABLE 表名 MODIFY COLUMN 字段名 数据类型;</p>
+</blockquote>
+</blockquote>
+<h4 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h4><blockquote>
+<h5 id="声明默认值"><a href="#声明默认值" class="headerlink" title="声明默认值"></a>声明默认值</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`表名`</span> (</div><div class="line">  <span class="string">`字段名`</span> 数据类型 约束 <span class="keyword">DEFAULT</span> 默认值,</div><div class="line">  ...</div><div class="line">);</div><div class="line">或</div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 表名 <span class="keyword">MODIFY</span> <span class="keyword">COLUMN</span> 字段名 数据类型 约束 <span class="keyword">DEFAULT</span> 默认值;</div></pre></td></tr></table></figure>
+<h5 id="使用默认值"><a href="#使用默认值" class="headerlink" title="使用默认值"></a>使用默认值</h5><blockquote>
+<p>INSERT INTO 表名 (字段名1, 字段名2, …, 字段名n) VALUES(DEFAULT, 值2, …, 值n);</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="MySQL-多表"><a href="#MySQL-多表" class="headerlink" title="MySQL_多表"></a>MySQL_多表</h3><blockquote>
+<h4 id="设计表原则"><a href="#设计表原则" class="headerlink" title="设计表原则:"></a>设计表原则:</h4><blockquote>
+<p>每张表只记录一件事情,若一张表记录了多件事情,就要拆分成多表存储,然后利用外键来引用另一张表中的记录;<br>主表: 被其它表引用的表;<br>从表: 引用其它表的表;</p>
+</blockquote>
+<h4 id="表与表之间的关系"><a href="#表与表之间的关系" class="headerlink" title="表与表之间的关系:"></a>表与表之间的关系:</h4><blockquote>
+<ol>
+<li>一对多(最常见)<blockquote>
+<p>客户 – 订单<br>一位客户可以有多张订单;<br>一张订单只属于一位客户;<br>分类 – 商品<br>一类分类可以有多种商品;<br>一种商品只属于一类分类;</p>
+</blockquote>
+</li>
+</ol>
+<ol>
+<li><p>多对多(较常见)</p>
+<blockquote>
+<p>学生 – 课程<br>一位学生可以学多门课程<br>一门课程可以被多位学生学习</p>
+</blockquote>
+</li>
+<li><p>一对一(尽量不见)</p>
+</li>
+</ol>
+</blockquote>
+<h4 id="外键约束"><a href="#外键约束" class="headerlink" title="外键约束:"></a>外键约束:</h4><blockquote>
+<h5 id="外键约束的作用"><a href="#外键约束的作用" class="headerlink" title="外键约束的作用:"></a>外键约束的作用:</h5><blockquote>
+<p>对”从表”的外键字段添加”外键约束”,可以让数据库软件自动检查</p>
+</blockquote>
+<h5 id="声明外键约束"><a href="#声明外键约束" class="headerlink" title="声明外键约束"></a>声明外键约束</h5><blockquote>
+<p>alter table 从表 add [constraint] [外键名称] foreign key (从表外键字段名) references 主表 (主表主键字段名);</p>
+</blockquote>
+<h5 id="删除外键约束"><a href="#删除外键约束" class="headerlink" title="删除外键约束"></a>删除外键约束</h5><blockquote>
+<p>alter talbe 从表 drop foreign key 外键名称;</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/09/01/mysql/" itemprop="url">
+                  mysql
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-09-01T08:49:34+08:00" content="2017-09-01">
+              2017-09-01
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/09/01/mysql/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/09/01/mysql/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/09/01/mysql/" class="leancloud_visitors" data-flag-title="mysql">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/08/31/BeanUtils/" itemprop="url">
                   BeanUtils
                 </a>
@@ -2662,274 +3026,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/18/JavaWeb-01-HTML&CSS/" itemprop="url">
-                  HTML&CSS
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-03-18T19:31:26+08:00" content="2017-03-18">
-              2017-03-18
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/JavaWeb/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaWeb</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/03/18/JavaWeb-01-HTML&CSS/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/18/JavaWeb-01-HTML&CSS/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/03/18/JavaWeb-01-HTML&CSS/" class="leancloud_visitors" data-flag-title="HTML&CSS">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="HTML概述"><a href="#HTML概述" class="headerlink" title="HTML概述"></a>HTML概述</h3><pre><code>1.超文本标记语言
-    超文本- 不仅可以存文本, 还可以为文本添加样式,还可以存视频,音频,图片
-    标记- HTML源码中使用标签实现超文本存储,标签称之为标记
-    语言- 一门计算机语言
-</code></pre>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/03/18/JavaWeb-01-HTML&CSS/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/06/20-反射/" itemprop="url">
-                  反射
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-03-06T08:52:19+08:00" content="2017-03-06">
-              2017-03-06
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/JAVA基础/" itemprop="url" rel="index">
-                    <span itemprop="name">JAVA基础</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/03/06/20-反射/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/06/20-反射/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/03/06/20-反射/" class="leancloud_visitors" data-flag-title="反射">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h3><pre><code>* 要使用某个类时,如果该类还未被加载到内存中,
-  则系统会通过加载,连接,初始化三步来实现对这个类进行初始化。
-</code></pre>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/03/06/20-反射/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2975,7 +3071,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-count">46</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
