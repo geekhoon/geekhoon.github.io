@@ -98,7 +98,7 @@
 * 数据类型包括 
     * 1.基本数据类型:整数、小数、字符、布尔 
     * 2.引用数据类型:数组、类、接口">
-<meta property="og:updated_time" content="2017-03-28T13:16:08.000Z">
+<meta property="og:updated_time" content="2018-03-30T03:53:37.684Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据">
 <meta name="twitter:description" content="数据1.数据类型* 程序=数据+逻辑
@@ -486,6 +486,7 @@
     解释二:给出了固定值,和不超过范围.由java底层常量优化机制,即可自动转换.如果是byte b = 300+4;那就错了
 *
      char c = 98;这是对的,不要以为没加&apos;&apos;,就不是字符.由Ascii码表,只要数字范围i在(0-65535),就可以Ascii为单个字符
+     详细解释：unicode编码是2个字节，ASKII编码是1个字节，如果数字范围在（0~255），默认使用ASKII编码，如果超过(0~255)而在(0-65535),使用的是unicode编码，兼容ASKII编码。也是对的！
 *
     long可以自动类型变换至float的原因: 
     (1)它们底层的存储结构不同
