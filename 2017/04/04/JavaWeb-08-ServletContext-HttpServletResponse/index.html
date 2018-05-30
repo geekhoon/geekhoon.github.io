@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Tomcat,前端开发,HTTP,乱码," />
+  <meta name="keywords" content="前端开发,Tomcat,HTTP,乱码," />
 
 
 
@@ -86,26 +86,17 @@
 
 
 
-<meta name="description" content="ServletContext概述ServletContext是存取数据的域(空间/容器),是一个域对象;ServletContext是Web应用的上下文对象,向下可以管理当前Web应用的资源(包括Servlet动态资源及Html等静态资源),向上可以与服务器进行交互;ServletContext被不同的Servlet共享.
-ServletContext的作用
-用来获得全局初始化参数.
-用来获得文件">
+<meta name="description" content="ServletContext概述ServletContext是存取数据的域(空间/容器),是一个域对象;ServletContext是Web应用的上下文对象,向下可以管理当前Web应用的资源(包括Servlet动态资源及Html等静态资源),向上可以与服务器进行交互;ServletContext被不同的Servlet共享.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ServletContext&HttpServletResponse">
 <meta property="og:url" content="https://geekhoon.github.io/2017/04/04/JavaWeb-08-ServletContext-HttpServletResponse/index.html">
 <meta property="og:site_name" content="geekhoon">
-<meta property="og:description" content="ServletContext概述ServletContext是存取数据的域(空间/容器),是一个域对象;ServletContext是Web应用的上下文对象,向下可以管理当前Web应用的资源(包括Servlet动态资源及Html等静态资源),向上可以与服务器进行交互;ServletContext被不同的Servlet共享.
-ServletContext的作用
-用来获得全局初始化参数.
-用来获得文件">
+<meta property="og:description" content="ServletContext概述ServletContext是存取数据的域(空间/容器),是一个域对象;ServletContext是Web应用的上下文对象,向下可以管理当前Web应用的资源(包括Servlet动态资源及Html等静态资源),向上可以与服务器进行交互;ServletContext被不同的Servlet共享.">
 <meta property="og:image" content="http://oj3s07yy0.bkt.clouddn.com/blog/20170409/010006246.png">
-<meta property="og:updated_time" content="2018-05-30T17:29:01.258Z">
+<meta property="og:updated_time" content="2018-05-30T17:31:51.293Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ServletContext&HttpServletResponse">
-<meta name="twitter:description" content="ServletContext概述ServletContext是存取数据的域(空间/容器),是一个域对象;ServletContext是Web应用的上下文对象,向下可以管理当前Web应用的资源(包括Servlet动态资源及Html等静态资源),向上可以与服务器进行交互;ServletContext被不同的Servlet共享.
-ServletContext的作用
-用来获得全局初始化参数.
-用来获得文件">
+<meta name="twitter:description" content="ServletContext概述ServletContext是存取数据的域(空间/容器),是一个域对象;ServletContext是Web应用的上下文对象,向下可以管理当前Web应用的资源(包括Servlet动态资源及Html等静态资源),向上可以与服务器进行交互;ServletContext被不同的Servlet共享.">
 <meta name="twitter:image" content="http://oj3s07yy0.bkt.clouddn.com/blog/20170409/010006246.png">
 
 
@@ -387,13 +378,12 @@ ServletContext的作用
       
 
       
-        <h2 id="ServletContext"><a href="#ServletContext" class="headerlink" title="ServletContext"></a>ServletContext</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>ServletContext是存取数据的域(空间/容器),是一个域对象;<br>ServletContext是Web应用的上下文对象,向下可以管理当前Web应用的资源(包括Servlet动态资源及Html等静态资源),向上可以与服务器进行交互;<br>ServletContext被不同的Servlet共享.</p>
+        <h2 id="ServletContext"><a href="#ServletContext" class="headerlink" title="ServletContext"></a>ServletContext</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>ServletContext是存取数据的域(空间/容器),是一个域对象;<br>ServletContext是Web应用的上下文对象,向下可以管理当前Web应用的资源(包括Servlet动态资源及Html等静态资源),向上可以与服务器进行交互;<br>ServletContext被不同的Servlet共享.<br><a id="more"></a>    </p>
 <h3 id="ServletContext的作用"><a href="#ServletContext的作用" class="headerlink" title="ServletContext的作用"></a>ServletContext的作用</h3><ol>
 <li>用来获得全局初始化参数.</li>
 <li>用来获得文件的MIME的类型.</li>
 <li>作为域对象存取数据.</li>
-<li>用来读取web项目下的文件<h3 id="作用范围"><a href="#作用范围" class="headerlink" title="作用范围"></a>作用范围</h3><strong>整个web工程</strong><br>创建:服务器启动的时候,tomcat服务器为每个web项目创建一个单独ServletContext对象<br>销毁:服务器关闭的时候,或者项目从服务器中移除的时候<a id="more"></a>    
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><strong>1.获取ServletContext对象</strong><br>Tomcat创建的该对象,我们只要在需要的Servlet下(因为是共享,所以在任何Servlet下都可以获取)使用如下语句便可获取:<br> ServletContext context = this.getServletContext();<br>不同的Servlet获取的ServletContext具有共同的地址值!<br><strong>2.存取数据 — 不同的Servlet之间实现数据共享</strong><br>存储:setAttribute(String 键名,Object obj) – 值是object类型<br>获取:getAttribute(String 键名) – 获取的值是Object类型,如果没有该键,返回null<br>移除:removeAttribute(String name) – 移除指定数据<br><strong>3.获取Web项目资源(文件下载)</strong><br>getResourceAsStream(String path)—将web项目下的资源转成输入流<br>getRealPath(String path)—获取资源路径(绝对路径)<br>注意路径的写法:以”/“开始,代表当前项目在Tomcat webapps下当前项目对应的文件夹<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">获取Web项目资源:</div><div class="line">ServletContext context = this.getServletContext();</div><div class="line">//获取资源对应的输入流</div><div class="line">InputStream in = context.getResourceAsStream("/resource/a.txt");</div><div class="line">//注意路径,第一个"/"代表当前项目下任意目录,即可以代表resource所在的WebContent文件夹</div><div class="line">byte[] buffer = new byte[1024]'</div><div class="line">int length;</div><div class="line">while((length = in.read(buffer)) != -1)&#123;</div><div class="line">	String str = new String(buffer,0,length);</div><div class="line">	System.out.println(str);</div><div class="line">&#125;</div><div class="line">in.close();</div></pre></td></tr></table></figure>
+<li>用来读取web项目下的文件<h3 id="作用范围"><a href="#作用范围" class="headerlink" title="作用范围"></a>作用范围</h3><strong>整个web工程</strong><br>创建:服务器启动的时候,tomcat服务器为每个web项目创建一个单独ServletContext对象<br>销毁:服务器关闭的时候,或者项目从服务器中移除的时候<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><strong>1.获取ServletContext对象</strong><br>Tomcat创建的该对象,我们只要在需要的Servlet下(因为是共享,所以在任何Servlet下都可以获取)使用如下语句便可获取:<br> ServletContext context = this.getServletContext();<br>不同的Servlet获取的ServletContext具有共同的地址值!<br><strong>2.存取数据 — 不同的Servlet之间实现数据共享</strong><br>存储:setAttribute(String 键名,Object obj) – 值是object类型<br>获取:getAttribute(String 键名) – 获取的值是Object类型,如果没有该键,返回null<br>移除:removeAttribute(String name) – 移除指定数据<br><strong>3.获取Web项目资源(文件下载)</strong><br>getResourceAsStream(String path)—将web项目下的资源转成输入流<br>getRealPath(String path)—获取资源路径(绝对路径)<br>注意路径的写法:以”/“开始,代表当前项目在Tomcat webapps下当前项目对应的文件夹<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">获取Web项目资源:</div><div class="line">ServletContext context = this.getServletContext();</div><div class="line">//获取资源对应的输入流</div><div class="line">InputStream in = context.getResourceAsStream("/resource/a.txt");</div><div class="line">//注意路径,第一个"/"代表当前项目下任意目录,即可以代表resource所在的WebContent文件夹</div><div class="line">byte[] buffer = new byte[1024]'</div><div class="line">int length;</div><div class="line">while((length = in.read(buffer)) != -1)&#123;</div><div class="line">	String str = new String(buffer,0,length);</div><div class="line">	System.out.println(str);</div><div class="line">&#125;</div><div class="line">in.close();</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">获取资源路径:(获取的是服务器下的绝对路径,不是工作空间下的路径)</div><div class="line">String realPath = context.getRealPath(<span class="string">"/resource/a.txt"</span>);</div><div class="line">System.out.println(realPath);</div></pre></td></tr></table></figure>
@@ -436,9 +426,9 @@ ServletContext的作用
       
         <div class="post-tags">
           
-            <a href="/tags/Tomcat/" rel="tag">#Tomcat</a>
-          
             <a href="/tags/前端开发/" rel="tag">#前端开发</a>
+          
+            <a href="/tags/Tomcat/" rel="tag">#Tomcat</a>
           
             <a href="/tags/HTTP/" rel="tag">#HTTP</a>
           
