@@ -1567,7 +1567,12 @@
 
       
         
-          <h2 id="ServletContext"><a href="#ServletContext" class="headerlink" title="ServletContext"></a>ServletContext</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>ServletContext是存取数据的域(空间/容器);<br>ServletContext是Web应用的上下文对象,向下可以管理当前Web应用的资源(包括Servlet动态资源及Html等静态资源),向上可以与服务器进行交互;<br>ServletContext被不同的Servlet共享.<br>
+          <h2 id="ServletContext"><a href="#ServletContext" class="headerlink" title="ServletContext"></a>ServletContext</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>ServletContext是存取数据的域(空间/容器),是一个域对象;<br>ServletContext是Web应用的上下文对象,向下可以管理当前Web应用的资源(包括Servlet动态资源及Html等静态资源),向上可以与服务器进行交互;<br>ServletContext被不同的Servlet共享.</p>
+<h3 id="ServletContext的作用"><a href="#ServletContext的作用" class="headerlink" title="ServletContext的作用"></a>ServletContext的作用</h3><ol>
+<li>用来获得全局初始化参数.</li>
+<li>用来获得文件的MIME的类型.</li>
+<li>作为域对象存取数据.</li>
+<li>用来读取web项目下的文件<h3 id="作用范围"><a href="#作用范围" class="headerlink" title="作用范围"></a>作用范围</h3><strong>整个web工程</strong><br>创建:服务器启动的时候,tomcat服务器为每个web项目创建一个单独ServletContext对象<br>销毁:服务器关闭的时候,或者项目从服务器中移除的时候
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/04/04/JavaWeb-08-ServletContext-HttpServletResponse/#more" rel="contents">
               阅读全文 &raquo;

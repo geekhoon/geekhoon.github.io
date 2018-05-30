@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="前端开发,Tomcat,HTTP," />
+  <meta name="keywords" content="Tomcat,前端开发,HTTP," />
 
 
 
@@ -92,7 +92,7 @@
 <meta property="og:url" content="https://geekhoon.github.io/2017/04/02/JavaWeb-07-Servlet/index.html">
 <meta property="og:site_name" content="geekhoon">
 <meta property="og:description" content="概述1.概念Servlet是运行在服务器端的Java小程序,是Sun公司提供的一套规范,用来处理客户端请求的动态资源.Servlet是JavaWeb三大组件之一(Servlet,Filter,Listener),最为重要.Web资源分为静态资源与动态资源静态资源: HTML,文件,CSS,图片…动态资源: 由程序生成的,每次访问内容可能不一样,如Servlet,JSP">
-<meta property="og:updated_time" content="2017-04-09T00:35:22.000Z">
+<meta property="og:updated_time" content="2018-05-30T17:27:13.458Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Servlet">
 <meta name="twitter:description" content="概述1.概念Servlet是运行在服务器端的Java小程序,是Sun公司提供的一套规范,用来处理客户端请求的动态资源.Servlet是JavaWeb三大组件之一(Servlet,Filter,Listener),最为重要.Web资源分为静态资源与动态资源静态资源: HTML,文件,CSS,图片…动态资源: 由程序生成的,每次访问内容可能不一样,如Servlet,JSP">
@@ -388,8 +388,10 @@
 <h3 id="MyServlet-java"><a href="#MyServlet-java" class="headerlink" title="MyServlet.java"></a>MyServlet.java</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.geekhoon;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> javax.servlet.ServletException;</div><div class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</div><div class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</div><div class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</div><div class="line">		String username = request.getParameter(<span class="string">"username"</span>);</div><div class="line">		String password = request.getParameter(<span class="string">"password"</span>);</div><div class="line">		<span class="keyword">if</span>(<span class="string">"geekhoon"</span>.equals(username)&amp;&amp;<span class="string">"123456"</span>.equals(password))&#123;</div><div class="line">			response.getWriter().write(<span class="string">"success !!!"</span>);</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			response.getWriter().write(<span class="string">"fail    !!!"</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</div><div class="line">		doGet(request, response);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="Servlet生命周期"><a href="#Servlet生命周期" class="headerlink" title="Servlet生命周期"></a>Servlet生命周期</h2><p>出生: 服务器启动,用户第一次访问Servlet,Servlet被初始化(init出生);<br>死亡: 服务器被正常关闭(destory)或停止;</p>
 <p>init    –&gt; 初始化数据;<br>service –&gt; 处理请求;<br>destory –&gt; 释放资源;</p>
-<h3 id="设置Servlet初始化时机"><a href="#设置Servlet初始化时机" class="headerlink" title="设置Servlet初始化时机"></a>设置Servlet初始化时机</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">在&lt;servlet&gt;中配置:</div><div class="line">&lt;!-- 取值为0或正整数:服务器启动时初始化(数字越小,越优先); --&gt;</div><div class="line">&lt;load-on-startup&gt;1&lt;/load-on-startup&gt;</div></pre></td></tr></table></figure>
-<h3 id="url-pattern配置"><a href="#url-pattern配置" class="headerlink" title="url-pattern配置"></a>url-pattern配置</h3><p>Servlet映射URL时,URL的取值:<br><strong>1.完全路径匹配</strong><br>  /目录1/目录2/….<br>  地址栏中的路径，必须和配置的完全一样<br><strong>2.目录匹配</strong><br>  /目录1/目录2/…./*<br>  地址栏中路径，必须完全符合目录，但是目录后面的路径编写随意</p>
+<p>Servlet生命周期:Servlet从创建到销毁的过程.<br>    何时创建:用户第一次访问Servlet创建Servlet的实例<br>    何时销毁:当项目从服务器中移除的时候，或者关闭服务器的时候.<br><strong>表述：</strong><br>用户第一次访问Servlet的时候,服务器会创建一个Servlet的实例,那么Servlet中init方法就会执行.任何一次请求服务器都会创建一个新的线程访问Servlet中的service的方法.在service方法内部根据请求的方式的不同调用doXXX的方法.(get请求调用doGet,post请求调用doPost).当Servlet项目从服务器中移除掉,或者关闭服务器,Servlet的实例就会被销毁,那么destroy方法就会执行.</p>
+<h3 id="设置Servlet初始化时机"><a href="#设置Servlet初始化时机" class="headerlink" title="设置Servlet初始化时机"></a>设置Servlet初始化时机</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">在&lt;servlet&gt;中配置:</div><div class="line">&lt;!-- 取值为0或正整数:服务器启动时初始化(数字越小,越优先); --&gt;</div><div class="line">&lt;load-on-startup&gt;1&lt;/load-on-startup&gt;</div><div class="line">一般从2开始设置，因为1是默认Servlet的优先级</div></pre></td></tr></table></figure>
+<h3 id="url-pattern配置"><a href="#url-pattern配置" class="headerlink" title="url-pattern配置"></a>url-pattern配置</h3><p>Servlet映射URL时,URL的取值:<br><strong>1.完全路径匹配</strong><br><strong>  /目录1/目录2/….<br>  地址栏中的路径，必须和配置的完全一样
+</strong>2.目录匹配<em>*<br>  /目录1/目录2/…./</em><br>  地址栏中路径，必须完全符合目录，但是目录后面的路径编写随意</p>
 <p><strong>3.后缀名匹配</strong><br>  <em>.do </em>.test<br>  地址栏中的路径，后缀名必须匹配，后缀名前面随意<br><strong>4.缺省匹配</strong><br>   /<br>   地址栏随便输入路径<br><strong>优先级</strong><br>  1 &gt; 2 &gt; 3 &gt;4<br>原则：越具体优先级越高</p>
 <h3 id="访问路径编写"><a href="#访问路径编写" class="headerlink" title="访问路径编写"></a>访问路径编写</h3><pre><code>./      --&gt; 当前路径;
 ../     --&gt; 上一级目录;
@@ -417,9 +419,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/前端开发/" rel="tag">#前端开发</a>
-          
             <a href="/tags/Tomcat/" rel="tag">#Tomcat</a>
+          
+            <a href="/tags/前端开发/" rel="tag">#前端开发</a>
           
             <a href="/tags/HTTP/" rel="tag">#HTTP</a>
           

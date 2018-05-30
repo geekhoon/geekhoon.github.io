@@ -557,9 +557,9 @@
       <category term="JavaWeb" scheme="https://geekhoon.github.io/categories/JavaWeb/"/>
     
     
-      <category term="前端开发" scheme="https://geekhoon.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
       <category term="Tomcat" scheme="https://geekhoon.github.io/tags/Tomcat/"/>
+    
+      <category term="前端开发" scheme="https://geekhoon.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
       <category term="HTTP" scheme="https://geekhoon.github.io/tags/HTTP/"/>
     
@@ -607,9 +607,9 @@
       <category term="JavaWeb" scheme="https://geekhoon.github.io/categories/JavaWeb/"/>
     
     
-      <category term="前端开发" scheme="https://geekhoon.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
       <category term="Tomcat" scheme="https://geekhoon.github.io/tags/Tomcat/"/>
+    
+      <category term="前端开发" scheme="https://geekhoon.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
       <category term="HTTP" scheme="https://geekhoon.github.io/tags/HTTP/"/>
     
@@ -660,9 +660,9 @@
       <category term="JavaWeb" scheme="https://geekhoon.github.io/categories/JavaWeb/"/>
     
     
-      <category term="前端开发" scheme="https://geekhoon.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
       <category term="Tomcat" scheme="https://geekhoon.github.io/tags/Tomcat/"/>
+    
+      <category term="前端开发" scheme="https://geekhoon.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
       <category term="HTTP" scheme="https://geekhoon.github.io/tags/HTTP/"/>
     
@@ -673,10 +673,17 @@
     <link href="https://geekhoon.github.io/2017/04/04/JavaWeb-08-ServletContext-HttpServletResponse/"/>
     <id>https://geekhoon.github.io/2017/04/04/JavaWeb-08-ServletContext-HttpServletResponse/</id>
     <published>2017-04-04T09:20:32.000Z</published>
-    <updated>2017-04-08T17:03:02.000Z</updated>
+    <updated>2018-05-30T17:29:01.258Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="ServletContext"><a href="#ServletContext" class="headerlink" title="ServletContext"></a>ServletContext</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>ServletContext是存取数据的域(空间/容器);<br>ServletContext是Web应用的上下文对象,向下可以管理当前Web应用的资源(包括Servlet动态资源及Html等静态资源),向上可以与服务器进行交互;<br>ServletContext被不同的Servlet共享.<br><a id="more"></a>    </p>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p><strong>1.获取ServletContext对象</strong><br>Tomcat创建的该对象,我们只要在需要的Servlet下(因为是共享,所以在任何Servlet下都可以获取)使用如下语句便可获取:<br>    ServletContext context = this.getServletContext();<br>不同的Servlet获取的ServletContext具有共同的地址值!<br><strong>2.存取数据 — 不同的Servlet之间实现数据共享</strong><br>存储:setAttribute(String 键名,Object obj) – 值是object类型<br>获取:getAttribute(String 键名) – 获取的值是Object类型,如果没有该键,返回null<br>移除:removeAttribute(String name) – 移除指定数据<br><strong>3.获取Web项目资源(文件下载)</strong><br>getResourceAsStream(String path)—将web项目下的资源转成输入流<br>getRealPath(String path)—获取资源路径(绝对路径)<br>注意路径的写法:以”/“开始,代表当前项目在Tomcat webapps下当前项目对应的文件夹<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">获取Web项目资源:</div><div class="line">ServletContext context = this.getServletContext();</div><div class="line">//获取资源对应的输入流</div><div class="line">InputStream in = context.getResourceAsStream("/resource/a.txt");</div><div class="line">//注意路径,第一个"/"代表当前项目下任意目录,即可以代表resource所在的WebContent文件夹</div><div class="line">byte[] buffer = new byte[1024]'</div><div class="line">int length;</div><div class="line">while((length = in.read(buffer)) != -1)&#123;</div><div class="line">	String str = new String(buffer,0,length);</div><div class="line">	System.out.println(str);</div><div class="line">&#125;</div><div class="line">in.close();</div></pre></td></tr></table></figure></p>
+    <content type="html"><![CDATA[<h2 id="ServletContext"><a href="#ServletContext" class="headerlink" title="ServletContext"></a>ServletContext</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>ServletContext是存取数据的域(空间/容器),是一个域对象;<br>ServletContext是Web应用的上下文对象,向下可以管理当前Web应用的资源(包括Servlet动态资源及Html等静态资源),向上可以与服务器进行交互;<br>ServletContext被不同的Servlet共享.</p>
+<h3 id="ServletContext的作用"><a href="#ServletContext的作用" class="headerlink" title="ServletContext的作用"></a>ServletContext的作用</h3><ol>
+<li>用来获得全局初始化参数.</li>
+<li>用来获得文件的MIME的类型.</li>
+<li>作为域对象存取数据.</li>
+<li>用来读取web项目下的文件<h3 id="作用范围"><a href="#作用范围" class="headerlink" title="作用范围"></a>作用范围</h3><strong>整个web工程</strong><br>创建:服务器启动的时候,tomcat服务器为每个web项目创建一个单独ServletContext对象<br>销毁:服务器关闭的时候,或者项目从服务器中移除的时候<a id="more"></a>    
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><strong>1.获取ServletContext对象</strong><br>Tomcat创建的该对象,我们只要在需要的Servlet下(因为是共享,所以在任何Servlet下都可以获取)使用如下语句便可获取:<br> ServletContext context = this.getServletContext();<br>不同的Servlet获取的ServletContext具有共同的地址值!<br><strong>2.存取数据 — 不同的Servlet之间实现数据共享</strong><br>存储:setAttribute(String 键名,Object obj) – 值是object类型<br>获取:getAttribute(String 键名) – 获取的值是Object类型,如果没有该键,返回null<br>移除:removeAttribute(String name) – 移除指定数据<br><strong>3.获取Web项目资源(文件下载)</strong><br>getResourceAsStream(String path)—将web项目下的资源转成输入流<br>getRealPath(String path)—获取资源路径(绝对路径)<br>注意路径的写法:以”/“开始,代表当前项目在Tomcat webapps下当前项目对应的文件夹<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">获取Web项目资源:</div><div class="line">ServletContext context = this.getServletContext();</div><div class="line">//获取资源对应的输入流</div><div class="line">InputStream in = context.getResourceAsStream("/resource/a.txt");</div><div class="line">//注意路径,第一个"/"代表当前项目下任意目录,即可以代表resource所在的WebContent文件夹</div><div class="line">byte[] buffer = new byte[1024]'</div><div class="line">int length;</div><div class="line">while((length = in.read(buffer)) != -1)&#123;</div><div class="line">	String str = new String(buffer,0,length);</div><div class="line">	System.out.println(str);</div><div class="line">&#125;</div><div class="line">in.close();</div></pre></td></tr></table></figure>
+</li>
+</ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">获取资源路径:(获取的是服务器下的绝对路径,不是工作空间下的路径)</div><div class="line">String realPath = context.getRealPath(<span class="string">"/resource/a.txt"</span>);</div><div class="line">System.out.println(realPath);</div></pre></td></tr></table></figure>
 <p><strong>4.操作初始化参数</strong><br>在web.xml中进行配置:比如设置编码集,参数名写encode,值写gbk<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">全局:(在Servlet标签同级设置)</div><div class="line">&lt;context-param&gt;</div><div class="line">    &lt;param-name&gt;参数名&lt;/param-name&gt;</div><div class="line">    &lt;param-value&gt;参数值&lt;/param-value&gt;</div><div class="line">&lt;/context-param&gt;</div><div class="line"></div><div class="line">在Servlet中使用:</div><div class="line">    ServletContext对象.getInitParameter(&quot;参数名&quot;);        获取指定全局初始化参数;</div><div class="line"></div><div class="line"></div><div class="line">局部:(在Servlet标签内部的所有标签最后设置)</div><div class="line">&lt;init-param&gt;</div><div class="line">    &lt;param-name&gt;参数名&lt;/param-name&gt; </div><div class="line">    &lt;param-value&gt;参数值&lt;/param-value&gt;</div><div class="line">&lt;/init-param&gt;</div><div class="line"></div><div class="line">在Servlet中使用:</div><div class="line">    ServletConfig对象.getInitParameter(&quot;参数名&quot;);        获取指定局部初始化参数;</div></pre></td></tr></table></figure></p>
 <h3 id="获取输入流的方式"><a href="#获取输入流的方式" class="headerlink" title="获取输入流的方式"></a>获取输入流的方式</h3><p>方式1: 通过类的加载器获取src下的文件<br>InputStream in = 类名.class.getClassloader().getResourceAsStream(“文件名即可”);<br>方式2: 通过ServletContext获取webContent文件夹下的文件<br>InputStream in = this.getServletContext().getResourceAsStream(String)<br>区别:<br>1.文件位置:如果是在src下,使用类加载器;如果在webcontent下,使用ServletContext<br>2.如果是配置信息,则存在src下,如jdbc.properties,c3p0配置文件等;<br>  如果是项目的一些资源,如图片,视频,音频,压缩包等等,放在WebContent下<br>3.项目部署时存储位置的区别:<br>WebContent下的资源存储在项目文件夹下;<br>src下的资源存储在WEB-INF的classes文件夹下<br>拓展:<br>使用ServletContext获取src下资源的输入流:<br>InputStream in = this.getServletContext().getResourceAsStream(“WEB-INF/classes/hehe.properties”);<br>使用前提:必须明确该文件在Tomcat中的文件位置</p>
@@ -694,20 +701,26 @@
 <h4 id="请求"><a href="#请求" class="headerlink" title="请求"></a>请求</h4><p><strong>1.解决请求体(Post方式)中内容的乱码问题:</strong><br>request.setCharacterEncoding(“UTF-8”): 将服务器tomcat的编码集改成utf-8<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">解决POST方式:浏览器的编码集是UTF-<span class="number">8</span>,为避免乱码,将服务器的编码集也设置成UTF-<span class="number">8</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</div><div class="line">	request.setCharacterEncoding(<span class="string">"UTF-8"</span>);<span class="comment">//1</span></div><div class="line">	PrintWriter out = response.getWriter();</div><div class="line">	String username = request.getParameter(<span class="string">"username"</span>);</div><div class="line">	out.write(username);<span class="comment">//页面上显示?   因为1只能处理Post请求时乱码问题</span></div><div class="line">	System.out.println(<span class="string">"tomcat中: "</span>+username);<span class="comment">//控制台打印 tomcat中: 中</span></div><div class="line">	<span class="comment">//如果不加request.setCharacterEncoding("UTF-8"),打印西欧乱码</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p><strong>2.解决Get方式乱码问题:</strong><br>request.setCharacterEncoding(“UTF-8”)并不能解决GET请求时乱码问题,因为GET请求数据并不在请求体中,而是在请求行中<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">String username = request.getParameter(<span class="string">"username"</span>);</div><div class="line">System.out.println(<span class="string">"tomcat中: "</span>+username);<span class="comment">//打印乱码</span></div><div class="line"><span class="keyword">byte</span>[] buffer = username.getbytes(<span class="string">"ISO-8859-1"</span>);</div><div class="line">String newWord = <span class="keyword">new</span> String(buffer,<span class="string">"UTF-8"</span>);</div><div class="line">System.out.println(<span class="string">"tomcat中: "</span>+newWord);<span class="comment">//打印tomcat中: 中</span></div></pre></td></tr></table></figure></p>
 <p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20170409/010006246.png" alt="mark"></p>
+<h4 id="响应"><a href="#响应" class="headerlink" title="响应"></a>响应</h4><p>response.setContentType(“text/html;charset=UTF-8”);</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;ServletContext&quot;&gt;&lt;a href=&quot;#ServletContext&quot; class=&quot;headerlink&quot; title=&quot;ServletContext&quot;&gt;&lt;/a&gt;ServletContext&lt;/h2&gt;&lt;h3 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h3&gt;&lt;p&gt;ServletContext是存取数据的域(空间/容器);&lt;br&gt;ServletContext是Web应用的上下文对象,向下可以管理当前Web应用的资源(包括Servlet动态资源及Html等静态资源),向上可以与服务器进行交互;&lt;br&gt;ServletContext被不同的Servlet共享.&lt;br&gt;
+      &lt;h2 id=&quot;ServletContext&quot;&gt;&lt;a href=&quot;#ServletContext&quot; class=&quot;headerlink&quot; title=&quot;ServletContext&quot;&gt;&lt;/a&gt;ServletContext&lt;/h2&gt;&lt;h3 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h3&gt;&lt;p&gt;ServletContext是存取数据的域(空间/容器),是一个域对象;&lt;br&gt;ServletContext是Web应用的上下文对象,向下可以管理当前Web应用的资源(包括Servlet动态资源及Html等静态资源),向上可以与服务器进行交互;&lt;br&gt;ServletContext被不同的Servlet共享.&lt;/p&gt;
+&lt;h3 id=&quot;ServletContext的作用&quot;&gt;&lt;a href=&quot;#ServletContext的作用&quot; class=&quot;headerlink&quot; title=&quot;ServletContext的作用&quot;&gt;&lt;/a&gt;ServletContext的作用&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;用来获得全局初始化参数.&lt;/li&gt;
+&lt;li&gt;用来获得文件的MIME的类型.&lt;/li&gt;
+&lt;li&gt;作为域对象存取数据.&lt;/li&gt;
+&lt;li&gt;用来读取web项目下的文件&lt;h3 id=&quot;作用范围&quot;&gt;&lt;a href=&quot;#作用范围&quot; class=&quot;headerlink&quot; title=&quot;作用范围&quot;&gt;&lt;/a&gt;作用范围&lt;/h3&gt;&lt;strong&gt;整个web工程&lt;/strong&gt;&lt;br&gt;创建:服务器启动的时候,tomcat服务器为每个web项目创建一个单独ServletContext对象&lt;br&gt;销毁:服务器关闭的时候,或者项目从服务器中移除的时候
     
     </summary>
     
       <category term="JavaWeb" scheme="https://geekhoon.github.io/categories/JavaWeb/"/>
     
     
-      <category term="前端开发" scheme="https://geekhoon.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
       <category term="Tomcat" scheme="https://geekhoon.github.io/tags/Tomcat/"/>
+    
+      <category term="前端开发" scheme="https://geekhoon.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
       <category term="HTTP" scheme="https://geekhoon.github.io/tags/HTTP/"/>
     
@@ -720,7 +733,7 @@
     <link href="https://geekhoon.github.io/2017/04/02/JavaWeb-07-Servlet/"/>
     <id>https://geekhoon.github.io/2017/04/02/JavaWeb-07-Servlet/</id>
     <published>2017-04-02T09:09:36.000Z</published>
-    <updated>2017-04-09T00:35:22.000Z</updated>
+    <updated>2018-05-30T17:27:13.458Z</updated>
     
     <content type="html"><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><strong>1.概念</strong><br>Servlet是运行在服务器端的Java小程序,是Sun公司提供的一套规范,用来处理客户端请求的动态资源.<br>Servlet是JavaWeb三大组件之一(Servlet,Filter,Listener),最为重要.<br>Web资源分为静态资源与动态资源<br>静态资源: HTML,文件,CSS,图片…<br>动态资源: 由程序生成的,每次访问内容可能不一样,如Servlet,JSP<br><a id="more"></a><br><strong>2.作用</strong><br>处理从客户端发送的请求,并对该请求做出响应<br>任务:<br>  (1)获取请求参数<br>  (2)处理请求<br>  (3)响应(重定向,请求转发)</p>
 <h2 id="Servlet实现方式"><a href="#Servlet实现方式" class="headerlink" title="Servlet实现方式"></a>Servlet实现方式</h2><h3 id="版本1"><a href="#版本1" class="headerlink" title="版本1"></a>版本1</h3><p><strong>1.实现类</strong>: 实现Servlet接口,重写抽象方法(主要是service方法)<br><strong>2.配置文件(</strong>WEB_INF/web.xml): URL与类产生映射关系<br><strong>3.访问</strong>: 浏览器输入与自己配置对应的URL,执行效果:调用自定义类的service方法,Tomcat自己创建了Servlet对象,并调用service方法,此过程隐藏了</p>
@@ -734,8 +747,10 @@
 <h3 id="MyServlet-java"><a href="#MyServlet-java" class="headerlink" title="MyServlet.java"></a>MyServlet.java</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.geekhoon;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> javax.servlet.ServletException;</div><div class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</div><div class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</div><div class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</div><div class="line">		String username = request.getParameter(<span class="string">"username"</span>);</div><div class="line">		String password = request.getParameter(<span class="string">"password"</span>);</div><div class="line">		<span class="keyword">if</span>(<span class="string">"geekhoon"</span>.equals(username)&amp;&amp;<span class="string">"123456"</span>.equals(password))&#123;</div><div class="line">			response.getWriter().write(<span class="string">"success !!!"</span>);</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			response.getWriter().write(<span class="string">"fail    !!!"</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</div><div class="line">		doGet(request, response);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="Servlet生命周期"><a href="#Servlet生命周期" class="headerlink" title="Servlet生命周期"></a>Servlet生命周期</h2><p>出生: 服务器启动,用户第一次访问Servlet,Servlet被初始化(init出生);<br>死亡: 服务器被正常关闭(destory)或停止;</p>
 <p>init    –&gt; 初始化数据;<br>service –&gt; 处理请求;<br>destory –&gt; 释放资源;</p>
-<h3 id="设置Servlet初始化时机"><a href="#设置Servlet初始化时机" class="headerlink" title="设置Servlet初始化时机"></a>设置Servlet初始化时机</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">在&lt;servlet&gt;中配置:</div><div class="line">&lt;!-- 取值为0或正整数:服务器启动时初始化(数字越小,越优先); --&gt;</div><div class="line">&lt;load-on-startup&gt;1&lt;/load-on-startup&gt;</div></pre></td></tr></table></figure>
-<h3 id="url-pattern配置"><a href="#url-pattern配置" class="headerlink" title="url-pattern配置"></a>url-pattern配置</h3><p>Servlet映射URL时,URL的取值:<br><strong>1.完全路径匹配</strong><br>  /目录1/目录2/….<br>  地址栏中的路径，必须和配置的完全一样<br><strong>2.目录匹配</strong><br>  /目录1/目录2/…./*<br>  地址栏中路径，必须完全符合目录，但是目录后面的路径编写随意</p>
+<p>Servlet生命周期:Servlet从创建到销毁的过程.<br>    何时创建:用户第一次访问Servlet创建Servlet的实例<br>    何时销毁:当项目从服务器中移除的时候，或者关闭服务器的时候.<br><strong>表述：</strong><br>用户第一次访问Servlet的时候,服务器会创建一个Servlet的实例,那么Servlet中init方法就会执行.任何一次请求服务器都会创建一个新的线程访问Servlet中的service的方法.在service方法内部根据请求的方式的不同调用doXXX的方法.(get请求调用doGet,post请求调用doPost).当Servlet项目从服务器中移除掉,或者关闭服务器,Servlet的实例就会被销毁,那么destroy方法就会执行.</p>
+<h3 id="设置Servlet初始化时机"><a href="#设置Servlet初始化时机" class="headerlink" title="设置Servlet初始化时机"></a>设置Servlet初始化时机</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">在&lt;servlet&gt;中配置:</div><div class="line">&lt;!-- 取值为0或正整数:服务器启动时初始化(数字越小,越优先); --&gt;</div><div class="line">&lt;load-on-startup&gt;1&lt;/load-on-startup&gt;</div><div class="line">一般从2开始设置，因为1是默认Servlet的优先级</div></pre></td></tr></table></figure>
+<h3 id="url-pattern配置"><a href="#url-pattern配置" class="headerlink" title="url-pattern配置"></a>url-pattern配置</h3><p>Servlet映射URL时,URL的取值:<br><strong>1.完全路径匹配</strong><br><strong>  /目录1/目录2/….<br>  地址栏中的路径，必须和配置的完全一样
+</strong>2.目录匹配<em>*<br>  /目录1/目录2/…./</em><br>  地址栏中路径，必须完全符合目录，但是目录后面的路径编写随意</p>
 <p><strong>3.后缀名匹配</strong><br>  <em>.do </em>.test<br>  地址栏中的路径，后缀名必须匹配，后缀名前面随意<br><strong>4.缺省匹配</strong><br>   /<br>   地址栏随便输入路径<br><strong>优先级</strong><br>  1 &gt; 2 &gt; 3 &gt;4<br>原则：越具体优先级越高</p>
 <h3 id="访问路径编写"><a href="#访问路径编写" class="headerlink" title="访问路径编写"></a>访问路径编写</h3><pre><code>./      --&gt; 当前路径;
 ../     --&gt; 上一级目录;
@@ -752,9 +767,9 @@
       <category term="JavaWeb" scheme="https://geekhoon.github.io/categories/JavaWeb/"/>
     
     
-      <category term="前端开发" scheme="https://geekhoon.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
       <category term="Tomcat" scheme="https://geekhoon.github.io/tags/Tomcat/"/>
+    
+      <category term="前端开发" scheme="https://geekhoon.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
       <category term="HTTP" scheme="https://geekhoon.github.io/tags/HTTP/"/>
     
@@ -805,9 +820,9 @@
       <category term="JavaWeb" scheme="https://geekhoon.github.io/categories/JavaWeb/"/>
     
     
-      <category term="前端开发" scheme="https://geekhoon.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
       <category term="Tomcat" scheme="https://geekhoon.github.io/tags/Tomcat/"/>
+    
+      <category term="前端开发" scheme="https://geekhoon.github.io/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
       <category term="HTTP" scheme="https://geekhoon.github.io/tags/HTTP/"/>
     

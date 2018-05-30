@@ -110,7 +110,7 @@
     数据库 = 文件存储数据 + 算法封装">
 <meta property="og:image" content="http://oj3s07yy0.bkt.clouddn.com/blog/20170328/172620290.png">
 <meta property="og:image" content="http://oj3s07yy0.bkt.clouddn.com/blog/20170328/172742945.png">
-<meta property="og:updated_time" content="2017-09-01T10:12:50.000Z">
+<meta property="og:updated_time" content="2018-05-23T07:25:44.932Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL数据库">
 <meta name="twitter:description" content="存储数据三种形式:
@@ -429,6 +429,16 @@
     关: net stop mysql
 * dos窗口登录MySQL:
     mysql -u用户名 -p密码
+* 直接向数据库中插入中文记录会出现错误！！！
+    解决方法：
+        show variables like &apos;%character%&apos;;  --查看数据库中与字符集相关参数：
+        需要将MySQL数据库服务器中的客户端部分的字符集改为gbk。
+        找到MySQL的安装路径：my.ini文件，修改文件中[client]下的字符集
+        [client]
+        port=3306
+        [mysql]
+        default-character-set=gbk
+        然后重启启动MySQL服务：cmd --&gt; services.msc 
 </code></pre><h3 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h3><pre><code>* 结构化查询语言,专门操作数据库的计算机语言
 * 分类:
     1. DDL:数据定义语言,用来定义数据库对象: create,alter,drop
@@ -444,9 +454,12 @@
 * 数据类型
     * int: 整型
     * double: 浮点
+    * char(长度)
     * varchar(M): 字符,M为0-65535之间的整数
     * date: 日期,只有年月日,没有时分秒: yyyy-MM-dd
     * datetime: 日期时间都有
+    * 备注：char代表是固定长度的字符或字符串。定义类型char(8),向这个字段存入字符串hello，那么数据库使用三个空格将其补全。
+           varchar代表的是可变长度的字符串。定义类型varchar(8), 向这个字段存入字符串hello,那么存入到数据库的就是hello。
 </code></pre><h3 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h3><pre><code>1. 创建数据库: create database geekhoon;
    创建数据库,并指定数据库中数据的编码: create database 数据库名 character set utf8;
    修改数据库编码集(不建议修改):alter database 数据库名 character set utf8;//注意不是utf-8
