@@ -92,12 +92,12 @@
 <meta property="og:url" content="https://geekhoon.github.io/2017/04/06/JavaWeb-09-HttpServletRequest/index.html">
 <meta property="og:site_name" content="geekhoon">
 <meta property="og:description" content="概述HttpServletRequest对象是封装请求消息的对象,用于操作请求消息,是Tomcat创建和管理的">
-<meta property="og:image" content="https://geekhoon.github.io/![mark](http://oj3s07yy0.bkt.clouddn.com/blog/20180605/000335386.png">
-<meta property="og:updated_time" content="2018-06-04T16:03:56.393Z">
+<meta property="og:image" content="http://oj3s07yy0.bkt.clouddn.com/blog/20180605/000335386.png">
+<meta property="og:updated_time" content="2018-06-04T16:09:57.332Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HttpServletRequest">
 <meta name="twitter:description" content="概述HttpServletRequest对象是封装请求消息的对象,用于操作请求消息,是Tomcat创建和管理的">
-<meta name="twitter:image" content="https://geekhoon.github.io/![mark](http://oj3s07yy0.bkt.clouddn.com/blog/20180605/000335386.png">
+<meta name="twitter:image" content="http://oj3s07yy0.bkt.clouddn.com/blog/20180605/000335386.png">
 
 
 
@@ -383,17 +383,10 @@
 <p>操作请求参数:<br>    getParameter(String name);    –&gt; 通过参数名获取第一个参数值;<br>    getParameterValues(String name);    –&gt; 通过参数名获取一组参数值;<br>    getParameterMap();                    –&gt; 获取所有参数(key:参数名;value:参数值);</p>
 <p>解决请求中文乱码问题:<br>    Post方式:<br>            setCharacterEncoding(“字符集”);<br>    Get方式:<br>            new String(str.getBytes(“ISO8859-1”),”UTF-8”);</p>
 <p>存取数据:<br>    setAttribute(String name , Object obj);    –&gt; 存数据;<br>    getAttribute(String name);                –&gt; 获取数据;<br>    removeAttribute(String name);            –&gt; 移除数据;<br>    getAttributeNames();                    –&gt; 获取所有数据名;</p>
-<h2 id="作用范围"><a href="#作用范围" class="headerlink" title="作用范围"></a>作用范围</h2><ul>
-<li>作用范围就是一次请求的范围.</li>
-<li>创建和销毁:<ul>
-<li>创建:客户端向服务器发送了一次请求以后,服务器就会创建一个request的对象.</li>
-<li>销毁:当服务器对这次请求作出了响应之后.<h2 id="请求处理"><a href="#请求处理" class="headerlink" title="请求处理"></a>请求处理</h2><h3 id="请求转发"><a href="#请求转发" class="headerlink" title="请求转发"></a>请求转发</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">HttpRequest(请求转发):</div><div class="line">    getRequestDispatcher(String <span class="string">"Servlet的路径"</span>).forward(HttpServletRequest request,HttpServletResponse response);</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
+<h2 id="作用范围"><a href="#作用范围" class="headerlink" title="作用范围"></a>作用范围</h2><p>作用范围就是一次请求的范围.<br>创建和销毁:<br>    创建:客户端向服务器发送了一次请求以后,服务器就会创建一个request的对象.<br>    销毁:当服务器对这次请求作出了响应之后.</p>
+<h2 id="请求处理"><a href="#请求处理" class="headerlink" title="请求处理"></a>请求处理</h2><h3 id="请求转发"><a href="#请求转发" class="headerlink" title="请求转发"></a>请求转发</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">HttpRequest(请求转发):</div><div class="line">    getRequestDispatcher(String <span class="string">"Servlet的路径"</span>).forward(HttpServletRequest request,HttpServletResponse response);</div></pre></td></tr></table></figure>
 <h3 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">HttpResponse(请求重定向):</div><div class="line">    sendRedirect(String <span class="string">"资源路径"</span>);</div></pre></td></tr></table></figure>
-<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><p><img src="![mark](http://oj3s07yy0.bkt.clouddn.com/blog/20180605/000335386.png" alt="">)</p>
+<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20180605/000335386.png" alt="mark"></p>
 <h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><p>1.<br>请求转发: 发生在服务器,只能转发服务器内部资源<br>重定向: 发生在客户端,可以重定向到任意资源<br>2.<br>请求转发: 最后执行的Servlet的路径在浏览器地址栏显示,地址栏地址不变<br>重定向: 最后访问的Servlet的路径不在地址栏显示,地址栏地址会发生变化<br>3.<br>请求转发: 只有一次请求,一次响应<br>重定向: 重定向次数+1次请求   重定向次数+1次响应<br>4.<br>请求转发: 路径不需要加项目名: /Servlet名<br>重定向: 路径需要加项目名: /项目名/Servlet名<br>5.<br>重定向可以跳转到任意网站,转发只能在服务器内部进行转发</p>
 <h2 id="路径问题-—–"><a href="#路径问题-—–" class="headerlink" title="路径问题 ## —–"></a>路径问题 ## —–</h2><p> A、表单中使用 action  ——-  有项目名<br> B、超链接中使用了 ———— 有项目名<br> C、ServletContext.getResourceAsStream(“资源路径”); —— 没有项目名<br> D、请求转发  —————– 没有项目名<br> E、重定向 ——————- 有项目名</p>
 <p> 记住：<br>  给浏览器用的都有项目名<br>  给服务器用的都没有项目名</p>
