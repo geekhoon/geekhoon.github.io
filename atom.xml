@@ -622,16 +622,25 @@
     <link href="https://geekhoon.github.io/2017/04/06/JavaWeb-09-HttpServletRequest/"/>
     <id>https://geekhoon.github.io/2017/04/06/JavaWeb-09-HttpServletRequest/</id>
     <published>2017-04-06T09:17:50.000Z</published>
-    <updated>2017-04-13T07:38:34.000Z</updated>
+    <updated>2018-06-04T16:03:56.393Z</updated>
     
     <content type="html"><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>HttpServletRequest对象是封装请求消息的对象,用于操作请求消息,是Tomcat创建和管理的<br><a id="more"></a></p>
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>操作请求行:<br>    getMethod();        –&gt; 获取请求方式;<br>    getContextPath();    –&gt; 获取项目名;<br>    getRemoteAddr();    –&gt; 获取客户端的ip地址;<br>    getServletPath();    –&gt; 获取url-pattern;</p>
 <p>操作请求参数:<br>    getParameter(String name);    –&gt; 通过参数名获取第一个参数值;<br>    getParameterValues(String name);    –&gt; 通过参数名获取一组参数值;<br>    getParameterMap();                    –&gt; 获取所有参数(key:参数名;value:参数值);</p>
 <p>解决请求中文乱码问题:<br>    Post方式:<br>            setCharacterEncoding(“字符集”);<br>    Get方式:<br>            new String(str.getBytes(“ISO8859-1”),”UTF-8”);</p>
-<p>传递数据:<br>    setAttribute(String name , Object obj);    –&gt; 存数据;<br>    getAttribute(String name);                –&gt; 获取数据;<br>    removeAttribute(String name);            –&gt; 移除数据;<br>    getAttributeNames();                    –&gt; 获取所有数据名;</p>
-<h2 id="请求处理"><a href="#请求处理" class="headerlink" title="请求处理"></a>请求处理</h2><h3 id="请求重发"><a href="#请求重发" class="headerlink" title="请求重发"></a>请求重发</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">HttpRequest(请求转发):</div><div class="line">    getRequestDispatcher(String <span class="string">"Servlet的路径"</span>).forward(HttpServletRequest request,HttpServletResponse response);</div></pre></td></tr></table></figure>
-<h3 id="请求重定向"><a href="#请求重定向" class="headerlink" title="请求重定向"></a>请求重定向</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">HttpResponse(请求重定向):</div><div class="line">    sendRedirect(String <span class="string">"资源路径"</span>);</div></pre></td></tr></table></figure>
-<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><p>1.<br>请求转发: 发生在服务器,只能转发服务器内部资源<br>重定向: 发生在客户端,可以重定向到任意资源<br>2.<br>请求转发: 最后执行的Servlet的路径在浏览器地址栏显示,地址栏地址不变<br>重定向: 最后访问的Servlet的路径不在地址栏显示,地址栏地址会发生变化<br>3.<br>请求转发: 只有一次请求,一次响应<br>重定向: 重定向次数+1次请求   重定向次数+1次响应<br>4.<br>请求转发: 路径不需要加项目名: /Servlet名<br>重定向: 路径需要加项目名: /项目名/Servlet名<br>5.<br>请求转发: 当前要转发的Servlet不能写出数据,写出也不会传递到客户端,转发之前,开启了流,流之前如果没有设置编码集还会产生乱码<br>重定向: 可以写出数据,但是意义不大,由于浏览器执行速度快,当前数据基本无法显示(这是合法操作)</p>
+<p>存取数据:<br>    setAttribute(String name , Object obj);    –&gt; 存数据;<br>    getAttribute(String name);                –&gt; 获取数据;<br>    removeAttribute(String name);            –&gt; 移除数据;<br>    getAttributeNames();                    –&gt; 获取所有数据名;</p>
+<h2 id="作用范围"><a href="#作用范围" class="headerlink" title="作用范围"></a>作用范围</h2><ul>
+<li>作用范围就是一次请求的范围.</li>
+<li>创建和销毁:<ul>
+<li>创建:客户端向服务器发送了一次请求以后,服务器就会创建一个request的对象.</li>
+<li>销毁:当服务器对这次请求作出了响应之后.<h2 id="请求处理"><a href="#请求处理" class="headerlink" title="请求处理"></a>请求处理</h2><h3 id="请求转发"><a href="#请求转发" class="headerlink" title="请求转发"></a>请求转发</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">HttpRequest(请求转发):</div><div class="line">    getRequestDispatcher(String <span class="string">"Servlet的路径"</span>).forward(HttpServletRequest request,HttpServletResponse response);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">HttpResponse(请求重定向):</div><div class="line">    sendRedirect(String <span class="string">"资源路径"</span>);</div></pre></td></tr></table></figure>
+<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><p><img src="![mark](http://oj3s07yy0.bkt.clouddn.com/blog/20180605/000335386.png" alt="">)</p>
+<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><p>1.<br>请求转发: 发生在服务器,只能转发服务器内部资源<br>重定向: 发生在客户端,可以重定向到任意资源<br>2.<br>请求转发: 最后执行的Servlet的路径在浏览器地址栏显示,地址栏地址不变<br>重定向: 最后访问的Servlet的路径不在地址栏显示,地址栏地址会发生变化<br>3.<br>请求转发: 只有一次请求,一次响应<br>重定向: 重定向次数+1次请求   重定向次数+1次响应<br>4.<br>请求转发: 路径不需要加项目名: /Servlet名<br>重定向: 路径需要加项目名: /项目名/Servlet名<br>5.<br>重定向可以跳转到任意网站,转发只能在服务器内部进行转发</p>
 <h2 id="路径问题-—–"><a href="#路径问题-—–" class="headerlink" title="路径问题 ## —–"></a>路径问题 ## —–</h2><p> A、表单中使用 action  ——-  有项目名<br> B、超链接中使用了 ———— 有项目名<br> C、ServletContext.getResourceAsStream(“资源路径”); —— 没有项目名<br> D、请求转发  —————– 没有项目名<br> E、重定向 ——————- 有项目名</p>
 <p> 记住：<br>  给浏览器用的都有项目名<br>  给服务器用的都没有项目名</p>
 <h2 id="BeanUtils-——–反射"><a href="#BeanUtils-——–反射" class="headerlink" title="BeanUtils ## ——–反射"></a>BeanUtils ## ——–反射</h2><p>BeanUtils是将数据封装成JavaBean对象</p>
@@ -727,7 +736,7 @@
     <link href="https://geekhoon.github.io/2017/04/02/JavaWeb-07-Servlet/"/>
     <id>https://geekhoon.github.io/2017/04/02/JavaWeb-07-Servlet/</id>
     <published>2017-04-02T09:09:36.000Z</published>
-    <updated>2018-05-30T17:27:13.458Z</updated>
+    <updated>2018-06-04T16:07:16.794Z</updated>
     
     <content type="html"><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><strong>1.概念</strong><br>Servlet是运行在服务器端的Java小程序,是Sun公司提供的一套规范,用来处理客户端请求的动态资源.<br>Servlet是JavaWeb三大组件之一(Servlet,Filter,Listener),最为重要.<br>Web资源分为静态资源与动态资源<br>静态资源: HTML,文件,CSS,图片…<br>动态资源: 由程序生成的,每次访问内容可能不一样,如Servlet,JSP<br><a id="more"></a><br><strong>2.作用</strong><br>处理从客户端发送的请求,并对该请求做出响应<br>任务:<br>  (1)获取请求参数<br>  (2)处理请求<br>  (3)响应(重定向,请求转发)</p>
 <h2 id="Servlet实现方式"><a href="#Servlet实现方式" class="headerlink" title="Servlet实现方式"></a>Servlet实现方式</h2><h3 id="版本1"><a href="#版本1" class="headerlink" title="版本1"></a>版本1</h3><p><strong>1.实现类</strong>: 实现Servlet接口,重写抽象方法(主要是service方法)<br><strong>2.配置文件(</strong>WEB_INF/web.xml): URL与类产生映射关系<br><strong>3.访问</strong>: 浏览器输入与自己配置对应的URL,执行效果:调用自定义类的service方法,Tomcat自己创建了Servlet对象,并调用service方法,此过程隐藏了</p>
@@ -742,6 +751,8 @@
 <h2 id="Servlet生命周期"><a href="#Servlet生命周期" class="headerlink" title="Servlet生命周期"></a>Servlet生命周期</h2><p>出生: 服务器启动,用户第一次访问Servlet,Servlet被初始化(init出生);<br>死亡: 服务器被正常关闭(destory)或停止;</p>
 <p>init    –&gt; 初始化数据;<br>service –&gt; 处理请求;<br>destory –&gt; 释放资源;</p>
 <p>Servlet生命周期:Servlet从创建到销毁的过程.<br>    何时创建:用户第一次访问Servlet创建Servlet的实例<br>    何时销毁:当项目从服务器中移除的时候，或者关闭服务器的时候.<br><strong>表述：</strong><br>用户第一次访问Servlet的时候,服务器会创建一个Servlet的实例,那么Servlet中init方法就会执行.任何一次请求服务器都会创建一个新的线程访问Servlet中的service的方法.在service方法内部根据请求的方式的不同调用doXXX的方法.(get请求调用doGet,post请求调用doPost).当Servlet项目从服务器中移除掉,或者关闭服务器,Servlet的实例就会被销毁,那么destroy方法就会执行.</p>
+<p>当XXXServlet第一次被访问被初始化后，其他用户再访问XXXServlet的时候，不会重复创建，使用的是同一个XXXServlet,所以Servlet是单例的。</p>
+<h2 id="Servlet访问流程"><a href="#Servlet访问流程" class="headerlink" title="Servlet访问流程"></a>Servlet访问流程</h2><p><img src="![mark](http://oj3s07yy0.bkt.clouddn.com/blog/20180605/000657320.png" alt="">)</p>
 <h3 id="设置Servlet初始化时机"><a href="#设置Servlet初始化时机" class="headerlink" title="设置Servlet初始化时机"></a>设置Servlet初始化时机</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">在&lt;servlet&gt;中配置:</div><div class="line">&lt;!-- 取值为0或正整数:服务器启动时初始化(数字越小,越优先); --&gt;</div><div class="line">&lt;load-on-startup&gt;1&lt;/load-on-startup&gt;</div><div class="line">一般从2开始设置，因为1是默认Servlet的优先级</div></pre></td></tr></table></figure>
 <h3 id="url-pattern配置"><a href="#url-pattern配置" class="headerlink" title="url-pattern配置"></a>url-pattern配置</h3><p>Servlet映射URL时,URL的取值:<br><strong>1.完全路径匹配</strong><br><strong>  /目录1/目录2/….<br>  地址栏中的路径，必须和配置的完全一样
 </strong>2.目录匹配<em>*<br>  /目录1/目录2/…./</em><br>  地址栏中路径，必须完全符合目录，但是目录后面的路径编写随意</p>
