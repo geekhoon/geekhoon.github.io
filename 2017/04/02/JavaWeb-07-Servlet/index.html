@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="geekhoon">
 <meta property="og:description" content="概述1.概念Servlet是运行在服务器端的Java小程序,是Sun公司提供的一套规范,用来处理客户端请求的动态资源.Servlet是JavaWeb三大组件之一(Servlet,Filter,Listener),最为重要.Web资源分为静态资源与动态资源静态资源: HTML,文件,CSS,图片…动态资源: 由程序生成的,每次访问内容可能不一样,如Servlet,JSP">
 <meta property="og:image" content="http://oj3s07yy0.bkt.clouddn.com/blog/20180605/000657320.png">
-<meta property="og:updated_time" content="2018-06-04T16:10:08.265Z">
+<meta property="og:updated_time" content="2018-06-04T17:18:49.483Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Servlet">
 <meta name="twitter:description" content="概述1.概念Servlet是运行在服务器端的Java小程序,是Sun公司提供的一套规范,用来处理客户端请求的动态资源.Servlet是JavaWeb三大组件之一(Servlet,Filter,Listener),最为重要.Web资源分为静态资源与动态资源静态资源: HTML,文件,CSS,图片…动态资源: 由程序生成的,每次访问内容可能不一样,如Servlet,JSP">
@@ -391,7 +391,7 @@
 <h2 id="Servlet生命周期"><a href="#Servlet生命周期" class="headerlink" title="Servlet生命周期"></a>Servlet生命周期</h2><p>出生: 服务器启动,用户第一次访问Servlet,Servlet被初始化(init出生);<br>死亡: 服务器被正常关闭(destory)或停止;</p>
 <p>init    –&gt; 初始化数据;<br>service –&gt; 处理请求;<br>destory –&gt; 释放资源;</p>
 <p>Servlet生命周期:Servlet从创建到销毁的过程.<br>    何时创建:用户第一次访问Servlet创建Servlet的实例<br>    何时销毁:当项目从服务器中移除的时候，或者关闭服务器的时候.<br><strong>表述：</strong><br>用户第一次访问Servlet的时候,服务器会创建一个Servlet的实例,那么Servlet中init方法就会执行.任何一次请求服务器都会创建一个新的线程访问Servlet中的service的方法.在service方法内部根据请求的方式的不同调用doXXX的方法.(get请求调用doGet,post请求调用doPost).当Servlet项目从服务器中移除掉,或者关闭服务器,Servlet的实例就会被销毁,那么destroy方法就会执行.</p>
-<p>当XXXServlet第一次被访问被初始化后，其他用户再访问XXXServlet的时候，不会重复创建，使用的是同一个XXXServlet,所以Servlet是单例的。</p>
+<p>当XXXServlet第一次被访问被初始化后，其他用户再访问XXXServlet的时候，不会重复创建，使用的是同一个XXXServlet,所以Servlet是单例的，线程不安全。</p>
 <h2 id="Servlet访问流程"><a href="#Servlet访问流程" class="headerlink" title="Servlet访问流程"></a>Servlet访问流程</h2><p><img src="http://oj3s07yy0.bkt.clouddn.com/blog/20180605/000657320.png" alt="mark"></p>
 <h3 id="设置Servlet初始化时机"><a href="#设置Servlet初始化时机" class="headerlink" title="设置Servlet初始化时机"></a>设置Servlet初始化时机</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">在&lt;servlet&gt;中配置:</div><div class="line">&lt;!-- 取值为0或正整数:服务器启动时初始化(数字越小,越优先); --&gt;</div><div class="line">&lt;load-on-startup&gt;1&lt;/load-on-startup&gt;</div><div class="line">一般从2开始设置，因为1是默认Servlet的优先级</div></pre></td></tr></table></figure>
 <h3 id="url-pattern配置"><a href="#url-pattern配置" class="headerlink" title="url-pattern配置"></a>url-pattern配置</h3><p>Servlet映射URL时,URL的取值:<br><strong>1.完全路径匹配</strong><br><strong>  /目录1/目录2/….<br>  地址栏中的路径，必须和配置的完全一样
