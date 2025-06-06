@@ -1,0 +1,7 @@
+markdown: kramdown  # 确保使用 Kramdown 作为解析器
+kramdown:
+  input: GFM       # 使用 GitHub Flavored Markdown（GFM）
+  hard_wrap: true  # 启用自动换行
+  toc: true        # 启用自动生成目录
+  auto_ids: true   # 自动生成 ID
+  enable_coderay: true # 启用代码高亮（如果需要）
